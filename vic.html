@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>尊榮體驗 | GAIAN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Noto+Serif+TC:wght@300;400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav solid" id="mainNav">
+  <a href="index.html" class="nav-logo"><img src="images/logo.jpg" alt="GAIAN"></a>
+  <ul class="nav-links">
+    <li><a href="about.html">ABOUT 關於 GAIAN</a></li>
+    <li><a href="health.html">HEALTH 整合健康</a></li>
+    <li><a href="gallery.html">GALLERY 美的概念館</a></li>
+    <li><a href="journal.html">JOURNAL 健康誌</a></li>
+    <li><a href="vic.html" style="color:var(--gold);">VIC 尊榮體驗</a></li>
+  </ul>
+  <div class="nav-cta"><a class="reserve" href="contact.html">RESERVATION 預約</a></div>
+</nav>
+
+
+<section class="page-hero">
+  <div>
+    <p class="crumb">VIC Experience</p>
+    <h1 class="en">Private Health Journey</h1>
+    <p>不是傳統會員制度，而是一段專屬於你的私人健康旅程。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <p class="eyebrow en">Private Journey</p>
+    <h2>會員體驗</h2>
+  </div>
+  <div class="block-grid">
+  <div class="block-card"><b>會員理念</b><span>為何 GAIAN 選擇以「旅程」而非「制度」定義會員關係。</span></div>
+  <div class="block-card"><b>健康旅程</b><span>個人化的長期健康規劃與陪伴。</span></div>
+  <div class="block-card"><b>會員權益</b><span>專屬服務與資源清單，待補。</span></div>
+  <div class="block-card"><b>專屬顧問</b><span>一對一健康顧問服務介紹。</span></div>
+  <div class="block-card"><b>企業會員</b><span>企業健康福利合作方案。</span></div>
+  <div class="block-card"><b>VIP Event</b><span>不定期專屬活動與體驗。</span></div>
+</div>
+</section>
+
+
+<footer>
+  <div class="footer-top">
+    <div class="logo-row">
+      <img src="images/logo.jpg" alt="GAIAN">
+      <p>GAIAN 融合整合醫學、美學、藝術與生活方式，打造一座重新理解健康的場域。</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col"><b>Explore</b><a href="about.html">關於 GAIAN</a><a href="health.html">整合健康</a><a href="gallery.html">美的概念館</a><a href="journal.html">健康誌</a></div>
+      <div class="footer-col"><b>Visit</b><a href="vic.html">尊榮體驗</a><a href="contact.html">預約</a><a href="contact.html">門市資訊</a></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 GAIAN. Future Integrative Health.</p>
+    <div class="footer-social"><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">Line</a></div>
+  </div>
+</footer>
+<script>
+  const nav = document.getElementById('mainNav');
+  if (!nav.classList.contains('solid')) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    });
+  }
+</script>
+
+</body>
+</html>
