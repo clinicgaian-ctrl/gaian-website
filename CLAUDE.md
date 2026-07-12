@@ -92,7 +92,7 @@ fatal: cannot lock ref 'HEAD': Unable to create '.../HEAD.lock': File exists.
 
 這正是 SOP 描述的 iCloud 同步鎖檔問題。**解法：** git 操作一律不要直接在 iCloud 同步的資料夾裡做，改用下方發佈腳本，把檔案 rsync 到 `~/gaian-site-git`（不受 iCloud 同步）再執行 git。
 
-見同資料夾內 `publish.command`，雙擊即可自動同步＋發佈。
+見同資料夾內 `發佈上線.command`，雙擊即可自動同步＋發佈。
 
 **GitHub 認證**：用 Personal Access Token（classic，勾選 `repo` 權限），搭配 `git config --global credential.helper osxkeychain`，macOS 鑰匙圈會記住 token，之後不用每次輸入。
 
@@ -102,8 +102,9 @@ fatal: cannot lock ref 'HEAD': Unable to create '.../HEAD.lock': File exists.
 
 | 問題 | 原因 | 解法 |
 |---|---|---|
-| Git 卡在 "another git process" / "unable to delete lock" | 專案資料夾被 iCloud 同步 | Git 操作搬到 `~/gaian-site-git`，用 rsync 中介（見 `publish.command`） |
+| Git 卡在 "another git process" / "unable to delete lock" | 專案資料夾被 iCloud 同步 | Git 操作搬到 `~/gaian-site-git`，用 rsync 中介（見 `發佈上線.command`） |
 | Push 時 "Password authentication is not supported" | GitHub 已停用帳密登入 | 改用 Personal Access Token 當密碼 |
+| Push 時 "Permission ... denied to 別的帳號" | 電腦上同時有多個 GitHub 帳號，remote URL 沒指定帳號，鑰匙圈抓錯憑證 | remote URL 明確帶帳號：`https://<帳號>@github.com/<帳號>/<repo>.git`，鑰匙圈會依「網站＋帳號」分開存，不用刪除其他帳號的憑證 |
 | Cloudflare 部署失敗，log 出現 `npx wrangler deploy` 找不到入口 | 新版 Workers & Pages 預設走 Workers 部署流程，需要 `wrangler.jsonc` 指定 `assets.directory` | 已加入 `wrangler.jsonc`，確認重新部署 |
 | GitHub 網頁「choose files」選不到資料夾 | 瀏覽器原生檔案選擇視窗只能選檔案 | 改成直接把 Finder 裡的資料夾圖示拖進上傳虛線框 |
 | 加 www 網域出現 "No zones match" | www 不該當獨立 Custom Domain 加 | 改用 CNAME + Redirect Rule |

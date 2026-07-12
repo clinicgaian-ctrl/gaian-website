@@ -24,7 +24,7 @@ function nav(active, solid) {
     `<li><a href="${i.href}"${i.href === active ? ' style="color:var(--gold);"' : ''}>${i.en} ${i.label}</a></li>`
   ).join('\n    ');
   return `<nav class="nav${solid ? ' solid' : ''}" id="mainNav">
-  <a href="index.html" class="nav-logo"><img src="images/logo.jpg" alt="GAIAN"></a>
+  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="GAIAN"></a>
   <ul class="nav-links">
     ${links}
   </ul>
@@ -36,7 +36,7 @@ function footer() {
   return `<footer>
   <div class="footer-top">
     <div class="logo-row">
-      <img src="images/logo.jpg" alt="GAIAN">
+      <img src="images/logo.png" alt="GAIAN">
       <p>GAIAN 融合整合醫學、美學、藝術與生活方式，打造一座重新理解健康的場域。</p>
     </div>
     <div class="footer-links">
