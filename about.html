@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>關於 GAIAN | GAIAN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Noto+Serif+TC:wght@300;400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav solid" id="mainNav">
+  <a href="index.html" class="nav-logo"><img src="images/logo.jpg" alt="GAIAN"></a>
+  <ul class="nav-links">
+    <li><a href="about.html" style="color:var(--gold);">ABOUT 關於 GAIAN</a></li>
+    <li><a href="health.html">HEALTH 整合健康</a></li>
+    <li><a href="gallery.html">GALLERY 美的概念館</a></li>
+    <li><a href="journal.html">JOURNAL 健康誌</a></li>
+    <li><a href="vic.html">VIC 尊榮體驗</a></li>
+  </ul>
+  <div class="nav-cta"><a class="reserve" href="contact.html">RESERVATION 預約</a></div>
+</nav>
+
+
+<section class="page-hero">
+  <div>
+    <p class="crumb">About GAIAN</p>
+    <h1 class="en">不只是一間診所，更是一座重新理解健康的場域。</h1>
+    <p>GAIAN 承接 GAIA 的品牌理念，融合整合醫學、美學、藝術與生活方式，重新思考健康擁有的樣貌。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <p class="eyebrow en">Our Story</p>
+    <h2>品牌故事</h2>
+    <p class="tagline">內容草稿撰寫中，待補上 GAIA × GAIAN 的品牌起源故事。</p>
+  </div>
+  <div class="block-grid">
+  <div class="block-card"><b>GAIA × GAIAN</b><span>品牌血緣與命名由來，GAIAN 作為 GAIA 在未來健康領域的實踐場域。</span></div>
+  <div class="block-card"><b>品牌理念</b><span>整合醫學、預防醫學、健康美學、生活方式四大信念的具體實踐。</span></div>
+  <div class="block-card"><b>品牌世界觀</b><span>如何看待健康、美、身體與生活之間的關係。</span></div>
+  <div class="block-card"><b>我們相信</b><span>真正的健康不是改善今天，而是為未來建立更穩定的自己。</span></div>
+  <div class="block-card"><b>未來願景</b><span>GAIAN 對未來健康場域的長期規劃與擴張方向。</span></div>
+</div>
+  <p class="art-note" style="margin-top:50px;">此頁待補：品牌故事完整文案、創辦理念影像或人物訪談素材。</p>
+</section>
+
+
+<footer>
+  <div class="footer-top">
+    <div class="logo-row">
+      <img src="images/logo.jpg" alt="GAIAN">
+      <p>GAIAN 融合整合醫學、美學、藝術與生活方式，打造一座重新理解健康的場域。</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col"><b>Explore</b><a href="about.html">關於 GAIAN</a><a href="health.html">整合健康</a><a href="gallery.html">美的概念館</a><a href="journal.html">健康誌</a></div>
+      <div class="footer-col"><b>Visit</b><a href="vic.html">尊榮體驗</a><a href="contact.html">預約</a><a href="contact.html">門市資訊</a></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 GAIAN. Future Integrative Health.</p>
+    <div class="footer-social"><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">Line</a></div>
+  </div>
+</footer>
+<script>
+  const nav = document.getElementById('mainNav');
+  if (!nav.classList.contains('solid')) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    });
+  }
+</script>
+
+</body>
+</html>
