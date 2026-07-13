@@ -39,7 +39,7 @@ GAIAN 主導覽：ABOUT 關於｜HEALTH 健康｜GALLERY 美學｜JOURNAL 健康
 | `index.html` | 01 Home 首頁 | ✅ 版型＋真實圖片＋首頁文案完成 |
 | `about.html` | 02 About GAIAN｜關於 GAIAN | ⏳ 骨架＋佔位內容 |
 | `health.html` | 03 Integrative Health｜整合健康 | ⏳ 骨架＋佔位內容（12 項細節待補） |
-| `gallery.html` | 04 Beauty Concept Gallery｜美的概念館 | ⏳ 骨架＋2 張真實圖 |
+| `gallery.html` | 04 Beauty Concept Gallery｜美的概念館 | ✅ 七屏完整切版＋滾動動態（依 `官網文案/2.藝術.rtf`），Jewelry/Wang Xia Jun/Furniture/Art Collection 與 Curated Living 5 項待補真實素材與定稿文案 |
 | `journal.html` | 05 Journal｜健康誌 | ⏳ 骨架＋佔位內容 |
 | `vic.html` | 06 VIC Experience｜尊榮體驗 | ⏳ 骨架＋佔位內容 |
 | `contact.html` | 07 Contact｜聯絡預約 | ⏳ 骨架＋佔位內容 |
