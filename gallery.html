@@ -11,17 +11,7 @@
 </head>
 <body>
 
-<nav class="nav" id="mainNav">
-  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="GAIAN"></a>
-  <ul class="nav-links">
-    <li><a href="about.html">ABOUT 關於 GAIAN</a></li>
-    <li><a href="health.html">HEALTH 整合健康</a></li>
-    <li><a href="gallery.html" style="color:var(--gold-light);">GALLERY 美的概念館</a></li>
-    <li><a href="journal.html">JOURNAL 健康誌</a></li>
-    <li><a href="vic.html">VIC 尊榮體驗</a></li>
-  </ul>
-  <div class="nav-cta"><a class="reserve" href="contact.html">RESERVATION 預約</a></div>
-</nav>
+<nav class="nav" id="mainNav" data-active="gallery"></nav>
 
 <!-- 第一屏：Hero -->
 <section class="gbeauty-hero">
@@ -33,7 +23,7 @@
 </section>
 
 <!-- 第二屏：我們相信 -->
-<section class="section gb-believe">
+<section class="section gb-believe" id="art-life">
   <div class="gb-grid">
     <div class="reveal">
       <p class="eyebrow en">We Believe</p>
@@ -47,7 +37,7 @@
 </section>
 
 <!-- 第三屏：由內而外，建構真正的美 -->
-<section class="section texture-bg gb-compare">
+<section class="section texture-bg gb-compare" id="philosophy">
   <div class="section-head reveal">
     <p class="eyebrow en">The Idea of Beauty</p>
     <h2>由內而外，<br>建構真正的美。</h2>
@@ -86,7 +76,7 @@
 </section>
 
 <!-- 第四屏：Every Object Has A Reason -->
-<section class="section" style="padding-left:0;padding-right:0;">
+<section class="section" id="collection" style="padding-left:0;padding-right:0;">
   <div class="section-head reveal">
     <p class="eyebrow en">Every Object Has A Reason</p>
     <h2>不是商品，<br>是品牌合作的選物。</h2>
@@ -100,7 +90,7 @@
       <div class="gb-object-visual"><span>Wang Xia Jun</span></div>
       <div class="gb-object-cap"><span class="en">Wang Xia Jun 王俠軍瓷器</span><p>器物，不只是使用，也是文化與時間的累積。</p></div>
     </div>
-    <div class="gb-object gb-o3 reveal">
+    <div class="gb-object gb-o3 reveal" id="furniture">
       <div class="gb-object-visual"><span>Furniture</span></div>
       <div class="gb-object-cap"><span class="en">Furniture 家具</span><p>一張椅子，也能改變一天的感受。</p></div>
     </div>
@@ -133,7 +123,7 @@
 </section>
 
 <!-- 第六屏：Curated Living -->
-<section class="section">
+<section class="section" id="curation">
   <div class="section-head reveal">
     <p class="eyebrow en">Curated Living</p>
     <h2>不叫 Products，<br>叫 Collection。</h2>
@@ -171,8 +161,8 @@
       <p>GAIAN 融合整合醫學、美學、藝術與生活方式，打造一座重新理解健康的場域。</p>
     </div>
     <div class="footer-links">
-      <div class="footer-col"><b>Explore</b><a href="about.html">關於 GAIAN</a><a href="health.html">整合健康</a><a href="gallery.html">美的概念館</a><a href="journal.html">健康誌</a></div>
-      <div class="footer-col"><b>Visit</b><a href="vic.html">尊榮體驗</a><a href="contact.html">預約</a><a href="contact.html">門市資訊</a></div>
+      <div class="footer-col"><b>Explore</b><a href="about.html">關於 GAIAN</a><a href="future-health.html">未來健康</a><a href="gallery.html">美的概念館</a><a href="journal.html">品牌觀點</a></div>
+      <div class="footer-col"><b>Visit</b><a href="walking-together.html">同行者</a><a href="contact.html">開始旅程</a><a href="contact.html">門市資訊</a></div>
     </div>
   </div>
   <div class="footer-bottom">
@@ -181,13 +171,8 @@
   </div>
 </footer>
 
-<script>
-  const nav = document.getElementById('mainNav');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 60) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
-  });
-</script>
+<script src="js/nav-data.js"></script>
+<script src="js/nav.js"></script>
 <script src="js/reveal.js"></script>
 
 </body>

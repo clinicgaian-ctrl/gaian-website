@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>聯絡預約 | GAIAN</title>
+<title>開始旅程 | GAIAN</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Noto+Serif+TC:wght@300;400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -11,17 +11,7 @@
 </head>
 <body>
 
-<nav class="nav solid" id="mainNav">
-  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="GAIAN"></a>
-  <ul class="nav-links">
-    <li><a href="about.html">ABOUT 關於 GAIAN</a></li>
-    <li><a href="health.html">HEALTH 整合健康</a></li>
-    <li><a href="gallery.html">GALLERY 美的概念館</a></li>
-    <li><a href="journal.html">JOURNAL 健康誌</a></li>
-    <li><a href="vic.html">VIC 尊榮體驗</a></li>
-  </ul>
-  <div class="nav-cta"><a class="reserve" href="contact.html">RESERVATION 預約</a></div>
-</nav>
+<nav class="nav" id="mainNav" data-active="contact" data-solid="true"></nav>
 
 
 <section class="page-hero">
@@ -56,8 +46,8 @@
       <p>GAIAN 融合整合醫學、美學、藝術與生活方式，打造一座重新理解健康的場域。</p>
     </div>
     <div class="footer-links">
-      <div class="footer-col"><b>Explore</b><a href="about.html">關於 GAIAN</a><a href="health.html">整合健康</a><a href="gallery.html">美的概念館</a><a href="journal.html">健康誌</a></div>
-      <div class="footer-col"><b>Visit</b><a href="vic.html">尊榮體驗</a><a href="contact.html">預約</a><a href="contact.html">門市資訊</a></div>
+      <div class="footer-col"><b>Explore</b><a href="about.html">關於 GAIAN</a><a href="future-health.html">未來健康</a><a href="gallery.html">美的概念館</a><a href="journal.html">品牌觀點</a></div>
+      <div class="footer-col"><b>Visit</b><a href="walking-together.html">同行者</a><a href="contact.html">開始旅程</a><a href="contact.html">門市資訊</a></div>
     </div>
   </div>
   <div class="footer-bottom">
@@ -65,15 +55,8 @@
     <div class="footer-social"><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">Line</a></div>
   </div>
 </footer>
-<script>
-  const nav = document.getElementById('mainNav');
-  if (!nav.classList.contains('solid')) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 60) nav.classList.add('scrolled');
-      else nav.classList.remove('scrolled');
-    });
-  }
-</script>
+<script src="js/nav-data.js"></script>
+<script src="js/nav.js"></script>
 
 </body>
 </html>

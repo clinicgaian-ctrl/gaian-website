@@ -28,21 +28,29 @@
 
 ---
 
-## 頁面架構（依 `GAIAN_官網資訊架構_v1.docx`）
+## 頁面架構與導覽（v2，取代 `GAIAN_官網資訊架構_v1.docx` 的舊命名）
 
-品牌宇宙導覽（頁首常駐、低調）：GAIA TORAH｜**GAIAN**（高亮）｜Journal｜VIC
+⚠️ **2026-07-12 全站改版**：導覽改用 Mega Menu（滑鼠移上顯示：5 個子項目＋內容預覽＋代表圖片＋品牌哲學語句），且頂層命名正式變更如下，取代 v1 文件的舊名稱：
 
-GAIAN 主導覽：ABOUT 關於｜HEALTH 健康｜GALLERY 美學｜JOURNAL 健康誌｜VIC 尊榮｜RESERVATION 預約
+| 舊命名（v1 文件） | 新命名（v2，現行） | 檔名 |
+|---|---|---|
+| HEALTH 整合健康 | **FUTURE HEALTH 未來健康** | `future-health.html`（原 `health.html`） |
+| VIC 尊榮體驗 | **WALKING TOGETHER 同行者** | `walking-together.html`（原 `vic.html`） |
+| JOURNAL 健康誌 | **JOURNAL 品牌觀點** | `journal.html`（檔名不變，label 改） |
+
+另新增頂部工具列：「會員登入｜VIC」＋語言切換「中/EN」（語言切換目前僅為 UI 佔位，尚未做多語系）。
+
+Mega Menu 的內容資料集中在 `js/nav-data.js`（單一資料來源，改這裡全站導覽會一起更新），渲染邏輯在 `js/nav.js`。**About GAIAN 與 Journal 品牌觀點的 5 項子分類與品牌哲學語句為草稿**，其餘（Future Health／Beauty Gallery／Walking Together）依董事長提供的原文撰寫。
 
 | 檔名 | 頁面 | 狀態 |
 |---|---|---|
-| `index.html` | 01 Home 首頁 | ✅ 版型＋真實圖片＋首頁文案完成 |
-| `about.html` | 02 About GAIAN｜關於 GAIAN | ⏳ 骨架＋佔位內容 |
-| `health.html` | 03 Integrative Health｜整合健康 | ⏳ 骨架＋佔位內容（12 項細節待補） |
-| `gallery.html` | 04 Beauty Concept Gallery｜美的概念館 | ✅ 七屏完整切版＋滾動動態（依 `官網文案/2.藝術.rtf`），Jewelry/Wang Xia Jun/Furniture/Art Collection 與 Curated Living 5 項待補真實素材與定稿文案 |
-| `journal.html` | 05 Journal｜健康誌 | ⏳ 骨架＋佔位內容 |
-| `vic.html` | 06 VIC Experience｜尊榮體驗 | ⏳ 骨架＋佔位內容 |
-| `contact.html` | 07 Contact｜聯絡預約 | ⏳ 骨架＋佔位內容 |
+| `index.html` | Home 首頁 | ✅ 版型＋真實圖片＋首頁文案完成，導覽已套用 Mega Menu |
+| `about.html` | About GAIAN｜關於 GAIAN | ⏳ 骨架＋佔位內容，Mega Menu 5 項為草稿 |
+| `future-health.html` | Future Health｜未來健康 | ✅ 依 Mega Menu 新 5 分類重建（整合醫學/健康管理/健康評估/醫療團隊/健康方案），原 12 項細節併入對應分類 |
+| `gallery.html` | Beauty Concept Gallery｜美的概念館 | ✅ 七屏完整切版＋滾動動態（依 `官網文案/2.藝術.rtf`），並加上錨點對應 Mega Menu 新 5 分類（美的理念/藝術與生活/品牌典藏/家具與空間/藝術策展）；Jewelry/Wang Xia Jun/Furniture/Art Collection 與 Curated Living 5 項待補真實素材與定稿文案 |
+| `journal.html` | Journal｜品牌觀點 | ⏳ 骨架＋佔位內容，Mega Menu 5 項為草稿 |
+| `walking-together.html` | Walking Together｜同行者 | ✅ 依「同行者」定位重新框架（不是會員制度，而是同行關係），5 個子區塊對應 Mega Menu |
+| `contact.html` | Contact｜開始旅程 | ⏳ 骨架＋佔位內容 |
 
 頁面清單如需變動，先提案給客戶（董事長）確認，不要自己直接改架構。
 
