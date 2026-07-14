@@ -68,7 +68,7 @@ body{
   padding:14px 4vw;
 }
 .nav-logo{display:flex;flex-direction:column;line-height:1.2;}
-.nav-logo img{height:30px;width:auto;filter:brightness(0) invert(1);transition:filter 0.35s;}
+.nav-logo img{height:38px;width:auto;filter:brightness(0) invert(1);transition:filter 0.35s;}
 .nav.scrolled .nav-logo img, .nav.solid .nav-logo img{filter:none;}
 .nav-logo .tagline{
   font-family:'Jost',sans-serif;font-size:8.5px;letter-spacing:0.2em;color:#EAE0C8;
@@ -79,7 +79,6 @@ body{
   display:flex;gap:8px;list-style:none;
   font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
 }
-.nav-links > li{position:relative;}
 .nav-links > li > a{
   display:flex;flex-direction:column;align-items:center;gap:3px;
   color:#F8F2E4;text-decoration:none;transition:color 0.3s;padding:10px 14px;
@@ -286,7 +285,7 @@ footer{background:var(--ink);color:#A99B7E;padding:60px 6vw 40px;font-family:'Jo
   display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:40px;
   max-width:1200px;margin:0 auto 40px;padding-bottom:40px;border-bottom:0.5px solid rgba(169,155,126,0.3);
 }
-footer .logo-row img{height:32px;filter:brightness(0) invert(1);opacity:0.9;margin-bottom:14px;}
+footer .logo-row img{height:64px;width:auto;filter:brightness(0) invert(1);opacity:0.9;margin-bottom:14px;}
 footer .logo-row p{font-size:12px;letter-spacing:0.05em;color:#8C8268;max-width:260px;}
 .footer-links{display:flex;gap:60px;flex-wrap:wrap;}
 .footer-col b{display:block;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:#D9BC81;margin-bottom:14px;}

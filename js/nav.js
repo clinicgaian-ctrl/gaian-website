@@ -52,7 +52,7 @@
   }).join('');
 
   nav.innerHTML =
-    '<a href="index.html" class="nav-logo"><img src="images/logo.png" alt="GAIAN">' +
+    '<a href="index.html" class="nav-logo"><img src="images/logo-icon.png" alt="GAIAN">' +
       (data.logoTagline ? '<span class="tagline">' + esc(data.logoTagline) + '</span>' : '') +
     '</a>' +
     '<ul class="nav-links">' + itemsHtml + '</ul>' +
