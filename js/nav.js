@@ -51,6 +51,13 @@
     return '<a href="' + u.href + '"' + (u.lang ? ' class="lang"' : '') + '>' + esc(u.label) + '</a>';
   }).join('');
 
+  var mobileLinksHtml = data.items.map(function (item) {
+    var linkInner = item.zh
+      ? '<span class="en">' + esc(item.en) + '</span><span class="zh">' + esc(item.zh) + '</span>'
+      : esc(item.en);
+    return '<li><a href="' + item.href + '">' + linkInner + '</a></li>';
+  }).join('');
+
   nav.innerHTML =
     '<a href="index.html" class="nav-logo"><img src="images/logo-icon.png" alt="GAIAN">' +
       (data.logoTagline ? '<span class="tagline">' + esc(data.logoTagline) + '</span>' : '') +
@@ -59,7 +66,32 @@
     '<div class="nav-cta">' +
       '<div class="nav-utility">' + utilityHtml + '</div>' +
       '<a class="reserve" href="' + data.reserve.href + '">' + esc(data.reserve.label) + '</a>' +
+      '<button class="nav-burger" id="navBurger" aria-label="開啟選單"><span></span><span></span><span></span></button>' +
+    '</div>' +
+    '<div class="mobile-drawer" id="mobileDrawer">' +
+      '<div class="mobile-drawer-inner">' +
+        '<ul class="mobile-links">' + mobileLinksHtml + '</ul>' +
+        '<div class="mobile-utility">' + utilityHtml + '</div>' +
+        '<a class="reserve mobile-reserve" href="' + data.reserve.href + '">' + esc(data.reserve.label) + '</a>' +
+      '</div>' +
     '</div>';
+
+  var burger = document.getElementById('navBurger');
+  var drawer = document.getElementById('mobileDrawer');
+  if (burger && drawer) {
+    burger.addEventListener('click', function () {
+      var isOpen = drawer.classList.toggle('open');
+      burger.classList.toggle('open', isOpen);
+      document.body.classList.toggle('no-scroll', isOpen);
+    });
+    drawer.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        drawer.classList.remove('open');
+        burger.classList.remove('open');
+        document.body.classList.remove('no-scroll');
+      });
+    });
+  }
 
   if (!isSolid) {
     window.addEventListener('scroll', function () {
