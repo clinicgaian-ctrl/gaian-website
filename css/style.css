@@ -259,8 +259,8 @@ body.no-scroll{overflow:hidden;}
 .block-card span{font-size:13.5px;color:var(--ink-soft);font-weight:300;}
 @media(max-width:860px){.block-grid{grid-template-columns:1fr;}}
 
-/* ABOUT */
-.about-grid{display:grid;grid-template-columns:0.85fr 1fr;gap:80px;align-items:start;max-width:1140px;margin:0 auto;}
+/* ABOUT（左文右圖） */
+.about-grid{display:grid;grid-template-columns:1fr 0.85fr;gap:80px;align-items:start;max-width:1140px;margin:0 auto;}
 .about-visual{
   aspect-ratio:4/5;border-radius:50%;overflow:hidden;
   box-shadow:0 0 0 1px var(--gold-light), 0 50px 90px rgba(20,18,12,0.28);
@@ -272,25 +272,35 @@ body.no-scroll{overflow:hidden;}
 .about-text .eyebrow{margin-bottom:22px;}
 .about-text h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:38px;margin-bottom:24px;}
 .about-text p{font-size:15.5px;color:var(--ink-soft);font-weight:300;margin-bottom:16px;}
-.pillars{display:grid;grid-template-columns:1fr 1fr;gap:28px 32px;margin-top:34px;}
-.pillar{border-top:1px solid var(--gold-light);padding-top:14px;}
-.pillar b{display:block;font-size:14.5px;font-weight:600;margin-bottom:4px;color:var(--ink);}
-.pillar span{font-size:13px;color:var(--ink-soft);}
 
-/* JOURNEY */
-.journey{
-  position:relative;overflow:hidden;
-  background:url('../images/journey-bg.png') center center / cover no-repeat;
+/* CORE VALUES（四大核心） */
+.core-values{padding:100px 0;}
+.core-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;}
+.core-card{position:relative;display:block;aspect-ratio:3/4;overflow:hidden;text-decoration:none;}
+.core-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.8s cubic-bezier(.16,.8,.24,1);}
+.core-card:hover img{transform:scale(1.06);}
+.core-cap{
+  position:absolute;left:0;right:0;bottom:0;padding:24px 22px;z-index:2;
+  background:linear-gradient(0deg,rgba(0,0,0,0.6),transparent);color:#F8F2E4;
 }
-.journey::before{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg, rgba(15,13,9,0.72) 0%, rgba(15,13,9,0.55) 55%, rgba(15,13,9,0.8) 100%);
+.core-en{display:block;font-family:'Jost',sans-serif;font-size:10.5px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-light);margin-bottom:6px;}
+.core-zh{display:block;font-size:14px;line-height:1.5;}
+@media(max-width:860px){.core-grid{grid-template-columns:1fr 1fr;}}
+
+/* PROCESS（健康管理方式） */
+.process{background:var(--cream);}
+.process-diagram{position:relative;max-width:1000px;margin:60px auto 0;}
+.process-line{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;}
+.process-nodes{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.process-node{text-align:center;}
+.pn-index{display:block;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.2em;color:var(--gold);margin-bottom:10px;}
+.process-node b{display:block;font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;margin-bottom:4px;color:var(--ink);}
+.pn-en{font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.15em;color:var(--ink-soft);text-transform:uppercase;}
+.process-cta{text-align:center;margin-top:50px;}
+@media(max-width:760px){
+  .process-nodes{grid-template-columns:1fr;gap:36px;}
+  .process-line{display:none;}
 }
-.journey .section-head{position:relative;z-index:4;}
-.journey .section-head h2, .journey .section-head .tagline{color:var(--cream);}
-.journey .section-head .eyebrow{color:var(--gold-light);}
-.journey-img{width:100%;display:block;position:relative;z-index:4;border-radius:12px;}
-.journey-cta{text-align:center;margin-top:50px;position:relative;z-index:4;}
 
 /* ===== FLOW ZONE：金色流動線條（貫穿 Hero / About / Journey） ===== */
 .flow-zone{position:relative;}
@@ -320,6 +330,9 @@ body.no-scroll{overflow:hidden;}
 .gallery-editorial{display:grid;grid-template-columns:1.4fr 1fr;gap:10px;max-width:1300px;margin:0 auto;}
 .gallery-editorial .gimg{position:relative;overflow:hidden;aspect-ratio:4/5;border-radius:12px;}
 .gallery-editorial .gimg:first-child{aspect-ratio:auto;}
+.gallery-editorial-3{grid-template-columns:repeat(3,1fr);}
+.gallery-editorial-3 .gimg:first-child{aspect-ratio:4/5;}
+@media(max-width:860px){.gallery-editorial-3{grid-template-columns:1fr;}}
 .gallery-editorial img{width:100%;height:100%;object-fit:cover;display:block;}
 .gallery-cap{
   position:absolute;bottom:0;left:0;right:0;padding:20px 24px;
@@ -351,6 +364,20 @@ body.no-scroll{overflow:hidden;}
 .journal-card .cat{font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.15em;color:var(--gold);text-transform:uppercase;margin-bottom:10px;}
 .journal-card h3{font-size:18px;font-weight:500;margin-bottom:8px;}
 .journal-card p{font-size:13.5px;color:var(--ink-soft);font-weight:300;}
+
+/* FEATURED STORY（Journal 首頁精選） */
+.featured-story{
+  display:grid;grid-template-columns:1.3fr 1fr;gap:50px;align-items:center;
+  max-width:1140px;margin:0 auto;text-decoration:none;color:inherit;
+}
+.fs-visual{aspect-ratio:16/10;overflow:hidden;border-radius:12px;}
+.fs-visual img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.7s ease;}
+.featured-story:hover .fs-visual img{transform:scale(1.04);}
+.fs-text .cat{font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.15em;color:var(--gold);text-transform:uppercase;margin-bottom:12px;}
+.fs-text h3{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:400;margin-bottom:16px;color:var(--ink);}
+.fs-text p{font-size:15px;color:var(--ink-soft);font-weight:300;margin-bottom:22px;}
+.fs-read{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:0.1em;color:var(--gold);text-transform:uppercase;}
+@media(max-width:860px){.featured-story{grid-template-columns:1fr;gap:26px;}}
 
 /* FINAL CTA */
 .final-cta{
@@ -503,8 +530,8 @@ footer .logo-row p{font-size:12px;letter-spacing:0.05em;color:#8C8268;max-width:
 @media(max-width:860px){
   .section{padding:80px 6vw;}
   .about-grid{grid-template-columns:1fr;gap:40px;}
-  .pillars{grid-template-columns:1fr;}
   .gallery-editorial{grid-template-columns:1fr;}
+  .core-grid{grid-template-columns:1fr 1fr;}
   .team-grid{grid-template-columns:repeat(2,1fr);gap:28px;}
   .journal-grid{grid-template-columns:1fr;}
   .hero-inner h1{font-size:26px;}

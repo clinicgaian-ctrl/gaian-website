@@ -14,9 +14,9 @@
 <!-- ===== NAV ===== -->
 <nav class="nav" id="mainNav" data-active="home"></nav>
 
-<!-- ===== FLOW ZONE：HERO + ABOUT + JOURNEY（金色生命流動線） ===== -->
+<!-- ===== FLOW ZONE：HERO + ABOUT（金色生命流動線） ===== -->
 <div class="flow-zone">
-  <svg class="flow-line" viewBox="0 0 500 2000" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+  <svg class="flow-line" viewBox="0 0 500 1450" preserveAspectRatio="none" aria-hidden="true" focusable="false">
     <defs>
       <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" stop-color="#9F7A45"/>
@@ -30,8 +30,8 @@
         <stop offset="94%" stop-color="#fff" stop-opacity="1"/>
         <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
       </linearGradient>
-      <mask id="fadeMask" maskUnits="userSpaceOnUse" x="0" y="0" width="500" height="2000">
-        <rect x="0" y="0" width="500" height="2000" fill="url(#fadeMaskGrad)"/>
+      <mask id="fadeMask" maskUnits="userSpaceOnUse" x="0" y="0" width="500" height="1450">
+        <rect x="0" y="0" width="500" height="1450" fill="url(#fadeMaskGrad)"/>
       </mask>
     </defs>
     <path id="flowPath" class="golden-line" mask="url(#fadeMask)" vector-effect="non-scaling-stroke"
@@ -44,10 +44,7 @@
          C 210 820, 260 880, 225 940
          C 195 1000, 235 1060, 200 1120
          C 175 1180, 210 1240, 190 1300
-         C 175 1340, 185 1370, 195 1410
-         C 210 1470, 170 1540, 195 1610
-         C 215 1670, 175 1730, 200 1800
-         C 215 1850, 195 1930, 205 1985"
+         C 175 1340, 185 1370, 195 1410"
       fill="none" stroke="url(#goldGradient)"/>
 
     <circle r="1.6" class="flow-dot">
@@ -64,71 +61,105 @@
     </circle>
   </svg>
 
-  <!-- ===== HERO ===== -->
+  <!-- ===== PART 1｜HERO 主視覺 ===== -->
+  <!-- TODO：規劃中的 8–10 秒循環影片（白色神殿／拱門／晨光／水面／遠方人物緩步）尚未提供素材，
+       目前先以靜態首頁背景圖代替，影片到位後可換成 <video autoplay muted loop playsinline> -->
   <section class="hero">
     <div class="hero-inner">
       <p class="eyebrow en">Future Integrative Health</p>
       <h1>真正的健康，<br>不是對抗身體，而是重新理解它。</h1>
-      <p>我們相信，真正的健康，不只是沒有疾病，而是重新理解身體、理解生活、理解自己。<br>GAIAN 融合整合醫學、預防醫學、美學、藝術與生活方式，打造一座屬於未來健康的場域。</p>
+      <p>在這個追求速度的時代，我們習慣解決問題，卻很少停下來理解自己。<br>GAIAN 融合整合醫學、健康管理、美學、藝術與文化，打造一座重新理解健康的場域。</p>
       <div class="hero-ctas">
-        <a class="btn" href="about.html">探索 GAIAN</a>
-        <a class="btn solid" href="#journey">開始健康旅程</a>
+        <a class="btn solid" href="about.html">探索 GAIAN</a>
       </div>
     </div>
     <div class="scroll-cue">SCROLL</div>
   </section>
 
-  <!-- ===== ABOUT ===== -->
+  <!-- ===== PART 2｜GAIAN 是什麼（左文右圖） ===== -->
   <section class="section texture-bg" id="about">
     <div class="about-grid">
-      <div class="about-visual"><img src="images/about-corridor.png" alt="GAIAN 空間"></div>
       <div class="about-text">
-        <p class="eyebrow en">About GAIAN</p>
-        <h2>不只是一間診所，<br>更是一座重新理解健康的場域。</h2>
-        <p>GAIAN 承接 GAIA 的品牌理念，融合整合醫學、美學、藝術與生活方式，重新思考健康擁有的樣貌。我們相信，健康不是美的附屬，美也不是健康的結果，而是身體、情緒、環境與生活共同達成的平衡。真正的健康，不只是改善今天，而是為未來建立更穩定的自己。</p>
-        <div class="pillars">
-          <div class="pillar"><b>整合醫學</b><span>以整體理解身體，而非只關注單一症狀。</span></div>
-          <div class="pillar"><b>預防醫學</b><span>在問題發生之前，開始經營未來健康。</span></div>
-          <div class="pillar"><b>健康美學</b><span>健康，是美最深的根基。</span></div>
-          <div class="pillar"><b>生活方式</b><span>讓健康，成為每天自然發生的餘裕。</span></div>
-        </div>
+        <p class="eyebrow en">What Is GAIAN</p>
+        <h2>一座重新理解<br>健康的場域。</h2>
+        <p>GAIAN 不是傳統醫療機構，也不是一般健康品牌。我們相信，真正的健康，存在於醫學、生活、美學與文化之間。</p>
         <div style="margin-top:30px;"><a class="btn dark" href="about.html">閱讀完整品牌故事</a></div>
       </div>
+      <div class="about-visual"><img src="images/about-corridor.png" alt="GAIAN 空間"></div>
     </div>
-  </section>
-
-  <!-- ===== YOUR HEALTH JOURNEY ===== -->
-  <section class="section journey" id="journey">
-    <div class="section-head">
-      <p class="eyebrow en">Your Health Journey</p>
-      <h2>重新理解，每一步都重要。</h2>
-      <p class="tagline">真正的健康，不是一次療程，也不是短暫改善，而是一段持續理解自己的旅程。</p>
-    </div>
-    <img class="journey-img" src="images/journey-steps.png" alt="01 理解 · 02 評估 · 03 規劃 · 04 平衡 · 05 持續">
-    <div class="journey-cta"><a class="btn dark" href="future-health.html">查看完整醫療服務</a></div>
   </section>
 </div>
 
-<!-- ===== BEAUTY CONCEPT GALLERY ===== -->
+<!-- ===== PART 3｜四大核心 ===== -->
+<section class="core-values" id="core-values">
+  <div class="section-head">
+    <p class="eyebrow en">Four Pillars</p>
+    <h2>GAIAN，由四個面向組成。</h2>
+  </div>
+  <div class="core-grid">
+    <a class="core-card" href="future-health.html">
+      <img src="images/hero-arch.png" alt="整合醫學">
+      <div class="core-cap"><span class="core-en">Integrative Medicine</span><span class="core-zh">整合醫學｜重新理解身體</span></div>
+    </a>
+    <a class="core-card" href="future-health.html#management">
+      <img src="images/journey-bg.png" alt="健康管理">
+      <div class="core-cap"><span class="core-en">Health Management</span><span class="core-zh">健康管理｜建立未來健康</span></div>
+    </a>
+    <a class="core-card" href="gallery.html">
+      <img src="images/gallery-tunnel.png" alt="美的概念館">
+      <div class="core-cap"><span class="core-en">Beauty Concept Gallery</span><span class="core-zh">美的概念館｜真正的美，是一種生活方式</span></div>
+    </a>
+    <a class="core-card" href="walking-together.html">
+      <img src="images/gallery-constellation.png" alt="品牌文化">
+      <div class="core-cap"><span class="core-en">Brand Culture</span><span class="core-zh">品牌文化｜讓信念成為每天的選擇</span></div>
+    </a>
+  </div>
+  <p class="art-note" style="margin-top:2px;">四張全版影像為現有素材暫代，待補：①醫療討論 ②健康生活 ③藝術空間 ④品牌文化／交流場景 正式攝影</p>
+</section>
+
+<!-- ===== PART 4｜健康管理方式 ===== -->
+<section class="section process" id="process">
+  <div class="section-head">
+    <p class="eyebrow en">Your Health Journey</p>
+    <h2>健康，是一段<br>持續理解自己的過程。</h2>
+  </div>
+  <div class="process-diagram">
+    <svg class="process-line" viewBox="0 0 900 120" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path id="processPath" class="golden-line" vector-effect="non-scaling-stroke"
+        d="M 112 70 C 200 20, 250 100, 337 60 C 420 20, 480 100, 562 60 C 650 20, 700 100, 787 60"
+        fill="none" stroke="url(#goldGradient)"/>
+    </svg>
+    <div class="process-nodes">
+      <div class="process-node"><span class="pn-index">01</span><b>理解</b><span class="pn-en">Understand</span></div>
+      <div class="process-node"><span class="pn-index">02</span><b>評估</b><span class="pn-en">Assess</span></div>
+      <div class="process-node"><span class="pn-index">03</span><b>規劃</b><span class="pn-en">Plan</span></div>
+      <div class="process-node"><span class="pn-index">04</span><b>陪伴</b><span class="pn-en">Accompany</span></div>
+    </div>
+  </div>
+  <div class="process-cta"><a class="btn dark" href="future-health.html">查看完整醫療服務</a></div>
+</section>
+
+<!-- ===== PART 5｜美的概念館（延續背景，不切割） ===== -->
 <section class="section" id="gallery" style="padding-left:0;padding-right:0;">
   <div class="section-head">
     <p class="eyebrow en">Beauty Concept Gallery</p>
-    <h2>美，也是健康的一部分。</h2>
-    <p class="tagline">藝術、光影、空間、材質與文化，並非裝飾，而是共同構成健康體驗的一部分。</p>
+    <h2>真正的美，<br>是一種生活方式。</h2>
+    <p class="tagline">我們相信，健康與美從來不是兩件事。真正的美，來自健康、生活、藝術與文化。</p>
   </div>
-  <div class="gallery-editorial">
-    <div class="gimg"><img src="images/gallery-constellation.png" alt="空間與藝術"><div class="gallery-cap">Space &amp; Ritual</div></div>
-    <div class="gimg"><img src="images/gallery-tunnel.png" alt="光影長廊"><div class="gallery-cap">Light</div></div>
+  <div class="gallery-editorial gallery-editorial-3">
+    <div class="gimg"><img src="images/gallery-constellation.png" alt="珠寶藝術"><div class="gallery-cap">Jewelry 珠寶藝術</div></div>
+    <div class="gimg"><img src="images/gallery-tunnel.png" alt="王俠軍瓷器"><div class="gallery-cap">Wang Xia Jun 王俠軍瓷器</div></div>
+    <div class="gimg"><img src="images/about-corridor.png" alt="空間藝術與家具"><div class="gallery-cap">Space &amp; Furniture 空間藝術與家具</div></div>
   </div>
   <div class="gallery-cta"><a class="btn dark" href="gallery.html">探索美的概念館</a></div>
 </section>
 
-<!-- ===== MEDICAL TEAM ===== -->
+<!-- ===== PART 6｜醫療團隊 ===== -->
 <section class="section team" id="team">
   <div class="section-head">
     <p class="eyebrow en">Medical Team</p>
-    <h2>每一次理解身體，都需要專業同行。</h2>
-    <p class="lede">GAIAN 匯聚中西醫整合醫療團隊，透過跨專科合作，從身體、心理到生活方式，建立真正適合每一位訪者的健康策略。</p>
+    <h2>每一位醫師，<br>都是理解生命的同行者。</h2>
+    <p class="lede">專業來自知識，而真正的醫療來自理解。我們集結不同專科，共同陪伴每一位來訪者。</p>
   </div>
   <div class="team-grid">
     <div class="team-card"><div class="team-photo"><span>Dr. 陳</span></div><b>Dr. 陳 · 整合醫學</b><span class="role">Integrative Medicine</span></div>
@@ -136,31 +167,37 @@
     <div class="team-card"><div class="team-photo"><span>Dr. 王</span></div><b>Dr. 王 · 皮膚美學</b><span class="role">Aesthetic Medicine</span></div>
     <div class="team-card"><div class="team-photo"><span>營養團隊</span></div><b>營養團隊 · 生活設計</b><span class="role">Nutrition &amp; Lifestyle</span></div>
   </div>
-  <p class="art-note" style="margin-top:40px;">此區塊待補正式醫療團隊照片（建議：白色拱廊空間、暖光、白袍、自然站位，與整體神殿意象呼應）</p>
+  <p class="art-note" style="margin-top:40px;">此區塊待補正式醫療團隊照片（建議：醫師閱讀、討論、診療互動、自然光環境，避免排排站的制式合照）</p>
 </section>
 
-<!-- ===== JOURNAL ===== -->
+<!-- ===== PART 7｜品牌觀點（Featured Story） ===== -->
 <section class="section" id="journal">
   <div class="section-head">
     <p class="eyebrow en">Journal</p>
-    <h2>持續理解，才能持續健康。</h2>
-    <p class="tagline">分享整合醫學、預防醫學、生活方式、美學與健康觀點，希望每一次閱讀，都成為理解自己的開始。</p>
+    <h2>理解，<br>始於持續探索。</h2>
+    <p class="tagline">Journal 記錄著 GAIAN 對健康、美、醫學與生活的持續思考。</p>
   </div>
-  <div class="journal-grid">
-    <div class="journal-card"><div class="journal-thumb"><img src="images/hero-arch.png" alt="未來健康"></div><p class="cat">未來健康</p><h3>重新定義健康的核心價值</h3><p>從症狀導向，走向理解身體語言的整合視角。</p></div>
-    <div class="journal-card"><div class="journal-thumb"><img src="images/about-corridor.png" alt="睡眠與壓力"></div><p class="cat">睡眠與壓力</p><h3>找回身心平衡的開始</h3><p>睡眠品質與壓力調節，是健康旅程最初的一步。</p></div>
-    <div class="journal-card"><div class="journal-thumb"><img src="images/gallery-constellation.png" alt="生活方式"></div><p class="cat">生活方式</p><h3>讓健康自然融入每一天</h3><p>不靠意志力維持的健康習慣，才走得長久。</p></div>
-  </div>
-  <div style="text-align:center;margin-top:50px;"><a class="btn dark" href="journal.html">閱讀更多觀點</a></div>
+  <a class="featured-story" href="journal.html">
+    <div class="fs-visual"><img src="images/hero-arch.png" alt="重新定義健康的核心價值"></div>
+    <div class="fs-text">
+      <p class="cat">未來健康</p>
+      <h3>重新定義健康的核心價值</h3>
+      <p>從症狀導向，走向理解身體語言的整合視角——這是 GAIAN 對「健康」最根本的重新定義。</p>
+      <span class="fs-read">閱讀更多觀點 →</span>
+    </div>
+  </a>
 </section>
 
-<!-- ===== FINAL CTA ===== -->
+<!-- ===== PART 8｜開始旅程（CTA） ===== -->
 <section class="final-cta" id="contact">
   <div class="final-inner">
     <p class="eyebrow en">Begin Your Journey</p>
-    <h2 class="en">準備開始，重新理解自己的身體了嗎？</h2>
-    <p>每一段健康旅程，都從一次理解開始。讓 GAIAN 陪伴你，重新建立身體、生活與未來健康之間的平衡。</p>
-    <a class="btn dark" href="contact.html">預約健康諮詢</a>
+    <h2 class="en">每一段健康旅程，<br>都始於一次理解。</h2>
+    <p>如果你也相信，真正的健康，不只是治療疾病，而是重新理解生命，歡迎走進 GAIAN。</p>
+    <div class="hero-ctas" style="justify-content:center;">
+      <a class="btn" href="about.html">探索 GAIAN</a>
+      <a class="btn solid" href="contact.html">立即預約</a>
+    </div>
   </div>
 </section>
 
