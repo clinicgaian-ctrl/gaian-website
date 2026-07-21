@@ -406,47 +406,35 @@ body.no-scroll{overflow:hidden;}
 @media(max-width:760px){.shimmer-layer{display:none;}}
 @media(prefers-reduced-motion: reduce){.shimmer{animation:none;opacity:0.3;}}
 
-/* About 區塊上緣的霧感過渡，柔化與 Hero 的接縫：多顆不規則雲朵狀光暈疊加基礎色彩漸層，
-   兩層都「淡出到全透明」而非淡出到一塊實色，讓底下 About 區塊原本的米色背景自然透出，
-   避免因為疊加色塊與底色些微不match而在某個高度產生一條可見的線 */
+/* About 區塊上緣的霧感過渡，柔化與 Hero 的接縫：
+   做法改成「直接把 Hero 同一張照片模糊後蓋上去，再用 mask 淡出到透明」，
+   而不是用合成色塊去逼近 Hero 的顏色 —— 因為是同一張照片，顏色必然完全連續，
+   不會再有色塊跟底色對不齊產生的線。下面再疊一層白色雲朵光暈增加雲霧感，
+   並在最底部加一層淡淡的米色暈染，確保跟 About 區塊背景無縫接上。 */
 .about-mist{
-  position:absolute;top:-460px;left:0;right:0;height:900px;pointer-events:none;
+  position:absolute;top:-360px;left:0;right:0;height:620px;pointer-events:none;
+  background:url('../images/home/home-hero.png') center 42% / cover no-repeat;
+  filter:blur(32px) saturate(0.7) brightness(1.1);
+  -webkit-mask-image:linear-gradient(180deg,
+    rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.9) 26%, rgba(0,0,0,0.68) 42%,
+    rgba(0,0,0,0.4) 56%, rgba(0,0,0,0.18) 68%, rgba(0,0,0,0.06) 80%, rgba(0,0,0,0) 92%);
+  mask-image:linear-gradient(180deg,
+    rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.9) 26%, rgba(0,0,0,0.68) 42%,
+    rgba(0,0,0,0.4) 56%, rgba(0,0,0,0.18) 68%, rgba(0,0,0,0.06) 80%, rgba(0,0,0,0) 92%);
 }
 .about-mist::before{
   content:"";position:absolute;inset:0;
   background:
-    radial-gradient(ellipse 26% 30% at 8% 38%, rgba(250,246,239,0.9) 0%, rgba(250,246,239,0) 72%),
-    radial-gradient(ellipse 20% 24% at 22% 30%, rgba(250,246,239,0.75) 0%, rgba(250,246,239,0) 70%),
-    radial-gradient(ellipse 28% 32% at 40% 42%, rgba(250,246,239,0.9) 0%, rgba(250,246,239,0) 74%),
-    radial-gradient(ellipse 20% 24% at 58% 34%, rgba(250,246,239,0.7) 0%, rgba(250,246,239,0) 68%),
-    radial-gradient(ellipse 26% 30% at 76% 44%, rgba(250,246,239,0.85) 0%, rgba(250,246,239,0) 72%),
-    radial-gradient(ellipse 22% 26% at 92% 36%, rgba(250,246,239,0.7) 0%, rgba(250,246,239,0) 68%),
-    radial-gradient(ellipse 30% 26% at 30% 58%, rgba(250,246,239,0.5) 0%, rgba(250,246,239,0) 66%),
-    radial-gradient(ellipse 30% 26% at 70% 60%, rgba(250,246,239,0.45) 0%, rgba(250,246,239,0) 64%);
-  filter:blur(36px);
-}
-.about-mist::after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,
-    rgba(20,17,12,0) 0%,
-    rgba(20,17,12,0.32) 10%,
-    rgba(40,35,25,0.36) 18%,
-    rgba(75,65,46,0.34) 27%,
-    rgba(115,100,72,0.3) 35%,
-    rgba(150,132,95,0.25) 43%,
-    rgba(180,164,128,0.19) 51%,
-    rgba(205,192,160,0.14) 59%,
-    rgba(224,213,188,0.095) 67%,
-    rgba(238,230,212,0.06) 75%,
-    rgba(247,242,231,0.035) 83%,
-    rgba(250,246,239,0.015) 91%,
-    rgba(250,246,239,0) 100%
-  );
-  filter:blur(36px);
+    radial-gradient(ellipse 30% 34% at 14% 58%, rgba(250,246,239,0.85) 0%, rgba(250,246,239,0) 72%),
+    radial-gradient(ellipse 24% 28% at 38% 68%, rgba(250,246,239,0.75) 0%, rgba(250,246,239,0) 70%),
+    radial-gradient(ellipse 32% 36% at 62% 60%, rgba(250,246,239,0.85) 0%, rgba(250,246,239,0) 74%),
+    radial-gradient(ellipse 26% 30% at 86% 66%, rgba(250,246,239,0.7) 0%, rgba(250,246,239,0) 68%),
+    radial-gradient(ellipse 60% 40% at 50% 92%, rgba(250,246,239,0.9) 0%, rgba(250,246,239,0) 78%);
+  filter:blur(30px);
 }
 @media(max-width:860px){
-  .about-mist{top:-260px;height:520px;}
-  .about-mist::before,.about-mist::after{filter:blur(22px);}
+  .about-mist{top:-210px;height:380px;filter:blur(20px) saturate(0.7) brightness(1.1);}
+  .about-mist::before{filter:blur(18px);}
 }
 
 .golden-line{
