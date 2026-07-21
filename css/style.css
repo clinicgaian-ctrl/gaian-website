@@ -6,6 +6,10 @@
   --ink-soft:#5C564B;
   --cream:#FAF6EF;
   --mist:#EDE6D6;
+  /* Hero 主視覺圖片：單一來源，Hero 本身與 About 交界的霧化過渡都讀這裡，
+     以後只要換這一行，兩處會自動同步，不會再因為兩處各自寫死路徑而對不上 */
+  --hero-img:url('../images/home/home-hero.png');
+  --hero-pos:center 42%;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
@@ -203,7 +207,7 @@ body.no-scroll{overflow:hidden;}
 .hero{
   height:100vh;min-height:720px;position:relative;
   display:flex;align-items:center;color:#F8F2E4;overflow:hidden;
-  background:url('../images/home/home-hero.png') center 42% / cover no-repeat;
+  background:var(--hero-img) var(--hero-pos) / cover no-repeat;
 }
 .hero::before{
   content:"";position:absolute;inset:0;
@@ -413,7 +417,7 @@ body.no-scroll{overflow:hidden;}
    並在最底部加一層淡淡的米色暈染，確保跟 About 區塊背景無縫接上。 */
 .about-mist{
   position:absolute;top:-360px;left:0;right:0;height:620px;pointer-events:none;
-  background:url('../images/home/home-hero.png') center 42% / cover no-repeat;
+  background:var(--hero-img) var(--hero-pos) / cover no-repeat;
   filter:blur(32px) saturate(0.7) brightness(1.1);
   -webkit-mask-image:linear-gradient(180deg,
     rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.9) 26%, rgba(0,0,0,0.68) 42%,
