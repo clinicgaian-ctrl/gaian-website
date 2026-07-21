@@ -411,34 +411,19 @@ body.no-scroll{overflow:hidden;}
 @media(prefers-reduced-motion: reduce){.shimmer{animation:none;opacity:0.3;}}
 
 /* About 區塊上緣的霧感過渡，柔化與 Hero 的接縫：
-   做法改成「直接把 Hero 同一張照片模糊後蓋上去，再用 mask 淡出到透明」，
-   而不是用合成色塊去逼近 Hero 的顏色 —— 因為是同一張照片，顏色必然完全連續，
-   不會再有色塊跟底色對不齊產生的線。下面再疊一層白色雲朵光暈增加雲霧感，
-   並在最底部加一層淡淡的米色暈染，確保跟 About 區塊背景無縫接上。 */
+   前一版做太大、太亮、太多層雲朵光暈，變成一大片刺眼的白霧，看起來很假。
+   改成參考真實案例做法：只在接縫處做「短、輕、剛好夠用」的柔化——
+   把 Hero 同一張照片模糊後、輕輕淡出，範圍收小很多，不加亮度，
+   像是相片本身邊緣的自然虛化，而不是刻意做一大塊雲霧特效。 */
 .about-mist{
-  position:absolute;top:-360px;left:0;right:0;height:620px;pointer-events:none;
+  position:absolute;top:-70px;left:0;right:0;height:200px;pointer-events:none;
   background:var(--hero-img) var(--hero-pos) / cover no-repeat;
-  filter:blur(32px) saturate(0.7) brightness(1.1);
-  -webkit-mask-image:linear-gradient(180deg,
-    rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.9) 26%, rgba(0,0,0,0.68) 42%,
-    rgba(0,0,0,0.4) 56%, rgba(0,0,0,0.18) 68%, rgba(0,0,0,0.06) 80%, rgba(0,0,0,0) 92%);
-  mask-image:linear-gradient(180deg,
-    rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.9) 26%, rgba(0,0,0,0.68) 42%,
-    rgba(0,0,0,0.4) 56%, rgba(0,0,0,0.18) 68%, rgba(0,0,0,0.06) 80%, rgba(0,0,0,0) 92%);
-}
-.about-mist::before{
-  content:"";position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse 30% 34% at 14% 58%, rgba(250,246,239,0.85) 0%, rgba(250,246,239,0) 72%),
-    radial-gradient(ellipse 24% 28% at 38% 68%, rgba(250,246,239,0.75) 0%, rgba(250,246,239,0) 70%),
-    radial-gradient(ellipse 32% 36% at 62% 60%, rgba(250,246,239,0.85) 0%, rgba(250,246,239,0) 74%),
-    radial-gradient(ellipse 26% 30% at 86% 66%, rgba(250,246,239,0.7) 0%, rgba(250,246,239,0) 68%),
-    radial-gradient(ellipse 60% 40% at 50% 92%, rgba(250,246,239,0.9) 0%, rgba(250,246,239,0) 78%);
-  filter:blur(30px);
+  filter:blur(16px) saturate(0.9);
+  -webkit-mask-image:linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.45) 45%, rgba(0,0,0,0.14) 74%, rgba(0,0,0,0) 100%);
+  mask-image:linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.45) 45%, rgba(0,0,0,0.14) 74%, rgba(0,0,0,0) 100%);
 }
 @media(max-width:860px){
-  .about-mist{top:-210px;height:380px;filter:blur(20px) saturate(0.7) brightness(1.1);}
-  .about-mist::before{filter:blur(18px);}
+  .about-mist{top:-40px;height:120px;filter:blur(10px) saturate(0.9);}
 }
 
 .golden-line{
