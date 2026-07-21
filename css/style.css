@@ -273,10 +273,14 @@ body.no-scroll{overflow:hidden;}
 .about-text h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:38px;margin-bottom:24px;}
 .about-text p{font-size:15.5px;color:var(--ink-soft);font-weight:300;margin-bottom:16px;}
 
-/* CORE VALUES（四大核心） */
-.core-values{padding:100px 0;}
-.core-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;}
-.core-card{position:relative;display:block;aspect-ratio:3/4;overflow:hidden;text-decoration:none;}
+/* CORE VALUES（四大核心，雜誌式錯落排版） */
+.core-values{padding:110px 0;}
+.core-grid{display:flex;align-items:center;gap:14px;max-width:1400px;margin:60px auto 0;padding:0 4vw;}
+.core-card{position:relative;display:block;flex:1;overflow:hidden;text-decoration:none;border-radius:8px;}
+.core-card:nth-child(1){height:650px;}
+.core-card:nth-child(2){height:520px;}
+.core-card:nth-child(3){height:760px;}
+.core-card:nth-child(4){height:580px;}
 .core-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.8s cubic-bezier(.16,.8,.24,1);}
 .core-card:hover img{transform:scale(1.06);}
 .core-cap{
@@ -285,7 +289,10 @@ body.no-scroll{overflow:hidden;}
 }
 .core-en{display:block;font-family:'Jost',sans-serif;font-size:10.5px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-light);margin-bottom:6px;}
 .core-zh{display:block;font-size:14px;line-height:1.5;}
-@media(max-width:860px){.core-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:960px){
+  .core-grid{flex-direction:column;}
+  .core-card, .core-card:nth-child(1), .core-card:nth-child(2), .core-card:nth-child(3), .core-card:nth-child(4){height:340px;width:100%;}
+}
 
 /* PROCESS（健康管理方式） */
 .process{background:var(--cream);}

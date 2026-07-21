@@ -53,7 +53,7 @@
 |---|---|---|---|
 | 1 Hero 主視覺 | 單一 CTA「探索 GAIAN」 | `.hero` | ✅ 文案完成；⚠️ 8–10 秒循環影片素材尚未提供，先用靜態圖代替（見 index.html 內 TODO 註解） |
 | 2 GAIAN 是什麼 | 左文右圖 | `#about` | ✅ 完成，圖片為暫代素材 |
-| 3 四大核心 | 4 張全版影像＋一句話，hover 微放大 | `#core-values` | ✅ 版型完成；待補①醫療討論②健康生活③藝術空間④品牌文化交流 正式攝影 |
+| 3 四大核心 | 4 張正式攝影＋一句話，雜誌式錯落高度排版（650/520/760/580px），hover 微放大 | `#core-values` | ✅ 完成，已換上正式攝影（`images/home/core-integrative.png`／`core-management.png`／`core-gallery.png`／`core-culture.png`） |
 | 4 健康管理方式 | 4 節點（理解/評估/規劃/陪伴）＋金色線 scroll 逐步展開 | `#process` | ✅ 白底＋金線節點圖完成（`js/flow-line.js` 的 `initProcessLine`） |
 | 5 美的概念館 | 3 張大圖，延續背景不切割 | `#gallery` | ✅ 完成，圖片為暫代素材 |
 | 6 醫療團隊 | 佔位卡＋新文案 | `#team` | ⏳ 待補正式團隊照片（醫師閱讀/討論/互動，避免排排站） |
