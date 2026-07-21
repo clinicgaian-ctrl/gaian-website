@@ -250,6 +250,17 @@ body.no-scroll{overflow:hidden;}
 .btn-star.dark::before{color:var(--gold);}
 .btn-star.dark .btn-star-underline{background:var(--gold);}
 .btn-star.dark:hover{color:var(--gold);}
+
+/* 主要 CTA 變化款：星芒加上圓框，用於每個區塊最主要的行動呼籲，與次要連結做出區隔 */
+.btn-star.primary{font-size:20px;gap:15px;}
+.btn-star.primary::before{
+  width:27px;height:27px;font-size:13px;display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid var(--gold-light);border-radius:50%;transition:all 0.5s ease;
+}
+.btn-star.primary .btn-star-underline{left:42px;}
+.btn-star.primary:hover::before{background:var(--gold-light);color:var(--ink);transform:rotate(180deg);}
+.btn-star.primary.dark::before{border-color:var(--gold);}
+.btn-star.primary.dark:hover::before{background:var(--gold);color:#fff;}
 .scroll-cue{
   position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:2;
   font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.3em;color:#EAE0C8;text-align:center;
@@ -294,7 +305,15 @@ body.no-scroll{overflow:hidden;}
 .about-text p{font-size:15.5px;color:var(--ink-soft);font-weight:300;margin-bottom:16px;}
 
 /* CORE VALUES（四大核心，雜誌式錯落排版） */
-.core-values{padding:110px 0;}
+.core-values{padding:110px 0;position:relative;}
+
+/* About → Core Values → Process → Gallery 連續渲染：區塊交界的柔和金色暈染，讓幾個區塊視覺上連成同一片 */
+.zone-blend{
+  position:absolute;top:-130px;left:0;right:0;height:260px;pointer-events:none;
+  background:radial-gradient(ellipse 55% 100% at 50% 50%, rgba(184,147,74,0.12) 0%, rgba(184,147,74,0.06) 45%, rgba(184,147,74,0) 76%);
+  filter:blur(38px);
+}
+@media(max-width:860px){.zone-blend{top:-80px;height:160px;filter:blur(24px);}}
 .core-grid{display:flex;align-items:center;gap:14px;max-width:1400px;margin:60px auto 0;padding:0 4vw;}
 .core-card{position:relative;display:block;flex:1;overflow:hidden;text-decoration:none;border-radius:8px;}
 .core-card:nth-child(1){height:650px;}
@@ -381,13 +400,22 @@ body.no-scroll{overflow:hidden;}
 @media(max-width:760px){.shimmer-layer{display:none;}}
 @media(prefers-reduced-motion: reduce){.shimmer{animation:none;opacity:0.3;}}
 
-/* About 區塊上緣的霧感過渡，柔化與 Hero 的接縫 */
+/* About 區塊上緣的霧感過渡，柔化與 Hero 的接縫：從 Hero 底色直接暈染到 About 米色，而非單純變暗變透明 */
 .about-mist{
-  position:absolute;top:-160px;left:0;right:0;height:300px;z-index:2;pointer-events:none;
-  background:linear-gradient(180deg, rgba(20,17,12,0.4) 0%, rgba(70,62,44,0.22) 30%, rgba(160,140,104,0.1) 55%, rgba(250,246,239,0) 78%);
-  filter:blur(22px);
+  position:absolute;top:-260px;left:0;right:0;height:520px;pointer-events:none;
+  background:linear-gradient(180deg,
+    rgba(20,17,12,0) 0%,
+    rgba(20,17,12,0.45) 20%,
+    rgba(70,60,42,0.5) 36%,
+    rgba(160,140,100,0.32) 52%,
+    rgba(215,203,175,0.5) 66%,
+    rgba(245,240,228,0.85) 80%,
+    rgba(250,246,239,1) 92%,
+    rgba(250,246,239,1) 100%
+  );
+  filter:blur(34px);
 }
-@media(max-width:860px){.about-mist{top:-90px;height:180px;filter:blur(16px);}}
+@media(max-width:860px){.about-mist{top:-150px;height:320px;filter:blur(22px);}}
 
 .golden-line{
   fill:none;

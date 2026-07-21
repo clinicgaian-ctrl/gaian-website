@@ -48,6 +48,14 @@
 
 ---
 
+## 2026-07-21（下午）霧感過渡／連續背景渲染／全站按鈕統一
+
+- **強化 Hero→About 霧感**：`.about-mist` 改寫成從透明→Hero 底色（暗調）→過渡色→About 米色（`--cream`）的多階漸層，並加大範圍（`top:-260px;height:520px`）與模糊半徑（`blur(34px)`），讓交界處是真正的顏色暈染過渡，而不是變暗後留下的硬線。手機版同步等比例調整。
+- **連續渲染背景（About→四大核心→健康管理→美的概念館）**：`#core-values`、`#process`、`#gallery` 三個區塊統一加上 `.texture-bg`（金色點狀紋理，原本只有 `#about` 有），並在三處區塊交界新增 `.zone-blend`（柔和金色暈染，`radial-gradient` + `blur(38px)`）作為過渡層，讓四塊視覺上讀起來像同一個連續區域，直到醫療團隊 `#team`（維持深色對比作為刻意的段落轉換，不在此次調整範圍）。
+- **全站按鈕統一為 `.btn-star`**：移除舊版方框按鈕 `.btn`／`.btn.dark`／`.btn.solid`，全站（`index.html`／`contact.html`／`future-health.html`／`walking-together.html`）改用星芒＋底線的 `.btn-star`（深色底用預設淺色字，淺色底加 `.dark`）。並新增 `.btn-star.primary` 圓框星芒變體，用於每個區塊最主要的行動呼籲（首頁「立即預約」、Process CTA、Contact 頁「預約健康諮詢」等），與次要連結做出風格區隔，達到「有變化但不失統一」。`gallery.html`／`journal.html`／`about.html` 原本就沒有 `.btn` 按鈕，不需調整。
+
+---
+
 ## 視覺 Design Token（取自 `css/style.css`）
 
 - 色票：`--gold #B8934A`／`--gold-light #D9BC81`／`--gold-pale #F3E9D6`／`--ink #2A2620`／`--ink-soft #5C564B`／`--cream #FAF6EF`／`--mist #EDE6D6`
