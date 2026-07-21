@@ -14,30 +14,53 @@
 <!-- ===== NAV ===== -->
 <nav class="nav" id="mainNav" data-active="home"></nav>
 
-<!-- ===== FLOW ZONE：HERO + ABOUT + JOURNEY（金色流動線條貫穿三區） ===== -->
+<!-- ===== FLOW ZONE：HERO + ABOUT + JOURNEY（金色生命流動線） ===== -->
 <div class="flow-zone">
   <svg class="flow-line" viewBox="0 0 500 2000" preserveAspectRatio="none" aria-hidden="true" focusable="false">
     <defs>
-      <linearGradient id="flowGold" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#D9BC81" stop-opacity="0"/>
-        <stop offset="12%" stop-color="#D9BC81" stop-opacity="0.6"/>
-        <stop offset="50%" stop-color="#B8934A" stop-opacity="0.85"/>
-        <stop offset="88%" stop-color="#D9BC81" stop-opacity="0.55"/>
-        <stop offset="100%" stop-color="#D9BC81" stop-opacity="0"/>
+      <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#9F7A45"/>
+        <stop offset="45%" stop-color="#F3DFC1"/>
+        <stop offset="70%" stop-color="#C8A56A"/>
+        <stop offset="100%" stop-color="#8E6C3D"/>
       </linearGradient>
-      <filter id="flowGlow" x="-60%" y="-60%" width="220%" height="220%">
-        <feGaussianBlur stdDeviation="5" result="blur"/>
-        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-      </filter>
+      <linearGradient id="fadeMaskGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#fff" stop-opacity="0"/>
+        <stop offset="6%" stop-color="#fff" stop-opacity="1"/>
+        <stop offset="94%" stop-color="#fff" stop-opacity="1"/>
+        <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+      </linearGradient>
+      <mask id="fadeMask" maskUnits="userSpaceOnUse" x="0" y="0" width="500" height="2000">
+        <rect x="0" y="0" width="500" height="2000" fill="url(#fadeMaskGrad)"/>
+      </mask>
     </defs>
-    <path id="flowPath"
-      d="M 90 40 C 220 130, 30 250, 150 360 C 270 470, 50 590, 130 720 C 210 850, 30 960, 140 1090 C 250 1220, 60 1350, 150 1480 C 240 1610, 70 1740, 160 1860 C 220 1940, 120 1970, 170 1990"
-      fill="none" stroke="url(#flowGold)" stroke-width="2.2" stroke-linecap="round"
-      filter="url(#flowGlow)" class="flow-path"/>
-    <circle r="4" fill="#F3E9D6" class="flow-spark">
-      <animateMotion dur="16s" repeatCount="indefinite" rotate="auto">
-        <mpath href="#flowPath"/>
-      </animateMotion>
+    <path id="flowPath" class="golden-line" mask="url(#fadeMask)" vector-effect="non-scaling-stroke"
+      d="M 40 705 C 70 600, 25 500, 60 400
+         C 90 300, 30 220, 75 140
+         C 130 80, 220 55, 300 90
+         C 360 120, 345 220, 330 300
+         C 315 380, 270 460, 250 560
+         C 235 620, 255 690, 240 760
+         C 210 820, 260 880, 225 940
+         C 195 1000, 235 1060, 200 1120
+         C 175 1180, 210 1240, 190 1300
+         C 175 1340, 185 1370, 195 1410
+         C 210 1470, 170 1540, 195 1610
+         C 215 1670, 175 1730, 200 1800
+         C 215 1850, 195 1930, 205 1985"
+      fill="none" stroke="url(#goldGradient)"/>
+
+    <circle r="1.6" class="flow-dot">
+      <animateMotion dur="19s" begin="0s" repeatCount="indefinite" rotate="auto"><mpath href="#flowPath"/></animateMotion>
+      <animate attributeName="opacity" values="0;0.55;0.55;0" keyTimes="0;0.08;0.85;1" dur="19s" begin="0s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="1.3" class="flow-dot">
+      <animateMotion dur="23s" begin="7s" repeatCount="indefinite" rotate="auto"><mpath href="#flowPath"/></animateMotion>
+      <animate attributeName="opacity" values="0;0.45;0.45;0" keyTimes="0;0.08;0.85;1" dur="23s" begin="7s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="1.8" class="flow-dot">
+      <animateMotion dur="17s" begin="13s" repeatCount="indefinite" rotate="auto"><mpath href="#flowPath"/></animateMotion>
+      <animate attributeName="opacity" values="0;0.5;0.5;0" keyTimes="0;0.08;0.85;1" dur="17s" begin="13s" repeatCount="indefinite"/>
     </circle>
   </svg>
 
@@ -160,6 +183,9 @@
 
 <script src="js/nav-data.js"></script>
 <script src="js/nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/flow-line.js"></script>
 
 </body>
 </html>
