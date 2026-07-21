@@ -348,6 +348,46 @@ body.no-scroll{overflow:hidden;}
 }
 .gallery-cta{text-align:center;margin-top:50px;}
 
+/* BEAUTY ORBIT GRID（美的概念館首頁預覽，圓形＋軌道動態） */
+.beauty-orbit-grid{
+  display:flex;justify-content:center;align-items:flex-end;flex-wrap:wrap;
+  gap:70px 50px;max-width:1200px;margin:70px auto 0;padding:30px 6vw 10px;
+}
+.orbit-card{position:relative;display:block;text-align:center;text-decoration:none;margin-bottom:50px;}
+.orbit-card-lg{margin-bottom:0;}
+.orbit-photo{
+  position:relative;z-index:2;width:260px;height:260px;border-radius:50%;overflow:hidden;
+  box-shadow:0 30px 60px rgba(20,18,12,0.24);
+  transition:transform 0.7s cubic-bezier(.16,.8,.24,1), box-shadow 0.5s;
+}
+.orbit-card-lg .orbit-photo{width:330px;height:330px;}
+.orbit-card:hover .orbit-photo{transform:scale(1.05);box-shadow:0 40px 80px rgba(20,18,12,0.3);}
+.orbit-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.orbit-ring{
+  position:absolute;top:0;left:0;right:0;bottom:0;margin:-20px;
+  border:1px solid var(--gold-light);border-radius:50%;z-index:1;
+  animation:orbitSpin 26s linear infinite;
+}
+.orbit-ring::before{
+  content:"";position:absolute;top:-3px;left:50%;width:6px;height:6px;margin-left:-3px;
+  border-radius:50%;background:var(--gold);box-shadow:0 0 6px rgba(184,147,74,0.7);
+}
+.orbit-particle{position:absolute;border-radius:50%;background:var(--gold-light);z-index:1;opacity:0.7;}
+.orbit-particle.p1{width:4px;height:4px;top:8%;right:-6px;animation:orbitFloat 7s ease-in-out infinite;}
+.orbit-particle.p2{width:3px;height:3px;bottom:14%;left:-8px;animation:orbitFloat 9s ease-in-out infinite reverse;}
+@keyframes orbitSpin{to{transform:rotate(360deg);}}
+@keyframes orbitFloat{0%,100%{transform:translateY(0);opacity:0.5;}50%{transform:translateY(-10px);opacity:0.9;}}
+.orbit-cap{margin-top:24px;}
+.orbit-cap .core-en{color:var(--gold);}
+.orbit-cap .core-zh{color:var(--ink);font-size:14.5px;}
+@media(prefers-reduced-motion: reduce){.orbit-ring{animation:none;}.orbit-particle{animation:none;}}
+@media(max-width:760px){
+  .beauty-orbit-grid{gap:50px;}
+  .orbit-photo{width:210px;height:210px;}
+  .orbit-card-lg .orbit-photo{width:250px;height:250px;}
+  .orbit-card, .orbit-card-lg{margin-bottom:0;}
+}
+
 /* MEDICAL TEAM */
 .team{background:var(--ink);color:var(--cream);}
 .team .section-head h2{color:var(--cream);}
