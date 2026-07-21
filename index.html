@@ -14,49 +14,77 @@
 <!-- ===== NAV ===== -->
 <nav class="nav" id="mainNav" data-active="home"></nav>
 
-<!-- ===== HERO ===== -->
-<section class="hero">
-  <div class="hero-inner">
-    <p class="eyebrow en">Future Integrative Health</p>
-    <h1>真正的健康，<br>不是對抗身體，而是重新理解它。</h1>
-    <p>我們相信，真正的健康，不只是沒有疾病，而是重新理解身體、理解生活、理解自己。<br>GAIAN 融合整合醫學、預防醫學、美學、藝術與生活方式，打造一座屬於未來健康的場域。</p>
-    <div class="hero-ctas">
-      <a class="btn" href="about.html">探索 GAIAN</a>
-      <a class="btn solid" href="#journey">開始健康旅程</a>
-    </div>
-  </div>
-  <div class="scroll-cue">SCROLL</div>
-</section>
+<!-- ===== FLOW ZONE：HERO + ABOUT + JOURNEY（金色流動線條貫穿三區） ===== -->
+<div class="flow-zone">
+  <svg class="flow-line" viewBox="0 0 500 2000" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="flowGold" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#D9BC81" stop-opacity="0"/>
+        <stop offset="12%" stop-color="#D9BC81" stop-opacity="0.6"/>
+        <stop offset="50%" stop-color="#B8934A" stop-opacity="0.85"/>
+        <stop offset="88%" stop-color="#D9BC81" stop-opacity="0.55"/>
+        <stop offset="100%" stop-color="#D9BC81" stop-opacity="0"/>
+      </linearGradient>
+      <filter id="flowGlow" x="-60%" y="-60%" width="220%" height="220%">
+        <feGaussianBlur stdDeviation="5" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+    <path id="flowPath"
+      d="M 90 40 C 220 130, 30 250, 150 360 C 270 470, 50 590, 130 720 C 210 850, 30 960, 140 1090 C 250 1220, 60 1350, 150 1480 C 240 1610, 70 1740, 160 1860 C 220 1940, 120 1970, 170 1990"
+      fill="none" stroke="url(#flowGold)" stroke-width="2.2" stroke-linecap="round"
+      filter="url(#flowGlow)" class="flow-path"/>
+    <circle r="4" fill="#F3E9D6" class="flow-spark">
+      <animateMotion dur="16s" repeatCount="indefinite" rotate="auto">
+        <mpath href="#flowPath"/>
+      </animateMotion>
+    </circle>
+  </svg>
 
-<!-- ===== ABOUT ===== -->
-<section class="section texture-bg" id="about">
-  <div class="about-grid">
-    <div class="about-visual"><img src="images/about-corridor.png" alt="GAIAN 空間"></div>
-    <div class="about-text">
-      <p class="eyebrow en">About GAIAN</p>
-      <h2>不只是一間診所，<br>更是一座重新理解健康的場域。</h2>
-      <p>GAIAN 承接 GAIA 的品牌理念，融合整合醫學、美學、藝術與生活方式，重新思考健康擁有的樣貌。我們相信，健康不是美的附屬，美也不是健康的結果，而是身體、情緒、環境與生活共同達成的平衡。真正的健康，不只是改善今天，而是為未來建立更穩定的自己。</p>
-      <div class="pillars">
-        <div class="pillar"><div class="pillar-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></div><div><b>整合醫學</b><span>以整體理解身體，而非只關注單一症狀。</span></div></div>
-        <div class="pillar"><div class="pillar-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3l2.2 6.8H21l-5.6 4.1 2.1 6.9L12 16.9 6.5 20.8l2.1-6.9L3 9.8h6.8z"/></svg></div><div><b>預防醫學</b><span>在問題發生之前，開始經營未來健康。</span></div></div>
-        <div class="pillar"><div class="pillar-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 21s-7-4.5-7-10a4.5 4.5 0 0 1 7-3.7A4.5 4.5 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></div><div><b>健康美學</b><span>健康，是美最深的根基。</span></div></div>
-        <div class="pillar"><div class="pillar-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 12c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/></svg></div><div><b>生活方式</b><span>讓健康，成為每天自然發生的餘裕。</span></div></div>
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow en">Future Integrative Health</p>
+      <h1>真正的健康，<br>不是對抗身體，而是重新理解它。</h1>
+      <p>我們相信，真正的健康，不只是沒有疾病，而是重新理解身體、理解生活、理解自己。<br>GAIAN 融合整合醫學、預防醫學、美學、藝術與生活方式，打造一座屬於未來健康的場域。</p>
+      <div class="hero-ctas">
+        <a class="btn" href="about.html">探索 GAIAN</a>
+        <a class="btn solid" href="#journey">開始健康旅程</a>
       </div>
-      <div style="margin-top:30px;"><a class="btn dark" href="about.html">閱讀完整品牌故事</a></div>
     </div>
-  </div>
-</section>
+    <div class="scroll-cue">SCROLL</div>
+  </section>
 
-<!-- ===== YOUR HEALTH JOURNEY ===== -->
-<section class="section journey" id="journey">
-  <div class="section-head">
-    <p class="eyebrow en">Your Health Journey</p>
-    <h2>重新理解，每一步都重要。</h2>
-    <p class="tagline">真正的健康，不是一次療程，也不是短暫改善，而是一段持續理解自己的旅程。</p>
-  </div>
-  <img class="journey-img" src="images/journey-steps.png" alt="01 理解 · 02 評估 · 03 規劃 · 04 平衡 · 05 持續">
-  <div style="text-align:center;margin-top:50px;"><a class="btn dark" href="future-health.html">查看完整醫療服務</a></div>
-</section>
+  <!-- ===== ABOUT ===== -->
+  <section class="section texture-bg" id="about">
+    <div class="about-grid">
+      <div class="about-visual"><img src="images/about-corridor.png" alt="GAIAN 空間"></div>
+      <div class="about-text">
+        <p class="eyebrow en">About GAIAN</p>
+        <h2>不只是一間診所，<br>更是一座重新理解健康的場域。</h2>
+        <p>GAIAN 承接 GAIA 的品牌理念，融合整合醫學、美學、藝術與生活方式，重新思考健康擁有的樣貌。我們相信，健康不是美的附屬，美也不是健康的結果，而是身體、情緒、環境與生活共同達成的平衡。真正的健康，不只是改善今天，而是為未來建立更穩定的自己。</p>
+        <div class="pillars">
+          <div class="pillar"><div class="pillar-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></div><div><b>整合醫學</b><span>以整體理解身體，而非只關注單一症狀。</span></div></div>
+          <div class="pillar"><div class="pillar-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3l2.2 6.8H21l-5.6 4.1 2.1 6.9L12 16.9 6.5 20.8l2.1-6.9L3 9.8h6.8z"/></svg></div><div><b>預防醫學</b><span>在問題發生之前，開始經營未來健康。</span></div></div>
+          <div class="pillar"><div class="pillar-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 21s-7-4.5-7-10a4.5 4.5 0 0 1 7-3.7A4.5 4.5 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></div><div><b>健康美學</b><span>健康，是美最深的根基。</span></div></div>
+          <div class="pillar"><div class="pillar-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 12c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/></svg></div><div><b>生活方式</b><span>讓健康，成為每天自然發生的餘裕。</span></div></div>
+        </div>
+        <div style="margin-top:30px;"><a class="btn dark" href="about.html">閱讀完整品牌故事</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== YOUR HEALTH JOURNEY ===== -->
+  <section class="section journey" id="journey">
+    <div class="section-head">
+      <p class="eyebrow en">Your Health Journey</p>
+      <h2>重新理解，每一步都重要。</h2>
+      <p class="tagline">真正的健康，不是一次療程，也不是短暫改善，而是一段持續理解自己的旅程。</p>
+    </div>
+    <img class="journey-img" src="images/journey-steps.png" alt="01 理解 · 02 評估 · 03 規劃 · 04 平衡 · 05 持續">
+    <div class="journey-cta"><a class="btn dark" href="future-health.html">查看完整醫療服務</a></div>
+  </section>
+</div>
 
 <!-- ===== BEAUTY CONCEPT GALLERY ===== -->
 <section class="section" id="gallery" style="padding-left:0;padding-right:0;">
