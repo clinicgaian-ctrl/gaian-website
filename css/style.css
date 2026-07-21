@@ -203,7 +203,7 @@ body.no-scroll{overflow:hidden;}
 .hero{
   height:100vh;min-height:720px;position:relative;
   display:flex;align-items:center;color:#F8F2E4;overflow:hidden;
-  background:url('../images/hero-arch.png') center 55% / cover no-repeat;
+  background:url('../images/home-hero.png') center 38% / cover no-repeat;
 }
 .hero::before{
   content:"";position:absolute;inset:0;

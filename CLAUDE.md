@@ -4,6 +4,23 @@
 
 ---
 
+## 最新資料優先規則
+
+本文件主要記錄網站技術架構、進度與部署方式。
+
+品牌定位、名詞、網站架構與品牌語言，
+以以下資料夾中的最新核准文件為最高依據：
+
+`knowledge/GAIAN_AI_Operating_System/`
+
+若本文件與 knowledge 內的文件衝突，
+以 knowledge 最新版本為準。
+
+不得使用 CLAUDE.md 中的舊版名稱，
+覆蓋董事長最新核准內容。
+
+---
+
 ## 前置準備：素材盤點
 
 | 項目 | 狀態 |
@@ -14,7 +31,7 @@
 | 目標客群／服務地區／SEO 關鍵字 3–5 組／聯絡方式 | ⏳ 待與董事長確認，目前為空 |
 | 各頁面文案 | 只有首頁（`官網文案/1.首頁.rtf`）完成，其餘六頁尚未撰寫，目前用佔位文字 |
 | 真實 Logo | ✅ 已有（`images/logo.jpg`） |
-| 首頁參考圖 | ✅ 5 張 AI 參考圖已套用（hero-arch／about-corridor／journey-steps／gallery-tunnel／gallery-constellation） |
+| 首頁參考圖 | ✅ 5 張 AI 參考圖已套用（hero-arch／about-corridor／journey-steps／gallery-tunnel／gallery-constellation）；2026-07-21 首頁主視覺換新為 `home-hero.png`（原 `claude/圖片/1.首頁圖片/首頁1.png`），`hero-arch.png` 保留供 Future Health 頁與 Journal 縮圖使用 |
 
 ⚠️ 尚未有真實醫療團隊照片、Journal 縮圖、其餘六頁的攝影素材 —— 目前用金色調文字佔位卡，**不要生成假的人物照片**，等真實素材到位再替換。
 
