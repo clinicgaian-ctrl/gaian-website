@@ -4,9 +4,7 @@
   About / Journal / Walking Together 的 5 項內容為草稿，待品牌方確認定稿。
 */
 window.GAIAN_NAV = {
-  logoTagline: "FUTURE HEALTH & ELEVATED LIVING",
   utility: [
-    { label: "會員登入｜VIC", href: "walking-together.html" },
     { label: "中 / EN", href: "#", lang: true }
   ],
   reserve: { label: "RESERVATION 開始旅程", href: "contact.html" },

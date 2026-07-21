@@ -290,8 +290,18 @@ body.no-scroll{overflow:hidden;}
 .core-en{display:block;font-family:'Jost',sans-serif;font-size:10.5px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-light);margin-bottom:6px;}
 .core-zh{display:block;font-size:14px;line-height:1.5;}
 @media(max-width:960px){
-  .core-grid{flex-direction:column;}
-  .core-card, .core-card:nth-child(1), .core-card:nth-child(2), .core-card:nth-child(3), .core-card:nth-child(4){height:340px;width:100%;}
+  /* 手機／平板：改成可橫向滑動的雜誌式卡片，取代四個等高方塊 */
+  .core-grid{
+    flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;gap:16px;padding:0 10vw 10px 6vw;
+    scrollbar-width:none;
+  }
+  .core-grid::-webkit-scrollbar{display:none;}
+  .core-card, .core-card:nth-child(1), .core-card:nth-child(2), .core-card:nth-child(3), .core-card:nth-child(4){
+    flex:0 0 72vw;scroll-snap-align:center;
+  }
+  .core-card:nth-child(odd){height:440px;align-self:flex-start;}
+  .core-card:nth-child(even){height:520px;align-self:flex-end;}
 }
 
 /* PROCESS（健康管理方式） */
@@ -304,17 +314,61 @@ body.no-scroll{overflow:hidden;}
 .process-node b{display:block;font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;margin-bottom:4px;color:var(--ink);}
 .pn-en{font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.15em;color:var(--ink-soft);text-transform:uppercase;}
 .process-cta{text-align:center;margin-top:50px;}
-@media(max-width:760px){
-  .process-nodes{grid-template-columns:1fr;gap:36px;}
-  .process-line{display:none;}
-}
 
-/* ===== FLOW ZONE：金色流動線條（貫穿 Hero / About / Journey） ===== */
-.flow-zone{position:relative;}
-.flow-line{
-  position:absolute;top:0;left:0;width:100%;height:100%;
-  z-index:1;pointer-events:none;
+/* Scroll Journey（手機版專屬：一屏一步驟，滑動時背景依序切換） */
+.scroll-journey{display:none;}
+@media(max-width:760px){
+  .process-diagram,
+  .process-cta{display:none;}
+  .scroll-journey{
+    display:block;margin:50px -6vw -80px;
+    scroll-snap-type:y mandatory;
+  }
+  .sj-step{
+    height:100vh;position:relative;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;text-align:center;
+    background-size:cover;background-position:center;
+    scroll-snap-align:start;
+  }
+  .sj-step::before{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(20,17,12,0.5) 0%, rgba(20,17,12,0.3) 45%, rgba(20,17,12,0.6) 100%);
+  }
+  .sj-inner{position:relative;z-index:2;color:#F8F2E4;}
+  .sj-index{
+    display:block;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:0.3em;
+    color:var(--gold-light);margin-bottom:18px;
+  }
+  .sj-inner h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:48px;margin-bottom:12px;color:#FBF7EE;}
+  .sj-en{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#E7DCC3;}
+  .sj-cta{display:inline-block;margin-top:30px;position:relative;z-index:2;}
 }
+@media(min-width:761px){.scroll-journey{display:none !important;}}
+
+/* ===== FLOW ZONE：Hero + About 柔光氛圍 ===== */
+.flow-zone{position:relative;}
+.shimmer-layer{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;}
+.shimmer{
+  position:absolute;border-radius:50%;
+  background:radial-gradient(circle, rgba(243,223,193,0.55) 0%, rgba(200,165,106,0.18) 45%, transparent 72%);
+  filter:blur(3px);
+  animation:shimmerPulse 10s ease-in-out infinite;
+}
+.shimmer.s1{width:240px;height:240px;top:12%;left:6%;animation-delay:0s;}
+.shimmer.s2{width:170px;height:170px;top:44%;left:62%;animation-delay:3.2s;}
+.shimmer.s3{width:190px;height:190px;top:80%;left:22%;animation-delay:6.4s;}
+@keyframes shimmerPulse{0%,100%{opacity:0.22;transform:scale(0.9);}50%{opacity:0.6;transform:scale(1.08);}}
+@media(max-width:760px){.shimmer-layer{display:none;}}
+@media(prefers-reduced-motion: reduce){.shimmer{animation:none;opacity:0.3;}}
+
+/* About 區塊上緣的霧感過渡，柔化與 Hero 的接縫 */
+.about-mist{
+  position:absolute;top:-160px;left:0;right:0;height:300px;z-index:2;pointer-events:none;
+  background:linear-gradient(180deg, rgba(20,17,12,0.4) 0%, rgba(70,62,44,0.22) 30%, rgba(160,140,104,0.1) 55%, rgba(250,246,239,0) 78%);
+  filter:blur(22px);
+}
+@media(max-width:860px){.about-mist{top:-90px;height:180px;filter:blur(16px);}}
+
 .golden-line{
   fill:none;
   stroke:url(#goldGradient);
@@ -323,14 +377,6 @@ body.no-scroll{overflow:hidden;}
   stroke-linejoin:round;
   filter:drop-shadow(0 0 6px rgba(200,165,106,0.28));
   opacity:0.42;
-}
-.flow-dot{fill:#F3DFC1;filter:drop-shadow(0 0 3px rgba(243,223,193,0.5));}
-@media(max-width:760px){
-  .golden-line{stroke-width:1;filter:drop-shadow(0 0 4px rgba(200,165,106,0.22));}
-  .flow-dot:nth-of-type(2), .flow-dot:nth-of-type(3){display:none;}
-}
-@media(prefers-reduced-motion: reduce){
-  .flow-dot{display:none;}
 }
 
 /* GALLERY editorial */

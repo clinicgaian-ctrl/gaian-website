@@ -14,52 +14,13 @@
 <!-- ===== NAV ===== -->
 <nav class="nav" id="mainNav" data-active="home"></nav>
 
-<!-- ===== FLOW ZONE：HERO + ABOUT（金色生命流動線） ===== -->
+<!-- ===== FLOW ZONE：HERO + ABOUT（柔光氛圍，取代原本的線條動態） ===== -->
 <div class="flow-zone">
-  <svg class="flow-line" viewBox="0 0 500 1450" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-    <defs>
-      <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#9F7A45"/>
-        <stop offset="45%" stop-color="#F3DFC1"/>
-        <stop offset="70%" stop-color="#C8A56A"/>
-        <stop offset="100%" stop-color="#8E6C3D"/>
-      </linearGradient>
-      <linearGradient id="fadeMaskGrad" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#fff" stop-opacity="0"/>
-        <stop offset="6%" stop-color="#fff" stop-opacity="1"/>
-        <stop offset="94%" stop-color="#fff" stop-opacity="1"/>
-        <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
-      </linearGradient>
-      <mask id="fadeMask" maskUnits="userSpaceOnUse" x="0" y="0" width="500" height="1450">
-        <rect x="0" y="0" width="500" height="1450" fill="url(#fadeMaskGrad)"/>
-      </mask>
-    </defs>
-    <path id="flowPath" class="golden-line" mask="url(#fadeMask)" vector-effect="non-scaling-stroke"
-      d="M 40 705 C 70 600, 25 500, 60 400
-         C 90 300, 30 220, 75 140
-         C 130 80, 220 55, 300 90
-         C 360 120, 345 220, 330 300
-         C 315 380, 270 460, 250 560
-         C 235 620, 255 690, 240 760
-         C 210 820, 260 880, 225 940
-         C 195 1000, 235 1060, 200 1120
-         C 175 1180, 210 1240, 190 1300
-         C 175 1340, 185 1370, 195 1410"
-      fill="none" stroke="url(#goldGradient)"/>
-
-    <circle r="1.6" class="flow-dot">
-      <animateMotion dur="19s" begin="0s" repeatCount="indefinite" rotate="auto"><mpath href="#flowPath"/></animateMotion>
-      <animate attributeName="opacity" values="0;0.55;0.55;0" keyTimes="0;0.08;0.85;1" dur="19s" begin="0s" repeatCount="indefinite"/>
-    </circle>
-    <circle r="1.3" class="flow-dot">
-      <animateMotion dur="23s" begin="7s" repeatCount="indefinite" rotate="auto"><mpath href="#flowPath"/></animateMotion>
-      <animate attributeName="opacity" values="0;0.45;0.45;0" keyTimes="0;0.08;0.85;1" dur="23s" begin="7s" repeatCount="indefinite"/>
-    </circle>
-    <circle r="1.8" class="flow-dot">
-      <animateMotion dur="17s" begin="13s" repeatCount="indefinite" rotate="auto"><mpath href="#flowPath"/></animateMotion>
-      <animate attributeName="opacity" values="0;0.5;0.5;0" keyTimes="0;0.08;0.85;1" dur="17s" begin="13s" repeatCount="indefinite"/>
-    </circle>
-  </svg>
+  <div class="shimmer-layer" aria-hidden="true">
+    <span class="shimmer s1"></span>
+    <span class="shimmer s2"></span>
+    <span class="shimmer s3"></span>
+  </div>
 
   <!-- ===== PART 1｜HERO 主視覺 ===== -->
   <!-- TODO：規劃中的 8–10 秒循環影片（白色神殿／拱門／晨光／水面／遠方人物緩步）尚未提供素材，
@@ -78,6 +39,7 @@
 
   <!-- ===== PART 2｜GAIAN 是什麼（左文右圖） ===== -->
   <section class="section texture-bg" id="about">
+    <div class="about-mist" aria-hidden="true"></div>
     <div class="about-grid">
       <div class="about-text">
         <p class="eyebrow en">What Is GAIAN</p>
@@ -124,6 +86,14 @@
   </div>
   <div class="process-diagram">
     <svg class="process-line" viewBox="0 0 900 120" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#9F7A45"/>
+          <stop offset="45%" stop-color="#F3DFC1"/>
+          <stop offset="70%" stop-color="#C8A56A"/>
+          <stop offset="100%" stop-color="#8E6C3D"/>
+        </linearGradient>
+      </defs>
       <path id="processPath" class="golden-line" vector-effect="non-scaling-stroke"
         d="M 112 70 C 200 20, 250 100, 337 60 C 420 20, 480 100, 562 60 C 650 20, 700 100, 787 60"
         fill="none" stroke="url(#goldGradient)"/>
@@ -136,6 +106,23 @@
     </div>
   </div>
   <div class="process-cta"><a class="btn dark" href="future-health.html">查看完整醫療服務</a></div>
+
+  <!-- 手機版 Scroll Journey：每滑一屏對應一個步驟，背景依序為 光／水波／大理石／夕陽 -->
+  <div class="scroll-journey">
+    <div class="sj-step" style="background-image:url('images/home/core-integrative.png');">
+      <div class="sj-inner"><span class="sj-index">01</span><h3>理解</h3><span class="sj-en">Understand</span></div>
+    </div>
+    <div class="sj-step" style="background-image:url('images/home/core-management.png');">
+      <div class="sj-inner"><span class="sj-index">02</span><h3>評估</h3><span class="sj-en">Assess</span></div>
+    </div>
+    <div class="sj-step" style="background-image:url('images/home/core-gallery.png');">
+      <div class="sj-inner"><span class="sj-index">03</span><h3>規劃</h3><span class="sj-en">Plan</span></div>
+    </div>
+    <div class="sj-step sj-last" style="background-image:url('images/home/home-hero.png');">
+      <div class="sj-inner"><span class="sj-index">04</span><h3>陪伴</h3><span class="sj-en">Accompany</span></div>
+      <a class="btn sj-cta" href="future-health.html">查看完整醫療服務</a>
+    </div>
+  </div>
 </section>
 
 <!-- ===== PART 5｜美的概念館（延續背景，不切割） ===== -->

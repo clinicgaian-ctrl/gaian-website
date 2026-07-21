@@ -37,6 +37,17 @@
 
 ---
 
+## 2026-07-21 首頁動態與導覽修正紀錄
+
+- **Hero＋About 線條拿掉**：原本貫穿 Hero/About 的金色 SVG 線條視覺太生硬，已移除，改成 `js/flow-line.js` 不再處理（該檔現在只管 Process 區塊的節點連線），首頁改用 `.shimmer-layer`（`css/style.css`）三顆柔光光暈做氛圍點綴。
+- **Hero→About 接縫**：新增 `.about-mist` 霧感圖層（模糊漸層），柔化原本過硬的色塊切線。
+- **四大核心手機版**：改成可橫向滑動＋高低錯落的雜誌式卡片（`.core-grid` 在 ≤960px 走 `scroll-snap-type:x`），不再是四個等高方塊。
+- **健康管理方式手機版**：改成 Scroll Journey（`.scroll-journey`／`.sj-step`），每滑一屏對應一個步驟，背景依序為光／水波／大理石／夕陽（對應 `core-integrative.png`／`core-management.png`／`core-gallery.png`／`home-hero.png`），純 CSS `scroll-snap` 實作，不依賴 GSAP。桌機版維持原本白底＋四節點金線圖不變。
+- **重要 bugfix**：`js/nav.js` 的 logo 路徑在圖片資料夾整理後沒有同步更新，導致全站 Logo 破圖，已修正為 `images/shared/logo-icon.png`；同時拿掉 Logo 旁的英文標語文字（改成純圖示）。
+- **導覽移除「會員登入」**：`js/nav-data.js` 的 utility 只保留語言切換，不再顯示會員登入連結。
+
+---
+
 ## 視覺 Design Token（取自 `css/style.css`）
 
 - 色票：`--gold #B8934A`／`--gold-light #D9BC81`／`--gold-pale #F3E9D6`／`--ink #2A2620`／`--ink-soft #5C564B`／`--cream #FAF6EF`／`--mist #EDE6D6`
