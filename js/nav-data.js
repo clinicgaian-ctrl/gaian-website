@@ -16,7 +16,7 @@ window.GAIAN_NAV = {
       key: "about", en: "ABOUT GAIAN", zh: "關於 GAIAN", href: "about.html",
       quote: "不只是一個品牌，<br>而是一種重新理解健康的信念。",
       quoteSource: "GAIAN Philosophy",
-      image: "images/about-corridor.png",
+      image: "images/shared/about-corridor.png",
       items: [
         { en: "Brand Story", zh: "品牌故事", tagline: "從 GAIA 到 GAIAN", desc: "一段關於重新理解健康的品牌起源。", href: "about.html#story" },
         { en: "GAIA × GAIAN", zh: "品牌血緣", tagline: "品牌宇宙中的實踐場域", desc: "GAIAN 是 GAIA 品牌宇宙中，專注於未來健康的一個章節。", href: "about.html#gaia" },
@@ -29,7 +29,7 @@ window.GAIAN_NAV = {
       key: "future-health", en: "FUTURE HEALTH", zh: "未來健康", href: "future-health.html",
       quote: "醫學，不只是治療，<br>更是重新理解生命。",
       quoteSource: "GAIAN Philosophy",
-      image: "images/hero-arch.png",
+      image: "images/shared/hero-arch.png",
       items: [
         { en: "Integrative Medicine", zh: "整合醫學", tagline: "重新理解醫學，從整體出發", desc: "GAIAN 整合中西醫學、功能醫學與生活醫學，從根本理解身體的需求，不只治療疾病，而是陪伴每一個人走向真正的健康與平衡。", href: "future-health.html#integrative" },
         { en: "Health Management", zh: "健康管理", tagline: "讓健康，成為可以被管理的日常", desc: "從睡眠、壓力、疼痛到營養，建立長期追蹤與調整的健康管理機制，而不是等問題發生才處理。", href: "future-health.html#management" },
@@ -42,7 +42,7 @@ window.GAIAN_NAV = {
       key: "gallery", en: "BEAUTY CONCEPT GALLERY", zh: "美的概念館", href: "gallery.html",
       quote: "真正的美，<br>是每天都能被感受的生活。",
       quoteSource: "GAIAN Philosophy",
-      image: "images/gallery-constellation.png",
+      image: "images/shared/gallery-constellation.png",
       items: [
         { en: "Beauty Philosophy", zh: "美的理念", tagline: "美，是健康最深的根基", desc: "由內而外，重新定義美的樣貌——不是修飾，而是身體與生活重新回到平衡後，自然展現的狀態。", href: "gallery.html#philosophy" },
         { en: "Art & Life", zh: "藝術與生活", tagline: "藝術不是展示，而是每天共處的存在", desc: "當生活開始被美好的事物包圍，感受隨之改變，身心也逐漸回到平衡。", href: "gallery.html#art-life" },
@@ -55,7 +55,7 @@ window.GAIAN_NAV = {
       key: "journal", en: "JOURNAL", zh: "品牌觀點", href: "journal.html",
       quote: "每一次閱讀，<br>都是理解自己的開始。",
       quoteSource: "GAIAN Journal",
-      image: "images/gallery-tunnel.png",
+      image: "images/shared/gallery-tunnel.png",
       items: [
         { en: "Future Health", zh: "未來健康觀點", tagline: "重新定義健康的核心價值", desc: "分享整合醫學與預防醫學的未來趨勢與觀點。", href: "journal.html#future-health" },
         { en: "Lifestyle", zh: "生活方式", tagline: "讓健康自然融入每一天", desc: "從日常習慣出發，探討生活方式如何形塑長期健康。", href: "journal.html#lifestyle" },
@@ -68,7 +68,7 @@ window.GAIAN_NAV = {
       key: "walking-together", en: "WALKING TOGETHER", zh: "同行者", href: "walking-together.html",
       quote: "我們尋找的，從來不是顧客，<br>而是願意同行的人。",
       quoteSource: "GAIAN Philosophy",
-      image: "images/about-corridor.png",
+      image: "images/shared/about-corridor.png",
       items: [
         { en: "Our Belief", zh: "同行理念", tagline: "我們尋找的，不是顧客", desc: "而是願意與 GAIAN 一起，走一段重新理解健康旅程的人。", href: "walking-together.html#belief" },
         { en: "The Journey", zh: "健康旅程", tagline: "陪伴，是最長期的承諾", desc: "從第一次理解開始，到建立屬於自己的健康節奏。", href: "walking-together.html#journey" },
