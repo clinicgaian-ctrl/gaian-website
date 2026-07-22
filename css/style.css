@@ -524,31 +524,31 @@ body.no-scroll{overflow:hidden;}
   color:var(--ink);max-width:620px;margin:0 auto;
 }
 
-/* OUR MEDICAL DISCIPLINES：六大醫療領域，拱門造型卡片＋左右滑動輪播，取代死板的方格網格 */
+/* OUR MEDICAL DISCIPLINES：六大醫療領域，拱門徽章＋右側說明文字，左右滑動輪播，取代死板的方格網格 */
 .discipline-carousel{max-width:1300px;margin:60px auto 0;}
 .discipline-track{
-  display:flex;gap:26px;overflow-x:auto;scroll-snap-type:x mandatory;
-  -webkit-overflow-scrolling:touch;padding:14px 6vw 20px;scrollbar-width:none;
+  display:flex;gap:56px;overflow-x:auto;scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;padding:24px 6vw 30px;scrollbar-width:none;
 }
 .discipline-track::-webkit-scrollbar{display:none;}
 .discipline-card{
-  flex:0 0 260px;scroll-snap-align:center;display:block;position:relative;text-decoration:none;
-  background:var(--cream);border:1px solid rgba(184,147,74,0.24);
-  border-radius:130px 130px 14px 14px;overflow:hidden;
-  transition:transform 0.5s cubic-bezier(.16,.8,.24,1), box-shadow 0.5s, border-color 0.5s;
+  flex:0 0 400px;scroll-snap-align:center;display:flex;align-items:center;gap:26px;
+  position:relative;text-decoration:none;padding:10px;border-radius:18px;
+  transition:transform 0.5s cubic-bezier(.16,.8,.24,1), background 0.5s;
 }
-.discipline-card:nth-child(even){margin-top:34px;}
-.discipline-card:hover{transform:translateY(-8px);box-shadow:0 34px 60px rgba(20,18,12,0.14);border-color:var(--gold-light);}
+.discipline-card:nth-child(even){margin-top:40px;}
+.discipline-card:hover{transform:translateY(-6px);background:rgba(184,147,74,0.06);}
 .dc-arch{
-  display:flex;align-items:center;justify-content:center;height:170px;
-  background:radial-gradient(circle at 50% 32%, rgba(184,147,74,0.2) 0%, rgba(184,147,74,0.06) 62%, transparent 78%);
-  border-bottom:1px solid rgba(184,147,74,0.16);
+  flex:0 0 150px;height:180px;display:flex;align-items:center;justify-content:center;
+  border-radius:90px 90px 12px 12px;
+  background:radial-gradient(circle at 50% 32%, rgba(184,147,74,0.22) 0%, rgba(184,147,74,0.07) 62%, transparent 78%);
+  border:1px solid rgba(184,147,74,0.22);
 }
-.dc-index{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:300;color:var(--gold-light);}
-.dc-body{display:block;padding:28px 26px 32px;}
-.discipline-card h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:21px;color:var(--ink);margin-bottom:10px;}
+.dc-index{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;color:var(--gold-light);}
+.dc-body{display:block;flex:1;min-width:0;}
+.discipline-card h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:22px;color:var(--ink);margin-bottom:10px;}
 .dc-en{display:block;font-family:'Jost',sans-serif;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px;}
-.discipline-card p{font-size:13.5px;color:var(--ink-soft);font-weight:300;line-height:1.7;margin-bottom:20px;}
+.discipline-card p{font-size:13.5px;color:var(--ink-soft);font-weight:300;line-height:1.75;margin-bottom:18px;}
 .dc-arrow{display:inline-block;font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);font-size:18px;transition:transform 0.4s;}
 .discipline-card:hover .dc-arrow{transform:translateX(6px);}
 .discipline-nav{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:20px;}
@@ -561,9 +561,9 @@ body.no-scroll{overflow:hidden;}
 .disc-dot{width:7px;height:7px;border-radius:50%;background:rgba(184,147,74,0.28);border:none;cursor:pointer;padding:0;transition:0.3s;}
 .disc-dot.is-active{background:var(--gold);transform:scale(1.3);}
 @media(max-width:760px){
-  .discipline-card{flex:0 0 220px;}
-  .discipline-card:nth-child(even){margin-top:24px;}
-  .dc-arch{height:140px;}
+  .discipline-card{flex:0 0 300px;gap:18px;}
+  .discipline-card:nth-child(even){margin-top:26px;}
+  .dc-arch{flex:0 0 110px;height:140px;}
 }
 
 /* THE COMPANIONS：首頁一次只展示一位醫師的輪播，避免變成「大頭照牆」 */
