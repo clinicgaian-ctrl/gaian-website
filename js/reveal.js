@@ -1,5 +1,5 @@
 (function () {
-  var els = document.querySelectorAll('.reveal');
+  var els = document.querySelectorAll('.reveal, .reveal-photo');
   if (!('IntersectionObserver' in window) || !els.length) {
     els.forEach(function (el) { el.classList.add('in-view'); });
     return;
