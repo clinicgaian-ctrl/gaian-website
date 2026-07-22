@@ -172,43 +172,62 @@
     <p class="eyebrow en">Our Medical Disciplines</p>
     <h2>每一個專業，<br>都是理解生命的一種方式。</h2>
   </div>
-  <div class="discipline-grid">
-    <a class="discipline-card" href="future-health.html#integrative">
-      <span class="dc-index">01</span>
-      <h3>整合醫學<span class="dc-en">Integrative Medicine</span></h3>
-      <p>從全人健康出發，建立個人化醫療規劃。</p>
-      <span class="dc-arrow">→</span>
-    </a>
-    <a class="discipline-card" href="future-health.html#team">
-      <span class="dc-index">02</span>
-      <h3>神經醫學<span class="dc-en">Neurology</span></h3>
-      <p>睡眠．壓力．腦健康</p>
-      <span class="dc-arrow">→</span>
-    </a>
-    <a class="discipline-card" href="future-health.html#team">
-      <span class="dc-index">03</span>
-      <h3>皮膚健康<span class="dc-en">Skin Health</span></h3>
-      <p>健康肌膚．醫學美容．年齡管理</p>
-      <span class="dc-arrow">→</span>
-    </a>
-    <a class="discipline-card" href="future-health.html#team">
-      <span class="dc-index">04</span>
-      <h3>再生醫學<span class="dc-en">Regenerative Medicine</span></h3>
-      <p>細胞修復．再生醫學</p>
-      <span class="dc-arrow">→</span>
-    </a>
-    <a class="discipline-card" href="future-health.html#team">
-      <span class="dc-index">05</span>
-      <h3>女性健康<span class="dc-en">Women's Health</span></h3>
-      <p>婦科．荷爾蒙．私密照護</p>
-      <span class="dc-arrow">→</span>
-    </a>
-    <a class="discipline-card" href="future-health.html#team">
-      <span class="dc-index">06</span>
-      <h3>男性健康<span class="dc-en">Men's Health</span></h3>
-      <p>男性健康．泌尿．疼痛</p>
-      <span class="dc-arrow">→</span>
-    </a>
+  <div class="discipline-carousel">
+    <div class="discipline-track" id="disciplineTrack">
+      <a class="discipline-card" href="future-health.html#integrative">
+        <span class="dc-arch"><span class="dc-index">01</span></span>
+        <span class="dc-body">
+          <h3>整合醫學<span class="dc-en">Integrative Medicine</span></h3>
+          <p>從全人健康出發，建立個人化醫療規劃。</p>
+          <span class="dc-arrow">→</span>
+        </span>
+      </a>
+      <a class="discipline-card" href="future-health.html#team">
+        <span class="dc-arch"><span class="dc-index">02</span></span>
+        <span class="dc-body">
+          <h3>神經醫學<span class="dc-en">Neurology</span></h3>
+          <p>睡眠．壓力．腦健康</p>
+          <span class="dc-arrow">→</span>
+        </span>
+      </a>
+      <a class="discipline-card" href="future-health.html#team">
+        <span class="dc-arch"><span class="dc-index">03</span></span>
+        <span class="dc-body">
+          <h3>皮膚健康<span class="dc-en">Skin Health</span></h3>
+          <p>健康肌膚．醫學美容．年齡管理</p>
+          <span class="dc-arrow">→</span>
+        </span>
+      </a>
+      <a class="discipline-card" href="future-health.html#team">
+        <span class="dc-arch"><span class="dc-index">04</span></span>
+        <span class="dc-body">
+          <h3>再生醫學<span class="dc-en">Regenerative Medicine</span></h3>
+          <p>細胞修復．再生醫學</p>
+          <span class="dc-arrow">→</span>
+        </span>
+      </a>
+      <a class="discipline-card" href="future-health.html#team">
+        <span class="dc-arch"><span class="dc-index">05</span></span>
+        <span class="dc-body">
+          <h3>女性健康<span class="dc-en">Women's Health</span></h3>
+          <p>婦科．荷爾蒙．私密照護</p>
+          <span class="dc-arrow">→</span>
+        </span>
+      </a>
+      <a class="discipline-card" href="future-health.html#team">
+        <span class="dc-arch"><span class="dc-index">06</span></span>
+        <span class="dc-body">
+          <h3>男性健康<span class="dc-en">Men's Health</span></h3>
+          <p>男性健康．泌尿．疼痛</p>
+          <span class="dc-arrow">→</span>
+        </span>
+      </a>
+    </div>
+    <div class="discipline-nav">
+      <button class="disc-arrow" id="disciplinePrev" aria-label="上一項">←</button>
+      <div class="disc-dots" id="disciplineDots"></div>
+      <button class="disc-arrow" id="disciplineNext" aria-label="下一項">→</button>
+    </div>
   </div>
 </section>
 
@@ -336,6 +355,7 @@
 <script src="js/nav.js"></script>
 <script src="js/reveal.js"></script>
 <script src="js/companions.js"></script>
+<script src="js/discipline-carousel.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="js/flow-line.js"></script>
