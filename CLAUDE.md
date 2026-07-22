@@ -56,6 +56,13 @@
 
 ---
 
+## 2026-07-22 Hero→About 過渡最終定案＋About 進場特效
+
+- 嘗試多輪霧化／模糊過渡效果後，董事長最終決定 **Hero 與 About 之間不做任何漸層或霧化，改回乾淨的硬切**（`.about-mist` 已整個移除，Hero 圖片改用 `--hero-img` 變數的架構保留，供之後其他用途）。
+- About 區塊是重要品牌溝通區塊，改用「先神秘、往下滑再展示照片」的進場動畫：新增 `js/reveal.js`（IntersectionObserver，滾動進入視野時加上 `.in-view`），文字用既有的 `.reveal` 淡入上移，照片用新增的 `.reveal-photo`（模糊＋變暗＋輕微放大 → 清晰＋正常亮度＋原尺寸）。
+
+---
+
 ## 視覺 Design Token（取自 `css/style.css`）
 
 - 色票：`--gold #B8934A`／`--gold-light #D9BC81`／`--gold-pale #F3E9D6`／`--ink #2A2620`／`--ink-soft #5C564B`／`--cream #FAF6EF`／`--mist #EDE6D6`
