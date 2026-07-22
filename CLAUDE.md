@@ -63,6 +63,24 @@
 
 ---
 
+## 2026-07-22（晚）首頁醫師區塊全面改版：品牌定位對齊國際高端醫療品牌
+
+董事長參考 Aman／Mayo Clinic／Cleveland Clinic／SHA Wellness／Lanserhof／Four Seasons Health 等國際高端醫療與生活方式品牌後，指出首頁不應該一開始就是「醫師大頭照網格」（顯得像一般診所），應該先建立「GAIAN 有什麼樣的醫療能力」，醫師是最後才認識的角色。
+
+**首頁 `index.html`（原 `#team` 醫師大頭照網格，已整個拆解重建為三段）：**
+- **`#team`（The People of GAIAN）**：品牌理念引言，純文字置中，不放人物照片。
+- **`#disciplines`（Our Medical Disciplines）**：六大醫療領域卡片取代醫師照片，作為首頁主要內容——整合醫學／神經醫學／皮膚健康／再生醫學／女性健康／男性健康，每張卡連結到 `future-health.html` 對應錨點（整合醫學→`#integrative`，其餘→`#team`，因為那裡就能看到對應領域的醫師）。新增 `.discipline-grid`／`.discipline-card` 樣式。
+- **`#companions`（The Companions）**：一次只展示一位醫師的輪播（不是四張一起），新增 `js/companions.js`（vanilla JS，上一位／下一位按鈕＋圓點導覽）與對應 CSS（`.companion-slider` 等）。內容為董事長提供、已符合醫療廣告規範（避免療效保證、避免誇大）的 6 位醫師簡介。
+
+**`future-health.html` 的 `#team`（醫療團隊完整頁）同步更新**：原本也是假的 Dr. 陳／林／王／營養團隊佔位資料，已換成同一批 6 位真實醫師（含理念金句與簡介），`.team-grid` 改為 3 欄排列。醫師排列順序依「健康旅程」而非字母/職稱：整合醫學（陳仁浩）→神經醫學（謝元貴）→皮膚健康（唐豪悅、黃詩婷）→女性健康／再生醫學（李伯寧）→男性健康（黃柏仁）。
+
+**待補事項**：
+- 6 位醫師目前都用金色調文字佔位卡（`.team-photo`／`.companion-photo`），尚無正式照片，**不要生成假的人物照片**。
+- 醫師個人介紹頁（點進去看學歷／經歷／證照／專長）尚未建立，目前「閱讀介紹」動作先省略；待董事長提供完整 CV 內容後再規劃獨立頁面或彈窗。
+- 六大醫療領域卡片目前多數連到 `future-health.html#team`（籠統指向醫師團隊區），未來若各領域有獨立內容區塊，應改為各自的錨點。
+
+---
+
 ## 視覺 Design Token（取自 `css/style.css`）
 
 - 色票：`--gold #B8934A`／`--gold-light #D9BC81`／`--gold-pale #F3E9D6`／`--ink #2A2620`／`--ink-soft #5C564B`／`--cream #FAF6EF`／`--mist #EDE6D6`
@@ -82,7 +100,7 @@
 | 3 四大核心 | 4 張正式攝影＋一句話，雜誌式錯落高度排版（650/520/760/580px），hover 微放大 | `#core-values` | ✅ 完成，已換上正式攝影（`images/home/core-integrative.png`／`core-management.png`／`core-gallery.png`／`core-culture.png`） |
 | 4 健康管理方式 | 4 節點（理解/評估/規劃/陪伴）＋金色線 scroll 逐步展開 | `#process` | ✅ 白底＋金線節點圖完成（`js/flow-line.js` 的 `initProcessLine`） |
 | 5 美的概念館 | 3 張大圖，延續背景不切割 | `#gallery` | ✅ 完成，圖片為暫代素材 |
-| 6 醫療團隊 | 佔位卡＋新文案 | `#team` | ⏳ 待補正式團隊照片（醫師閱讀/討論/互動，避免排排站） |
+| 6 醫療能力先於醫師 | The People of GAIAN 理念引言 → 六大醫療領域卡片 → The Companions 醫師輪播（一次一位） | `#team`／`#disciplines`／`#companions` | ✅ 2026-07-22 改版完成，內容為真實 6 位醫師（合規簡介）；⏳ 待補正式照片與個人介紹頁 |
 | 7 品牌觀點 Featured Story | 單篇精選，非列表 | `#journal` | ✅ 完成，圖片為暫代素材 |
 | 8 開始旅程 CTA | 雙 CTA「探索 GAIAN／立即預約」 | `#contact` | ✅ 完成 |
 

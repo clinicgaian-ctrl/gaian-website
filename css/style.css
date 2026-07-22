@@ -453,13 +453,16 @@ body.no-scroll{overflow:hidden;}
 }
 .gallery-cta{text-align:center;margin-top:50px;}
 
-/* BEAUTY ORBIT GRID（美的概念館首頁預覽，圓形＋軌道動態） */
+/* BEAUTY ORBIT GRID（美的概念館首頁預覽，圓形＋軌道動態）：
+   由左到右刻意錯落排列，不做整齊對齊，呼應「四大核心」的雜誌式節奏 */
 .beauty-orbit-grid{
-  display:flex;justify-content:center;align-items:flex-end;flex-wrap:wrap;
-  gap:70px 50px;max-width:1200px;margin:70px auto 0;padding:30px 6vw 10px;
+  display:flex;justify-content:center;align-items:flex-start;flex-wrap:wrap;
+  gap:40px 50px;max-width:1200px;margin:70px auto 0;padding:30px 6vw 10px;
 }
-.orbit-card{position:relative;display:block;text-align:center;text-decoration:none;margin-bottom:50px;}
-.orbit-card-lg{margin-bottom:0;}
+.orbit-card{position:relative;display:block;text-align:center;text-decoration:none;}
+.orbit-card:nth-child(1){margin-top:60px;}
+.orbit-card:nth-child(2){margin-top:0;}
+.orbit-card:nth-child(3){margin-top:110px;}
 .orbit-photo{
   position:relative;z-index:2;width:260px;height:260px;border-radius:50%;overflow:hidden;
   box-shadow:0 30px 60px rgba(20,18,12,0.24);
@@ -487,10 +490,13 @@ body.no-scroll{overflow:hidden;}
 .orbit-tagline{display:block;font-size:13px;line-height:1.7;color:var(--ink-soft);font-weight:300;}
 @media(prefers-reduced-motion: reduce){.orbit-ring{animation:none;}.orbit-particle{animation:none;}}
 @media(max-width:760px){
-  .beauty-orbit-grid{gap:50px;}
+  .beauty-orbit-grid{flex-direction:column;align-items:center;gap:56px;}
   .orbit-photo{width:210px;height:210px;}
   .orbit-card-lg .orbit-photo{width:250px;height:250px;}
-  .orbit-card, .orbit-card-lg{margin-bottom:0;}
+  /* 直向排列時左右自然錯開，不要三個都卡在正中間 */
+  .orbit-card:nth-child(1){margin-top:0;align-self:flex-start;margin-left:6vw;}
+  .orbit-card:nth-child(2){margin-top:0;align-self:center;}
+  .orbit-card:nth-child(3){margin-top:0;align-self:flex-end;margin-right:6vw;}
 }
 
 /* MEDICAL TEAM */
@@ -498,7 +504,7 @@ body.no-scroll{overflow:hidden;}
 .team .section-head h2{color:var(--cream);}
 .team .section-head .tagline{color:#C9BFA8;}
 .team .lede{color:#C9BFA8;}
-.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;max-width:1140px;margin:70px auto 0;}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;max-width:1100px;margin:70px auto 0;}
 .team-card{text-align:center;}
 .team-photo{
   aspect-ratio:3/4;margin-bottom:18px;position:relative;overflow:hidden;border-radius:12px;
@@ -508,6 +514,67 @@ body.no-scroll{overflow:hidden;}
 .team-photo span{font-family:'Cormorant Garamond',serif;font-size:15px;color:#D9BC81;letter-spacing:0.1em;padding:0 16px;text-align:center;}
 .team-card b{display:block;font-size:14.5px;margin-bottom:4px;font-weight:500;}
 .team-card span.role{font-size:12px;color:#A99B7E;letter-spacing:0.05em;}
+.team-card .team-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:#C9BFA8;line-height:1.6;margin-top:10px;}
+.team-card .team-desc{font-size:12.5px;color:#A99B7E;font-weight:300;line-height:1.75;margin-top:10px;}
+
+/* THE PEOPLE OF GAIAN：首頁醫療區塊開場理念，先建立信念再介紹領域，最後才認識醫師 */
+.people-intro{padding:100px 8vw 40px;text-align:center;}
+.people-quote{
+  font-family:'Cormorant Garamond',serif;font-weight:300;font-size:27px;line-height:1.85;
+  color:var(--ink);max-width:620px;margin:0 auto;
+}
+
+/* OUR MEDICAL DISCIPLINES：六大醫療領域卡片，取代醫師大頭照網格 */
+.discipline-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1140px;margin:60px auto 0;}
+.discipline-card{
+  display:block;position:relative;padding:38px 30px 34px;background:var(--cream);
+  border:1px solid rgba(184,147,74,0.22);border-radius:10px;text-decoration:none;
+  transition:transform 0.5s cubic-bezier(.16,.8,.24,1), box-shadow 0.5s, border-color 0.5s;
+}
+.discipline-card:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(20,18,12,0.12);border-color:var(--gold-light);}
+.dc-index{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:0.15em;color:var(--gold-light);display:block;margin-bottom:18px;}
+.discipline-card h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:22px;color:var(--ink);margin-bottom:10px;}
+.dc-en{display:block;font-family:'Jost',sans-serif;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px;}
+.discipline-card p{font-size:13.5px;color:var(--ink-soft);font-weight:300;line-height:1.7;margin-bottom:22px;}
+.dc-arrow{display:inline-block;font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);font-size:18px;transition:transform 0.4s;}
+.discipline-card:hover .dc-arrow{transform:translateX(6px);}
+@media(max-width:860px){.discipline-grid{grid-template-columns:1fr 1fr;gap:18px;}}
+@media(max-width:560px){.discipline-grid{grid-template-columns:1fr;}}
+
+/* THE COMPANIONS：首頁一次只展示一位醫師的輪播，避免變成「大頭照牆」 */
+.companions{background:var(--ink);color:var(--cream);}
+.companions .section-head h2{color:var(--cream);font-family:'Cormorant Garamond',serif;font-weight:300;}
+.companions .section-head .eyebrow{color:var(--gold-light);}
+.companion-slider{max-width:920px;margin:60px auto 0;position:relative;overflow:hidden;}
+.companion-track{display:flex;transition:transform 0.7s cubic-bezier(.16,.8,.24,1);}
+.companion-slide{
+  flex:0 0 100%;display:grid;grid-template-columns:280px 1fr;gap:50px;align-items:center;
+  opacity:0.3;transition:opacity 0.6s;padding:0 4px;
+}
+.companion-slide.is-active{opacity:1;}
+.companion-photo{
+  aspect-ratio:3/4;border-radius:12px;overflow:hidden;position:relative;
+  background:linear-gradient(160deg,#3A3626,#5C4A2A,#8C7A4E);
+  display:flex;align-items:center;justify-content:center;
+}
+.companion-photo span{font-family:'Cormorant Garamond',serif;font-size:17px;color:#D9BC81;letter-spacing:0.12em;}
+.companion-role{font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-light);display:block;margin-bottom:14px;}
+.companion-info h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:28px;color:var(--cream);margin-bottom:16px;}
+.companion-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:#F3E9D6;line-height:1.7;margin-bottom:18px;}
+.companion-desc{font-size:14px;color:#C9BFA8;font-weight:300;line-height:1.8;}
+.companion-nav{display:flex;align-items:center;justify-content:center;gap:24px;margin-top:44px;}
+.companion-arrow{
+  background:none;border:1px solid var(--gold);color:var(--gold-light);width:40px;height:40px;border-radius:50%;
+  font-size:16px;cursor:pointer;transition:0.3s;display:flex;align-items:center;justify-content:center;
+}
+.companion-arrow:hover{background:var(--gold);color:var(--ink);}
+.companion-dots{display:flex;gap:9px;}
+.companion-dot{width:7px;height:7px;border-radius:50%;background:rgba(217,188,129,0.3);border:none;cursor:pointer;padding:0;transition:0.3s;}
+.companion-dot.is-active{background:var(--gold-light);transform:scale(1.3);}
+@media(max-width:760px){
+  .companion-slide{grid-template-columns:1fr;text-align:center;gap:26px;}
+  .companion-photo{max-width:220px;margin:0 auto;}
+}
 
 /* JOURNAL */
 .journal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:44px;max-width:1140px;margin:0 auto;}
