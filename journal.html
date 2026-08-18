@@ -11,6 +11,36 @@
 </head>
 <body>
 
+<!--
+  Status：Review（CLAUDE.md §13 LEVEL 2）
+
+  這一頁目前是「分類架構頁」，不是文章列表頁——因為還沒有任何一篇文章。
+  依 CLAUDE.md §11 Truthfulness，不得虛構文章標題、日期或作者來填滿版面，
+  因此本頁不放任何假文章卡。文章產出後，把頁面下方標示為
+  「ARTICLE LIST TEMPLATE」的註解解開，接在對應 .cat-row 之後即可，版面不需重做。
+
+  分類 ↔ Content Pillar 對應（MARKETING.md §08–§11，依 CLAUDE.md §15 每項內容須知道所屬 Pillar）：
+    未來健康觀點 → PILLAR 03 Preventive Health ＋ PILLAR 04 GAIAN Philosophy
+    生活方式     → PILLAR 06 Lifestyle & Health
+    醫療科普     → PILLAR 01 Health Knowledge ＋ PILLAR 02 Doctor Perspective
+    健康美學     → BRAND.md §11-05（真正的美建立在健康之上）
+    訪者故事     → PILLAR 05 GAIAN Experience
+
+  ⚠️ 已知落差，需決策：網站有 5 個分類，MARKETING.md 有 6 個 Content Pillar。
+     PILLAR 02 Doctor Perspective（醫師觀點）目前被併進「醫療科普」，沒有自己的分類。
+     醫師觀點是建立 Authority 的主力，建議獨立成第 6 個分類，但這會動到 Mega Menu
+     （js/nav-data.js 的 journal.items 為 5 項），屬架構調整，需先提案確認，不自行更動。
+
+  ⚠️ 訪者故事分類的法規風險（COMPLIANCE.md §39 Patient Privacy、§40 Patient Story）：
+     任何 Patient Story / Case Study / Testimonial / Interview / Before-After 發布前，
+     必須確認 Consent、Identifiability、Purpose、Medical Advertising、Accuracy 五項。
+     無法確認即不得公開。遮住姓名不等於安全。本頁文案已刻意避免任何療效見證的暗示。
+
+  ⚠️ 「編輯準則」區塊是對外承諾，不是裝飾。
+     其中「醫療審閱者」一項，需先指定 PROJECT_STATUS.md P05 Medical Review Owner（目前 [待確認]）。
+     在指定之前，任何醫療相關文章都不得發布，否則這段承諾會變成不實陳述。
+-->
+
 <nav class="nav" id="mainNav" data-active="journal" data-solid="true"></nav>
 
 
@@ -18,25 +48,153 @@
   <div>
     <p class="crumb">Journal</p>
     <h1 class="en">持續理解，才能持續健康。</h1>
-    <p>定位為品牌觀點（Insights）而非新聞稿，也是全站 SEO 內容主力。</p>
+    <p>這裡不是新聞稿，而是 GAIAN 對健康、醫學與生活的觀點。</p>
   </div>
 </section>
 
-<section class="section" id="future-health">
-  <div class="section-head">
+<section class="section" id="editorial">
+  <div class="section-head reveal">
+    <p class="eyebrow en">Why We Write</p>
+    <h2>我們為什麼書寫</h2>
+  </div>
+  <div class="prose reveal reveal-delay-1">
+    <p>很多健康問題，不是在某一天突然出現，而是在長期生活中慢慢累積。當疲勞逐漸成為日常，我們真正需要理解的，也許不只是如何休息。</p>
+    <p>Journal 存在的目的，不是說服任何人接受某一項療程，而是讓人在還沒有明確問題的時候，就有機會多理解自己的身體一點。<strong>理解，本身就是健康管理的第一步。</strong></p>
+  </div>
+
+  <div class="editorial-standard reveal reveal-delay-2">
+    <b class="en">Editorial Standard</b>
+    <ul>
+      <li>每一篇涉及醫療或健康的內容，都會標示撰稿者與醫療審閱者。</li>
+      <li>每一篇都會標示發布日期與最後更新日期。</li>
+      <li>引用的資訊會標示來源，必要時附上主要文獻依據。</li>
+      <li>我們不寫保證、不寫最強、不寫立即見效，也不用恐懼促成任何決定。</li>
+      <li>個別健康狀況因人而異，任何內容都不能取代醫師的實際診察與判斷。</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section texture-bg" id="categories">
+  <div class="section-head reveal">
     <p class="eyebrow en">Categories</p>
     <h2>分類</h2>
+    <p class="tagline">五個角度，同一件事——如何更好地理解自己。</p>
   </div>
-  <div class="block-grid">
-  <div class="block-card"><b>Future Health 未來健康觀點</b><span>重新定義健康的核心價值。</span></div>
-  <div class="block-card"><b>Lifestyle 生活方式</b><span>讓健康自然融入每一天。</span></div>
-  <div class="block-card"><b>Medical 醫療科普</b><span>專業內容，用理解取代恐懼。</span></div>
-  <div class="block-card"><b>Beauty 健康美學</b><span>美，是健康的自然結果。</span></div>
-  <div class="block-card"><b>Story 訪者故事</b><span>每一段旅程，都值得被記錄。</span></div>
-</div>
-  <p class="art-note" style="margin-top:50px;">文章列表與內容待撰寫，此頁完成後可接後台 CMS 直接發布更新。</p>
+
+  <div class="cat-list">
+
+    <!-- Content Pillar 03 Preventive Health ＋ 04 GAIAN Philosophy -->
+    <div class="cat-row reveal" id="future-health">
+      <div class="cat-label">
+        <span class="cat-index">01</span>
+        <b class="en">Future Health</b>
+        <span class="cat-zh">未來健康觀點</span>
+      </div>
+      <div class="cat-body">
+        <p class="cat-tagline">重新定義健康的核心價值。</p>
+        <p>健康管理為什麼應該更早開始？定期理解自己的身體，和等身體發出警訊才處理，差別在哪裡？這個分類談 GAIAN 如何看待預防、風險與長期健康規劃。</p>
+        <div class="cat-topics">
+          <span>預防醫學</span><span>健康風險意識</span><span>長期健康規劃</span><span>整合醫學觀點</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Pillar 06 Lifestyle & Health -->
+    <div class="cat-row reveal" id="lifestyle">
+      <div class="cat-label">
+        <span class="cat-index">02</span>
+        <b class="en">Lifestyle</b>
+        <span class="cat-zh">生活方式</span>
+      </div>
+      <div class="cat-body">
+        <p class="cat-tagline">讓健康自然融入每一天。</p>
+        <p>健康不會只發生在診間。睡眠的品質、工作的節奏、吃飯的方式、休息的時機——這些日常決定，長期下來會形成一個人的健康樣貌。</p>
+        <div class="cat-topics">
+          <span>睡眠</span><span>工作節奏</span><span>飲食</span><span>運動與休息</span><span>壓力</span><span>恢復</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Pillar 01 Health Knowledge ＋ 02 Doctor Perspective -->
+    <div class="cat-row reveal" id="medical">
+      <div class="cat-label">
+        <span class="cat-index">03</span>
+        <b class="en">Medical</b>
+        <span class="cat-zh">醫療科普</span>
+      </div>
+      <div class="cat-body">
+        <p class="cat-tagline">用理解取代恐懼。</p>
+        <p>身體發出的訊號，值得被更完整地理解。這個分類把專業內容寫成可以讀得懂的樣子，也收錄醫師對常見問題與健康迷思的觀察與解析。</p>
+        <div class="cat-topics">
+          <span>疲勞</span><span>壓力</span><span>代謝</span><span>肩頸與久坐</span><span>頭皮與落髮</span><span>健康評估觀念</span><span>醫師觀點</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BRAND.md §11-05：真正的美，建立在健康之上 -->
+    <div class="cat-row reveal" id="beauty">
+      <div class="cat-label">
+        <span class="cat-index">04</span>
+        <b class="en">Beauty</b>
+        <span class="cat-zh">健康美學</span>
+      </div>
+      <div class="cat-body">
+        <p class="cat-tagline">美，是健康的自然結果。</p>
+        <p>我們不把健康與美視為彼此對立的概念。健康是基礎，美則可以是良好生命狀態自然呈現的一部分。這個分類不談快速改造，只談身體狀態與外在樣貌之間真實的關係。</p>
+        <div class="cat-topics">
+          <span>健康與美的關係</span><span>身體狀態</span><span>美學觀點</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Pillar 05 GAIAN Experience
+         ⚠️ 本分類若刊登真實訪者內容，一律先過 COMPLIANCE.md §40 五項確認。 -->
+    <div class="cat-row reveal" id="story">
+      <div class="cat-label">
+        <span class="cat-index">05</span>
+        <b class="en">Story</b>
+        <span class="cat-zh">訪者故事</span>
+      </div>
+      <div class="cat-body">
+        <p class="cat-tagline">每一段旅程，都值得被記錄。</p>
+        <p>走進 GAIAN 會發生什麼？從空間、諮詢到健康評估的過程，以及與 GAIAN 同行的人，如何一步步建立屬於自己的健康節奏。</p>
+        <div class="cat-topics">
+          <span>場域</span><span>諮詢</span><span>健康評估流程</span><span>同行者訪談</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============================================================
+       ARTICLE LIST TEMPLATE
+       文章產出後，把這段複製到對應 .cat-row 之後並填入內容。
+       每一張卡的 <time> 與作者／審閱者標示為必填（WEBSITE_MEMO.md §01 C），
+       缺任一項不得上線。
+
+  <div class="journal-grid" style="margin-top:44px;">
+    <a class="journal-card" href="[文章網址]">
+      <div class="journal-thumb"><img src="[縮圖路徑]" alt="[中文語意化 alt]"></div>
+      <p class="cat">[分類]</p>
+      <h3>[文章標題]</h3>
+      <p>[摘要，80–110 字]</p>
+      <p class="article-meta">
+        撰稿：[姓名]｜醫療審閱：[醫師姓名／職稱]｜
+        <time datetime="YYYY-MM-DD">YYYY.MM.DD</time> 發布
+      </p>
+    </a>
+  </div>
+       ============================================================ -->
 </section>
 
+<section class="final-cta">
+  <div class="final-inner">
+    <p class="eyebrow en">Understanding</p>
+    <h2 class="en">理解，是健康管理的第一步。</h2>
+    <p>健康管理的第一步，不一定是找到答案，而是先知道自己正在面對什麼。</p>
+    <a class="btn-star primary" href="future-health.html">認識 GAIAN 的健康觀點<span class="btn-star-underline"></span></a>
+  </div>
+</section>
 
 <footer>
   <div class="footer-top">
@@ -46,16 +204,40 @@
     </div>
     <div class="footer-links">
       <div class="footer-col"><b>Explore</b><a href="about.html">關於 GAIAN</a><a href="future-health.html">未來健康</a><a href="gallery.html">美的概念館</a><a href="journal.html">品牌觀點</a></div>
-      <div class="footer-col"><b>Visit</b><a href="walking-together.html">同行者</a><a href="contact.html">開始旅程</a><a href="contact.html">門市資訊</a></div>
+      <div class="footer-col"><b>Visit</b><a href="walking-together.html">同行者</a><a href="contact.html">開始旅程</a><a href="contact.html#location">門市資訊</a></div>
+      <!-- 醫療機構識別資訊
+           來源：PROJECT_STATUS.md §05（Status：APPROVED）、§06 Official Naming Rule。
+           名稱、地址、電話為正式對外資料，不得改寫、簡稱或自行翻譯。
+           TODO｜WEBSITE_MEMO.md §01 A-04：開業執照字號（兩院所各一）為官網必載事項，
+           目前 [待確認]。取得後必須補列於本區塊，未補齊前不得 Go-Live。 -->
+      <div class="footer-col footer-clinic">
+        <b>Clinic</b>
+        <p class="clinic-name">蓋亞恩整合醫學(聯合)診所<span>GAIAN Integrative Medicine Clinic</span></p>
+        <p class="clinic-name">肌齡光域健康美學診所<span>Aesthetic &amp; Longevity Clinic</span></p>
+        <p class="clinic-name">覺生殿中醫診所<span>Awakening Sanctum Chinese Medicine Clinic</span></p>
+        <p class="clinic-meta">台北市中山區敬業一路2號24樓</p>
+        <p class="clinic-meta"><a href="tel:+886285026200">（02）85026200</a></p>
+      </div>
     </div>
   </div>
   <div class="footer-bottom">
     <p>&copy; 2026 GAIAN. Future Integrative Health.</p>
+    <!-- 法遵頁面連結。四份頁面目前均為「架構草稿」，尚未經法務審閱。
+         依 WEBSITE_MEMO.md §01 B，未完成前全站不得 Go-Live。 -->
+    <div class="footer-legal">
+      <a href="privacy.html">隱私權政策</a>
+      <a href="terms.html">服務條款</a>
+      <a href="cookie-policy.html">Cookie 政策</a>
+      <a href="medical-disclaimer.html">醫療免責聲明</a>
+      <a href="minors-policy.html">未成年人資料處理原則</a>
+    </div>
+    <!-- TODO：社群連結網址 [待確認]；LINE 官方帳號連結見 WEBSITE_MEMO.md §01 A-11 -->
     <div class="footer-social"><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">Line</a></div>
   </div>
 </footer>
 <script src="js/nav-data.js"></script>
 <script src="js/nav.js"></script>
+<script src="js/reveal.js"></script>
 
 </body>
 </html>

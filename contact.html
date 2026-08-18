@@ -11,6 +11,20 @@
 </head>
 <body>
 
+<!--
+  Status：Review（CLAUDE.md §13 LEVEL 2）
+  資料來源：機構名稱／地址／電話 = PROJECT_STATUS.md §05（APPROVED），不得改寫。
+
+  本頁刻意「不放」的東西，每一項都有原因，補之前請先看清楚：
+  1. 線上預約表單 — 依 WEBSITE_MEMO.md §01 B-01／B-05，個資蒐集告知與同意勾選尚未產出，
+     在那之前架設任何蒐集個資的表單都不合法。目前預約走電話。
+  2. 診療時間 — WEBSITE_MEMO.md §01 A-08，[待確認]。
+  3. 交通與停車資訊 — A-09，尚未取得正式內容，不自行推測。
+  4. LINE 官方帳號 — A-11，素材有 QRCODE 但連結／ID [待確認]，區塊已備好見下方註解。
+  5. 官方 Email — A-10，[待確認]。
+  依 WEBSITE_MEMO.md §01 F，[待確認] 不得殘留在對外可見文字，因此以上一律不出現在頁面上。
+-->
+
 <nav class="nav" id="mainNav" data-active="contact" data-solid="true"></nav>
 
 
@@ -22,22 +36,76 @@
   </div>
 </section>
 
-<section class="section">
-  <div class="section-head">
-    <p class="eyebrow en">Get in Touch</p>
-    <h2>預約與門市資訊</h2>
+<section class="section" id="reserve">
+  <div class="section-head reveal">
+    <p class="eyebrow en">Reservation</p>
+    <h2>預約</h2>
+    <p class="tagline">我們不安排匆促的第一次見面。先來電，讓我們一起找出合適的時間。</p>
   </div>
-  <div class="block-grid">
-  <div class="block-card"><b>Reservation 預約</b><span>待接線上預約系統或 LINE 官方帳號。</span></div>
-  <div class="block-card"><b>Location 地址</b><span>待補正式門市地址。</span></div>
-  <div class="block-card"><b>Business Hours 營業時間</b><span>待補營業時間資訊。</span></div>
-  <div class="block-card"><b>LINE 官方帳號</b><span>待補 LINE ID／QR Code。</span></div>
-  <div class="block-card"><b>Parking 停車資訊</b><span>待補停車場資訊。</span></div>
-  <div class="block-card"><b>FAQ 常見問題</b><span>待補常見問題內容。</span></div>
-</div>
-  <div style="text-align:center;margin-top:50px;"><a class="btn-star dark primary" href="#">預約健康諮詢<span class="btn-star-underline"></span></a></div>
+  <div class="contact-lines reveal reveal-delay-1">
+    <div class="contact-line">
+      <span class="cl-label">Phone 電話預約</span>
+      <a class="cl-value" href="tel:+886285026200">（02）85026200</a>
+      <p class="cl-note">來電由我們協助安排。</p>
+    </div>
+    <!--
+      LINE 官方帳號區塊：待 A-11 取得正式連結後，把下方註解解開並填入 href。
+      素材位置：👑Gaia宇宙殿堂/GAIAN官方line QRCODE.zip
+    <div class="contact-line">
+      <span class="cl-label">LINE 官方帳號</span>
+      <a class="cl-value" href="[待填入正式連結]">加入 GAIAN</a>
+      <p class="cl-note">日常的健康提醒與預約，都可以在這裡進行。</p>
+    </div>
+    -->
+  </div>
 </section>
 
+<!-- 醫療機構識別資訊：PROJECT_STATUS.md §05／§06，Status：APPROVED。
+     三個機構為同址同電話。名稱不得簡稱、不得改寫英文譯名。
+     TODO｜WEBSITE_MEMO.md §01 A-04：開業執照字號（兩院所各一）為必載事項，取得後補於各機構名稱下方。 -->
+<section class="section texture-bg" id="location">
+  <div class="section-head reveal">
+    <p class="eyebrow en">Our Clinics</p>
+    <h2>醫療機構</h2>
+    <p class="tagline">GAIAN 的中醫與西醫，在同一個場域裡一起工作。</p>
+  </div>
+
+  <div class="clinic-list">
+    <div class="clinic-item reveal">
+      <b>蓋亞恩整合醫學(聯合)診所</b>
+      <span class="ci-en">GAIAN Integrative Medicine Clinic</span>
+    </div>
+    <div class="clinic-item reveal reveal-delay-1">
+      <b>肌齡光域健康美學診所</b>
+      <span class="ci-en">Aesthetic &amp; Longevity Clinic</span>
+    </div>
+    <div class="clinic-item reveal reveal-delay-2">
+      <b>覺生殿中醫診所</b>
+      <span class="ci-en">Awakening Sanctum Chinese Medicine Clinic</span>
+    </div>
+  </div>
+
+  <div class="clinic-contact reveal reveal-delay-3">
+    <div class="cc-row">
+      <span class="cc-label">Address 地址</span>
+      <p class="cc-value">台北市中山區敬業一路2號24樓</p>
+    </div>
+    <div class="cc-row">
+      <span class="cc-label">Phone 電話</span>
+      <p class="cc-value"><a href="tel:+886285026200">（02）85026200</a></p>
+    </div>
+    <!-- 診療時間（A-08）與交通路線（A-09）取得後，比照上方 .cc-row 補入 -->
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="final-inner">
+    <p class="eyebrow en">Begin</p>
+    <h2 class="en">開始，比準備好更重要。</h2>
+    <p>不必等到身體出現明確的問題，才開始理解它。</p>
+    <a class="btn-star primary" href="tel:+886285026200">來電預約<span class="btn-star-underline"></span></a>
+  </div>
+</section>
 
 <footer>
   <div class="footer-top">
@@ -47,16 +115,40 @@
     </div>
     <div class="footer-links">
       <div class="footer-col"><b>Explore</b><a href="about.html">關於 GAIAN</a><a href="future-health.html">未來健康</a><a href="gallery.html">美的概念館</a><a href="journal.html">品牌觀點</a></div>
-      <div class="footer-col"><b>Visit</b><a href="walking-together.html">同行者</a><a href="contact.html">開始旅程</a><a href="contact.html">門市資訊</a></div>
+      <div class="footer-col"><b>Visit</b><a href="walking-together.html">同行者</a><a href="contact.html">開始旅程</a><a href="contact.html#location">門市資訊</a></div>
+      <!-- 醫療機構識別資訊
+           來源：PROJECT_STATUS.md §05（Status：APPROVED）、§06 Official Naming Rule。
+           名稱、地址、電話為正式對外資料，不得改寫、簡稱或自行翻譯。
+           TODO｜WEBSITE_MEMO.md §01 A-04：開業執照字號（兩院所各一）為官網必載事項，
+           目前 [待確認]。取得後必須補列於本區塊，未補齊前不得 Go-Live。 -->
+      <div class="footer-col footer-clinic">
+        <b>Clinic</b>
+        <p class="clinic-name">蓋亞恩整合醫學(聯合)診所<span>GAIAN Integrative Medicine Clinic</span></p>
+        <p class="clinic-name">肌齡光域健康美學診所<span>Aesthetic &amp; Longevity Clinic</span></p>
+        <p class="clinic-name">覺生殿中醫診所<span>Awakening Sanctum Chinese Medicine Clinic</span></p>
+        <p class="clinic-meta">台北市中山區敬業一路2號24樓</p>
+        <p class="clinic-meta"><a href="tel:+886285026200">（02）85026200</a></p>
+      </div>
     </div>
   </div>
   <div class="footer-bottom">
     <p>&copy; 2026 GAIAN. Future Integrative Health.</p>
+    <!-- 法遵頁面連結。四份頁面目前均為「架構草稿」，尚未經法務審閱。
+         依 WEBSITE_MEMO.md §01 B，未完成前全站不得 Go-Live。 -->
+    <div class="footer-legal">
+      <a href="privacy.html">隱私權政策</a>
+      <a href="terms.html">服務條款</a>
+      <a href="cookie-policy.html">Cookie 政策</a>
+      <a href="medical-disclaimer.html">醫療免責聲明</a>
+      <a href="minors-policy.html">未成年人資料處理原則</a>
+    </div>
+    <!-- TODO：社群連結網址 [待確認]；LINE 官方帳號連結見 WEBSITE_MEMO.md §01 A-11 -->
     <div class="footer-social"><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">Line</a></div>
   </div>
 </footer>
 <script src="js/nav-data.js"></script>
 <script src="js/nav.js"></script>
+<script src="js/reveal.js"></script>
 
 </body>
 </html>

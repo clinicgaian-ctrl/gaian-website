@@ -83,6 +83,58 @@
 
 ---
 
+## 2026-08-13 正式機構資訊落地＋三頁內容補完＋法遵頁面架構
+
+### 1. 全站 Footer 與 Contact 補上正式醫療機構資訊
+
+依 `PROJECT_STATUS.md` §05／§06（Status：APPROVED）落地三個機構的正式中英文名稱、地址與電話。**這三項是法定必載事項，任何人不得改寫、簡稱或自行翻譯英文名。**
+
+- Footer 新增第三欄 `.footer-clinic`（12 個頁面全部同步），底部新增 `.footer-legal` 法遵連結列。
+- `contact.html` 全面重寫：新增 `#reserve` 預約區與 `#location` 醫療機構區（`.clinic-list` 三機構同址同電話，地址電話只出現一次）。
+
+⚠️ **`contact.html` 刻意不放線上預約表單。** 依 `WEBSITE_MEMO.md` §01 B-01／B-05，個資蒐集告知與同意勾選尚未產出，在那之前架設任何蒐集個資的表單都不合法。目前預約走電話。診療時間、交通、停車、Email、LINE 連結同樣因 `[待確認]` 而不放（`WEBSITE_MEMO.md` §01 F：`[待確認]` 不得殘留在對外可見文字），區塊與 TODO 都已寫在 HTML 註解裡。
+
+### 2. `about.html` 從佔位卡改為完整頁面
+
+五個區塊對應 Mega Menu 錨點：`#story`／`#gaia`／`#philosophy`／`#worldview`／`#vision`。所有文字改寫自 `BRAND.md` §06–§13、§19，未新增任何品牌核心。新增 `.prose`／`.pull-quote`／`.philosophy-list`／`.value-grid`。`#gaia` 沿用 gallery 頁既有的 `.gb-io-wrap` 與 `.gb-flow`，不另造輪子。
+
+⏳ 待補：本頁全文字，尚無專屬攝影素材。依 `PROJECT_STATUS.md` §19，選圖必須能回答「這張圖在說什麼、為什麼屬於 GAIAN」，**不要為了填版面放任何高級 SPA 都能用的圖**。
+
+### 3. `journal.html` 改為分類架構頁
+
+還沒有任何文章，依 `CLAUDE.md` §11 Truthfulness 不得虛構標題／日期／作者填版面，因此**不放假文章卡**。五個分類（`#future-health`／`#lifestyle`／`#medical`／`#beauty`／`#story`）本身就是這一頁的內容，用 `.cat-row` 整寬編輯式橫列呈現；文章產出後把頁內「ARTICLE LIST TEMPLATE」註解解開接上 `.journal-grid` 即可，版面不用重做。新增 `.editorial-standard` 公開編輯準則。
+
+⚠️ **已知落差，需決策**：網站 5 個分類 vs `MARKETING.md` 6 個 Content Pillar，PILLAR 02 Doctor Perspective（醫師觀點）目前被併進「醫療科普」沒有自己的分類。建議獨立成第 6 類，但會動到 `js/nav-data.js` 的 Mega Menu，屬架構調整，須先提案，不自行更動。
+
+⚠️ 「編輯準則」是對外承諾不是裝飾：其中「醫療審閱者」需先指定 `PROJECT_STATUS.md` P05 Medical Review Owner（目前 `[待確認]`），否則任何醫療文章一發布，那段承諾就變成不實陳述。
+
+### 4. 五份法遵頁面「架構」
+
+`privacy.html`／`terms.html`／`cookie-policy.html`／`medical-disclaimer.html`／`minors-policy.html`。
+
+**這些不是可上線版本。** 依 `WEBSITE_MEMO.md` §01 B，六項法遵要求全屬 LEVEL 3，Claude 不得撰寫最終版本，僅可協助整理架構。因此頁面裡只有章節骨架與必填欄位說明，**沒有任何一句可以被當成正式條款的文字**。
+
+每頁三道保護，法務定稿前都不得移除：`<meta name="robots" content="noindex,nofollow">`、紅框草稿警示 `.legal-draft-warning`、頁首 HTML 註解。
+
+第六項 B-05 個資同意勾選沒有獨立頁面——它不是頁面，是每一個蒐集個資的表單都必須具備的元件。完整規格與交付說明見同資料夾 `法遵頁面_交付說明.md`。
+
+### 5. 順手修掉的兩個既有問題
+
+- **`index.html` 使用已停用品牌語言**：整合醫學卡原文「從全人健康出發…」。「全人健康」已於 2026-08-07 經董事長確認停用（`PROJECT_STATUS.md` §22 APPROVED RESTRICTION、§35 DEPRECATED）。已改寫為「先理解身體的整體狀態，再建立屬於個人的醫療規劃。」
+- **`gallery.html` 兩個錨點是斷的**：`index.html` 連到 `gallery.html#jewelry` 與 `#porcelain`，但對應區塊漏了 `id`（只有 `#furniture` 有）。已補上。
+
+### 驗證結果
+
+在 `http://localhost:8765` 起本機靜態伺服器實測（**不是**正式站，Claude 未進行任何線上操作）：
+
+- 12 個頁面共 150 條站內連結與錨點，**0 條斷連**
+- 375px 行動版：9 個新增／修改頁面全部無水平溢出
+- 1280px 桌機：`.value-grid` 四欄、`.ph-item`／`.cat-row` 雙欄、`.prose` 置中皆正確
+- 對外可見文字已無「全人健康／全人照護」
+- 五份法遵頁面 `noindex` 全部存在
+
+---
+
 ## 視覺 Design Token（取自 `css/style.css`）
 
 - 色票：`--gold #B8934A`／`--gold-light #D9BC81`／`--gold-pale #F3E9D6`／`--ink #2A2620`／`--ink-soft #5C564B`／`--cream #FAF6EF`／`--mist #EDE6D6`
@@ -127,12 +179,17 @@ Mega Menu 的內容資料集中在 `js/nav-data.js`（單一資料來源，改�
 | 檔名 | 頁面 | 狀態 |
 |---|---|---|
 | `index.html` | Home 首頁 | ✅ 版型＋真實圖片＋首頁文案完成，導覽已套用 Mega Menu |
-| `about.html` | About GAIAN｜關於 GAIAN | ⏳ 骨架＋佔位內容，Mega Menu 5 項為草稿 |
+| `about.html` | About GAIAN｜關於 GAIAN | ✅ 2026-08-13 完整重寫，5 區塊對應 Mega Menu 錨點，文字源自 BRAND.md；⏳ 待補專屬影像 |
 | `future-health.html` | Future Health｜未來健康 | ✅ 依 Mega Menu 新 5 分類重建（整合醫學/健康管理/健康評估/醫療團隊/健康方案），原 12 項細節併入對應分類 |
 | `gallery.html` | Beauty Concept Gallery｜美的概念館 | ✅ 七屏完整切版＋滾動動態（依 `官網文案/2.藝術.rtf`），並加上錨點對應 Mega Menu 新 5 分類（美的理念/藝術與生活/品牌典藏/家具與空間/藝術策展）；Jewelry/Wang Xia Jun/Furniture/Art Collection 與 Curated Living 5 項待補真實素材與定稿文案 |
-| `journal.html` | Journal｜品牌觀點 | ⏳ 骨架＋佔位內容，Mega Menu 5 項為草稿 |
+| `journal.html` | Journal｜品牌觀點 | ✅ 2026-08-13 改為分類架構頁（5 分類對應 Mega Menu ＋ 編輯準則）；⏳ 尚無文章，文章版型模板已備在頁內註解 |
 | `walking-together.html` | Walking Together｜同行者 | ✅ 依「同行者」定位重新框架（不是會員制度，而是同行關係），5 個子區塊對應 Mega Menu |
-| `contact.html` | Contact｜開始旅程 | ⏳ 骨架＋佔位內容 |
+| `contact.html` | Contact｜開始旅程 | ✅ 2026-08-13 重寫，正式機構資訊已落地；⚠️ 刻意不放線上表單，待 B-01／B-05 完成 |
+| `privacy.html` | 隱私權政策 | 🔴 架構草稿，noindex，禁止上線 — 待法務撰寫條文 |
+| `terms.html` | 服務條款 | 🔴 架構草稿，noindex，禁止上線 — 待法務撰寫條文 |
+| `cookie-policy.html` | Cookie 政策 | 🔴 架構草稿，noindex，禁止上線 — 待法務撰寫條文 |
+| `medical-disclaimer.html` | 醫療免責聲明 | 🔴 架構草稿，noindex，禁止上線 — 待法務＋醫療端撰寫條文 |
+| `minors-policy.html` | 未成年人資料處理原則 | 🔴 架構草稿，noindex，禁止上線 — 待法務撰寫條文 |
 
 頁面清單如需變動，先提案給客戶（董事長）確認，不要自己直接改架構。
 

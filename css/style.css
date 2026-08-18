@@ -653,6 +653,31 @@ footer .logo-row p{font-size:12px;letter-spacing:0.05em;color:#8C8268;max-width:
 .footer-social{display:flex;gap:16px;}
 .footer-social a{color:#A99B7E;text-decoration:none;font-size:11.5px;}
 
+/* Footer 醫療機構識別區（PROJECT_STATUS.md §05／§06 正式資料）：
+   三個機構名稱是法定必載事項，不能縮成一行小字，因此獨立一欄、給中文名足夠字級，
+   英文名以次級灰階跟在下一行，維持 footer 原本的克制調性。 */
+.footer-clinic{max-width:300px;}
+.footer-clinic .clinic-name{
+  font-family:'Noto Serif TC',serif;font-size:13px;line-height:1.5;
+  color:#C4B896;margin-bottom:12px;
+}
+.footer-clinic .clinic-name span{
+  display:block;font-family:'Jost',sans-serif;font-size:10.5px;letter-spacing:0.06em;
+  color:#8C8268;margin-top:3px;
+}
+.footer-clinic .clinic-meta{font-size:12px;line-height:1.7;color:#A99B7E;margin-top:2px;}
+.footer-clinic .clinic-meta a{color:#A99B7E;text-decoration:none;}
+.footer-clinic .clinic-meta a:hover{color:var(--gold-light);}
+
+/* 法遵頁面連結：與 copyright 同一列，字級刻意小於主導覽，不搶視覺 */
+.footer-legal{display:flex;gap:18px;flex-wrap:wrap;}
+.footer-legal a{color:#8C8268;text-decoration:none;font-size:11.5px;letter-spacing:0.05em;}
+.footer-legal a:hover{color:var(--gold-light);}
+@media(max-width:860px){
+  .footer-clinic{max-width:none;}
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:14px;}
+}
+
 /* ===== SCROLL REVEAL (site-wide utility) ===== */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.9s cubic-bezier(.16,.8,.24,1), transform 0.9s cubic-bezier(.16,.8,.24,1);}
 .reveal.in-view{opacity:1;transform:translateY(0);}
@@ -791,3 +816,211 @@ footer .logo-row p{font-size:12px;letter-spacing:0.05em;color:#8C8268;max-width:
   .gb-io-line{display:none;}
   .gb-collection-grid{grid-template-columns:repeat(2,1fr);}
 }
+
+/* ===== CONTACT PAGE ===== */
+/* 預約管道：目前只有電話一條，因此不做卡片網格（一張卡會很空），改成一條有份量的橫向資訊列。
+   之後 LINE 開通變成兩條時，flex 會自然並排。 */
+.contact-lines{display:flex;flex-wrap:wrap;gap:60px;justify-content:center;max-width:900px;margin:0 auto;}
+.contact-line{text-align:center;min-width:260px;}
+.cl-label{
+  display:block;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:16px;
+}
+.cl-value{
+  display:inline-block;font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;
+  color:var(--ink);text-decoration:none;letter-spacing:0.03em;
+  border-bottom:1px solid transparent;transition:border-color 0.4s,color 0.4s;
+}
+.cl-value:hover{color:var(--gold);border-bottom-color:var(--gold);}
+.cl-note{font-size:13.5px;color:var(--ink-soft);font-weight:300;margin-top:14px;}
+
+/* 醫療機構識別：三個機構同址同電話，所以名稱橫排、地址電話只出現一次，
+   避免同一個地址重複印三遍造成閱讀噪音。 */
+.clinic-list{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  max-width:1040px;margin:0 auto;background:rgba(184,147,74,0.25);
+  border:1px solid rgba(184,147,74,0.25);border-radius:12px;overflow:hidden;
+}
+.clinic-item{background:var(--cream);padding:38px 30px;text-align:center;}
+.clinic-item b{
+  display:block;font-family:'Noto Serif TC',serif;font-size:16px;font-weight:500;
+  color:var(--ink);line-height:1.6;margin-bottom:10px;
+}
+.clinic-item .ci-en{
+  display:block;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.08em;
+  color:var(--ink-soft);line-height:1.6;
+}
+.clinic-contact{max-width:1040px;margin:44px auto 0;display:flex;flex-wrap:wrap;gap:60px;justify-content:center;}
+.cc-row{text-align:center;}
+.cc-label{
+  display:block;font-family:'Jost',sans-serif;font-size:10.5px;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:10px;
+}
+.cc-value{font-size:15.5px;color:var(--ink);font-weight:300;letter-spacing:0.02em;}
+.cc-value a{color:var(--ink);text-decoration:none;}
+.cc-value a:hover{color:var(--gold);}
+@media(max-width:860px){
+  .clinic-list{grid-template-columns:1fr;}
+  .clinic-contact{gap:32px;flex-direction:column;}
+  .contact-lines{gap:44px;}
+  .cl-value{font-size:28px;}
+}
+
+/* ===== 長文排版（About／Journal／法遵頁共用） ===== */
+/* 內文頁不像首頁有大圖撐場，靠的是行寬與段距。760px 約當中文 34–36 字，
+   是這個字級下最好讀的行寬，再寬就會開始需要「找下一行」。 */
+.prose{max-width:760px;margin:0 auto;}
+.prose p{font-size:16px;line-height:2.05;color:var(--ink-soft);font-weight:300;margin-bottom:26px;}
+.prose p:last-child{margin-bottom:0;}
+.prose p strong{color:var(--ink);font-weight:500;}
+.prose h3{
+  font-family:'Cormorant Garamond',serif;font-weight:400;font-size:26px;
+  color:var(--ink);margin:52px 0 18px;
+}
+.prose h3:first-child{margin-top:0;}
+.prose ul{list-style:none;margin:0 0 26px;padding:0;}
+.prose ul li{
+  font-size:15.5px;line-height:1.95;color:var(--ink-soft);font-weight:300;
+  padding-left:22px;position:relative;margin-bottom:10px;
+}
+.prose ul li::before{content:"—";position:absolute;left:0;color:var(--gold);}
+
+.pull-quote{
+  max-width:680px;margin:66px auto 0;text-align:center;
+  font-family:'Cormorant Garamond',serif;font-weight:300;font-size:27px;line-height:1.85;
+  color:var(--ink);
+}
+.pull-quote::before{
+  content:"";display:block;width:36px;height:1px;background:var(--gold);margin:0 auto 30px;
+}
+
+/* ===== ABOUT：品牌理念（編號長條） ===== */
+/* 五條理念不做成卡片網格——它們是要被「讀完」的句子，不是要被掃過的選項。
+   因此走橫幅式編號長條，一條一行，強迫視線由上而下走完。 */
+.philosophy-list{max-width:920px;margin:0 auto;}
+.ph-item{
+  display:grid;grid-template-columns:96px 1fr;gap:24px;align-items:start;
+  padding:36px 0;border-top:0.5px solid rgba(184,147,74,0.3);
+}
+.ph-item:last-child{border-bottom:0.5px solid rgba(184,147,74,0.3);}
+.ph-index{
+  font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;
+  color:var(--gold-light);line-height:1;
+}
+.ph-body b{
+  display:block;font-family:'Noto Serif TC',serif;font-size:19px;font-weight:500;
+  color:var(--ink);line-height:1.7;margin-bottom:12px;
+}
+.ph-body p{font-size:14.5px;line-height:1.95;color:var(--ink-soft);font-weight:300;}
+@media(max-width:760px){
+  .ph-item{grid-template-columns:1fr;gap:12px;padding:28px 0;}
+  .ph-index{font-size:32px;}
+  .ph-body b{font-size:17px;}
+}
+
+/* ===== ABOUT：核心價值 ===== */
+.value-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:44px;max-width:1140px;margin:0 auto;}
+.value-item{border-top:1px solid var(--gold);padding-top:22px;}
+.value-item b{
+  display:block;font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:400;
+  color:var(--ink);margin-bottom:4px;
+}
+.value-item .v-zh{
+  display:block;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.16em;
+  color:var(--gold);margin-bottom:16px;
+}
+.value-item p{font-size:13.5px;line-height:1.95;color:var(--ink-soft);font-weight:300;}
+@media(max-width:960px){.value-grid{grid-template-columns:repeat(2,1fr);gap:36px;}}
+@media(max-width:560px){.value-grid{grid-template-columns:1fr;gap:30px;}}
+
+/* ===== JOURNAL：分類架構 ===== */
+/* 目前 Journal 還沒有文章，分類本身就是這一頁的內容，所以不做小卡網格（會顯得空），
+   改成整寬編輯式橫列：左邊是分類名，右邊是這個分類實際會談什麼。
+   文章上線後，每個 .cat-row 底下再接 .journal-grid 文章卡即可，版面不用重做。 */
+.cat-list{max-width:1100px;margin:0 auto;}
+.cat-row{
+  display:grid;grid-template-columns:260px 1fr;gap:50px;align-items:start;
+  padding:46px 0;border-top:0.5px solid rgba(184,147,74,0.3);
+}
+.cat-row:last-child{border-bottom:0.5px solid rgba(184,147,74,0.3);}
+.cat-label .cat-index{
+  display:block;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.2em;
+  color:var(--gold);margin-bottom:12px;
+}
+.cat-label b{
+  display:block;font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:400;
+  color:var(--ink);line-height:1.3;
+}
+.cat-label .cat-zh{
+  display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:var(--ink-soft);
+  margin-top:6px;letter-spacing:0.06em;
+}
+.cat-body .cat-tagline{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;
+  color:var(--gold);margin-bottom:16px;line-height:1.6;
+}
+.cat-body p{font-size:14.5px;line-height:1.95;color:var(--ink-soft);font-weight:300;margin-bottom:16px;}
+.cat-topics{display:flex;flex-wrap:wrap;gap:8px;}
+.cat-topics span{
+  font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.08em;color:var(--ink-soft);
+  border:0.5px solid rgba(184,147,74,0.45);border-radius:999px;padding:5px 14px;
+}
+@media(max-width:860px){
+  .cat-row{grid-template-columns:1fr;gap:20px;padding:34px 0;}
+  .cat-label b{font-size:23px;}
+}
+
+/* Journal 編輯準則：這是對讀者的公開承諾，刻意用細框圈起來，不讓它讀起來像免責小字 */
+.editorial-standard{
+  max-width:820px;margin:60px auto 0;border:0.5px solid rgba(184,147,74,0.45);
+  border-radius:14px;padding:44px 46px;background:var(--cream);
+}
+.editorial-standard b{
+  display:block;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;
+  color:var(--ink);margin-bottom:18px;
+}
+.editorial-standard ul{list-style:none;display:grid;gap:12px;}
+.editorial-standard li{
+  font-size:14.5px;line-height:1.85;color:var(--ink-soft);font-weight:300;
+  padding-left:24px;position:relative;
+}
+.editorial-standard li::before{content:"✦";position:absolute;left:0;color:var(--gold);font-size:11px;top:4px;}
+@media(max-width:560px){.editorial-standard{padding:32px 26px;}}
+/* 文章卡的作者／審閱者／日期標示（WEBSITE_MEMO.md §01 C 必填，不得省略） */
+.article-meta{
+  font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.04em;
+  color:#8C8268;margin-top:12px;line-height:1.7;
+}
+
+/* ===== 法遵頁面（隱私權／服務條款／Cookie／醫療免責／未成年） ===== */
+/* 這些頁面沒有視覺任務，只有一個任務：被讀懂。
+   因此不放圖、不放動畫，只調行寬與層級。 */
+.legal-page{padding-top:150px;}
+.legal-head{max-width:760px;margin:0 auto 50px;}
+.legal-head .eyebrow{margin-bottom:14px;}
+.legal-head h1{
+  font-family:'Cormorant Garamond',serif;font-weight:400;font-size:40px;
+  color:var(--ink);margin-bottom:12px;letter-spacing:0.03em;
+}
+.legal-head .legal-meta{
+  font-family:'Jost',sans-serif;font-size:11.5px;letter-spacing:0.06em;color:#8C8268;
+}
+/* 草稿警示：這一條在法務定稿前不得移除，它是防止半成品外流的最後一道提醒 */
+.legal-draft-warning{
+  max-width:760px;margin:0 auto 46px;border:1px solid #C0392B;border-radius:10px;
+  padding:22px 26px;background:rgba(192,57,43,0.05);
+}
+.legal-draft-warning b{
+  display:block;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:0.12em;
+  text-transform:uppercase;color:#C0392B;margin-bottom:10px;
+}
+.legal-draft-warning p{font-size:13.5px;line-height:1.85;color:var(--ink-soft);font-weight:300;}
+.legal-todo{
+  border-left:2px solid var(--gold);background:rgba(184,147,74,0.06);
+  padding:16px 20px;margin:0 0 26px;border-radius:0 8px 8px 0;
+}
+.legal-todo span{
+  display:block;font-family:'Jost',sans-serif;font-size:10.5px;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:8px;
+}
+.legal-todo p{font-size:13.5px;line-height:1.85;color:var(--ink-soft);font-weight:300;margin:0;}
