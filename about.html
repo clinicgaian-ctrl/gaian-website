@@ -8,8 +8,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Noto+Serif+TC:wght@300;400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/about.css">
 </head>
-<body>
+<body class="page-about">
 
 <!--
   Status：Review（CLAUDE.md §13 LEVEL 2 — 品牌大型文案，需董事長確認後才算正式版本）
@@ -25,154 +26,293 @@
   未使用「全人健康」「全人照護」（PROJECT_STATUS.md §22 APPROVED RESTRICTION），
   亦未使用 §23 Generic Language Watch List 之通用詞彙。
 
-  待補：品牌影像。目前全頁純文字，尚無屬於本頁的攝影素材。
-  依 PROJECT_STATUS.md §19，選圖必須能回答「這張圖在說什麼、為什麼屬於 GAIAN」，
-  不得為了填版面而放任何高級 SPA 都能用的圖。
+  2026-10-15：品牌血緣區塊新增品牌關係圖（GAIA → GAIA 眾神殿／肌齡光域·覺生殿），Logo 在 images/about/brand/。
+
+  2026-10-14 視覺改版：
+  - 配圖統一放在 images/about/，檔名 about-01～about-10。目前為暫代圖（沿用舊素材的複本），
+    新圖產出後直接用同檔名覆蓋即可，不需修改 HTML。生圖 Prompt 見《About頁_生圖Prompt.txt》。
+  - 本頁配圖全部沿用網站既有素材（images/），未新增、未生成任何人物照片。
+  - 依 PROJECT_STATUS.md §19，每張圖都在旁邊的註解寫明「這張圖在說什麼、為什麼屬於這一段」。
+  - 一頁之內不重複使用同一張圖；與首頁共用的 about-corridor.png 是刻意的：
+    首頁「閱讀完整品牌故事」連過來時，讀者會在品牌故事看到同一個空間，形成延續。
+  - 頁面專屬樣式在 css/about.css，動畫在 js/about.js，不影響其他頁。
+  - 所有動畫都遵守 prefers-reduced-motion（系統設定減少動態時，全部直接顯示最終狀態）。
 -->
 
-<nav class="nav" id="mainNav" data-active="about" data-solid="true"></nav>
+<nav class="nav" id="mainNav" data-active="about"></nav>
 
 
-<section class="page-hero">
-  <div>
-    <p class="crumb">About GAIAN</p>
-    <h1 class="en">不只是診所，更是重新理解健康的場域</h1>
-    <p>健康為本，與美共生。一種為未來而生的生活方式，融合整合醫學、美學、藝術與空間體驗，重新思考健康擁有的樣貌。</p>
+<!-- ===== HERO｜整頁照片主視覺 =====
+     圖：core-integrative.png｜拱門外的日出與水面。
+     說什麼：一扇打開的門、一段新的開始——對應本頁副標「A NEW ERA OF LONGEVITY」與「從 GAIA 到 GAIAN」。
+     動畫：照片緩慢推近（Ken Burns）＋三顆柔光（沿用首頁 .shimmer）＋文字依序浮現。 -->
+<section class="ab-hero">
+  <div class="ab-hero-media" aria-hidden="true">
+    <img src="images/about/about-01-hero.png" alt="">
   </div>
+  <div class="shimmer-layer" aria-hidden="true">
+    <span class="shimmer s1"></span>
+    <span class="shimmer s2"></span>
+    <span class="shimmer s3"></span>
+  </div>
+  <div class="ab-hero-inner">
+    <p class="crumb ab-rise" style="--d:0.2s;">About GAIAN</p>
+    <h1 class="en ab-rise" style="--d:0.45s;">不只是診所，<br>更是重新理解健康的場域</h1>
+    <span class="ab-hero-rule ab-rise" style="--d:0.75s;" aria-hidden="true"></span>
+    <p class="ab-rise" style="--d:0.95s;">健康為本，與美共生。一種為未來而生的生活方式，融合整合醫學、美學、藝術與空間體驗，重新思考健康擁有的樣貌。</p>
+  </div>
+  <div class="scroll-cue">SCROLL</div>
 </section>
 
-<section class="section" id="story">
+
+<!-- ===== 品牌故事｜左文右圖（拱門照片） =====
+     圖：about-corridor.png｜GAIAN 的長廊與雕塑。
+     說什麼：這就是那座「重新理解健康的場域」。與首頁 What Is GAIAN 同一張圖，是刻意的延續。
+     動畫：照片從模糊到清晰（沿用首頁 .reveal-photo）＋捲動時輕微視差。 -->
+<section class="section texture-bg" id="story">
   <div class="section-head reveal">
     <p class="eyebrow en">Our Story</p>
     <h2>從 GAIA 到 GAIAN</h2>
     <p class="tagline">GAIAN · A NEW ERA OF LONGEVITY.<br>一段關於重新理解健康的開始。</p>
   </div>
-  <div class="prose reveal reveal-delay-1">
-    <p>大多數人對於醫療的想像，是從膽怯延伸的；與醫療的關係，是從一個問題開始的。身體出現訊號，於是尋求治療；療程結束，關係也跟著結束。</p>
-    <p>GAIAN 想做的，是把這段關係往前延展一些。<strong>理解、評估、管理、預防，一直到長期的健康規劃</strong>——讓醫療不只在問題發生之後才出現，也能更早參與每一個人對自己身體的理解。</p>
-    <p>GAIAN 不是一般診所，也不是醫美品牌、健康會館或高級 SPA。我們以中西醫整合、預防醫學、健康管理與健康美學為核心，讓對自己的照顧，不再只是特定時刻的安排，而能自然融入日常。讓健康不再只是生病之後才開始處理的事，而是一項值得被長期理解、管理與經營的人生資產。</p>
+  <div class="story-grid">
+    <div class="prose story-text">
+      <p class="reveal">大多數人對於醫療的想像，是從膽怯延伸的；與醫療的關係，是從一個問題開始的。身體出現訊號，於是尋求治療；療程結束，關係也跟著結束。</p>
+      <p class="reveal reveal-delay-1">GAIAN 想做的，是把這段關係往前延展一些。<strong>理解、評估、管理、預防，一直到長期的健康規劃</strong>——讓醫療不只在問題發生之後才出現，也能更早參與每一個人對自己身體的理解。</p>
+      <p class="reveal reveal-delay-2">GAIAN 不是一般診所，也不是醫美品牌、健康會館或高級 SPA。我們以中西醫整合、預防醫學、健康管理與健康美學為核心，讓對自己的照顧，不再只是特定時刻的安排，而能自然融入日常。讓健康不再只是生病之後才開始處理的事，而是一項值得被長期理解、管理與經營的人生資產。</p>
+    </div>
+    <figure class="story-visual reveal-photo">
+      <div class="story-arch" data-parallax="0.08">
+        <img src="images/about/about-02-story.png" alt="GAIAN 的長廊空間，光線從拱窗灑進大理石地面">
+      </div>
+      <figcaption class="en">The Space of Understanding</figcaption>
+    </figure>
   </div>
-  <p class="pull-quote reveal reveal-delay-2">真正的健康，<br>不是強迫身體改變，而是順應它的節奏。</p>
 </section>
 
+
+<!-- ===== 品牌金句｜整寬水面照片帶 =====
+     圖：core-management.png｜流動的水道與漣漪。
+     說什麼：「順應它的節奏」——水不被強迫，只依循自己的流向。
+     動畫：背景視差＋金句逐行浮現。 -->
+<section class="quote-band" aria-label="品牌金句">
+  <div class="quote-band-media" data-parallax="0.18" aria-hidden="true">
+    <img src="images/about/about-03-quote.png" alt="">
+  </div>
+  <p class="quote-band-text">
+    <span class="qb-line reveal">真正的健康，</span>
+    <span class="qb-line reveal reveal-delay-3">不是強迫身體改變，<br class="m-br">而是順應它的節奏。</span>
+  </p>
+</section>
+
+
+<!-- ===== 品牌血緣 =====
+     2026-10-15 改版：先用「品牌關係圖」說明 GAIA 與兩個場域的關係，
+     再接原本的五組「理念 → 落地」左右對照。
+     品牌關係圖：
+       - 內容與結構依品牌簡報〈GAIA 美×健康×生活〉關係圖。
+       - Logo（images/about/brand/）為從簡報截圖裁切、去背的暫代檔，解析度有限；
+         取得原始 Logo 檔（AI／SVG／高解析 PNG）後，用同檔名覆蓋即可。
+       - 動畫：GAIA 先浮現 → 金線往下畫、再向左右分支 → 兩張場域卡片依序升起。 -->
 <section class="section gb-io" id="gaia">
   <div class="section-head reveal">
     <p class="eyebrow en">GAIA × GAIAN</p>
     <h2>品牌血緣</h2>
-    <p class="tagline">一個回答我們相信什麼，一個回答這些相信如何進入生活。</p>
   </div>
 
-  <div class="gb-io-wrap reveal reveal-delay-1">
-    <div class="gb-io-col">
-      <b>GAIA</b>
-      <ul>
-        <li>理念與哲學</li>
-        <li>自然與生命</li>
-        <li>世界與秩序</li>
-        <li>文化與文明</li>
-        <li>時間與傳承</li>
-      </ul>
+  <div class="brand-tree" data-animate>
+    <div class="bt-aside bt-aside-l en" aria-hidden="true">Beauty<br>Health<br>A More Radiant You</div>
+    <div class="bt-aside bt-aside-r en" aria-hidden="true">Health<br>Beauty<br>Longevity</div>
+
+    <div class="bt-root">
+      <img class="bt-logo bt-logo-root" src="images/about/brand/gaia-logo.png" alt="GAIA">
+      <p class="bt-trio">美<i>×</i>健康<i>×</i>生活</p>
+      <span class="bt-rule" aria-hidden="true"></span>
+      <p class="bt-root-desc">GAIA 是整體品牌精神的起點，<br>以生活美學、身心照顧與健康理念</p>
     </div>
-    <div class="gb-io-line"></div>
-    <div class="gb-io-col right">
-      <b>GAIAN</b>
-      <ul>
-        <li>醫療與健康</li>
-        <li>美學與藝術</li>
-        <li>空間與場域</li>
-        <li>服務與體驗</li>
-        <li>日常與陪伴</li>
-      </ul>
+
+    <div class="bt-branch" aria-hidden="true">
+      <svg viewBox="0 0 600 130" preserveAspectRatio="none" focusable="false">
+        <defs>
+          <linearGradient id="btGold" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#C8A56A" stop-opacity="0.35"/>
+            <stop offset="50%" stop-color="#B8934A"/>
+            <stop offset="100%" stop-color="#C8A56A" stop-opacity="0.35"/>
+          </linearGradient>
+        </defs>
+        <path class="bt-trunk" vector-effect="non-scaling-stroke" d="M300 0 L300 62"/>
+        <path class="bt-arm" vector-effect="non-scaling-stroke" d="M300 62 C300 84 292 92 270 92 L150 92 L150 130"/>
+        <path class="bt-arm" vector-effect="non-scaling-stroke" d="M300 62 C300 84 308 92 330 92 L450 92 L450 130"/>
+      </svg>
+      <span class="bt-spark" aria-hidden="true"></span>
+    </div>
+
+    <div class="bt-children">
+      <article class="bt-card" style="--i:0;">
+        <img class="bt-logo" src="images/about/brand/gaia-logo.png" alt="GAIA">
+        <h3>GAIA 眾神殿</h3>
+        <span class="bt-rule" aria-hidden="true"></span>
+        <p class="bt-role">生活照護場域</p>
+        <p class="bt-desc">讓照顧自己，<br>成為日常生活的一部分。</p>
+      </article>
+      <article class="bt-card bt-card-med" style="--i:1;">
+        <img class="bt-logo" src="images/about/brand/gaian-logo.png" alt="GAIAN Precision Health &amp; Longevity">
+        <h3>肌齡光域<span class="bt-dot">·</span>覺生殿</h3>
+        <span class="bt-rule" aria-hidden="true"></span>
+        <p class="bt-role">醫療健康場域</p>
+        <div class="bt-tags">
+          <p><span>中醫</span><span>西醫</span><span>預防醫學</span></p>
+          <p><span>健康評估</span><span>治療</span><span>健康管理</span></p>
+        </div>
+        <p class="bt-desc">從身體訊號到專業評估，<br>建立更完整的健康理解。</p>
+      </article>
+    </div>
+
+    <p class="bt-sign en" aria-hidden="true">Integrative <em>for a Better You</em></p>
+  </div>
+
+  <!-- 原本的 GAIA ↔ GAIAN 五組對照：由這句引言接續 -->
+  <div class="lineage-intro reveal">
+    <span class="li-star" aria-hidden="true">✦</span>
+    <p>一個回答我們相信什麼，<br class="m-br">一個回答這些相信如何進入生活。</p>
+  </div>
+
+  <div class="lineage" data-animate>
+    <div class="lineage-head">
+      <div class="lh-side"><b class="en">GAIA</b><span>我們相信的世界</span></div>
+      <div class="lh-mid" aria-hidden="true"></div>
+      <div class="lh-side right"><b class="en">GAIAN</b><span>落地之後的生活</span></div>
+    </div>
+    <div class="lineage-rows">
+      <span class="lineage-spine" aria-hidden="true"></span>
+      <div class="lineage-row" style="--i:0;"><span class="lr-l">理念與哲學</span><i class="lr-node" aria-hidden="true"></i><span class="lr-r">醫療與健康</span></div>
+      <div class="lineage-row" style="--i:1;"><span class="lr-l">自然與生命</span><i class="lr-node" aria-hidden="true"></i><span class="lr-r">美學與藝術</span></div>
+      <div class="lineage-row" style="--i:2;"><span class="lr-l">世界與秩序</span><i class="lr-node" aria-hidden="true"></i><span class="lr-r">空間與場域</span></div>
+      <div class="lineage-row" style="--i:3;"><span class="lr-l">文化與文明</span><i class="lr-node" aria-hidden="true"></i><span class="lr-r">服務與體驗</span></div>
+      <div class="lineage-row" style="--i:4;"><span class="lr-l">時間與傳承</span><i class="lr-node" aria-hidden="true"></i><span class="lr-r">日常與陪伴</span></div>
     </div>
   </div>
 
-  <p class="gb-io-cta reveal reveal-delay-2">GAIA 是我們信仰的世界。<br>GAIAN 是這個世界真正落地，人們可以感受到的生活方式。</p>
+  <p class="gb-io-cta reveal">GAIA 是我們信仰的世界。<br>GAIAN 是這個世界真正落地，人們可以感受到的生活方式。</p>
 
-  <!-- BRAND.md §10：GAIAN 不能只存在於醫療項目與療程列表，而應逐步形成完整的七階段實踐。 -->
-  <div class="section-head reveal" style="margin-top:110px;">
+  <!-- BRAND.md §10：GAIAN 不能只存在於醫療項目與療程列表，而應逐步形成完整的七階段實踐。
+       桌機改為橫向路徑（呼應首頁「健康管理方式」的金線節點），手機維持直向。
+       動畫：金線從左畫到右，七個節點依序亮起，畫完後有一顆光點沿線緩慢流動。 -->
+  <div class="section-head reveal" style="margin-top:120px;">
     <p class="eyebrow en">How It Becomes Real</p>
     <h2>信念如何落地</h2>
     <p class="tagline">完整的 GAIAN，不會停在醫療項目與療程列表。</p>
   </div>
-  <div class="gb-flow reveal reveal-delay-1">
-    <div class="gb-flow-node">健康觀念</div><div class="gb-flow-line"></div>
-    <div class="gb-flow-node">品牌哲學</div><div class="gb-flow-line"></div>
-    <div class="gb-flow-node">醫療專業</div><div class="gb-flow-line"></div>
-    <div class="gb-flow-node">健康理解</div><div class="gb-flow-line"></div>
-    <div class="gb-flow-node">場域體驗</div><div class="gb-flow-line"></div>
-    <div class="gb-flow-node">生活方式</div><div class="gb-flow-line"></div>
-    <div class="gb-flow-node">長期關係</div>
-  </div>
+  <ol class="belief-path" data-animate>
+    <span class="bp-track" aria-hidden="true"><span class="bp-glow"></span></span>
+    <li class="bp-node" style="--i:0;"><i aria-hidden="true"></i><span class="bp-num en">01</span><b>健康觀念</b></li>
+    <li class="bp-node" style="--i:1;"><i aria-hidden="true"></i><span class="bp-num en">02</span><b>品牌哲學</b></li>
+    <li class="bp-node" style="--i:2;"><i aria-hidden="true"></i><span class="bp-num en">03</span><b>醫療專業</b></li>
+    <li class="bp-node" style="--i:3;"><i aria-hidden="true"></i><span class="bp-num en">04</span><b>健康理解</b></li>
+    <li class="bp-node" style="--i:4;"><i aria-hidden="true"></i><span class="bp-num en">05</span><b>場域體驗</b></li>
+    <li class="bp-node" style="--i:5;"><i aria-hidden="true"></i><span class="bp-num en">06</span><b>生活方式</b></li>
+    <li class="bp-node bp-end" style="--i:6;"><i aria-hidden="true"></i><span class="bp-num en">07</span><b>長期關係</b></li>
+  </ol>
 </section>
 
+
+<!-- ===== 品牌理念｜左側固定畫框＋右側五條理念 =====
+     桌機：左邊畫框固定不動，捲到哪一條理念，畫框就淡入對應的圖；正在讀的那一條會被點亮。
+     手機：不顯示畫框，維持純文字長條（理念是要被讀完的句子）。
+     五張圖與理念的對應：
+       01 journey-bg.png        大理石柔和的弧線  → 順應身體的節奏，而不是對抗
+       02 hero-arch.png         拱門外的地平線    → 醫學不只停在治療，而是看得更遠
+       03 home-hero.png         一個人面向海      → 以「人」為中心
+       04 gallery-constellation.png 星與光的整體 → 健康是整體，不是單一數字
+       05 beauty-porcelain.png  茶器與日常之美    → 美建立在健康的生活之上 -->
 <section class="section texture-bg" id="philosophy">
   <div class="section-head reveal">
     <p class="eyebrow en">Philosophy</p>
     <h2>品牌理念</h2>
-    <p class="tagline">五件我們認為值得被說清楚的事</p>
+    <p class="tagline">五件我們認為值得被說清楚的事。</p>
   </div>
-  <div class="philosophy-list">
-    <div class="ph-item reveal">
-      <span class="ph-index en">01</span>
-      <div class="ph-body">
-        <b>真正的健康，不是強迫身體改變，而是順應它的節奏</b>
-        <p>身體發出的訊號，值得被更完整地理解，而不是急著被安撫或解決</p>
+  <div class="ph-layout">
+    <div class="ph-frame-col" aria-hidden="true">
+      <div class="ph-frame">
+        <img class="ph-img is-active" data-ph="0" src="images/about/about-04-philosophy-01.png" alt="">
+        <img class="ph-img" data-ph="1" src="images/about/about-05-philosophy-02.png" alt="">
+        <img class="ph-img" data-ph="2" src="images/about/about-06-philosophy-03.png" alt="">
+        <img class="ph-img" data-ph="3" src="images/about/about-07-philosophy-04.png" alt="">
+        <img class="ph-img" data-ph="4" src="images/about/about-08-philosophy-05.png" alt="">
+        <span class="ph-counter en"><b id="phCurrent">01</b> / 05</span>
       </div>
     </div>
-    <div class="ph-item reveal">
-      <span class="ph-index en">02</span>
-      <div class="ph-body">
-        <b>醫學，不只是治療</b>
-        <p>醫療不應只在疾病發生後出現。它更應協助人們理解身體、認識健康風險、建立健康意識，並做出更適合自己的健康選擇</p>
+    <div class="philosophy-list">
+      <div class="ph-item reveal" data-ph="0">
+        <span class="ph-index en">01</span>
+        <div class="ph-body">
+          <b>真正的健康，不是強迫身體改變，而是順應它的節奏。</b>
+          <p>身體發出的訊號，值得被更完整地理解，而不是急著被安撫或解決。</p>
+        </div>
       </div>
-    </div>
-    <div class="ph-item reveal">
-      <span class="ph-index en">03</span>
-      <div class="ph-body">
-        <b>以人為中心，而不是只以疾病為中心</b>
-        <p>每個人的身體狀態、年齡、工作方式、壓力、生活習慣、睡眠與情緒都不同。GAIAN 不會給所有人相同的答案</p>
+      <div class="ph-item reveal" data-ph="1">
+        <span class="ph-index en">02</span>
+        <div class="ph-body">
+          <b>醫學，不只是治療。</b>
+          <p>醫療不應只在疾病發生後出現。它更應協助人們理解身體、認識健康風險、建立健康意識，並做出更適合自己的健康選擇。</p>
+        </div>
       </div>
-    </div>
-    <div class="ph-item reveal">
-      <span class="ph-index en">04</span>
-      <div class="ph-body">
-        <b>健康不是單一數字</b>
-        <p>健康是一個整體狀態——身體、心理、睡眠、壓力、代謝、生活方式、環境，以及長期的健康風險，共同構成</p>
+      <div class="ph-item reveal" data-ph="2">
+        <span class="ph-index en">03</span>
+        <div class="ph-body">
+          <b>以人為中心，而不是只以疾病為中心。</b>
+          <p>每個人的身體狀態、年齡、工作方式、壓力、生活習慣、睡眠與情緒都不同。GAIAN 不會給所有人相同的答案。</p>
+        </div>
       </div>
-    </div>
-    <div class="ph-item reveal">
-      <span class="ph-index en">05</span>
-      <div class="ph-body">
-        <b>真正的美，建立在健康之上</b>
-        <p>健康為本，與美共生。健康是基礎，美則可以是健康與良好生命狀態自然呈現的一部分，一種為未來而生的生活方式</p>
+      <div class="ph-item reveal" data-ph="3">
+        <span class="ph-index en">04</span>
+        <div class="ph-body">
+          <b>健康不是單一數字。</b>
+          <p>健康是一個整體狀態——身體、心理、睡眠、壓力、代謝、生活方式、環境，以及長期的健康風險，共同構成。</p>
+        </div>
+      </div>
+      <div class="ph-item reveal" data-ph="4">
+        <span class="ph-index en">05</span>
+        <div class="ph-body">
+          <b>真正的美，建立在健康之上。</b>
+          <p>健康為本，與美共生。健康是基礎，美則可以是健康與良好生命狀態自然呈現的一部分，一種為未來而生的生活方式。</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+
+<!-- ===== 品牌世界觀｜四項原則 =====
+     不加照片：這四項是「原則」，圖片會把它們變成風格示意。
+     動畫：每欄頂端金線由左往右畫出（依序），羅馬數字淡入；滑鼠移上時整欄微微上浮。 -->
 <section class="section" id="worldview">
   <div class="section-head reveal">
     <p class="eyebrow en">Worldview</p>
     <h2>品牌世界觀</h2>
-    <p class="tagline">世界觀不只是一種宣言，而是在每一次選擇中都可以被拿出來檢驗的原則</p>
+    <p class="tagline">世界觀不只是一種宣言，而是在每一次選擇中都可以被拿出來檢驗的原則。</p>
   </div>
-  <div class="value-grid">
-    <div class="value-item reveal">
+  <div class="value-grid wv-grid" data-animate>
+    <div class="value-item" style="--i:0;">
+      <span class="wv-num en" aria-hidden="true">I</span>
       <b class="en">Expertise</b>
       <span class="v-zh">權威精準</span>
       <p>醫療的第一要素永遠是專業可信度。GAIAN 可以有美感、有哲學、有情緒，但不會為了品牌故事犧牲醫療專業。</p>
     </div>
-    <div class="value-item reveal reveal-delay-1">
+    <div class="value-item" style="--i:1;">
+      <span class="wv-num en" aria-hidden="true">II</span>
       <b class="en">Privacy</b>
       <span class="v-zh">極致隱私</span>
-      <p>低打擾、安靜、被妥善安排。</div>高端不等於高調——真正的高端，往往來自細節與分寸。</p>
+      <p>低打擾、安靜、被妥善安排。高端不等於高調——真正的高端，往往來自細節與分寸。</p>
     </div>
-    <div class="value-item reveal reveal-delay-2">
+    <div class="value-item" style="--i:2;">
+      <span class="wv-num en" aria-hidden="true">III</span>
       <b class="en">Bespoke</b>
       <span class="v-zh">專屬客製</span>
       <p>每個人的身體、生活與健康需求不同。GAIAN 的角色是協助理解個人狀態，由專業人員協助做出適當判斷。</p>
     </div>
-    <div class="value-item reveal reveal-delay-3">
+    <div class="value-item" style="--i:3;">
+      <span class="wv-num en" aria-hidden="true">IV</span>
       <b class="en">Elegance</b>
       <span class="v-zh">空間美學</span>
       <p>秩序、比例、留白、光、材質與溫度。讓醫療環境可以同時具有專業與人性。</p>
@@ -180,6 +320,11 @@
   </div>
 </section>
 
+
+<!-- ===== 未來願景｜深色底＋照片 =====
+     圖：core-culture.png｜人們在 GAIAN 空間中對話、閱讀。
+     說什麼：願景的最後一句「形成更長期的健康關係」——不是一次療程，而是持續往來的場域。
+     動畫：照片從模糊到清晰（.reveal-photo）＋持續極緩慢的推近；金句疊在照片下緣。 -->
 <section class="section gb-believe" id="vision">
   <div class="gb-grid">
     <div class="reveal">
@@ -188,16 +333,19 @@
       <p>我們希望未來人們提到 GAIAN 時，想到的不是一項療程，而是一種如何更好理解自己、管理健康與健康生活的方式。</p>
       <p>GAIAN 追求的不是讓所有人都成為客戶，而是讓真正適合的人，更早開始理解自己的身體，建立對健康的主動權，並形成更長期的健康關係。</p>
     </div>
-    <div class="gb-believe-visual reveal reveal-delay-1"><span>健康不是等到失去以後<br>才開始管理</span></div>
+    <div class="gb-believe-visual vision-photo reveal-photo">
+      <img src="images/about/about-09-vision.png" alt="人們在 GAIAN 空間中交談與閱讀">
+      <span>健康不是等到失去以後<br>才開始管理</span>
+    </div>
   </div>
 </section>
 
-<section class="final-cta">
+<section class="final-cta ab-cta">
   <div class="final-inner">
-    <p class="eyebrow en">Begin</p>
-    <h2 class="en">從理解自己開始</h2>
-    <p>如果這些話和你有所共鳴，也許就是一個適合開始的時候</p>
-    <a class="btn-star primary" href="contact.html">開始旅程<span class="btn-star-underline"></span></a>
+    <p class="eyebrow en reveal">Begin</p>
+    <h2 class="en reveal reveal-delay-1">從理解自己開始</h2>
+    <p class="reveal reveal-delay-2">如果這些話和你有所共鳴，也許就是一個適合開始的時候</p>
+    <a class="btn-star primary reveal reveal-delay-3" href="contact.html">開始旅程<span class="btn-star-underline"></span></a>
   </div>
 </section>
 
@@ -243,6 +391,7 @@
 <script src="js/nav-data.js"></script>
 <script src="js/nav.js"></script>
 <script src="js/reveal.js"></script>
+<script src="js/about.js"></script>
 
 </body>
 </html>
