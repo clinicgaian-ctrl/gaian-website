@@ -1,0 +1,469 @@
+/* =========================================================
+   ABOUT GAIAN 頁專屬樣式（2026-10-14 視覺改版）
+   - 只在 about.html 載入，不影響其他頁面。
+   - 視覺語言全部延續首頁：拱門／大理石／金線／柔光、.reveal 淡入、.reveal-photo 模糊轉清晰。
+   - 所有動畫在 prefers-reduced-motion 下直接顯示最終狀態（檔案最下方）。
+   ========================================================= */
+
+/* ---------- 共用：緩動曲線（與 style.css 的 .reveal 相同） ---------- */
+.page-about{--ease-lux:cubic-bezier(.16,.8,.24,1);}
+
+
+/* =========================================================
+   1. HERO｜整頁照片＋緩慢推近
+   ========================================================= */
+.ab-hero{
+  position:relative;height:92vh;min-height:620px;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  color:#F8F2E4;overflow:hidden;background:var(--ink);
+}
+.ab-hero-media{position:absolute;inset:0;z-index:0;}
+.ab-hero-media img{
+  width:100%;height:100%;object-fit:cover;object-position:center 55%;display:block;
+  transform:scale(1.12);
+  animation:abKenBurns 16s var(--ease-lux) forwards;
+}
+@keyframes abKenBurns{to{transform:scale(1);}}
+/* 中央偏暗、四周更暗：讓置中的文字永遠讀得清楚，拱門的光仍透出來 */
+.ab-hero::before{
+  content:"";position:absolute;inset:0;z-index:1;
+  background:
+    radial-gradient(ellipse 60% 55% at 50% 50%, rgba(20,18,12,0.50) 0%, rgba(20,18,12,0.22) 70%, transparent 100%),
+    linear-gradient(180deg, rgba(20,18,12,0.45) 0%, rgba(20,18,12,0.10) 35%, rgba(20,18,12,0.55) 100%);
+}
+.ab-hero .shimmer-layer{z-index:2;}
+.ab-hero-inner{position:relative;z-index:3;max-width:720px;padding:120px 6vw 60px;}
+.ab-hero .crumb{
+  font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.4em;color:var(--gold-light);
+  text-transform:uppercase;margin-bottom:26px;
+}
+.ab-hero h1{
+  font-family:'Cormorant Garamond','Noto Serif TC',serif;font-weight:400;
+  font-size:44px;line-height:1.55;letter-spacing:0.06em;color:#FBF7EE;margin-bottom:28px;
+}
+.ab-hero-rule{display:block;width:44px;height:1px;background:var(--gold-light);margin:0 auto 28px;}
+.ab-hero-inner p:last-child{font-size:15.5px;font-weight:300;color:#EAE0C8;max-width:540px;margin:0 auto;line-height:2;}
+.ab-hero .scroll-cue{z-index:3;}
+
+/* 載入時文字依序浮現（每個元素用 style="--d:..." 指定延遲） */
+.ab-rise{opacity:0;transform:translateY(22px);animation:abRise 1.3s var(--ease-lux) forwards;animation-delay:var(--d,0s);}
+.ab-hero-rule.ab-rise{transform:scaleX(0);animation-name:abRule;}
+@keyframes abRise{to{opacity:1;transform:translateY(0);}}
+@keyframes abRule{to{opacity:1;transform:scaleX(1);}}
+
+@media(max-width:760px){
+  .ab-hero{height:86vh;min-height:560px;}
+  .ab-hero h1{font-size:25px;letter-spacing:0.02em;line-height:1.7;}
+  .ab-hero-inner p:last-child{font-size:14.5px;}
+}
+
+
+/* =========================================================
+   2. 品牌故事｜左文右拱門照片
+   ========================================================= */
+.story-grid{
+  display:grid;grid-template-columns:1.1fr 0.9fr;gap:90px;align-items:center;
+  max-width:1140px;margin:0 auto;
+}
+.story-text{max-width:none;margin:0;}
+.story-visual{margin:0;position:relative;}
+/* 拱門造型：呼應首頁六大醫療領域卡片與照片中的拱窗 */
+.story-arch{
+  aspect-ratio:4/5.4;overflow:hidden;position:relative;
+  border-radius:999px 999px 14px 14px;
+  box-shadow:0 0 0 1px var(--gold-light), 0 50px 90px rgba(20,18,12,0.22);
+  will-change:transform;
+}
+.story-arch img{width:100%;height:118%;object-fit:cover;object-position:62% center;display:block;margin-top:-9%;}
+/* 外圈第二道細金框，稍微錯位，增加層次 */
+.story-visual::before{
+  content:"";position:absolute;inset:-16px 16px 16px -16px;z-index:-1;
+  border:1px solid rgba(184,147,74,0.35);border-radius:999px 999px 14px 14px;
+}
+.story-visual{margin-bottom:46px;}
+.story-visual figcaption{
+  position:absolute;left:0;right:0;top:100%;margin-top:26px;text-align:center;font-style:italic;font-size:15px;
+  color:var(--gold);letter-spacing:0.12em;
+}
+@media(max-width:860px){
+  .story-grid{grid-template-columns:1fr;gap:56px;}
+  .story-visual{max-width:360px;margin:0 auto;width:100%;}
+}
+
+
+/* =========================================================
+   3. 品牌金句｜整寬水面照片帶
+   ========================================================= */
+.quote-band{
+  position:relative;min-height:520px;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  padding:120px 8vw;background:var(--ink);
+}
+.quote-band-media{position:absolute;inset:-15% 0;z-index:0;will-change:transform;}
+.quote-band-media img{width:100%;height:100%;object-fit:cover;object-position:center 60%;display:block;}
+.quote-band::before{
+  content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(0deg, rgba(20,18,12,0.62), rgba(20,18,12,0.38));
+}
+.quote-band-text{
+  position:relative;z-index:2;max-width:760px;
+  font-family:'Cormorant Garamond','Noto Serif TC',serif;font-weight:300;
+  font-size:32px;line-height:1.9;letter-spacing:0.06em;color:#FBF7EE;
+}
+.quote-band-text::before{
+  content:"✦";display:block;font-size:14px;color:var(--gold-light);margin-bottom:26px;letter-spacing:0;
+}
+.qb-line{display:block;}
+.m-br{display:none;}
+@media(max-width:760px){
+  .quote-band{min-height:420px;padding:90px 7vw;}
+  .quote-band-text{font-size:22px;}
+  .m-br{display:inline;}
+}
+
+
+/* =========================================================
+   4-0. 品牌血緣｜品牌關係圖（GAIA → 兩個場域）
+   ========================================================= */
+.brand-tree{position:relative;max-width:1080px;margin:-10px auto 0;padding:10px 0 20px;}
+/* 頂部 GAIA 背後一圈柔光，像光從神殿中心散出 */
+.brand-tree::before{
+  content:"";position:absolute;left:50%;top:-40px;width:520px;height:520px;margin-left:-260px;
+  background:radial-gradient(circle, rgba(255,251,242,0.95) 0%, rgba(243,233,214,0.55) 40%, transparent 70%);
+  pointer-events:none;z-index:0;
+}
+.brand-tree > *{position:relative;z-index:1;}
+
+.bt-aside{
+  position:absolute;top:20px;font-family:'Jost',sans-serif;font-size:10.5px;letter-spacing:0.32em;
+  line-height:2.3;text-transform:uppercase;color:rgba(92,86,75,0.55);
+}
+.bt-aside::after{content:"";display:block;width:26px;height:1px;background:var(--gold-light);margin-top:14px;}
+.bt-aside-l{left:0;}
+.bt-aside-r{right:0;text-align:right;}
+.bt-aside-r::after{margin-left:auto;}
+
+.bt-root{text-align:center;max-width:460px;margin:0 auto;}
+.bt-logo{display:block;margin:0 auto;height:auto;}
+.bt-logo-root{width:170px;filter:drop-shadow(0 14px 24px rgba(42,38,32,0.14));}
+.bt-trio{
+  margin-top:22px;font-family:'Noto Serif TC',serif;font-size:26px;font-weight:500;
+  letter-spacing:0.28em;color:var(--ink);
+}
+.bt-trio i{font-style:normal;font-weight:300;color:var(--gold);margin:0 0.35em 0 0.1em;letter-spacing:0;}
+.bt-rule{display:block;width:34px;height:1px;background:var(--gold);margin:18px auto;}
+.bt-root-desc{font-size:15.5px;line-height:2;letter-spacing:0.12em;color:var(--ink-soft);font-weight:400;}
+
+/* 分支金線：SVG 撐滿兩張卡片的寬度，左右兩端剛好落在卡片中心 */
+.bt-branch{position:relative;max-width:900px;height:110px;margin:26px auto 0;}
+.bt-branch svg{display:block;width:100%;height:100%;overflow:visible;}
+/* non-scaling-stroke 下虛線長度以螢幕像素計算，用 1400 涵蓋最長一段 */
+.bt-branch path{fill:none;stroke:url(#btGold);stroke-width:1.2;stroke-dasharray:1400;stroke-dashoffset:1400;}
+.bt-trunk{stroke:#B8934A !important;}
+/* 分岔點的小光點 */
+.bt-spark{
+  position:absolute;left:50%;top:calc(62 / 130 * 100%);width:7px;height:7px;margin:-3.5px 0 0 -3.5px;
+  background:var(--gold);transform:rotate(45deg) scale(0);
+  box-shadow:0 0 0 5px rgba(184,147,74,0.14), 0 0 18px rgba(217,188,129,0.8);
+  transition:transform .6s var(--ease-lux);
+}
+
+.bt-children{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:900px;margin:0 auto;}
+.bt-card{
+  margin:0 22px;text-align:center;padding:46px 36px 44px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:linear-gradient(180deg, rgba(250,246,239,0.92), rgba(250,246,239,0.62));
+  border:1px solid rgba(184,147,74,0.28);border-radius:220px 220px 14px 14px;
+  box-shadow:0 30px 60px rgba(42,38,32,0.06);
+  opacity:0;transform:translateY(34px);
+  transition:opacity 1.1s var(--ease-lux), transform 1.1s var(--ease-lux), border-color .5s ease, box-shadow .5s ease;
+}
+.bt-card .bt-logo{width:118px;transition:transform .7s var(--ease-lux);}
+.bt-card-med .bt-logo{width:108px;}
+.bt-card h3{
+  margin-top:24px;font-family:'Noto Serif TC',serif;font-size:27px;font-weight:500;
+  letter-spacing:0.16em;color:var(--ink);line-height:1.4;
+}
+.bt-dot{color:var(--gold);margin:0 0.12em;}
+.bt-role{font-size:17px;font-weight:500;letter-spacing:0.32em;color:var(--ink);}
+.bt-tags{margin:20px 0 4px;}
+.bt-tags p{font-size:14.5px;letter-spacing:0.18em;color:var(--ink-soft);line-height:2.1;}
+.bt-tags span + span::before{
+  content:"";display:inline-block;width:1px;height:12px;background:var(--gold-light);
+  margin:0 0.9em 0 0.75em;vertical-align:-1px;
+}
+.bt-desc{margin-top:20px;font-size:15px;line-height:2;letter-spacing:0.14em;color:var(--ink-soft);}
+.bt-card:hover{border-color:var(--gold);box-shadow:0 40px 80px rgba(42,38,32,0.11);}
+.bt-card:hover .bt-logo{transform:scale(1.05);}
+
+.bt-sign{
+  text-align:right;max-width:900px;margin:34px auto 0;padding-right:22px;
+  font-size:22px;font-style:italic;color:var(--gold);letter-spacing:0.04em;
+  opacity:0;transition:opacity 1.4s ease;
+}
+.bt-sign em{font-size:17px;color:var(--ink-soft);}
+
+/* 根節點也做進場（不靠 .reveal，以便和金線同一條時間軸） */
+.bt-root > *{opacity:0;transform:translateY(18px);transition:opacity 1s var(--ease-lux), transform 1s var(--ease-lux);}
+.bt-root .bt-rule{transform:scaleX(0);}
+
+/* ---- 時間軸：GAIA → 金線往下 → 分岔 → 卡片升起 ---- */
+.brand-tree.in-view .bt-root > *{opacity:1;transform:none;}
+.brand-tree.in-view .bt-root > :nth-child(2){transition-delay:.15s;}
+.brand-tree.in-view .bt-root > :nth-child(3){transition-delay:.3s;}
+.brand-tree.in-view .bt-root > :nth-child(4){transition-delay:.4s;}
+.brand-tree.in-view .bt-trunk{stroke-dashoffset:0;transition:stroke-dashoffset .7s ease-in .75s;}
+.brand-tree.in-view .bt-spark{transform:rotate(45deg) scale(1);transition-delay:1.35s;}
+.brand-tree.in-view .bt-arm{stroke-dashoffset:0;transition:stroke-dashoffset 1.1s cubic-bezier(.3,.6,.3,1) 1.4s;}
+.brand-tree.in-view .bt-card{opacity:1;transform:none;transition-delay:calc(2.1s + var(--i) * 0.22s);}
+.brand-tree.in-view .bt-card:hover{transform:translateY(-6px);transition-delay:0s;}
+.brand-tree.in-view .bt-sign{opacity:1;transition-delay:2.9s;}
+
+/* ---- 引言：接到下方五組對照 ---- */
+.lineage-intro{text-align:center;max-width:640px;margin:120px auto 54px;}
+.li-star{display:block;color:var(--gold);font-size:13px;margin-bottom:20px;}
+.lineage-intro p{
+  font-family:'Cormorant Garamond','Noto Serif TC',serif;font-size:21px;font-weight:400;
+  line-height:1.9;letter-spacing:0.1em;color:var(--ink);
+}
+
+@media(max-width:1180px){.bt-aside{display:none;}}
+@media(max-width:860px){
+  .bt-logo-root{width:140px;}
+  .bt-trio{font-size:21px;letter-spacing:0.2em;}
+  .bt-root-desc{font-size:14.5px;letter-spacing:0.06em;}
+  .bt-branch{height:56px;margin-top:20px;}
+  .bt-branch svg{display:none;}
+  .bt-branch::before{
+    content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--gold);
+    transform:scaleY(0);transform-origin:top;transition:transform .8s ease .7s;
+  }
+  .brand-tree.in-view .bt-branch::before{transform:scaleY(1);}
+  .bt-spark{top:100%;}
+  .bt-children{grid-template-columns:1fr;gap:26px;}
+  .bt-card{margin:0;padding:40px 22px 38px;border-radius:180px 180px 14px 14px;}
+  .bt-card h3{font-size:23px;letter-spacing:0.1em;}
+  .bt-role{font-size:15.5px;letter-spacing:0.22em;}
+  .bt-tags p{font-size:13.5px;letter-spacing:0.08em;}
+  .bt-desc{font-size:14px;letter-spacing:0.06em;}
+  .bt-sign{text-align:center;padding:0;font-size:19px;}
+  .bt-sign em{font-size:15px;}
+  .lineage-intro{margin:90px auto 44px;}
+  .lineage-intro p{font-size:18px;letter-spacing:0.06em;}
+}
+
+/* =========================================================
+   4. 品牌血緣｜GAIA ↔ GAIAN 橫向配對
+   ========================================================= */
+.page-about #gaia{overflow-x:clip;}
+.lineage{max-width:760px;margin:0 auto 60px;}
+.lineage-head,.lineage-row{display:grid;grid-template-columns:1fr 90px 1fr;align-items:center;}
+.lineage-head{margin-bottom:26px;}
+.lh-side{text-align:right;}
+.lh-side.right{text-align:left;}
+.lh-side b{display:block;font-size:30px;font-weight:400;letter-spacing:0.2em;color:var(--gold);line-height:1.2;}
+.lh-side span{font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.2em;color:var(--ink-soft);}
+
+.lineage-rows{position:relative;}
+.lineage-spine{
+  position:absolute;left:50%;top:0;bottom:0;width:1px;margin-left:-0.5px;
+  background:linear-gradient(var(--gold-light),var(--gold),var(--gold-light));
+  transform:scaleY(0);transform-origin:top;
+  transition:transform 1.6s var(--ease-lux);
+}
+.lineage-row{position:relative;padding:18px 0;}
+.lineage-row + .lineage-row{border-top:0.5px solid rgba(184,147,74,0.18);}
+.lr-l,.lr-r{
+  font-size:17px;color:var(--ink);font-weight:400;letter-spacing:0.12em;
+  opacity:0;transition:opacity 1s var(--ease-lux), transform 1s var(--ease-lux), color .4s ease;
+}
+.lr-l{text-align:right;transform:translateX(-26px);}
+.lr-r{text-align:left;transform:translateX(26px);}
+.lr-node{
+  justify-self:center;width:9px;height:9px;background:var(--cream);
+  border:1px solid var(--gold);transform:rotate(45deg) scale(0);
+  transition:transform .7s var(--ease-lux), background .4s ease, box-shadow .4s ease;
+  position:relative;z-index:1;
+}
+/* 進入視野：金線畫下 → 每一行依序靠攏 */
+.lineage.in-view .lineage-spine{transform:scaleY(1);}
+.lineage.in-view .lr-l,.lineage.in-view .lr-r{opacity:1;transform:translateX(0);transition-delay:calc(0.35s + var(--i) * 0.22s);}
+.lineage.in-view .lr-node{transform:rotate(45deg) scale(1);transition-delay:calc(0.3s + var(--i) * 0.22s);}
+/* 滑鼠移上：該行兩側一起亮起，強調「這一組是對應的」 */
+.lineage-row:hover .lr-l,.lineage-row:hover .lr-r{color:var(--gold);}
+.lineage-row:hover .lr-node{background:var(--gold);box-shadow:0 0 0 5px rgba(184,147,74,0.15);}
+@media(max-width:560px){
+  .lineage-head,.lineage-row{grid-template-columns:1fr 44px 1fr;}
+  .lh-side b{font-size:22px;}
+  .lh-side span{font-size:10px;letter-spacing:0.12em;}
+  .lr-l,.lr-r{font-size:15px;letter-spacing:0.06em;}
+}
+
+
+/* =========================================================
+   5. 信念如何落地｜七節點路徑
+   桌機橫向（呼應首頁健康管理的金線節點），手機直向
+   ========================================================= */
+.belief-path{
+  list-style:none;position:relative;max-width:1080px;margin:0 auto;padding:0;
+  display:grid;grid-template-columns:repeat(7,1fr);
+}
+.bp-track{
+  position:absolute;left:calc(100% / 14);right:calc(100% / 14);top:8px;height:1px;
+  background:linear-gradient(90deg,var(--gold-light),var(--gold),var(--gold-light));
+  transform:scaleX(0);transform-origin:left;transition:transform 2.4s cubic-bezier(.45,.05,.25,1);
+}
+/* 畫完後沿線流動的光點 */
+.bp-glow{
+  position:absolute;top:-2px;left:0;width:60px;height:5px;border-radius:3px;
+  background:radial-gradient(ellipse at center, rgba(243,223,193,0.95), rgba(217,188,129,0));
+  opacity:0;
+}
+.belief-path.in-view .bp-glow{animation:bpGlow 5.5s ease-in-out 2.8s infinite;}
+@keyframes bpGlow{0%{left:-5%;opacity:0;}12%{opacity:1;}88%{opacity:1;}100%{left:100%;opacity:0;}}
+
+.bp-node{text-align:center;position:relative;z-index:1;padding:0 6px;}
+.bp-node i{
+  display:block;width:17px;height:17px;margin:0 auto 18px;border-radius:50%;
+  background:var(--mist);border:1px solid var(--gold);
+  transform:scale(0.4);opacity:0;
+  transition:transform .8s var(--ease-lux), opacity .8s var(--ease-lux), background .6s ease, box-shadow .6s ease;
+}
+.bp-num{display:block;font-size:14px;color:var(--gold);letter-spacing:0.1em;margin-bottom:4px;opacity:0;transition:opacity .8s ease;}
+.bp-node b{
+  display:block;font-weight:500;font-size:15.5px;color:var(--ink);letter-spacing:0.12em;
+  opacity:0;transform:translateY(12px);transition:opacity .9s var(--ease-lux), transform .9s var(--ease-lux);
+}
+.belief-path.in-view .bp-track{transform:scaleX(1);}
+.belief-path.in-view .bp-node i{opacity:1;transform:scale(1);background:var(--gold-pale);transition-delay:calc(var(--i) * 0.33s);}
+.belief-path.in-view .bp-num{opacity:1;transition-delay:calc(var(--i) * 0.33s + .1s);}
+.belief-path.in-view .bp-node b{opacity:1;transform:translateY(0);transition-delay:calc(var(--i) * 0.33s + .15s);}
+/* 終點「長期關係」：實心金點＋外圈，代表旅程的落點 */
+.belief-path.in-view .bp-end i{background:var(--gold);box-shadow:0 0 0 6px rgba(184,147,74,0.16), 0 0 24px rgba(217,188,129,0.6);}
+
+@media(max-width:860px){
+  .belief-path{grid-template-columns:1fr;max-width:260px;row-gap:26px;}
+  .bp-track{left:8px;right:auto;top:8px;bottom:8px;width:1px;height:auto;
+    background:linear-gradient(180deg,var(--gold-light),var(--gold),var(--gold-light));
+    transform:scaleY(0);transform-origin:top;}
+  .belief-path.in-view .bp-track{transform:scaleY(1);}
+  .bp-glow{display:none;}
+  .bp-node{display:grid;grid-template-columns:17px 34px 1fr;align-items:center;column-gap:16px;text-align:left;padding:0;}
+  .bp-node i{margin:0;}
+  .bp-num{margin:0;}
+  .bp-node b{transform:translateX(12px);}
+  .belief-path.in-view .bp-node b{transform:translateX(0);}
+}
+
+
+/* =========================================================
+   6. 品牌理念｜左側固定畫框＋右側五條理念
+   ========================================================= */
+.ph-layout{
+  display:grid;grid-template-columns:0.82fr 1.18fr;gap:80px;
+  max-width:1140px;margin:0 auto;align-items:start;
+}
+.ph-layout .philosophy-list{max-width:none;margin:0;}
+.ph-frame-col{height:100%;}
+.ph-frame{
+  position:sticky;top:120px;aspect-ratio:4/5;overflow:hidden;
+  border-radius:999px 999px 14px 14px;background:var(--mist);
+  box-shadow:0 0 0 1px var(--gold-light), 0 40px 80px rgba(20,18,12,0.18);
+}
+.ph-img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;transform:scale(1.08);filter:blur(6px);
+  transition:opacity 1.1s var(--ease-lux), transform 1.6s var(--ease-lux), filter 1.1s var(--ease-lux);
+}
+.ph-img.is-active{opacity:1;transform:scale(1);filter:blur(0);}
+.ph-counter{
+  position:absolute;left:0;right:0;bottom:22px;text-align:center;z-index:2;
+  font-size:14px;letter-spacing:0.2em;color:#FBF7EE;text-shadow:0 1px 10px rgba(0,0,0,0.45);
+}
+.ph-counter b{font-weight:500;font-size:18px;}
+.ph-frame::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:30%;z-index:1;
+  background:linear-gradient(0deg,rgba(20,18,12,0.45),transparent);
+}
+
+/* 正在讀的那一條：編號轉為金色、左側出現一道金線；其餘略淡（只在桌機） */
+.ph-layout .ph-item{position:relative;transition:opacity .6s ease;}
+.ph-layout .ph-item::before{
+  content:"";position:absolute;left:0;top:36px;width:1px;height:0;background:var(--gold);
+  transition:height .8s var(--ease-lux);
+}
+.ph-layout .ph-index{transition:color .6s ease;padding-left:22px;}
+.ph-layout .ph-item.is-active .ph-index{color:var(--gold);}
+.ph-layout .ph-item.is-active::before{height:44px;}
+@media(min-width:961px){
+  .ph-layout.is-tracking .ph-item.in-view:not(.is-active){opacity:0.42;}
+}
+@media(max-width:960px){
+  .ph-layout{grid-template-columns:1fr;gap:0;}
+  .ph-frame-col{display:none;}
+  .ph-layout .ph-index{padding-left:0;}
+  .ph-layout .ph-item::before{display:none;}
+}
+
+
+/* =========================================================
+   7. 品牌世界觀｜金線依序畫出＋羅馬數字
+   ========================================================= */
+.wv-grid .value-item{
+  position:relative;border-top:0;padding-top:26px;
+  transition:transform .6s var(--ease-lux);
+}
+.wv-grid .value-item::before{
+  content:"";position:absolute;left:0;top:0;height:1px;width:100%;background:var(--gold);
+  transform:scaleX(0);transform-origin:left;transition:transform 1.2s var(--ease-lux);
+}
+.wv-num{
+  position:absolute;right:0;top:12px;font-size:40px;font-weight:300;line-height:1;
+  color:rgba(184,147,74,0.22);letter-spacing:0.04em;
+}
+.wv-grid .value-item > *:not(.wv-num){opacity:0;transform:translateY(16px);transition:opacity .9s var(--ease-lux), transform .9s var(--ease-lux);}
+.wv-grid .wv-num{opacity:0;transition:opacity 1.4s ease;}
+.wv-grid.in-view .value-item::before{transform:scaleX(1);transition-delay:calc(var(--i) * 0.18s);}
+.wv-grid.in-view .value-item > *:not(.wv-num){opacity:1;transform:translateY(0);transition-delay:calc(var(--i) * 0.18s + .35s);}
+.wv-grid.in-view .wv-num{opacity:1;transition-delay:calc(var(--i) * 0.18s + .6s);}
+.wv-grid .value-item:hover{transform:translateY(-6px);}
+.wv-grid .value-item:hover .wv-num{color:rgba(184,147,74,0.45);}
+
+
+/* =========================================================
+   8. 未來願景｜照片取代原本的漸層佔位
+   ========================================================= */
+.vision-photo{background:var(--ink);align-items:flex-end;}
+.vision-photo img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% center;
+  animation:abSlowDrift 24s ease-in-out infinite alternate;
+}
+@keyframes abSlowDrift{from{transform:scale(1.02);}to{transform:scale(1.1) translateX(-2%);}}
+.vision-photo::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(0deg, rgba(20,18,12,0.78) 0%, rgba(20,18,12,0.15) 50%, transparent 100%);
+}
+.vision-photo span{position:relative;z-index:1;padding:0 30px 40px;font-size:19px;line-height:1.8;}
+
+
+/* 結尾 CTA：改讀 About 專屬圖，不影響其他頁 */
+.final-cta.ab-cta{background-image:url('../images/about/about-10-cta.png');}
+
+/* =========================================================
+   減少動態：所有動畫直接顯示最終狀態
+   ========================================================= */
+@media(prefers-reduced-motion: reduce){
+  .bt-root > *,.bt-card,.bt-sign{opacity:1 !important;transform:none !important;transition:none !important;}
+  .bt-branch path{stroke-dashoffset:0 !important;transition:none !important;}
+  .bt-spark{transform:rotate(45deg) scale(1) !important;}
+  .bt-branch::before{transform:none !important;}
+  .ab-hero-media img,.vision-photo img{animation:none;transform:none;}
+  .ab-rise{animation:none;opacity:1;transform:none;}
+  .lineage-spine,.bp-track{transform:none !important;transition:none;}
+  .lr-l,.lr-r,.lr-node,.bp-node i,.bp-num,.bp-node b,
+  .wv-grid .value-item > *,.wv-grid .value-item::before{opacity:1 !important;transform:none !important;transition:none !important;}
+  .lr-node{transform:rotate(45deg) !important;}
+  .bp-glow{display:none;}
+  .ph-img{transition:opacity .01s;filter:none;transform:none;}
+  [data-parallax]{transform:none !important;}
+}
