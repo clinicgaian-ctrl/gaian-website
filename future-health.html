@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="has-aura">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>未來健康 | GAIAN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Noto+Serif+TC:wght@300;400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/future-health.css">
+<link rel="stylesheet" href="css/motion.css">
+<link rel="stylesheet" href="css/site-polish.css">
+</head>
+<body class="page-fh">
+
+<nav class="nav" id="mainNav" data-active="future-health"></nav>
+
+<!-- 全頁連貫背景：金色絲帶流光＋柔焦金色光暈（js/aura.js，與美的概念館同一套） -->
+<canvas class="gl-aura" aria-hidden="true"></canvas>
+
+<!--
+  FUTURE HEALTH 頁｜2026-10-17 改版
+  - 頁面專屬樣式：css/future-health.css；動畫：js/future-health.js（不影響其他頁）
+  - 醫師照片：images/future-health/doctors/，裁切自品牌簡報《Gaina醫師介紹_療程介紹》p.23–30
+    （為簡報截圖等級的解析度；取得原始高解析人像後，用同檔名覆蓋即可）
+  - 健康評估流程圖：取代原本 journey-steps.png，改為金色曲線節點（參考首頁「健康，是一段持續理解自己的過程」）
+  - 健康方案：九個專項改為金色線條插圖，進入畫面時依序「畫出」
+  - 所有動畫遵守 prefers-reduced-motion
+-->
+
+<!-- ===== HERO ===== -->
+<section class="gbeauty-hero fh-hero">
+  <!-- 首圖：images/future-health/fh-00-hero.jpg（新圖）；檔案還沒放進來時自動改用原本的 hero-arch.png -->
+  <div class="fh-hero-media" aria-hidden="true"><img src="images/future-health/fh-00-hero.jpg" onerror="this.onerror=null;this.src='images/shared/hero-arch.png'" alt=""></div>
+  <div class="shimmer-layer" aria-hidden="true">
+    <span class="shimmer s1"></span><span class="shimmer s2"></span><span class="shimmer s3"></span>
+  </div>
+  <div class="gbeauty-hero-inner">
+    <p class="eyebrow en fh-rise" style="--d:.2s;">Future Health</p>
+    <h1 class="fh-rise" style="--d:.45s;">醫學，不止於治療<br><span class="fh-nowrap">更要理解身體根本需求</span></h1>
+    <span class="fh-hero-rule fh-rise" style="--d:.75s;" aria-hidden="true"></span>
+    <p class="fh-rise" style="--d:.95s;">GAIAN 整合中西醫學、功能醫學與生活醫學，從根本理解身體的需求，不只治療疾病，而是陪伴每個人實現更完整的健康與美</p>
+  </div>
+</section>
+
+<!-- ===== 整合醫學 ===== -->
+<section class="section texture-bg" id="integrative">
+  <div class="about-grid">
+    <!-- 整合醫學：images/future-health/fh-01-integrative.jpg（新圖）；檔案還沒放進來時自動改用原本的 about-corridor.png -->
+    <div class="about-visual reveal-photo"><img src="images/future-health/fh-01-integrative.jpg" onerror="this.onerror=null;this.src='images/shared/about-corridor.png'" alt="整合醫學"></div>
+    <div class="about-text reveal">
+      <p class="eyebrow en">Integrative Medicine</p>
+      <h2>整合醫學<br><span class="fh-sweep fh-sub">從生活出發，重新理解醫學的意義<i class="fh-arrow" aria-hidden="true"></i></span></h2>
+      <p class="fh-lead">從預防到優化、從健康到美麗，我們不止關注單一症狀，我們更在乎根本的身體需求。</p>
+      <p>GAIAN 整合中西醫學、功能醫學、生活醫學與醫學美容，由內而外，從根本傾聽、理解身體的需求，建立不只治療疾病、更陪伴訪者走向真正健康與平衡的醫療模式。</p>
+      <div style="margin-top:20px;"><a class="btn-star dark" href="#assessment">了解健康評估流程<span class="btn-star-underline"></span></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 健康管理 ===== -->
+<section class="section fh-management" id="management">
+  <!-- 整合醫學 → 健康管理 的串場：金線由上往下畫出，中間一枚緩慢旋轉的金環，光點沿線流動 -->
+  <div class="fh-thread" data-animate aria-hidden="true">
+    <span class="fh-thread-line"><i></i></span>
+    <span class="fh-thread-orn"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="36"/><circle cx="40" cy="40" r="28" stroke-dasharray="2 5"/><path d="M40 22 L43 37 L58 40 L43 43 L40 58 L37 43 L22 40 L37 37 Z"/></svg></span>
+    <span class="fh-thread-line fh-thread-line-2"><i></i></span>
+  </div>
+  <div class="section-head reveal">
+    <p class="eyebrow en">Health Management</p>
+    <h2>健康管理<br><span class="fh-sub">讓照顧自己成為一種長久的生活方式</span></h2>
+    <p class="tagline">從睡眠、情緒壓力、疼痛到營養，每一個身體訊號，都值得被理解。從日常狀態到深層需求，探索健康背後的原因，找回身心的平衡。讓日常的生活狀態，轉變成一種可長期追蹤與調整的健康管理機制。</p>
+    <p class="tagline fh-emph">健康，不是等到問題發生才處理，而是讓身心持續處於最佳狀態。</p>
+  </div>
+  <!-- 六個專項：雜誌跨頁式圖文。每一則像一張橫式內頁——半邊照片、半邊文字，
+       大型英文斜體字壓在照片與文字的交界。左右交錯排列。
+       配圖：images/future-health/care/care-01～06（目前為暫代圖，新圖用同檔名覆蓋即可，
+       生圖 Prompt 見《未來健康頁_生圖Prompt.txt》）。 -->
+  <div class="fh-spreads">
+    <article class="fh-spread reveal">
+      <figure class="fh-spread-img"><img src="images/future-health/care/care-01-sleep.png" alt="睡眠" loading="lazy"></figure>
+      <span class="fh-spread-word en" aria-hidden="true">Rest</span>
+      <div class="fh-spread-text">
+        <span class="fh-spread-no en">01</span>
+        <b>睡眠</b>
+        <span class="fh-card-en en">SLEEP &amp; RECOVERY</span>
+        <p>睡眠不只是休息，更是身體修復與重整的過程。從睡眠品質理解身心狀態，找回自然的休息節律。</p>
+      </div>
+    </article>
+    <article class="fh-spread reveal reveal-delay-1">
+      <figure class="fh-spread-img"><img src="images/future-health/care/care-02-stress.png" alt="壓力" loading="lazy"></figure>
+      <span class="fh-spread-word en" aria-hidden="true">Balance</span>
+      <div class="fh-spread-text">
+        <span class="fh-spread-no en">02</span>
+        <b>壓力</b>
+        <span class="fh-card-en en">STRESS &amp; BALANCE</span>
+        <p>壓力會在身體留下痕跡。理解身心的反應與負荷，從生活節奏與身體狀態出發，重新建立內在平衡。</p>
+      </div>
+    </article>
+    <article class="fh-spread reveal">
+      <figure class="fh-spread-img"><img src="images/future-health/care/care-03-pain.png" alt="疼痛" loading="lazy"></figure>
+      <span class="fh-spread-word en" aria-hidden="true">Ease</span>
+      <div class="fh-spread-text">
+        <span class="fh-spread-no en">03</span>
+        <b>疼痛</b>
+        <span class="fh-card-en en">PAIN &amp; UNDERSTANDING</span>
+        <p>疼痛是身體傳遞的訊息。除了緩解不適，更重視對症狀與可能成因的理解，尋找合適的照護方向。</p>
+      </div>
+    </article>
+    <article class="fh-spread reveal reveal-delay-1">
+      <figure class="fh-spread-img"><img src="images/future-health/care/care-04-hair.png" alt="落髮" loading="lazy"></figure>
+      <span class="fh-spread-word en" aria-hidden="true">Vitality</span>
+      <div class="fh-spread-text">
+        <span class="fh-spread-no en">04</span>
+        <b>落髮</b>
+        <span class="fh-card-en en">HAIR &amp; INNER HEALTH</span>
+        <p>頭髮的變化，也可能反映身體的內在狀態。從營養、生活型態與相關健康因素著手，理解變化背後值得關注的線索。</p>
+      </div>
+    </article>
+    <article class="fh-spread reveal">
+      <figure class="fh-spread-img"><img src="images/future-health/care/care-05-women.png" alt="女性健康" loading="lazy"></figure>
+      <span class="fh-spread-word en" aria-hidden="true">Grace</span>
+      <div class="fh-spread-text">
+        <span class="fh-spread-no en">05</span>
+        <b>女性健康</b>
+        <span class="fh-card-en en">WOMEN'S WELLNESS</span>
+        <p>每個生命階段，都有不同的身體需求。從荷爾蒙變化到日常健康管理，陪伴女性理解身體，建立更適合自己的照護方式。</p>
+      </div>
+    </article>
+    <article class="fh-spread reveal reveal-delay-1">
+      <figure class="fh-spread-img"><img src="images/future-health/care/care-06-nutrition.png" alt="靜脈營養" loading="lazy"></figure>
+      <span class="fh-spread-word en" aria-hidden="true">Nourish</span>
+      <div class="fh-spread-text">
+        <span class="fh-spread-no en">06</span>
+        <b>靜脈營養</b>
+        <span class="fh-card-en en">IV NUTRITION</span>
+        <p>依個別健康狀況與專業評估，了解身體的營養需求，在適當的醫療指引下，規劃合宜的營養補充方式。</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===== 健康評估｜金色曲線流程（取代 journey-steps.png） =====
+     五個步驟與說明取自原流程圖：理解／評估／規劃／平衡／持續。
+     動畫：金線由左至右畫出，五個節點依序亮起，畫完後線條保持緩慢呼吸。 -->
+<!-- ===== 健康評估｜參考首頁「健康，是一段持續理解自己的過程」 =====
+     白底、一條金色細曲線串起五個節點；進入畫面時曲線由左至右畫出，節點依序浮現。 -->
+<section class="section fh-assess" id="assessment">
+  <div class="section-head reveal">
+    <p class="eyebrow en">Health Assessment</p>
+    <h2>健康評估<br><span class="fh-sub">建立完整、可追蹤的健康輪廓</span></h2>
+    <p class="tagline">透過系統化評估，陪伴每一位訪者看見身體發出的訊號，理解健康背後的根本需求，作為個人化健康計畫的起點。</p>
+  </div>
+  <div class="fh-process" data-animate>
+    <svg class="fh-process-line" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="fhPGold" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#9F7A45"/><stop offset="45%" stop-color="#F3DFC1"/>
+          <stop offset="70%" stop-color="#C8A56A"/><stop offset="100%" stop-color="#8E6C3D"/>
+        </linearGradient>
+      </defs>
+      <path vector-effect="non-scaling-stroke" fill="none" stroke="url(#fhPGold)"
+        d="M 100 70 C 160 20, 200 100, 300 60 C 380 20, 420 100, 500 60 C 580 20, 620 100, 700 60 C 780 20, 820 100, 900 60"/>
+    </svg>
+    <ol class="fh-pnodes">
+      <li class="fh-pnode" style="--i:0;"><span class="fh-pn-index">01</span><b>理解</b><span class="fh-pn-en">Understand</span><p>重新理解身體<br>真正的訊號</p></li>
+      <li class="fh-pnode" style="--i:1;"><span class="fh-pn-index">02</span><b>評估</b><span class="fh-pn-en">Assess</span><p>建立完整<br>健康輪廓</p></li>
+      <li class="fh-pnode" style="--i:2;"><span class="fh-pn-index">03</span><b>規劃</b><span class="fh-pn-en">Plan</span><p>打造個人<br>健康策略</p></li>
+      <li class="fh-pnode" style="--i:3;"><span class="fh-pn-index">04</span><b>平衡</b><span class="fh-pn-en">Balance</span><p>回到身體<br>原有節奏</p></li>
+      <li class="fh-pnode" style="--i:4;"><span class="fh-pn-index">05</span><b>持續</b><span class="fh-pn-en">Sustain</span><p>讓健康成為<br>生活方式</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== 醫療團隊｜8 位醫師 =====
+     順序依品牌簡報 p.23–30：醫療守護長 唐豪悅 → 陳曉萱 中醫師 → 其餘駐殿醫師。
+     既有 5 位醫師的「金句」與「專業領域介紹」維持原文不變。
+     新增 3 位（陳曉萱、李俊儀、陳博聖）的金句取自簡報標語，介紹依簡報專長整理，
+     ⚠️ 上線前請醫療端確認符合醫療廣告規範。 -->
+<section class="section team fh-team" id="team">
+  <div class="fh-team-bg" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="section-head reveal">
+    <p class="eyebrow en">Medical Team</p>
+    <h2>醫療團隊<br><span class="fh-sub">每一次理解身體，都需要專業同行</span></h2>
+    <p class="lede">GAIAN 匯聚中西醫整合醫療團隊，以跨專科的協作與多元醫學觀點，從身體、心理到生活方式，建立真正專屬的個人化健康策略。</p>
+  </div>
+  <div class="team-grid fh-team-grid">
+    <div class="team-card fh-doc fh-doc-lead reveal">
+      <div class="fh-pf-wrap"><div class="fh-pf">
+        <div class="fh-pf-in"><div class="fh-pf-photo"><div class="fh-pf-photo-in">
+          <img src="images/future-health/doctors/cut/tang.png" alt="唐豪悅 醫師" loading="lazy">
+        </div></div></div>
+      </div></div>
+      <span class="fh-doc-badge">GAIAN 醫療守護長</span>
+      <b>唐豪悅 醫師</b><span class="role">皮膚健康｜醫學美容</span>
+      <p class="team-quote">「我們相信，每一位來訪者都擁有屬於自己的健康與美感。」</p>
+      <p class="team-desc">專注於皮膚健康、醫學美容及年齡管理等領域，依據個人需求提供醫療評估與診療規劃，重視整體協調與自然表現。</p>
+    </div>
+    <div class="team-card fh-doc reveal reveal-delay-1">
+      <div class="fh-pf-wrap"><div class="fh-pf">
+        <div class="fh-pf-in"><div class="fh-pf-photo"><div class="fh-pf-photo-in">
+          <img src="images/future-health/doctors/cut/chen-hsiaohsuan.png" alt="陳曉萱 中醫師" loading="lazy">
+        </div></div></div>
+      </div></div>
+      <span class="fh-doc-badge">GAIAN 駐殿醫師</span>
+      <b>陳曉萱 中醫師</b><span class="role">中醫｜女性調理</span>
+      <p class="team-quote">「以中醫智慧，陪伴現代生活。」</p>
+      <p class="team-desc">專注於中醫女性調理、預防醫學及中西醫整合，涵蓋卵巢早期衰竭、不孕症與妊娠產後調理等領域，依據不同生命階段提供個人化的中醫照護規劃。</p>
+    </div>
+    <div class="team-card fh-doc reveal reveal-delay-2">
+      <div class="fh-pf-wrap"><div class="fh-pf">
+        <div class="fh-pf-in"><div class="fh-pf-photo"><div class="fh-pf-photo-in">
+          <img src="images/future-health/doctors/cut/hsieh.png" alt="謝元貴 醫師" loading="lazy">
+        </div></div></div>
+      </div></div>
+      <span class="fh-doc-badge">GAIAN 駐殿醫師</span>
+      <b>謝元貴 醫師</b><span class="role">神經醫學｜腦健康</span>
+      <p class="team-quote">「健康，是理解身體與生活節奏的開始。」</p>
+      <p class="team-desc">專注於神經醫學、睡眠、疼痛照護及再生醫學等領域，依據不同健康需求提供醫療評估與個人化照護規劃。</p>
+    </div>
+    <div class="team-card fh-doc reveal reveal-delay-3">
+      <div class="fh-pf-wrap"><div class="fh-pf">
+        <div class="fh-pf-in"><div class="fh-pf-photo"><div class="fh-pf-photo-in">
+          <img src="images/future-health/doctors/cut/li-boning.png" alt="李伯寧 醫師" loading="lazy">
+        </div></div></div>
+      </div></div>
+      <span class="fh-doc-badge">GAIAN 駐殿醫師</span>
+      <b>李伯寧 醫師</b><span class="role">女性健康｜再生醫學</span>
+      <p class="team-quote">「健康與自信，來自對身體每一個階段的理解。」</p>
+      <p class="team-desc">專注於女性健康、再生醫學及相關醫療照護，依據不同生命階段提供適切的診療規劃。</p>
+    </div>
+    <div class="team-card fh-doc reveal">
+      <div class="fh-pf-wrap"><div class="fh-pf">
+        <div class="fh-pf-in"><div class="fh-pf-photo"><div class="fh-pf-photo-in">
+          <img src="images/future-health/doctors/cut/huang-shihting.png" alt="黃詩婷 醫師" loading="lazy">
+        </div></div></div>
+      </div></div>
+      <span class="fh-doc-badge">GAIAN 駐殿醫師</span>
+      <b>黃詩婷 醫師</b><span class="role">醫學美容｜肌膚照護</span>
+      <p class="team-quote">「醫學美容，是建立在專業評估與自然平衡之上。」</p>
+      <p class="team-desc">專注於醫學美容及肌膚照護，依據個人條件提供適切的評估與治療規劃。</p>
+    </div>
+    <div class="team-card fh-doc reveal reveal-delay-1">
+      <div class="fh-pf-wrap"><div class="fh-pf">
+        <div class="fh-pf-in"><div class="fh-pf-photo"><div class="fh-pf-photo-in">
+          <img src="images/future-health/doctors/cut/chen-jenhao.png" alt="陳仁浩 醫師" loading="lazy">
+        </div></div></div>
+      </div></div>
+      <span class="fh-doc-badge">GAIAN 駐殿醫師</span>
+      <b>陳仁浩 醫師</b><span class="role">整合醫學｜功能醫學</span>
+      <p class="team-quote">「理解健康，不只關注單一症狀，而是整體生活。」</p>
+      <p class="team-desc">專注於整合醫學、功能醫學及健康管理相關領域，提供個人化醫療評估與整體診療規劃。</p>
+    </div>
+    <div class="team-card fh-doc reveal reveal-delay-2">
+      <div class="fh-pf-wrap"><div class="fh-pf">
+        <div class="fh-pf-in"><div class="fh-pf-photo"><div class="fh-pf-photo-in">
+          <img src="images/future-health/doctors/cut/li-junyi.png" alt="李俊儀 醫師" loading="lazy">
+        </div></div></div>
+      </div></div>
+      <span class="fh-doc-badge">GAIAN 駐殿醫師</span>
+      <b>李俊儀 醫師</b><span class="role">中醫｜全方位健康管理</span>
+      <p class="team-quote">「調和身心，啟動更好的自己。」</p>
+      <p class="team-desc">專注於中醫美容、疼痛調理、內科調理與體重管理，結合傳統中醫智慧與現代醫學整合，依據個人狀態提供由內而外的調理規劃。</p>
+    </div>
+    <div class="team-card fh-doc reveal reveal-delay-3">
+      <div class="fh-pf-wrap"><div class="fh-pf">
+        <div class="fh-pf-in"><div class="fh-pf-photo"><div class="fh-pf-photo-in">
+          <img src="images/future-health/doctors/cut/chen-bosheng.png" alt="陳博聖 醫師" loading="lazy">
+        </div></div></div>
+      </div></div>
+      <span class="fh-doc-badge">GAIAN 駐殿醫師</span>
+      <b>陳博聖 醫師</b><span class="role">中醫｜全齡健康管理</span>
+      <p class="team-quote">「傳承經典．關照當下．守護未來。」</p>
+      <p class="team-desc">專注於整合中醫調理與現代醫學實證，涵蓋代謝與慢性病、婦兒體質調理及更年期照護等領域，從預防、治療到術後修復提供全齡健康管理規劃。</p>
+    </div>
+    <!-- 黃柏仁 醫師：未出現在簡報 p.23–30 的 8 位醫師名單，先隱藏（未刪除）。確認仍在團隊中，移除這段註解符號即可恢復。
+    <div class="team-card fh-doc reveal">
+      <div class="team-photo fh-doc-photo"><span>黃柏仁</span></div>
+      <span class="fh-doc-badge">GAIAN 駐殿醫師</span>
+      <b>黃柏仁 醫師</b><span class="role">男性健康｜泌尿醫學</span>
+      <p class="team-quote">「每一個人生階段，都值得擁有良好的健康品質。」</p>
+      <p class="team-desc">專注於男性健康、泌尿醫學及疼痛照護等領域，提供醫療評估與個人化診療規劃。</p>
+    </div>
+    -->
+  </div>
+  <p class="art-note" style="margin-top:50px;">醫師個人介紹頁（學歷／經歷／證照／專長）規劃中。</p>
+</section>
+
+<!-- ===== 健康方案｜九個專項的金色線條插圖 =====
+     調性：溫暖、柔和的女性關懷——暖白底、兩組金線圓環緩慢旋轉、圖示依序「畫出」後輕輕浮動。 -->
+<section class="section fh-programs" id="programs">
+  <div class="mo-rings" aria-hidden="true"><svg viewBox="0 0 600 600"><circle cx="300" cy="300" r="290"/><circle cx="300" cy="300" r="240" stroke-dasharray="2 10"/><circle cx="300" cy="300" r="180"/></svg><svg viewBox="0 0 600 600"><circle cx="300" cy="300" r="290"/><circle cx="300" cy="300" r="240" stroke-dasharray="2 10"/><circle cx="300" cy="300" r="180"/></svg></div>
+  <div class="section-head reveal">
+    <p class="eyebrow en">Programs</p>
+    <h2>健康方案<br><span class="fh-sub">從睡眠到女性健康，打造個人化健康計畫</span></h2>
+    <p class="tagline">涵蓋以下專項，依個人需求量身規劃。</p>
+  </div>
+  <ul class="fh-prog" data-animate>
+    <li style="--i:0;"><span class="fh-prog-icon"><svg viewBox="0 0 64 64" aria-hidden="true">
+      <path pathLength="1" d="M32 50 C18 44 14 30 22 18 C30 22 36 30 32 50 Z M32 50 C46 44 50 30 42 18 C34 22 28 30 32 50"/>
+      <path pathLength="1" d="M32 50 V58"/>
+      <circle pathLength="1" cx="22" cy="18" r="2.4"/><circle pathLength="1" cx="42" cy="18" r="2.4"/></svg></span>
+      <b>功能醫學</b><span class="en">Functional Medicine</span></li>
+    <li style="--i:1;"><span class="fh-prog-icon"><svg viewBox="0 0 64 64" aria-hidden="true">
+      <path pathLength="1" d="M32 52 C14 40 9 29 15 21 C21 14 29 16 32 23 C35 16 43 14 49 21 C55 29 50 40 32 52 Z"/>
+      <path pathLength="1" d="M17 33 H25 L28 27 L32 39 L35 30 H47"/></svg></span>
+      <b>健康管理</b><span class="en">Health Management</span></li>
+    <li style="--i:2;"><span class="fh-prog-icon"><svg viewBox="0 0 64 64" aria-hidden="true">
+      <path pathLength="1" d="M38 12 A21 21 0 1 0 52 42 A16 16 0 1 1 38 12 Z"/>
+      <path pathLength="1" d="M47 14 L48 17 L51 18 L48 19 L47 22 L46 19 L43 18 L46 17 Z M54 26 L54.6 27.6 L56 28 L54.6 28.6 L54 30 L53.4 28.6 L52 28 L53.4 27.6 Z"/></svg></span>
+      <b>睡眠</b><span class="en">Sleep</span></li>
+    <li style="--i:3;"><span class="fh-prog-icon"><svg viewBox="0 0 64 64" aria-hidden="true">
+      <path pathLength="1" d="M10 24 C18 18 24 30 32 24 S46 18 54 24"/>
+      <path pathLength="1" d="M10 34 C18 28 24 40 32 34 S46 28 54 34"/>
+      <path pathLength="1" d="M14 44 C21 39 26 49 32 44 S43 39 50 44"/></svg></span>
+      <b>壓力</b><span class="en">Stress</span></li>
+    <li style="--i:4;"><span class="fh-prog-icon"><svg viewBox="0 0 64 64" aria-hidden="true">
+      <circle pathLength="1" cx="32" cy="24" r="7"/>
+      <path pathLength="1" d="M10 34 C12 46 22 54 32 54 C42 54 52 46 54 34"/>
+      <path pathLength="1" d="M10 34 C14 36 18 40 20 46 M54 34 C50 36 46 40 44 46"/>
+      <path pathLength="1" d="M32 11 V13 M21 15 L22.5 16.5 M43 15 L41.5 16.5"/></svg></span>
+      <b>疼痛</b><span class="en">Pain Care</span></li>
+    <li style="--i:5;"><span class="fh-prog-icon"><svg viewBox="0 0 64 64" aria-hidden="true">
+      <path pathLength="1" d="M22 10 C12 24 30 34 20 54"/>
+      <path pathLength="1" d="M32 8 C22 24 42 34 32 56"/>
+      <path pathLength="1" d="M42 10 C32 24 50 34 42 54"/></svg></span>
+      <b>落髮</b><span class="en">Hair Care</span></li>
+    <li style="--i:6;"><span class="fh-prog-icon"><svg viewBox="0 0 64 64" aria-hidden="true">
+      <path pathLength="1" d="M32 50 C25 42 25 28 32 14 C39 28 39 42 32 50 Z"/>
+      <path pathLength="1" d="M32 50 C21 49 13 41 11 30 C21 31 28 38 32 50"/>
+      <path pathLength="1" d="M32 50 C43 49 51 41 53 30 C43 31 36 38 32 50"/>
+      <path pathLength="1" d="M18 54 H46"/></svg></span>
+      <b>女性健康</b><span class="en">Women's Health</span></li>
+    <li style="--i:7;"><span class="fh-prog-icon"><svg viewBox="0 0 64 64" aria-hidden="true">
+      <path pathLength="1" d="M32 10 C26 20 18 30 18 40 A14 14 0 0 0 46 40 C46 30 38 20 32 10 Z"/>
+      <path pathLength="1" d="M25 41 A7 7 0 0 0 32 48"/></svg></span>
+      <b>靜脈營養</b><span class="en">IV Nutrition</span></li>
+    <li style="--i:8;"><span class="fh-prog-icon"><svg viewBox="0 0 64 64" aria-hidden="true">
+      <path pathLength="1" d="M20 10 V26 A12 12 0 0 0 44 26 V10"/>
+      <path pathLength="1" d="M32 38 V44 A8 8 0 0 0 48 44 V40"/>
+      <circle pathLength="1" cx="48" cy="36" r="4"/></svg></span>
+      <b>醫療設備</b><span class="en">Medical Devices</span></li>
+  </ul>
+  <div class="fh-prog-cta reveal"><a class="btn-star dark primary" href="contact.html">預約健康諮詢<span class="btn-star-underline"></span></a></div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="logo-row">
+      <img src="images/shared/logo.png" alt="GAIAN">
+      <p>GAIAN 融合整合醫學、美學、藝術與生活方式，打造一座重新理解健康的場域。</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col"><b>Explore</b><a href="about.html">關於 GAIAN</a><a href="future-health.html">未來健康</a><a href="gallery.html">美的概念館</a><a href="journal.html">品牌觀點</a></div>
+      <div class="footer-col"><b>Visit</b><a href="walking-together.html">同行者</a><a href="contact.html">開始旅程</a><a href="contact.html#location">門市資訊</a></div>
+      <!-- 醫療機構識別資訊
+           來源：PROJECT_STATUS.md §05（Status：APPROVED）、§06 Official Naming Rule。
+           名稱、地址、電話為正式對外資料，不得改寫、簡稱或自行翻譯。
+           TODO｜WEBSITE_MEMO.md §01 A-04：開業執照字號（兩院所各一）為官網必載事項，
+           目前 [待確認]。取得後必須補列於本區塊，未補齊前不得 Go-Live。 -->
+      <div class="footer-col footer-clinic">
+        <b>Clinic</b>
+        <p class="clinic-name">蓋亞恩整合醫學(聯合)診所<span>GAIAN Integrative Medicine Clinic</span></p>
+        <p class="clinic-name">肌齡光域健康美學診所<span>Aesthetic &amp; Longevity Clinic</span></p>
+        <p class="clinic-name">覺生殿中醫診所<span>Awakening Sanctum Chinese Medicine Clinic</span></p>
+        <p class="clinic-meta">台北市中山區敬業一路2號24樓</p>
+        <p class="clinic-meta"><a href="tel:+886285026200">（02）85026200</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 GAIAN. Future Integrative Health.</p>
+    <!-- 法遵頁面連結。四份頁面目前均為「架構草稿」，尚未經法務審閱。
+         依 WEBSITE_MEMO.md §01 B，未完成前全站不得 Go-Live。 -->
+    <div class="footer-legal">
+      <a href="privacy.html">隱私權政策</a>
+      <a href="terms.html">服務條款</a>
+      <a href="cookie-policy.html">Cookie 政策</a>
+      <a href="medical-disclaimer.html">醫療免責聲明</a>
+      <a href="minors-policy.html">未成年人資料處理原則</a>
+    </div>
+    <!-- TODO：社群連結網址 [待確認]；LINE 官方帳號連結見 WEBSITE_MEMO.md §01 A-11 -->
+    <div class="footer-social"><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">Line</a></div>
+  </div>
+</footer>
+
+<script src="js/nav-data.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/reveal.js"></script>
+<script src="js/future-health.js"></script>
+<script src="js/aura.js"></script>
+
+</body>
+</html>

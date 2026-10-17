@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-Hant" class="has-aura">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Noto+Serif+TC:wght@300;400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/journal.css">
+<link rel="stylesheet" href="css/motion.css">
+<link rel="stylesheet" href="css/site-polish.css">
 </head>
-<body>
+<body class="page-jn">
 
 <!--
   Status：Review（CLAUDE.md §13 LEVEL 2）
@@ -41,40 +44,60 @@
      在指定之前，任何醫療相關文章都不得發布，否則這段承諾會變成不實陳述。
 -->
 
-<nav class="nav" id="mainNav" data-active="journal" data-solid="true"></nav>
+<nav class="nav" id="mainNav" data-active="journal"></nav>
+
+<!-- 全頁連貫背景：金色絲帶流光＋柔焦金色光暈（js/aura.js，與其他頁同一套） -->
+<canvas class="gl-aura" aria-hidden="true"></canvas>
 
 
-<section class="page-hero">
-  <div>
-    <p class="crumb">Journal</p>
-    <h1 class="en">從持續理解，到長久健康</h1>
+<!-- ===== HERO =====
+     背景：images/journal/jn-00-hero.jpg（目前為暫代圖，新圖用同檔名覆蓋即可，生圖 Prompt 見《品牌觀點頁_生圖Prompt.txt》）
+     動畫：背景緩慢推近、斜向流光、文字依序浮現 -->
+<section class="gbeauty-hero jn-hero">
+  <div class="jn-hero-media" aria-hidden="true"><i></i></div>
+  <div class="gbeauty-hero-inner">
+    <p class="eyebrow en">Journal</p>
+    <h1>從持續理解，到長久健康</h1>
     <p>在這裡，分享 GAIAN 對健康、醫學與生活的深度思考與觀點</p>
   </div>
 </section>
 
-<section class="section" id="editorial">
-  <div class="section-head reveal">
-    <p class="eyebrow en">Why We Write</p>
-    <h2>症狀之外，看見更多身體的訊息</h2>
-  </div>
-  <div class="prose reveal reveal-delay-1">
+<!-- ===== 為什麼書寫｜左：橢圓照片（與 future-health.html 整合醫學同款）；右：標題＋內文 =====
+     配圖：images/journal/jn-01-write.jpg（暫代圖，同檔名覆蓋即可）
+     下方「編輯準則」是對讀者的公開承諾：改為羅馬數字條列、上下金線與印記，不用方框（金線依序畫出） -->
+<section class="section jn-why" id="editorial">
+  <div class="jn-why-grid">
+    <figure class="jn-why-img reveal-photo"><div class="jn-arch jn-oval"><img src="images/journal/jn-01-write.jpg" alt="在灑滿陽光的桌前閱讀與書寫" loading="lazy"></div></figure>
+    <div class="jn-why-text">
+      <div class="section-head reveal">
+        <p class="eyebrow en">Why We Write</p>
+        <h2>看見症狀之外的健康</h2>
+      </div>
+      <div class="prose jn-prose reveal reveal-delay-1">
     <p>許多健康問題，並非一夕之間形成，而是在日復一日的生活中，逐漸累積。當疲勞成為習慣、身體的訊號被視為尋常，我們或許更需要的，不只是休息，而是重新理解身體正在傳遞的訊息。我們書寫，是為了讓專業知識走進日常，讓那些容易被忽略的身體訊號，成為理解健康的起點。</p>
     <p>Journal 存在的目的，不是說服任何人接受某一項療程，而是提供一個重新認識健康的視角，讓我們在問題尚未明確之前，就能多理解自己的身體一些，從日常的細微變化中，看見健康值得被關注的地方。<strong>理解，是照顧自己的開始，也是健康管理的第一步。</strong></p>
   </div>
+    </div>
+  </div>
 
-  <div class="editorial-standard reveal reveal-delay-2">
-    <b class="en">Editorial Standard</b>
-    <ul>
-      <li>每一篇涉及醫療或健康的內容，都會標示撰稿者與醫療審閱者</li>
-      <li>每一篇都會標示發布日期與最後更新日期</li>
-      <li>引用的資訊會標示來源，必要時附上主要文獻依據</li>
-      <li>我們不寫保證、不寫最厲害、不寫立即見效，也不用恐懼促成任何決定</li>
-      <li>個別健康狀況因人而異，任何內容都不能取代醫師的實際診察與判斷</li>
-    </ul>
+  <div class="jn-standard" data-animate>
+    <div class="jn-std-head">
+      <span class="jn-seal" aria-hidden="true"><svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="27"/><circle cx="30" cy="30" r="22" stroke-dasharray="2 4"/><path d="M30 16 L32.5 27.5 L44 30 L32.5 32.5 L30 44 L27.5 32.5 L16 30 L27.5 27.5 Z"/></svg></span>
+      <b class="en">Editorial Standard</b>
+      <span class="jn-std-zh">編輯準則</span>
+    </div>
+    <ol class="jn-std-list">
+        <li style="--i:0"><span class="jn-std-num en">I</span><p>每一篇涉及醫療或健康的內容，都會標示撰稿者與醫療審閱者</p></li>
+        <li style="--i:1"><span class="jn-std-num en">II</span><p>每一篇都會標示發布日期與最後更新日期</p></li>
+        <li style="--i:2"><span class="jn-std-num en">III</span><p>引用的資訊會標示來源，必要時附上主要文獻依據</p></li>
+        <li style="--i:3"><span class="jn-std-num en">IV</span><p>我們不寫保證、不寫最厲害、不寫立即見效，也不用恐懼促成任何決定</p></li>
+        <li style="--i:4"><span class="jn-std-num en">V</span><p>個別健康狀況因人而異，任何內容都不能取代醫師的實際診察與判斷</p></li>
+    </ol>
   </div>
 </section>
 
-<section class="section texture-bg" id="categories">
+<section class="section jn-cats" id="categories">
+  <div class="mo-rings" aria-hidden="true"><svg viewBox="0 0 600 600"><circle cx="300" cy="300" r="290"/><circle cx="300" cy="300" r="240" stroke-dasharray="2 10"/><circle cx="300" cy="300" r="180"/></svg><svg viewBox="0 0 600 600"><circle cx="300" cy="300" r="290"/><circle cx="300" cy="300" r="240" stroke-dasharray="2 10"/><circle cx="300" cy="300" r="180"/></svg></div>
   <div class="section-head reveal">
     <p class="eyebrow en">Categories</p>
     <h2>文章觀點</h2>
@@ -84,7 +107,7 @@
   <div class="cat-list">
 
     <!-- Content Pillar 03 Preventive Health ＋ 04 GAIAN Philosophy -->
-    <div class="cat-row reveal" id="future-health">
+    <div class="cat-row jn-cat" id="future-health" data-animate style="--i:0">
       <div class="cat-label">
         <span class="cat-index">01</span>
         <b class="en">Future Health</b>
@@ -97,10 +120,11 @@
           <span>預防醫學</span><span>健康風險意識</span><span>長期健康規劃</span><span>整合醫學觀點</span>
         </div>
       </div>
+      <figure class="jn-cat-img"><span class="jn-orbit-ring" aria-hidden="true"></span><span class="jn-orbit-p p1" aria-hidden="true"></span><span class="jn-orbit-p p2" aria-hidden="true"></span><div class="jn-circle"><img src="images/journal/jn-cat-01.jpg" alt="未來健康觀點" loading="lazy"></div></figure>
     </div>
 
     <!-- Content Pillar 06 Lifestyle & Health -->
-    <div class="cat-row reveal" id="lifestyle">
+    <div class="cat-row jn-cat" id="lifestyle" data-animate style="--i:1">
       <div class="cat-label">
         <span class="cat-index">02</span>
         <b class="en">Lifestyle</b>
@@ -113,10 +137,11 @@
           <span>睡眠</span><span>工作節奏</span><span>飲食</span><span>運動與休息</span><span>壓力</span><span>恢復</span>
         </div>
       </div>
+      <figure class="jn-cat-img"><span class="jn-orbit-ring" aria-hidden="true"></span><span class="jn-orbit-p p1" aria-hidden="true"></span><span class="jn-orbit-p p2" aria-hidden="true"></span><div class="jn-circle"><img src="images/journal/jn-cat-02.jpg" alt="生活方式" loading="lazy"></div></figure>
     </div>
 
     <!-- Content Pillar 01 Health Knowledge ＋ 02 Doctor Perspective -->
-    <div class="cat-row reveal" id="medical">
+    <div class="cat-row jn-cat" id="medical" data-animate style="--i:2">
       <div class="cat-label">
         <span class="cat-index">03</span>
         <b class="en">Medical</b>
@@ -129,10 +154,11 @@
           <span>疲勞</span><span>壓力</span><span>代謝</span><span>肩頸與久坐</span><span>頭皮與落髮</span><span>健康評估觀念</span><span>醫師觀點</span>
         </div>
       </div>
+      <figure class="jn-cat-img"><span class="jn-orbit-ring" aria-hidden="true"></span><span class="jn-orbit-p p1" aria-hidden="true"></span><span class="jn-orbit-p p2" aria-hidden="true"></span><div class="jn-circle"><img src="images/journal/jn-cat-03.jpg" alt="醫療科普" loading="lazy"></div></figure>
     </div>
 
     <!-- BRAND.md §11-05：真正的美，建立在健康之上 -->
-    <div class="cat-row reveal" id="beauty">
+    <div class="cat-row jn-cat" id="beauty" data-animate style="--i:3">
       <div class="cat-label">
         <span class="cat-index">04</span>
         <b class="en">Beauty</b>
@@ -145,11 +171,12 @@
           <span>健康與美的關係</span><span>身體狀態</span><span>美學觀點</span>
         </div>
       </div>
+      <figure class="jn-cat-img"><span class="jn-orbit-ring" aria-hidden="true"></span><span class="jn-orbit-p p1" aria-hidden="true"></span><span class="jn-orbit-p p2" aria-hidden="true"></span><div class="jn-circle"><img src="images/journal/jn-cat-04.jpg" alt="健康美學" loading="lazy"></div></figure>
     </div>
 
     <!-- Content Pillar 05 GAIAN Experience
          ⚠️ 本分類若刊登真實訪者內容，一律先過 COMPLIANCE.md §40 五項確認。 -->
-    <div class="cat-row reveal" id="story">
+    <div class="cat-row jn-cat" id="story" data-animate style="--i:4">
       <div class="cat-label">
         <span class="cat-index">05</span>
         <b class="en">Story</b>
@@ -162,6 +189,7 @@
           <span>場域</span><span>諮詢</span><span>健康評估流程</span><span>同行者訪談</span>
         </div>
       </div>
+      <figure class="jn-cat-img"><span class="jn-orbit-ring" aria-hidden="true"></span><span class="jn-orbit-p p1" aria-hidden="true"></span><span class="jn-orbit-p p2" aria-hidden="true"></span><div class="jn-circle"><img src="images/journal/jn-cat-05.jpg" alt="訪者故事" loading="lazy"></div></figure>
     </div>
 
   </div>
@@ -187,12 +215,17 @@
        ============================================================ -->
 </section>
 
-<section class="final-cta">
-  <div class="final-inner">
+<!-- ===== 結尾｜書寫 =====
+     概念：Journal＝書寫。暖色大理石底，背景一個巨大的斜體「Journal」緩慢漂移；
+     標題像墨水一樣由左往右「寫出來」，下方一道手寫感的金色花式線條一筆畫出，最後內文與按鈕浮現。 -->
+<section class="section jn-ink" data-animate>
+  <div class="jn-ink-bg" aria-hidden="true"><span class="jn-ink-marble"></span><span class="jn-ink-word en">Journal</span></div>
+  <div class="jn-ink-inner">
     <p class="eyebrow en">Understanding</p>
-    <h2 class="en">理解，是健康管理的第一步</h2>
-    <p>健康管理的開始，不一定是找到答案，而是先知道自己正在面對什麼</p>
-    <a class="btn-star primary" href="future-health.html">認識 GAIAN 的健康觀點<span class="btn-star-underline"></span></a>
+    <h2 class="jn-ink-title"><span>理解，是健康管理的第一步</span></h2>
+    <svg class="jn-flourish" viewBox="0 0 420 40" aria-hidden="true"><path pathLength="1" d="M6 26 C 60 6, 110 34, 160 20 S 250 4, 300 20 S 380 34, 414 14"/><path pathLength="1" d="M190 30 C 205 36, 222 36, 236 28"/></svg>
+    <p class="jn-ink-p">健康管理的開始，不一定是找到答案，而是先知道自己正在面對什麼</p>
+    <div class="jn-ink-cta"><a class="btn-star dark" href="future-health.html">認識 GAIAN 的健康觀點<span class="btn-star-underline"></span></a></div>
   </div>
 </section>
 
@@ -238,6 +271,8 @@
 <script src="js/nav-data.js"></script>
 <script src="js/nav.js"></script>
 <script src="js/reveal.js"></script>
+<script src="js/journal.js"></script>
+<script src="js/aura.js"></script>
 
 </body>
 </html>

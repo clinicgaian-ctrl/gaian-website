@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-Hant" class="has-aura">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Noto+Serif+TC:wght@300;400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/motion.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/site-polish.css">
 </head>
-<body>
+<body class="page-home">
+<!-- 全頁連貫背景：金色水波絲帶＋柔焦光暈（js/aura.js，與其他分頁同一套） -->
+<canvas class="gl-aura" aria-hidden="true"></canvas>
 
 <!-- ===== NAV ===== -->
 <nav class="nav" id="mainNav" data-active="home"></nav>
@@ -23,18 +28,21 @@
   </div>
 
   <!-- ===== PART 1｜HERO 主視覺 ===== -->
-  <!-- TODO：規劃中的 8–10 秒循環影片（白色神殿／拱門／晨光／水面／遠方人物緩步）尚未提供素材，
-       目前先以靜態首頁背景圖代替，影片到位後可換成 <video autoplay muted loop playsinline> -->
+  <!-- 首屏影片：拱門＋隨風飄動的紗簾（原始檔 images/home/home_hero_breezy_curtains.mp4，
+       已轉成瀏覽器可播放的 H.264／WebM，並做首尾交疊淡化讓循環無接縫） -->
   <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="images/home/home-hero-poster.jpg" aria-hidden="true">
+      <source src="images/home/home-hero-loop.webm" type="video/webm">
+      <source src="images/home/home-hero-loop.mp4" type="video/mp4">
+    </video>
     <div class="hero-inner">
       <p class="eyebrow en">Future Integrative Health</p>
       <h1>真正的健康<br>不是對抗身體，而是重新理解它</h1>
-      <p>在這個追求速度的時代，我們習慣解決問題，卻很少停下來理解自己<br>GAIAN 融合整合醫學、健康管理、美學、藝術與文化，打造一座重新理解健康的場域，陪伴每個人找到適合照顧自己的方式</p>
+      <p>在追求速度的時代，我們習慣解決問題，卻很少停下來理解自己<br>GAIAN 融合整合醫學、健康管理、美學、藝術與文化，打造一座重新理解健康的場域，陪伴每個人找到適合照顧自己的方式</p>
       <div class="hero-ctas">
         <a class="btn-star" href="about.html">探索 GAIAN<span class="btn-star-underline"></span></a>
       </div>
     </div>
-    <div class="scroll-cue">SCROLL</div>
   </section>
 
   <!-- ===== PART 2｜GAIAN 是什麼（左文右圖） ===== -->
@@ -43,7 +51,7 @@
       <div class="about-text reveal">
         <p class="eyebrow en">What Is GAIAN</p>
         <h2>一座重新理解<br>健康與美的場域</h2>
-        <p>GAIAN 不是傳統醫療機構，也不是一般健康品牌。我們相信，真正的健康，存在於醫學、生活、美學與文化之間</p>
+        <p>GAIAN 不是傳統醫療機構，也不是一般健康品牌<br>我們相信，真正的健康，存在於醫學、生活、美學與文化之間</p>
         <div style="margin-top:30px;"><a class="btn-star dark" href="about.html">閱讀完整品牌故事<span class="btn-star-underline"></span></a></div>
       </div>
       <div class="about-visual reveal-photo"><img src="images/shared/about-corridor.png" alt="GAIAN 空間"></div>
@@ -129,10 +137,11 @@
 <!-- ===== PART 5｜美的概念館（延續背景，不切割） ===== -->
 <section class="section texture-bg" id="gallery" style="padding-left:0;padding-right:0;">
   <div class="zone-blend" aria-hidden="true"></div>
+  <span class="hm-thread" aria-hidden="true"></span>
   <div class="section-head">
     <p class="eyebrow en">Beauty Concept Gallery</p>
     <h2>真正的美<br>是一種生活方式</h2>
-    <p class="tagline">我們相信，健康與美從來不是兩件事。真正的美，來自健康、生活、藝術與文化的相互連結</p>
+    <p class="tagline">我們相信，健康與美從來不是兩件事<br>真正的美，來自健康、生活、藝術與文化的相互連結</p>
   </div>
   <div class="beauty-orbit-grid">
     <a class="orbit-card" href="gallery.html#jewelry">
@@ -162,20 +171,22 @@
 
 <!-- ===== PART 6｜醫療能力先於醫師：THE PEOPLE OF GAIAN 理念 + 六大醫療領域 ===== -->
 <section class="section people-intro" id="team">
+  <span class="hm-thread" aria-hidden="true"></span>
   <p class="eyebrow en" style="text-align:center;">The People of GAIAN</p>
-  <h2 class="people-quote">以不同專業，守護同一份初心。每一位醫師，都有不同的專業，但我們共同相信：<br>真正的醫療，始於理解每一個人。</h2>
+  <h2 class="people-title">以不同專業，<br class="m-br">守護同一份初心</h2>
+  <p class="people-quote">每一位醫師，都有不同的專業，而我們有著共同的信念：<br><strong>真正的醫療，始於理解每一個人</strong></p>
 </section>
 
 <section class="section texture-bg" id="disciplines">
   <div class="zone-blend" aria-hidden="true"></div>
   <div class="section-head">
     <p class="eyebrow en">Our Medical Disciplines</p>
-    <h2>每一個專業<br>都是理解生命的一種方式</h2>
+    <h2>每一項專業<br>都是理解生命的一種方式</h2>
   </div>
   <div class="discipline-carousel">
     <div class="discipline-track" id="disciplineTrack">
       <a class="discipline-card" href="future-health.html#integrative">
-        <span class="dc-arch"><span class="dc-index">01</span></span>
+        <span class="dc-arch"><img src="images/home/disc-01.jpg" alt="整合醫學" loading="lazy"><span class="dc-index">01</span></span>
         <span class="dc-body">
           <h3>整合醫學<span class="dc-en">Integrative Medicine</span></h3>
           <!-- 原文為「從全人健康出發，建立個人化醫療規劃。」
@@ -187,7 +198,7 @@
         </span>
       </a>
       <a class="discipline-card" href="future-health.html#team">
-        <span class="dc-arch"><span class="dc-index">02</span></span>
+        <span class="dc-arch"><img src="images/home/disc-02.jpg" alt="神經醫學" loading="lazy"><span class="dc-index">02</span></span>
         <span class="dc-body">
           <h3>神經醫學<span class="dc-en">Neurology</span></h3>
           <p>睡眠．壓力．腦健康</p>
@@ -195,7 +206,7 @@
         </span>
       </a>
       <a class="discipline-card" href="future-health.html#team">
-        <span class="dc-arch"><span class="dc-index">03</span></span>
+        <span class="dc-arch"><img src="images/home/disc-03.jpg" alt="皮膚健康" loading="lazy"><span class="dc-index">03</span></span>
         <span class="dc-body">
           <h3>皮膚健康<span class="dc-en">Skin Health</span></h3>
           <p>健康肌膚．醫學美容．年齡管理</p>
@@ -203,7 +214,7 @@
         </span>
       </a>
       <a class="discipline-card" href="future-health.html#team">
-        <span class="dc-arch"><span class="dc-index">04</span></span>
+        <span class="dc-arch"><img src="images/home/disc-04.jpg" alt="再生醫學" loading="lazy"><span class="dc-index">04</span></span>
         <span class="dc-body">
           <h3>再生醫學<span class="dc-en">Regenerative Medicine</span></h3>
           <p>細胞修復．再生醫學</p>
@@ -211,7 +222,7 @@
         </span>
       </a>
       <a class="discipline-card" href="future-health.html#team">
-        <span class="dc-arch"><span class="dc-index">05</span></span>
+        <span class="dc-arch"><img src="images/home/disc-05.jpg" alt="女性健康" loading="lazy"><span class="dc-index">05</span></span>
         <span class="dc-body">
           <h3>女性健康<span class="dc-en">Women's Health</span></h3>
           <p>婦科．荷爾蒙．私密照護</p>
@@ -219,7 +230,7 @@
         </span>
       </a>
       <a class="discipline-card" href="future-health.html#team">
-        <span class="dc-arch"><span class="dc-index">06</span></span>
+        <span class="dc-arch"><img src="images/home/disc-06.jpg" alt="男性健康" loading="lazy"><span class="dc-index">06</span></span>
         <span class="dc-body">
           <h3>男性健康<span class="dc-en">Men's Health</span></h3>
           <p>男性健康．泌尿．疼痛</p>
@@ -244,8 +255,9 @@
   <div class="companion-slider" id="companionSlider">
     <div class="companion-track">
       <div class="companion-slide is-active">
-        <div class="companion-photo"><span>唐豪悅</span></div>
+        <div class="companion-photo"><img src="images/future-health/doctors/cut/tang.png" alt="唐豪悅 醫師" loading="lazy"></div>
         <div class="companion-info">
+          <span class="companion-badge">GAIAN 醫療守護長</span>
           <span class="companion-role">Skin Health｜皮膚健康．醫學美容</span>
           <h3>唐豪悅 醫師</h3>
           <p class="companion-quote">「我們相信，每一位來訪者都擁有屬於自己的健康與美感。」</p>
@@ -253,7 +265,16 @@
         </div>
       </div>
       <div class="companion-slide">
-        <div class="companion-photo"><span>謝元貴</span></div>
+        <div class="companion-photo"><img src="images/future-health/doctors/cut/chen-hsiaohsuan.png" alt="陳曉萱 中醫師" loading="lazy"></div>
+        <div class="companion-info">
+          <span class="companion-role">Chinese Medicine｜中醫．女性調理</span>
+          <h3>陳曉萱 中醫師</h3>
+          <p class="companion-quote">「以中醫智慧，陪伴現代生活。」</p>
+          <p class="companion-desc">專注於中醫女性調理、預防醫學及中西醫整合，涵蓋卵巢早期衰竭、不孕症與妊娠產後調理等領域，依據不同生命階段提供個人化的中醫照護規劃。</p>
+        </div>
+      </div>
+      <div class="companion-slide">
+        <div class="companion-photo"><img src="images/future-health/doctors/cut/hsieh.png" alt="謝元貴 醫師" loading="lazy"></div>
         <div class="companion-info">
           <span class="companion-role">Neurology｜神經醫學．腦健康</span>
           <h3>謝元貴 醫師</h3>
@@ -262,7 +283,7 @@
         </div>
       </div>
       <div class="companion-slide">
-        <div class="companion-photo"><span>李伯寧</span></div>
+        <div class="companion-photo"><img src="images/future-health/doctors/cut/li-boning.png" alt="李伯寧 醫師" loading="lazy"></div>
         <div class="companion-info">
           <span class="companion-role">Women's Health｜女性健康．再生醫學</span>
           <h3>李伯寧 醫師</h3>
@@ -270,6 +291,43 @@
           <p class="companion-desc">專注於女性健康、再生醫學及相關醫療照護，依據不同生命階段提供適切的診療規劃。</p>
         </div>
       </div>
+      <div class="companion-slide">
+        <div class="companion-photo"><img src="images/future-health/doctors/cut/huang-shihting.png" alt="黃詩婷 醫師" loading="lazy"></div>
+        <div class="companion-info">
+          <span class="companion-role">Aesthetic Medicine｜醫學美容．肌膚照護</span>
+          <h3>黃詩婷 醫師</h3>
+          <p class="companion-quote">「醫學美容，是建立在專業評估與自然平衡之上。」</p>
+          <p class="companion-desc">專注於醫學美容及肌膚照護，依據個人條件提供適切的評估與治療規劃。</p>
+        </div>
+      </div>
+      <div class="companion-slide">
+        <div class="companion-photo"><img src="images/future-health/doctors/cut/chen-jenhao.png" alt="陳仁浩 醫師" loading="lazy"></div>
+        <div class="companion-info">
+          <span class="companion-role">Integrative Medicine｜整合醫學．功能醫學</span>
+          <h3>陳仁浩 醫師</h3>
+          <p class="companion-quote">「理解健康，不只關注單一症狀，而是整體生活。」</p>
+          <p class="companion-desc">專注於整合醫學、功能醫學及健康管理相關領域，提供個人化醫療評估與整體診療規劃。</p>
+        </div>
+      </div>
+      <div class="companion-slide">
+        <div class="companion-photo"><img src="images/future-health/doctors/cut/li-junyi.png" alt="李俊儀 醫師" loading="lazy"></div>
+        <div class="companion-info">
+          <span class="companion-role">Chinese Medicine｜中醫．全方位健康管理</span>
+          <h3>李俊儀 醫師</h3>
+          <p class="companion-quote">「調和身心，啟動更好的自己。」</p>
+          <p class="companion-desc">專注於中醫美容、疼痛調理、內科調理與體重管理，結合傳統中醫智慧與現代醫學整合，依據個人狀態提供由內而外的調理規劃。</p>
+        </div>
+      </div>
+      <div class="companion-slide">
+        <div class="companion-photo"><img src="images/future-health/doctors/cut/chen-bosheng.png" alt="陳博聖 醫師" loading="lazy"></div>
+        <div class="companion-info">
+          <span class="companion-role">Chinese Medicine｜中醫．全齡健康管理</span>
+          <h3>陳博聖 醫師</h3>
+          <p class="companion-quote">「傳承經典．關照當下．守護未來。」</p>
+          <p class="companion-desc">專注於整合中醫調理與現代醫學實證，涵蓋代謝與慢性病、婦兒體質調理及更年期照護等領域，從預防、治療到術後修復提供全齡健康管理規劃。</p>
+        </div>
+      </div>
+      <!-- 黃柏仁 醫師：未列於未來健康頁 8 位醫師名單，暫時隱藏（與 future-health.html 同步）
       <div class="companion-slide">
         <div class="companion-photo"><span>黃柏仁</span></div>
         <div class="companion-info">
@@ -279,24 +337,7 @@
           <p class="companion-desc">專注於男性健康、泌尿醫學及疼痛照護等領域，提供醫療評估與個人化診療規劃。</p>
         </div>
       </div>
-      <div class="companion-slide">
-        <div class="companion-photo"><span>黃詩婷</span></div>
-        <div class="companion-info">
-          <span class="companion-role">Aesthetic Medicine｜醫學美容．肌膚照護</span>
-          <h3>黃詩婷 醫師</h3>
-          <p class="companion-quote">「醫學美容，是建立在專業評估與自然平衡之上。」</p>
-          <p class="companion-desc">專注於醫學美容及肌膚照護，依據個人條件提供適切的評估與治療規劃。</p>
-        </div>
-      </div>
-      <div class="companion-slide">
-        <div class="companion-photo"><span>陳仁浩</span></div>
-        <div class="companion-info">
-          <span class="companion-role">Integrative Medicine｜整合醫學．功能醫學</span>
-          <h3>陳仁浩 醫師</h3>
-          <p class="companion-quote">「理解健康，不只關注單一症狀，而是整體生活。」</p>
-          <p class="companion-desc">專注於整合醫學、功能醫學及健康管理相關領域，提供個人化醫療評估與整體診療規劃。</p>
-        </div>
-      </div>
+      -->
     </div>
     <div class="companion-nav">
       <button class="companion-arrow" id="companionPrev" aria-label="上一位">←</button>
@@ -304,17 +345,18 @@
       <button class="companion-arrow" id="companionNext" aria-label="下一位">→</button>
     </div>
   </div>
-
+</section>
 
 <!-- ===== PART 7｜品牌觀點（Featured Story） ===== -->
 <section class="section" id="journal">
+  <span class="hm-thread" aria-hidden="true"></span>
   <div class="section-head">
     <p class="eyebrow en">Journal</p>
     <h2>理解<br>始於持續探索</h2>
     <p class="tagline">Journal 記錄著 GAIAN 對健康、美、醫學與生活的持續思考</p>
   </div>
   <a class="featured-story" href="journal.html">
-    <div class="fs-visual"><img src="images/shared/hero-arch.png" alt="重新定義健康的核心價值"></div>
+    <div class="fs-visual"><img src="images/home/journal-featured.jpg" alt="重新定義健康的核心價值" onerror="this.onerror=null;this.src='images/shared/hero-arch.png'"></div>
     <div class="fs-text">
       <p class="cat">未來健康</p>
       <h3>重新定義健康的核心價值</h3>
@@ -326,6 +368,11 @@
 
 <!-- ===== PART 8｜開始旅程（CTA） ===== -->
 <section class="final-cta" id="contact">
+  <!-- 結尾影片：穿過列柱長廊、往光走去（原始檔 images/home/home-cta.mp4，已轉檔並做無接縫循環） -->
+  <video class="hm-cta-video" autoplay muted loop playsinline preload="metadata" poster="images/home/home-cta-poster.jpg" aria-hidden="true">
+    <source src="images/home/home-cta-loop.webm" type="video/webm">
+    <source src="images/home/home-cta-loop.mp4" type="video/mp4">
+  </video>
   <div class="final-inner">
     <p class="eyebrow en">Begin Your Journey</p>
     <h2 class="en">每一段健康旅程<br>都始於一次理解</h2>
@@ -385,6 +432,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="js/flow-line.js"></script>
+<script src="js/aura.js"></script>
+<script src="js/home-motion.js"></script>
 
 </body>
 </html>
