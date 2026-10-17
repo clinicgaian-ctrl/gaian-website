@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/walking-together.css">
 <link rel="stylesheet" href="css/motion.css">
+<link rel="stylesheet" href="css/site-polish.css">
 </head>
 <body class="page-wt">
 
@@ -20,7 +21,6 @@
 
 <section class="gbeauty-hero wt-hero">
   <div class="wt-hero-media" aria-hidden="true"><i></i></div>
-  <div class="mo-sweep" aria-hidden="true"></div>
   <div class="gbeauty-hero-inner">
     <p class="eyebrow en">Walking Together</p>
     <h1>與你，一路同行</h1>
@@ -32,7 +32,8 @@
   <div class="section-head reveal">
     <p class="eyebrow en">Our Belief</p>
     <h2>每一步改變<br>都值得被記得<br></h2>
-    <p class="tagline">同行，是 GAIAN 對長期關係的理解。<br>從第一次對話、每一次評估，到生活改變後的再次確認，我們希望讓健康不只留下單次結果，而能在時間裡被持續看見。<br>我們尋找的，不是顧客，而是願意與 GAIAN 一起，走一段重新理解健康旅程的人。</p>
+    <p class="tagline">同行，是 GAIAN 對長期關係的理解。從第一次對話、每一次評估，到生活改變後的再次確認，我們希望讓健康不只留下單次結果，而能在時間裡被持續看見。</p>
+    <p class="wt-belief-key">我們尋找的，不是顧客，而是願意與 GAIAN 一起，走一段重新理解健康旅程的人。</p>
   </div>
 </section>
 
@@ -44,8 +45,7 @@
     <div class="reveal">
       <p class="eyebrow en">The Journey</p>
       <h2>健康旅程<br>陪伴，是最長期的承諾</h2>
-      <p>身體在變，生活在變，我們對健康的理解也隨之改變。</p>
-      <p>從第一次理解開始，到建立屬於自己的健康節奏，GAIAN 以持續的理解與陪伴，與每一位同行者走過每一段需要被理解的時刻。</p>
+      <p>身體在變，生活在變，我們對健康的理解也隨之改變。從第一次理解開始，到建立屬於自己的健康節奏，GAIAN 以持續的理解與陪伴，與每一位同行者走過每一段需要被理解的時刻。</p>
       <div class="wt-cta"><a class="btn-star primary" href="future-health.html#management">了解健康管理<span class="btn-star-underline"></span></a></div>
     </div>
     <figure class="wt-journey-visual reveal-photo">
@@ -68,7 +68,7 @@
     <p class="tagline">為每一位同行者，提供量身訂製的健康顧問服務</p>
   </div>
 
-  <div class="wt-cards">
+  <div class="wt-cards wt-list">
     <article class="wt-card" data-animate>
       <figure class="wt-card-img"><div class="wt-arch"><img src="images/walking-together/wt-02-practice.jpg" alt="循環流動的水道，象徵持續的健康管理" loading="lazy"></div><svg class="wt-arch-line" viewBox="0 0 200 250" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" vector-effect="non-scaling-stroke" d="M1 249 V100 A99 99 0 0 1 199 100 V249 Z"/></svg></figure>
       <div class="wt-card-text">
@@ -92,7 +92,7 @@
         <p class="wt-lead">一份規劃，應該看得懂，也能帶回生活。</p>
         <p>依專業評估與個人需求，規劃可包含：</p>
         <ul class="wt-tags"><li>階段目標</li><li>建議安排</li><li>回訪節點</li><li>留意事項</li></ul>
-        <p>內容清楚標示清楚記錄每一項醫療建議與日常觀察，讓健康歷程有所依循，並保留與醫師再次討論的空間。</p>    
+        <p>內容清楚標示清楚記錄每一項醫療建議與日常觀察，讓健康歷程有所依循，並保留與醫師再次討論的空間。</p>
         <a class="btn-star dark" href="contact.html">預約健康諮詢<span class="btn-star-underline"></span></a>
       </div>
     </article>
@@ -126,33 +126,42 @@
   </div>
 </section>
 
-<!-- ===== 企業同行 =====
-     副標做成「箭頭」：文字後方一道金線往右延伸，末端是箭頭，象徵從個人延伸到組織。
-     動畫：金線由左往右畫出、箭頭最後出現，之後箭頭會輕輕往前推。 -->
-<section class="section wt-corp" id="corporate">
+<!-- ===== 企業同行＋私享活動｜同一個暖色區塊作為頁尾前的收尾 =====
+     企業同行副標：與 future-health.html「從生活出發，重新理解醫學的意義」同款——金色底線從左劃到右，尾端半箭頭。
+     私享活動類型：參考 about.html「品牌世界觀」（頂端金線依序畫出、羅馬數字、英文標＋中文標）。
+     （私享活動目前三類；第四類確定後，在 .wt-events-grid 內再加一個 .wt-ev 即可，版面會自動排成四欄） -->
+<section class="section wt-together" id="corporate">
+  <!-- 背景點綴：大理石紋理、兩團暖光緩慢漂移、斜向流光；
+       企業同行標題後方有一圈圈金色漣漪往外擴散（從個人延伸到組織）。 -->
+  <div class="wt-tg-bg" aria-hidden="true">
+    <span class="wt-tg-marble"></span>
+    <span class="wt-tg-orb wt-tg-orb-a"></span><span class="wt-tg-orb wt-tg-orb-b"></span>
+    <span class="wt-tg-sweep"></span>
+    <div class="wt-ripple"><i></i><i></i><i></i><i></i></div>
+  </div>
+  <div class="mo-rings" aria-hidden="true"><svg viewBox="0 0 600 600"><circle cx="300" cy="300" r="290"/><circle cx="300" cy="300" r="240" stroke-dasharray="2 10"/><circle cx="300" cy="300" r="180"/></svg><svg viewBox="0 0 600 600"><circle cx="300" cy="300" r="290"/><circle cx="300" cy="300" r="240" stroke-dasharray="2 10"/><circle cx="300" cy="300" r="180"/></svg></div>
   <div class="wt-corp-inner" data-animate>
     <p class="eyebrow en">Corporate</p>
     <h2>企業同行</h2>
-    <p class="wt-arrow-title"><span>讓健康成為團隊文化的一部分</span><i aria-hidden="true"></i></p>
+    <p class="wt-sweep-title"><span class="wt-sweep">讓健康成為團隊文化的一部分<i class="wt-sweep-arrow" aria-hidden="true"></i></span></p>
     <p class="wt-corp-body">提供企業健康福利與團隊合作方案，讓健康從個人延伸為組織的共同語言。以健康教育、專題講座、健康體驗日與交流開始，建立理解與持續性的陪伴關係。</p>
     <a class="btn-star dark" href="contact.html">了解企業同行<span class="btn-star-underline"></span></a>
   </div>
-</section>
 
-<!-- ===== 私享活動 =====
-     活動類型的排版參考 about.html「品牌世界觀」：頂端金線依序畫出、羅馬數字、英文標＋中文標。
-     （目前三類；第四類確定後，在 .wt-events-grid 內再加一個 .wt-ev 即可，版面會自動排成四欄） -->
-<section class="final-cta wt-events" id="events">
-  <div class="final-inner wt-events-inner">
-    <p class="eyebrow en reveal">Private Events</p>
-    <h2 class="en reveal reveal-delay-1">私享活動</h2>
-    <p class="reveal reveal-delay-2">不定時專屬體驗與相聚，讓知識、藝術與生活，在每一次相遇中持續交融</p>
-    <div class="wt-events-grid" data-animate>
-      <div class="wt-ev" style="--i:0"><span class="wt-ev-num en" aria-hidden="true">I</span><b class="en">Private Dialogue</b><span class="wt-ev-zh">私享交流</span><p>小型、深度的跨領域對話。</p></div>
-      <div class="wt-ev" style="--i:1"><span class="wt-ev-num en" aria-hidden="true">II</span><b class="en">Brand Gatherings</b><span class="wt-ev-zh">品牌活動</span><p>以藝術、文化與生活為主題的相聚。</p></div>
-      <div class="wt-ev" style="--i:2"><span class="wt-ev-num en" aria-hidden="true">III</span><b class="en">Health Talks</b><span class="wt-ev-zh">健康講座</span><p>由專業者說明健康議題與可理解的知識。</p></div>
+  <div class="wt-sep" aria-hidden="true"><i></i><span>✦</span><i></i></div>
+
+  <div class="wt-events-block" id="events">
+    <div class="section-head reveal">
+      <p class="eyebrow en">Private Events</p>
+      <h2>私享活動</h2>
+      <p class="tagline">不定時專屬體驗與相聚，讓知識、藝術與生活，在每一次相遇中持續交融</p>
     </div>
-    <a class="btn-star primary reveal" href="contact.html">了解更多<span class="btn-star-underline"></span></a>
+    <div class="wt-events-grid" data-animate>
+      <div class="wt-ev" style="--i:0"><span class="wt-ev-num en" aria-hidden="true">I</span><b class="en">Private Dialogue</b><span class="wt-ev-zh">私享交流</span><p>小型、深度的跨領域對話</p></div>
+      <div class="wt-ev" style="--i:1"><span class="wt-ev-num en" aria-hidden="true">II</span><b class="en">Brand Gatherings</b><span class="wt-ev-zh">品牌活動</span><p>以藝術、文化與生活為主題的相聚</p></div>
+      <div class="wt-ev" style="--i:2"><span class="wt-ev-num en" aria-hidden="true">III</span><b class="en">Health Talks</b><span class="wt-ev-zh">健康講座</span><p>由專業者說明健康議題與可理解的知識</p></div>
+    </div>
+    <div class="wt-events-cta reveal"><a class="btn-star dark" href="contact.html">了解更多<span class="btn-star-underline"></span></a></div>
   </div>
 </section>
 
