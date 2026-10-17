@@ -1,0 +1,420 @@
+/* =========================================================
+   FUTURE HEALTH 頁專屬樣式（2026-10-17 改版）
+   只在 future-health.html 載入，不影響其他頁面。
+   視覺語言延續首頁：拱門／大理石／金線／柔光、.reveal 淡入、.reveal-photo 模糊轉清晰。
+   ========================================================= */
+.page-fh{--ease-lux:cubic-bezier(.16,.8,.24,1);--blush:#F6ECE4;}
+
+
+/* ---------- 共用：副標題（與「從生活出發⋯」同一級字，桌機維持一行） ---------- */
+.fh-sub{display:inline-block;margin-top:6px;font-size:30px;letter-spacing:0.06em;line-height:1.6;}
+@media(min-width:861px){.fh-sub{white-space:nowrap;}}
+@media(max-width:860px){.fh-sub{font-size:19px;letter-spacing:0.02em;}}
+
+
+/* =========================================================
+   HERO｜照片緩慢推近＋柔光＋文字依序浮現
+   ========================================================= */
+.fh-hero{background:var(--ink);isolation:isolate;}
+.fh-hero-media{position:absolute;inset:0;z-index:-1;}
+.fh-hero-media img{
+  width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block;
+  transform:scale(1.12);animation:fhKenBurns 16s var(--ease-lux) forwards;
+}
+@keyframes fhKenBurns{to{transform:scale(1);}}
+.fh-hero .shimmer-layer{z-index:1;}
+.fh-nowrap{white-space:nowrap;}
+.fh-hero-rule{display:block;width:44px;height:1px;background:var(--gold-light);margin:0 0 24px;}
+.fh-rise{opacity:0;transform:translateY(22px);animation:fhRise 1.3s var(--ease-lux) forwards;animation-delay:var(--d,0s);}
+.fh-hero-rule.fh-rise{transform:scaleX(0);transform-origin:left;animation-name:fhRule;}
+@keyframes fhRise{to{opacity:1;transform:none;}}
+@keyframes fhRule{to{opacity:1;transform:scaleX(1);}}
+@media(max-width:760px){.page-fh .gbeauty-hero-inner h1{font-size:28px;}}
+
+
+/* =========================================================
+   整合醫學
+   ========================================================= */
+/* 金色小標：style.css 的 .about-text p 會把段落都設成灰色，連小標一起蓋掉 */
+.page-fh .about-text .eyebrow{color:var(--gold);}
+/* 引言：不加粗，與內文同樣式 */
+.page-fh .about-text .fh-lead{color:var(--ink-soft);font-weight:300;margin-bottom:14px;}
+
+/* 「從生活出發，重新理解醫學的意義」：金色底線從左劃到右，尾端只留下方一筆（半箭頭） */
+.fh-sweep{position:relative;padding-bottom:12px;}
+.fh-sweep::after{
+  content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;
+  background:linear-gradient(90deg, rgba(184,147,74,0.25), var(--gold) 70%, var(--gold));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 1.6s cubic-bezier(.45,.05,.25,1) .3s;
+}
+.fh-arrow{
+  position:absolute;left:0;bottom:0;width:13px;height:1px;margin-left:-13px;background:var(--gold);
+  transform-origin:right center;transform:rotate(-32deg);opacity:0;
+  transition:left 1.6s cubic-bezier(.45,.05,.25,1) .3s, opacity .4s ease .3s;
+}
+.fh-sweep.in-view::after{transform:scaleX(1);}
+.fh-sweep.in-view .fh-arrow{left:100%;opacity:1;}
+
+
+/* =========================================================
+   整合醫學 → 健康管理｜金線串場
+   ========================================================= */
+.page-fh #integrative{padding-bottom:40px;}
+.fh-thread{
+  position:relative;display:flex;flex-direction:column;align-items:center;
+  margin:-30px auto 60px;width:80px;
+}
+.fh-thread-line{position:relative;display:block;width:1px;height:110px;overflow:hidden;}
+.fh-thread-line::before{
+  content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(184,147,74,0),var(--gold));
+  transform:scaleY(0);transform-origin:top;transition:transform 1.2s cubic-bezier(.45,.05,.25,1);
+}
+.fh-thread-line-2{height:70px;}
+.fh-thread-line-2::before{background:linear-gradient(180deg,var(--gold),rgba(184,147,74,0));transition-delay:1.5s;}
+/* 沿線往下流動的光點 */
+.fh-thread-line i{
+  position:absolute;left:-2px;top:-20px;width:5px;height:18px;border-radius:3px;
+  background:radial-gradient(ellipse at center,#FFF6E2,rgba(217,188,129,0));opacity:0;
+}
+.fh-thread.in-view .fh-thread-line i{animation:fhDrip 3.6s ease-in-out 2s infinite;}
+.fh-thread.in-view .fh-thread-line-2 i{animation-delay:3.4s;}
+@keyframes fhDrip{0%{top:-20px;opacity:0;}20%{opacity:1;}100%{top:100%;opacity:0;}}
+.fh-thread-orn{
+  display:block;width:64px;height:64px;margin:6px 0;opacity:0;transform:scale(.5) rotate(-90deg);
+  transition:opacity 1s var(--ease-lux) 1s, transform 1.4s var(--ease-lux) 1s;
+}
+.fh-thread-orn svg{width:100%;height:100%;fill:none;stroke:var(--gold);stroke-width:1;}
+.fh-thread-orn svg path{fill:rgba(217,188,129,0.35);}
+.fh-thread.in-view .fh-thread-line::before{transform:scaleY(1);}
+.fh-thread.in-view .fh-thread-orn{opacity:1;transform:none;}
+.fh-thread.in-view .fh-thread-orn svg circle:nth-child(2){transform-origin:40px 40px;animation:fhSpin 24s linear infinite;}
+@media(max-width:860px){.fh-thread{margin:-10px auto 40px;}.fh-thread-line{height:70px;}.fh-thread-line-2{height:44px;}}
+
+
+/* =========================================================
+   健康管理｜雜誌跨頁式圖文：半邊照片＋半邊文字，大型英文斜體壓在交界
+   ========================================================= */
+.fh-management{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(ellipse 50% 30% at 50% 0%, rgba(255,250,236,0.9), transparent 70%),
+    linear-gradient(180deg,#F6F1E7 0%,#EDE5D4 100%);
+}
+.fh-management > *{position:relative;z-index:1;}
+.page-fh .fh-emph{margin-top:1.9em;font-weight:600;color:var(--ink);}
+
+.fh-spreads{display:grid;grid-template-columns:repeat(2,1fr);gap:40px;max-width:1240px;margin:20px auto 0;}
+.fh-spread{
+  position:relative;display:grid;grid-template-columns:1fr 1fr;min-height:360px;
+  background:#FFFDF9;box-shadow:0 1px 0 rgba(184,147,74,0.25), 0 28px 50px -24px rgba(42,38,32,0.28);
+  overflow:hidden;
+}
+/* 內頁細金框（距邊 12px） */
+.fh-spread::after{content:"";position:absolute;inset:12px;border:1px solid rgba(184,147,74,0.28);pointer-events:none;z-index:2;}
+.fh-spread-img{margin:0;position:relative;overflow:hidden;}
+.fh-spread-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease-lux);}
+.fh-spread:hover .fh-spread-img img{transform:scale(1.05);}
+/* 交錯：第 2、3、6… 則照片在右 */
+.fh-spread:nth-child(4n+2) .fh-spread-img,.fh-spread:nth-child(4n+3) .fh-spread-img{order:2;}
+
+/* 大型英文斜體：壓在照片與文字的交界 */
+.fh-spread-word{
+  position:absolute;z-index:3;left:50%;bottom:34px;transform:translateX(-62%);
+  font-size:66px;font-style:italic;font-weight:300;line-height:1;letter-spacing:0.01em;white-space:nowrap;
+  color:#B8934A;
+  text-shadow:0 0 1px rgba(255,253,248,0.9), 0 0 14px rgba(255,253,248,0.85), 0 0 30px rgba(255,248,232,0.6);
+  pointer-events:none;
+}
+.fh-spread:nth-child(4n+2) .fh-spread-word,.fh-spread:nth-child(4n+3) .fh-spread-word{transform:translateX(-38%);}
+.fh-spread-word::first-letter{color:#8E6C3D;}
+
+.fh-spread-text{position:relative;padding:44px 36px 104px;display:flex;flex-direction:column;justify-content:flex-start;}
+.fh-spread-no{font-size:15px;color:var(--gold);letter-spacing:0.2em;margin-bottom:22px;display:flex;align-items:center;gap:12px;}
+.fh-spread-no::after{content:"";flex:0 0 36px;height:1px;background:var(--gold-light);}
+.fh-spread-text b{display:block;font-family:'Noto Serif TC',serif;font-size:26px;font-weight:500;letter-spacing:0.16em;color:var(--ink);margin-bottom:8px;}
+.fh-spread-text .fh-card-en{display:block;font-family:'Jost',sans-serif;font-size:10.5px;font-weight:500;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.fh-spread-text p{font-size:14px;line-height:2;color:var(--ink-soft);font-weight:300;}
+
+@media(max-width:1100px){
+  .fh-spreads{grid-template-columns:1fr;max-width:720px;}
+  .fh-spread:nth-child(n) .fh-spread-img{order:0;}
+  .fh-spread:nth-child(even) .fh-spread-img{order:2;}
+  .fh-spread:nth-child(n) .fh-spread-word{transform:translateX(-62%);}
+  .fh-spread:nth-child(even) .fh-spread-word{transform:translateX(-38%);}
+}
+@media(max-width:620px){
+  .fh-spread{grid-template-columns:1fr;min-height:0;}
+  .fh-spread-img,.fh-spread:nth-child(n) .fh-spread-img{order:0;aspect-ratio:4/3;}
+  .fh-spread-word,.fh-spread:nth-child(n) .fh-spread-word{left:28px;right:auto;bottom:auto;top:calc(100vw * 0.75 - 70px);transform:none;font-size:48px;}
+  .fh-spread-text{padding:34px 28px 40px;}
+}
+
+
+/* =========================================================
+   健康評估｜參考首頁：白底＋金色細曲線＋五節點
+   ========================================================= */
+.fh-assess{background:var(--cream);}
+.fh-process{position:relative;max-width:1100px;margin:30px auto 0;}
+.fh-process-line{position:absolute;left:0;top:0;width:100%;height:120px;pointer-events:none;}
+.fh-process-line path{stroke-width:1.4;stroke-dasharray:3000;stroke-dashoffset:3000;opacity:.5;}
+.fh-process.in-view .fh-process-line path{stroke-dashoffset:0;transition:stroke-dashoffset 2.4s cubic-bezier(.45,.05,.25,1);animation:fhBreathe 9s ease-in-out 2.6s infinite;}
+@keyframes fhBreathe{0%,100%{opacity:.5;}50%{opacity:.22;}}
+.fh-pnodes{list-style:none;margin:0;padding:0;position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
+.fh-pnode{text-align:center;padding-top:96px;position:relative;}
+/* 節點落在曲線上的一顆小金點 */
+.fh-pnode::before{
+  content:"";position:absolute;left:50%;top:56px;width:9px;height:9px;margin-left:-4.5px;border-radius:50%;
+  background:var(--gold);box-shadow:0 0 0 5px rgba(184,147,74,0.14);transform:scale(0);transition:transform .7s var(--ease-lux);
+}
+.fh-pn-index{display:block;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.2em;color:var(--gold);margin-bottom:10px;}
+.fh-pnode b{display:block;font-family:'Cormorant Garamond','Noto Serif TC',serif;font-size:26px;font-weight:400;color:var(--ink);margin-bottom:4px;letter-spacing:0.08em;}
+.fh-pn-en{display:block;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.15em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:14px;}
+.fh-pnode p{font-size:13.5px;line-height:1.9;color:var(--ink-soft);font-weight:300;}
+.fh-pnode > *{opacity:0;transform:translateY(12px);transition:opacity .9s var(--ease-lux), transform .9s var(--ease-lux);}
+.fh-process.in-view .fh-pnode::before{transform:scale(1);transition-delay:calc(.4s + var(--i) * .4s);}
+.fh-process.in-view .fh-pnode > *{opacity:1;transform:none;transition-delay:calc(.6s + var(--i) * .4s);}
+@media(max-width:860px){
+  .fh-process{max-width:320px;}
+  .fh-process-line{display:none;}
+  .fh-process::before{content:"";position:absolute;left:4px;top:10px;bottom:10px;width:1px;background:linear-gradient(var(--gold-light),var(--gold),var(--gold-light));opacity:.6;}
+  .fh-pnodes{grid-template-columns:1fr;gap:30px;}
+  .fh-pnode{text-align:left;padding:0 0 0 34px;}
+  .fh-pnode::before{left:0;top:6px;margin-left:0;}
+  .fh-pnode p br{display:none;}
+}
+
+
+
+/* =========================================================
+   醫療團隊｜深色殿堂＋凹角短長方形畫框
+   ========================================================= */
+.fh-team{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(ellipse 55% 35% at 50% 0%, rgba(217,188,129,0.20), transparent 70%),
+    radial-gradient(ellipse 40% 30% at 10% 70%, rgba(184,147,74,0.10), transparent 70%),
+    radial-gradient(ellipse 40% 30% at 90% 85%, rgba(184,147,74,0.10), transparent 70%),
+    linear-gradient(180deg,#221F19 0%,#2C2821 45%,#1E1B16 100%);
+}
+.fh-team-bg{position:absolute;inset:0;z-index:0;display:flex;justify-content:space-around;pointer-events:none;}
+.fh-team-bg span{
+  width:90px;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(217,188,129,0.05) 30%,rgba(217,188,129,0.09) 50%,rgba(217,188,129,0.05) 70%,transparent);
+  border-left:1px solid rgba(217,188,129,0.06);border-right:1px solid rgba(217,188,129,0.06);
+}
+.fh-team-bg span:nth-child(odd){opacity:.6;}
+.fh-team::before{
+  content:"";position:absolute;left:50%;top:60px;width:760px;height:760px;margin-left:-380px;z-index:0;
+  border:1px solid rgba(217,188,129,0.16);border-radius:50%;pointer-events:none;
+}
+.fh-team > *:not(.fh-team-bg){position:relative;z-index:1;}
+
+.fh-team-grid{grid-template-columns:repeat(4,1fr);gap:64px 30px;max-width:1120px;}
+.fh-doc{display:flex;flex-direction:column;align-items:center;}
+
+/* 人像：短長方形凹角畫框（雙金線），去背人像完整收在框內 */
+.fh-pf,.fh-pf-in,.fh-pf-photo,.fh-pf-photo-in{
+  --r:18px;
+  -webkit-mask:
+    radial-gradient(circle at 0 0, transparent var(--r), #000 calc(var(--r) + .5px)) top left / 51% 51% no-repeat,
+    radial-gradient(circle at 100% 0, transparent var(--r), #000 calc(var(--r) + .5px)) top right / 51% 51% no-repeat,
+    radial-gradient(circle at 0 100%, transparent var(--r), #000 calc(var(--r) + .5px)) bottom left / 51% 51% no-repeat,
+    radial-gradient(circle at 100% 100%, transparent var(--r), #000 calc(var(--r) + .5px)) bottom right / 51% 51% no-repeat;
+          mask:
+    radial-gradient(circle at 0 0, transparent var(--r), #000 calc(var(--r) + .5px)) top left / 51% 51% no-repeat,
+    radial-gradient(circle at 100% 0, transparent var(--r), #000 calc(var(--r) + .5px)) top right / 51% 51% no-repeat,
+    radial-gradient(circle at 0 100%, transparent var(--r), #000 calc(var(--r) + .5px)) bottom left / 51% 51% no-repeat,
+    radial-gradient(circle at 100% 100%, transparent var(--r), #000 calc(var(--r) + .5px)) bottom right / 51% 51% no-repeat;
+}
+.fh-pf{position:relative;width:196px;height:226px;margin:6px auto 24px;padding:1px;background:linear-gradient(160deg,#E9D6AE,#B8934A 50%,#E3CB97);}
+.fh-pf-in{--r:17px;width:100%;height:100%;padding:7px;background:#25221C;}
+.fh-pf-photo{--r:12px;width:100%;height:100%;padding:1px;background:rgba(217,188,129,0.7);}
+.fh-pf-photo-in{--r:11px;position:relative;width:100%;height:100%;overflow:hidden;
+  background:radial-gradient(ellipse at 50% 30%, #FBF4E4 0%, #EADBBC 60%, #CDB386 100%);}
+/* 人像已依畫框比例統一排版（頭頂留白、同一縮放），這裡直接填滿 */
+.fh-pf-photo-in img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;transform-origin:center 30%;transition:transform .9s var(--ease-lux);}
+.fh-doc:hover .fh-pf-photo-in img{transform:scale(1.04);}
+.fh-doc-lead .fh-pf{background:linear-gradient(160deg,#F3E3BF,#D9BC81 45%,#B8934A 70%,#F0DDB2);}
+@media(max-width:480px){.fh-pf{width:144px;height:166px;}.fh-pf-in{padding:5px;}}
+.fh-pf-wrap{filter:drop-shadow(0 18px 30px rgba(0,0,0,0.45));}
+.fh-doc-lead .fh-pf-wrap{filter:drop-shadow(0 0 22px rgba(217,188,129,0.3)) drop-shadow(0 18px 30px rgba(0,0,0,0.45));}
+
+.fh-doc-badge{
+  display:inline-block;margin-bottom:12px;padding:4px 14px;border:1px solid rgba(217,188,129,0.55);border-radius:999px;
+  font-family:'Jost',sans-serif;font-size:10.5px;letter-spacing:0.18em;color:var(--gold-light);
+}
+.fh-doc-lead .fh-doc-badge{background:linear-gradient(90deg,#B8934A,#D9BC81,#B8934A);color:var(--ink);border-color:transparent;font-weight:500;}
+.page-fh .fh-doc b{font-size:18px;letter-spacing:0.14em;margin-bottom:6px;color:var(--cream);}
+.page-fh .fh-doc span.role{font-size:12.5px;color:var(--gold-light);letter-spacing:0.08em;}
+.page-fh .fh-doc .team-quote{font-size:15px;color:#E7DCC3;margin-top:14px;}
+.page-fh .fh-doc .team-desc{font-size:13px;color:#B5A88C;line-height:1.9;}
+@media(max-width:1100px){.fh-team-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:860px){.fh-team-grid{grid-template-columns:repeat(2,1fr);gap:44px 18px;}.fh-team::before{display:none;}}
+@media(max-width:480px){
+  .fh-portrait{width:136px;height:170px;margin-top:28px;}
+  .page-fh .fh-doc b{font-size:16px;letter-spacing:0.08em;}
+  .page-fh .fh-doc .team-desc{font-size:12.5px;}
+  .fh-doc-badge{font-size:9.5px;letter-spacing:0.1em;padding:3px 10px;}
+}
+
+
+/* =========================================================
+   健康方案｜九個專項的金色線條插圖（暖白底＋金色光暈）
+   ========================================================= */
+.fh-programs{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(ellipse 40% 35% at 15% 20%, rgba(243,223,193,0.55), transparent 70%),
+    radial-gradient(ellipse 35% 30% at 88% 75%, rgba(217,188,129,0.30), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 50% 55%, rgba(255,250,238,0.9), transparent 70%),
+    linear-gradient(180deg, #FBF8F2 0%, var(--cream) 60%, #F5EEE1 100%);
+}
+/* 緩慢漂浮的金色光點 */
+.fh-petals i{
+  position:absolute;bottom:-20px;width:8px;height:8px;border-radius:50% 0 50% 50%;
+  background:radial-gradient(circle at 30% 30%, #F3DFC1, #C8A56A);opacity:0;
+  animation:fhFloat 14s linear infinite;
+}
+.fh-petals i:nth-child(1){left:6%;animation-delay:0s;}
+.fh-petals i:nth-child(2){left:18%;animation-delay:4s;width:6px;height:6px;}
+.fh-petals i:nth-child(3){left:31%;animation-delay:8s;}
+.fh-petals i:nth-child(4){left:47%;animation-delay:2s;width:5px;height:5px;}
+.fh-petals i:nth-child(5){left:62%;animation-delay:10s;}
+.fh-petals i:nth-child(6){left:74%;animation-delay:6s;width:6px;height:6px;}
+.fh-petals i:nth-child(7){left:86%;animation-delay:12s;}
+.fh-petals i:nth-child(8){left:94%;animation-delay:3s;width:5px;height:5px;}
+@keyframes fhFloat{
+  0%{transform:translateY(0) rotate(0deg);opacity:0;}
+  10%{opacity:.75;}
+  90%{opacity:.55;}
+  100%{transform:translateY(-760px) translateX(40px) rotate(220deg);opacity:0;}
+}
+.fh-programs > *:not(.fh-petals){position:relative;z-index:1;}
+
+.fh-prog{
+  list-style:none;margin:10px auto 0;padding:0;max-width:1080px;
+  display:flex;flex-wrap:wrap;justify-content:center;gap:46px 0;
+}
+.fh-prog li{width:20%;text-align:center;}
+.fh-prog-icon{
+  position:relative;display:flex;align-items:center;justify-content:center;
+  width:118px;height:118px;margin:0 auto 18px;border-radius:50%;
+  background:radial-gradient(circle at 50% 38%, #FFFEFA 0%, #FBF6EC 55%, #F1E6CF 100%);
+  box-shadow:0 0 0 1px rgba(184,147,74,0.45), 0 0 0 9px rgba(255,253,248,0.6), 0 18px 40px rgba(184,147,74,0.18);
+  transition:transform .7s var(--ease-lux), box-shadow .6s ease;
+}
+/* 外圈細金環慢慢轉 */
+.fh-prog-icon::before{
+  content:"";position:absolute;inset:-14px;border-radius:50%;
+  border:1px dashed rgba(184,147,74,0.35);animation:fhSpin 40s linear infinite;
+}
+@keyframes fhSpin{to{transform:rotate(360deg);}}
+.fh-prog-icon svg{width:56px;height:56px;fill:none;stroke:var(--gold);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;}
+.fh-prog-icon svg *{stroke-dasharray:1;stroke-dashoffset:1;}
+.fh-prog b{display:block;font-family:'Noto Serif TC',serif;font-size:17px;font-weight:500;letter-spacing:0.2em;color:var(--ink);margin-bottom:4px;}
+.fh-prog li > .en{display:block;font-size:14px;font-style:italic;color:var(--gold);letter-spacing:0.04em;}
+.fh-prog b,.fh-prog li > .en{opacity:0;transform:translateY(10px);transition:opacity .9s var(--ease-lux), transform .9s var(--ease-lux);}
+
+.fh-prog.in-view .fh-prog-icon svg *{stroke-dashoffset:0;transition:stroke-dashoffset 1.8s ease-in-out;transition-delay:calc(var(--i) * .16s);}
+.fh-prog.in-view li:nth-child(n) .fh-prog-icon svg *{transition-delay:calc(var(--d,0) * 1s);}
+.fh-prog.in-view b,.fh-prog.in-view li > .en{opacity:1;transform:none;transition-delay:calc(.6s + var(--i) * .16s);}
+/* 畫完後輕輕浮動 */
+.fh-prog.in-view .fh-prog-icon{animation:fhBob 6s ease-in-out infinite;animation-delay:calc(2.4s + var(--i) * .4s);}
+@keyframes fhBob{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+.fh-prog li:hover .fh-prog-icon{box-shadow:0 0 0 1px var(--gold), 0 0 0 9px rgba(243,223,193,0.7), 0 22px 50px rgba(184,147,74,0.32);}
+.fh-prog-cta{text-align:center;margin-top:70px;}
+
+@media(max-width:860px){
+  .fh-prog li{width:33.333%;}
+  .fh-prog{gap:40px 0;}
+  .fh-prog-icon{width:88px;height:88px;}
+  .fh-prog-icon::before{inset:-10px;}
+  .fh-prog-icon svg{width:44px;height:44px;}
+  .fh-prog b{font-size:15px;letter-spacing:0.1em;}
+  .fh-prog li{padding:0 6px;}
+  .fh-prog li > .en{font-size:11px;line-height:1.4;}
+}
+
+
+/* =========================================================
+   減少動態：直接顯示最終狀態
+   ========================================================= */
+@media(prefers-reduced-motion: reduce){
+  .fh-hero-media img{animation:none;transform:none;}
+  .fh-rise{animation:none;opacity:1;transform:none;}
+  .fh-sweep::after{transform:scaleX(1);transition:none;}
+  .fh-arrow{left:100%;opacity:1;transition:none;}
+  .fh-flow-line path{stroke-dashoffset:0 !important;animation:none !important;}
+  .fh-medal,.fh-num,.fh-flow-nodes b,.fh-flow-nodes p,.fh-prog b,.fh-prog li > .en{opacity:1 !important;transform:none !important;transition:none !important;}
+  .fh-prog-icon svg *{stroke-dashoffset:0 !important;transition:none !important;}
+  .fh-prog-icon,.fh-prog-icon::before,.fh-petals i{animation:none !important;}
+  .fh-flow::before{transform:none !important;}
+  .fh-thread-line::before,.fh-floor span{transform:none !important;transition:none !important;}
+  .fh-thread-orn,.fh-niche-glow,.fh-niche .fh-medal,.fh-niche .fh-num,.fh-niche b,.fh-niche p{opacity:1 !important;transform:none !important;transition:none !important;}
+  .fh-floor i{transform:rotate(45deg) !important;}
+  .fh-niche-arch path{stroke-dashoffset:0 !important;transition:none !important;}
+  .fh-thread-line i,.fh-thread-orn svg circle{animation:none !important;}
+  .fh-frieze-rule,.fh-tenet::before{transform:none !important;transition:none !important;}
+  .fh-tenet > *{opacity:1 !important;transform:none !important;}
+  .fh-w-fill,.fh-w-ticks line,.fh-w-spin,.fh-w-spokes line,.fh-w-core,.fh-w-hand,.fh-wnode,.fh-wlabel{opacity:1 !important;}
+  .fh-w-rings circle{stroke-dashoffset:0 !important;transition:none !important;}
+  .fh-w-spin{animation:none !important;}
+  .fh-w-hand{transition:none !important;}
+  .fh-process-line path{stroke-dashoffset:0 !important;animation:none !important;}
+  .fh-pnode::before{transform:none !important;}
+  .fh-pnode > *{opacity:1 !important;transform:none !important;}
+}
+
+
+/* =========================================================
+   2026-10-17（夜）｜與美的概念館統一：去方框感＋動態潤飾
+   共用的金絲背景、流光、圓環底紋在 css/motion.css
+   ========================================================= */
+.has-aura .fh-hero{z-index:2;}
+
+/* 整合醫學橢圓照：同心雙金線 */
+.page-fh .about-visual{box-shadow:0 0 0 1px var(--gold-light), 0 0 0 13px rgba(250,246,239,0.95), 0 0 0 14px rgba(184,147,74,0.35), 0 50px 90px rgba(20,18,12,0.28);}
+
+/* 健康管理六專項：拿掉卡片底與方框，改成「拱門照片＋編輯式文字」，左右高低錯落 */
+.page-fh .fh-spreads{gap:96px 80px;max-width:1160px;margin-top:40px;}
+.page-fh .fh-spread{background:none;box-shadow:none;overflow:visible;min-height:0;grid-template-columns:0.9fr 1fr;gap:38px;align-items:center;}
+.page-fh .fh-spread::after{display:none;}
+.page-fh .fh-spread:nth-child(even){margin-top:90px;}
+.page-fh .fh-spread-img{aspect-ratio:4/5;border-radius:999px 999px 8px 8px;overflow:hidden;
+  box-shadow:0 0 0 1px var(--gold-light), 0 0 0 10px rgba(250,246,239,0.95), 0 0 0 11px rgba(184,147,74,0.32), 0 30px 60px -26px rgba(42,38,32,0.45);}
+.page-fh .fh-spread-img img{transform:scale(1.16);filter:blur(4px);opacity:.4;
+  transition:transform 2.2s var(--ease-lux), filter 1.4s ease, opacity 1.4s ease;}
+.page-fh .fh-spread.in-view .fh-spread-img img{transform:scale(1);filter:none;opacity:1;}
+.page-fh .fh-spread.in-view:hover .fh-spread-img img{transform:scale(1.05);transition-duration:1.4s;}
+.page-fh .fh-spread-text{padding:10px 0 70px;}
+.page-fh .fh-spread-word{bottom:8px;font-size:60px;opacity:0;transition:opacity 1.4s ease .8s;}
+.page-fh .fh-spread.in-view .fh-spread-word{opacity:1;}
+.page-fh .fh-spread-text > *{opacity:0;transform:translateY(14px);transition:opacity 1s ease, transform 1.2s var(--ease-lux);}
+.page-fh .fh-spread.in-view .fh-spread-text > *{opacity:1;transform:none;}
+.page-fh .fh-spread.in-view .fh-spread-text > *:nth-child(2){transition-delay:.15s;}
+.page-fh .fh-spread.in-view .fh-spread-text > *:nth-child(3){transition-delay:.3s;}
+.page-fh .fh-spread.in-view .fh-spread-text > *:nth-child(n+4){transition-delay:.45s;}
+@media(max-width:1100px){
+  .page-fh .fh-spreads{max-width:760px;gap:80px;}
+  .page-fh .fh-spread:nth-child(even){margin-top:0;}
+}
+@media(max-width:700px){
+  .page-fh .fh-spread{grid-template-columns:1fr;gap:0;}
+  .page-fh .fh-spread-img,.page-fh .fh-spread:nth-child(n) .fh-spread-img{order:0;aspect-ratio:4/5;width:100%;max-width:300px;margin:0 auto;}
+  .page-fh .fh-spread-word,.page-fh .fh-spread:nth-child(n) .fh-spread-word{position:relative;left:auto;right:auto;top:auto;bottom:auto;transform:none;
+    text-align:center;font-size:46px;margin:-26px 0 6px;}
+  .page-fh .fh-spread-text{padding:10px 8px 0;text-align:center;align-items:center;}
+  .page-fh .fh-spread-no{justify-content:center;}
+}
+
+/* 健康方案：金色光點改由全頁背景負責，這裡改為金線圓環底紋 */
+.page-fh .fh-programs > .mo-rings{position:absolute;z-index:0;}
+
+@media(prefers-reduced-motion: reduce){
+  .page-fh .fh-spread-img img,.page-fh .fh-spread-word,.page-fh .fh-spread-text > *{opacity:1 !important;transform:none !important;filter:none !important;}
+}
+
+/* 2026-10-18｜首圖改為米白開闊空間：左側暗部漸層加深、文字加淡陰影，確保白字清楚 */
+.page-fh .fh-hero::before{background:linear-gradient(100deg, rgba(28,24,18,0.62) 0%, rgba(28,24,18,0.38) 38%, rgba(28,24,18,0.08) 62%, transparent 75%);}
+.page-fh .fh-hero .gbeauty-hero-inner h1,.page-fh .fh-hero .gbeauty-hero-inner p{text-shadow:0 1px 18px rgba(20,16,10,0.35);}

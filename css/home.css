@@ -1,0 +1,122 @@
+/* =========================================================
+   首頁（index.html）專屬調整｜2026-10-18
+   只在首頁載入，避免影響其他分頁共用的 style.css
+   ========================================================= */
+
+/* 1｜Hero：大標與其他分頁一致（約 44px），內文段落拉寬 */
+.page-home .hero-inner{max-width:860px;}
+.page-home .hero-inner h1{font-size:44px;line-height:1.45;letter-spacing:0.04em;}
+.page-home .hero-inner p{max-width:600px;font-size:16px;line-height:1.95;}
+
+/* 首屏影片：鋪滿畫面，暗角漸層維持在影片之上讓文字清楚 */
+.page-home .hero{--hero-img:url('../images/home/home-hero-poster.jpg');--hero-pos:center center;}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;z-index:0;pointer-events:none;}
+.page-home .hero::before,.page-home .hero::after{z-index:1;}
+@media(max-width:860px){.hero-video{object-position:64% center;}}
+
+/* 2、4｜分段文字：兩句各自成行，行距舒適 */
+.page-home #about p br,
+.page-home #gallery .tagline br{display:block;content:"";margin-top:6px;}
+
+/* 3｜四大核心：圖上文字放大 */
+.page-home .core-cap{padding:34px 28px 30px;background:linear-gradient(0deg,rgba(20,16,10,0.72),rgba(20,16,10,0.25) 60%,transparent);}
+.page-home .core-en{font-size:12.5px;letter-spacing:0.22em;margin-bottom:10px;}
+.page-home .core-zh{font-size:19px;line-height:1.6;letter-spacing:0.04em;}
+
+/* 5｜The People：大標／內文區分 */
+.page-home .people-title{font-family:'Noto Serif TC',serif;font-weight:400;font-size:36px;line-height:1.5;
+  letter-spacing:0.06em;color:var(--ink);margin:18px auto 26px;}
+.page-home .people-quote{font-family:'Noto Serif TC',serif;font-size:17px;font-weight:300;line-height:2;
+  color:var(--ink-soft);max-width:640px;}
+.page-home .people-quote strong{display:inline-block;margin-top:8px;font-weight:600;font-size:20px;
+  color:var(--ink);letter-spacing:0.06em;}
+
+/* 6｜醫療領域：拱門內配圖，編號浮在圖上 */
+.page-home .dc-arch{position:relative;overflow:hidden;align-items:flex-end;padding-bottom:12px;
+  border:1px solid rgba(184,147,74,0.35);background:#EFE6D6;
+  box-shadow:0 0 0 6px rgba(250,246,239,0.9),0 0 0 7px rgba(184,147,74,0.22),0 14px 30px rgba(42,38,32,0.10);}
+.page-home .dc-arch img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform 0.9s var(--ease-lux,cubic-bezier(.16,.8,.24,1));}
+.page-home .dc-arch::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(30,24,14,0.55),rgba(30,24,14,0) 45%);}
+.page-home .dc-index{position:relative;z-index:1;color:#F6EBD3;font-size:34px;text-shadow:0 2px 10px rgba(0,0,0,0.35);}
+.page-home .discipline-card:hover .dc-arch img{transform:scale(1.07);}
+
+/* 7｜醫療團隊：去背醫師照放進暖色拱門 */
+.page-home .companion-photo{border-radius:999px 999px 10px 10px;align-items:flex-end;
+  background:radial-gradient(ellipse 80% 65% at 50% 35%,#F6EEDF 0%,#E7D8BC 60%,#CFB98E 100%);
+  box-shadow:0 0 0 1px rgba(217,188,129,0.6),0 0 0 10px rgba(42,38,32,0.9),0 0 0 11px rgba(217,188,129,0.35);}
+.page-home .companion-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+.page-home .companion-badge{display:inline-block;font-size:12px;letter-spacing:0.18em;color:var(--ink);
+  background:var(--gold-light);padding:5px 14px;border-radius:999px;margin-bottom:14px;}
+.page-home .companion-info h3{font-family:'Noto Serif TC',serif;font-weight:400;letter-spacing:0.06em;}
+.page-home .companion-quote{font-family:'Noto Serif TC',serif;font-style:normal;font-size:17px;}
+.page-home .companion-desc{font-size:14.5px;}
+
+.page-home .companion-slider{padding:14px 12px 0;}
+.page-home .people-title .m-br{display:none;}
+
+/* 8｜Journal：恢復淺色底 */
+.page-home #journal{background:var(--cream);color:var(--ink);}
+
+@media(max-width:860px){
+  .page-home .hero-inner h1{font-size:24px;letter-spacing:0.02em;}
+  .page-home .hero-inner p{font-size:15px;}
+  .page-home .hero-inner p br,.page-home #about p br,.page-home #gallery .tagline br{margin-top:4px;}
+  .page-home .core-en{font-size:11.5px;}
+  .page-home .core-zh{font-size:17px;}
+  .page-home .people-title{font-size:25px;}
+  .page-home .people-title .m-br{display:inline;}
+  .page-home .people-quote{font-size:15.5px;}
+  .page-home .people-quote strong{font-size:17.5px;}
+  .page-home .dc-index{font-size:28px;}
+}
+
+/* =========================================================
+   首頁動畫與串場（2026-10-18）
+   既有排版與動畫不變，只在後方加背景層與區塊之間的銜接
+   ========================================================= */
+/* Hero、About 包在 .flow-zone 裡：內容同樣浮在全頁金色背景之上 */
+.has-aura .flow-zone > section > *:not([aria-hidden="true"]):not(.scroll-cue){position:relative;z-index:2;}
+.page-home .orbit-cap{position:relative;z-index:2;}
+
+/* ---------- 區塊之間：金線垂落＋光點往下流 ---------- */
+.hm-thread{position:absolute;left:50%;top:0;width:1px;height:96px;margin-left:-.5px;z-index:1;pointer-events:none;}
+.hm-thread::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(184,147,74,0),rgba(184,147,74,.6) 40%,rgba(184,147,74,0));
+  transform:scaleY(0);transform-origin:top;transition:transform 1.6s var(--ease-lux);}
+.hm-thread::after{content:"";position:absolute;left:-2.5px;top:0;width:6px;height:6px;border-radius:50%;background:#F3DFC1;
+  box-shadow:0 0 10px 2px rgba(217,188,129,.75);opacity:0;}
+.hm-thread.hm-in::before{transform:scaleY(1);}
+.hm-thread.hm-in::after{animation:hmDrop 4.8s ease-in-out 1.4s infinite;}
+@keyframes hmDrop{0%{top:0;opacity:0;}15%{opacity:1;}85%{opacity:.8;}100%{top:96px;opacity:0;}}
+#team .hm-thread{height:70px;}
+#team .hm-thread.hm-in::after{animation-name:hmDropS;}
+@keyframes hmDropS{0%{top:0;opacity:0;}15%{opacity:1;}85%{opacity:.8;}100%{top:70px;opacity:0;}}
+
+/* ---------- 各區英文小標：浮現時字距緩慢展開 ---------- */
+.page-home .section-head .eyebrow,.page-home .people-intro > .eyebrow{letter-spacing:.18em;transition:letter-spacing 1.6s var(--ease-lux) .15s;}
+.page-home .section-head.hm-in .eyebrow,.page-home .people-intro.hm-in > .eyebrow{letter-spacing:.4em;}
+
+/* ---------- 美的概念館：維持原本單圈軌道，區塊自成一層、不疊全頁金線 ---------- */
+.page-home #gallery{z-index:2;}
+
+/* ---------- 深色醫療團隊：上下以金色細線＋柔光銜接，取代硬切 ---------- */
+.page-home .companions::before,.page-home .companions::after{content:"";position:absolute;left:8%;right:8%;height:1px;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(217,188,129,.75) 30%,rgba(243,223,193,.95) 50%,rgba(217,188,129,.75) 70%,transparent);
+  box-shadow:0 0 18px 2px rgba(217,188,129,.35);}
+.page-home .companions::before{top:0;}
+.page-home .companions::after{bottom:0;}
+/* 結尾 CTA：列柱長廊影片（影片本身就是往前推進的鏡頭），不疊全頁金線 */
+.page-home .final-cta{z-index:2;background-image:url('../images/home/home-cta-poster.jpg');}
+.hm-cta-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%;z-index:-1;pointer-events:none;}
+.page-home .final-cta::before{z-index:0;background:linear-gradient(0deg,rgba(20,18,12,0.72),rgba(20,18,12,0.42) 55%,rgba(20,18,12,0.5));}
+.page-home .final-cta .final-inner{z-index:3;}
+
+@media(max-width:860px){
+  .hm-thread{height:64px;}
+  .page-home .companions .section-head h2{font-size:30px;}
+  .hm-thread.hm-in::after{animation-name:hmDropS;}
+}
+@media(prefers-reduced-motion: reduce){
+  .hm-thread::before{transform:none;transition:none;}
+  .hm-thread::after{animation:none !important;}
+}

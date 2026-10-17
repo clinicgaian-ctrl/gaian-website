@@ -1,0 +1,36 @@
+/* =========================================================
+   全站首圖統一（2026-10-18）
+   - 拿掉斜向白色流光、SCROLL 提示與下方線條
+   - 照片首圖統一採用 About GAIAN 的「緩慢推近」：由 1.12 倍在 16 秒內推回原尺寸
+   - About GAIAN 首圖字級對齊其他分頁
+   首頁、About、未來健康、美的概念館、品牌觀點、同行者載入（放在各頁 CSS 之後）
+   ========================================================= */
+.mo-sweep,.gl-hero-sweep,.scroll-cue,.gl-hero-scroll{display:none !important;}
+
+.jn-hero-media i,.wt-hero-media i,.gl-hero-bg i{
+  transform:scale(1.12);
+  animation:siteKen 16s cubic-bezier(.16,.8,.24,1) forwards !important;
+}
+@keyframes siteKen{to{transform:scale(1);}}
+
+/* About GAIAN 首圖字級＝其他分頁（小標 15.5px／大標 40px／內文 15.5px） */
+.page-about .ab-hero .crumb{font-size:15.5px;letter-spacing:0.4em;}
+.page-about .ab-hero h1{font-size:40px;letter-spacing:0.02em;line-height:1.9;}
+.page-about .ab-hero .ab-hero-inner p:last-child{font-size:15.5px;line-height:1.9;}
+@media(max-width:760px){
+  .page-about .ab-hero h1{font-size:28px;line-height:1.7;}
+  .page-about .ab-hero .ab-hero-inner p:last-child{font-size:15px;}
+}
+
+/* 手機版首圖大標：美的概念館、同行者對齊其他分頁（28px） */
+@media(max-width:760px){
+  .page-gallery .gl-hero .gbeauty-hero-inner h1,
+  .page-wt .wt-hero .gbeauty-hero-inner h1{font-size:28px;line-height:1.7;letter-spacing:0.02em;}
+  .page-gallery .gl-hero .gbeauty-hero-inner .eyebrow,
+  .page-wt .wt-hero .gbeauty-hero-inner .eyebrow{letter-spacing:0.3em;}
+}
+
+@media(prefers-reduced-motion: reduce){
+  .jn-hero-media i,.wt-hero-media i,.gl-hero-bg i{animation:none !important;transform:none;}
+}
+

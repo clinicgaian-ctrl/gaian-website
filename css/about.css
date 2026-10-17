@@ -171,15 +171,15 @@
 .bt-children{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:900px;margin:0 auto;}
 .bt-card{
   margin:0 22px;text-align:center;padding:46px 36px 44px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
   background:linear-gradient(180deg, rgba(250,246,239,0.92), rgba(250,246,239,0.62));
   border:1px solid rgba(184,147,74,0.28);border-radius:220px 220px 14px 14px;
   box-shadow:0 30px 60px rgba(42,38,32,0.06);
   opacity:0;transform:translateY(34px);
   transition:opacity 1.1s var(--ease-lux), transform 1.1s var(--ease-lux), border-color .5s ease, box-shadow .5s ease;
 }
-.bt-card .bt-logo{width:118px;transition:transform .7s var(--ease-lux);}
-.bt-card-med .bt-logo{width:108px;}
+/* 兩個 Logo 用同一個固定方框顯示，標題才會在同一條水平線上 */
+.bt-card .bt-logo{width:160px;height:160px;object-fit:contain;transition:transform .7s var(--ease-lux);}
 .bt-card h3{
   margin-top:24px;font-family:'Noto Serif TC',serif;font-size:27px;font-weight:500;
   letter-spacing:0.16em;color:var(--ink);line-height:1.4;
@@ -230,6 +230,7 @@
 @media(max-width:1180px){.bt-aside{display:none;}}
 @media(max-width:860px){
   .bt-logo-root{width:140px;}
+  .bt-card .bt-logo{width:130px;height:130px;}
   .bt-trio{font-size:21px;letter-spacing:0.2em;}
   .bt-root-desc{font-size:14.5px;letter-spacing:0.06em;}
   .bt-branch{height:56px;margin-top:20px;}
@@ -466,4 +467,190 @@
   .bp-glow{display:none;}
   .ph-img{transition:opacity .01s;filter:none;transform:none;}
   [data-parallax]{transform:none !important;}
+}
+
+
+/* =========================================================
+   2026-10-17｜字級對齊首頁與未來健康頁
+   原本 About 頁的內文多為 13.5–14.5px，其他頁面為 15.5–16px，
+   這裡統一放大；標題、選單沿用 style.css，不另外調整。
+   ========================================================= */
+/* Hero */
+.page-about .ab-hero-inner p:last-child{font-size:16.5px;}
+/* 品牌故事 */
+.page-about .prose p{font-size:16.5px;}
+.page-about .story-visual figcaption{font-size:16px;}
+/* 品牌關係圖 */
+.page-about .bt-root-desc{font-size:16.5px;}
+.page-about .bt-tags p{font-size:15.5px;}
+.page-about .bt-desc{font-size:16px;}
+.page-about .bt-aside{font-size:11.5px;}
+/* GAIA ↔ GAIAN 對照 */
+.page-about .lh-side span{font-size:12px;}
+.page-about .lr-l,.page-about .lr-r{font-size:18.5px;}
+.page-about .gb-io-cta{font-size:19px;line-height:1.9;}
+/* 信念如何落地 */
+.page-about .bp-num{font-size:15px;}
+.page-about .bp-node b{font-size:17px;}
+/* 品牌理念 */
+.page-about .ph-body b{font-size:21px;}
+.page-about .ph-body p{font-size:16px;line-height:2;}
+.page-about .ph-counter{font-size:15px;}
+/* 品牌世界觀 */
+.page-about .value-item b{font-size:26px;}
+.page-about .value-item .v-zh{font-size:12.5px;}
+.page-about .value-item p{font-size:15.5px;line-height:2;}
+/* 未來願景 */
+.page-about .gb-believe p{font-size:16px;}
+.page-about .vision-photo span{font-size:20px;}
+/* 結尾 */
+.page-about .final-inner p{font-size:16px;}
+
+@media(max-width:760px){
+  .page-about .ab-hero-inner p:last-child{font-size:15px;}
+  .page-about .prose p{font-size:15.5px;}
+  .page-about .lr-l,.page-about .lr-r{font-size:16px;}
+  .page-about .ph-body b{font-size:18px;}
+  .page-about .ph-body p,.page-about .value-item p{font-size:15px;}
+  .page-about .bp-node b{font-size:16px;}
+}
+
+
+/* =========================================================
+   2026-10-17（夜）｜與美的概念館統一：去方框感＋動態潤飾
+   共用的金絲背景、流光、結尾殿堂樣式在 css/motion.css
+   ========================================================= */
+
+/* 品牌故事拱門：外圈兩道錯位金線，照片浮現時才滑開 */
+.page-about .story-visual::before{inset:0;border-color:rgba(184,147,74,0.5);transform:translate(0,0);opacity:0;
+  transition:transform 1.8s var(--ease-lux) .6s, opacity 1.2s ease .6s;}
+.page-about .story-visual::after{content:"";position:absolute;left:0;right:0;top:0;aspect-ratio:4/5.4;z-index:-1;pointer-events:none;
+  border:1px solid rgba(184,147,74,0.28);border-radius:999px 999px 14px 14px;opacity:0;transform:translate(0,0);
+  transition:transform 2s var(--ease-lux) .9s, opacity 1.2s ease .9s;}
+.page-about .story-visual.in-view::before{opacity:1;transform:translate(-18px,18px);}
+.page-about .story-visual.in-view::after{opacity:1;transform:translate(-34px,34px);}
+.page-about .story-visual::before{aspect-ratio:4/5.4;bottom:auto;}
+
+/* 品牌理念畫框：同心雙金線（取代單線框） */
+.page-about .ph-frame{box-shadow:0 0 0 1px var(--gold-light), 0 0 0 12px rgba(250,246,239,0.92), 0 0 0 13px rgba(184,147,74,0.35), 0 40px 80px rgba(20,18,12,0.18);}
+
+/* 品牌世界觀：底紋金線圓環＋卡片滑過時底部柔光 */
+.page-about .ab-worldview{position:relative;overflow:hidden;}
+.page-about .wv-grid .value-item{padding:30px 18px 26px;border-radius:2px;}
+.page-about .wv-grid .value-item::after{content:"";position:absolute;left:10%;right:10%;bottom:0;height:60%;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 100%,rgba(217,188,129,0.22),transparent 70%);opacity:0;transition:opacity .8s ease;}
+.page-about .wv-grid .value-item:hover::after{opacity:1;}
+.page-about .wv-num{right:14px;}
+
+/* 未來願景照片：拱門＋同心雙金線（深色底） */
+.page-about .vision-photo{border-radius:999px 999px 10px 10px;
+  box-shadow:0 0 0 1px rgba(217,188,129,0.7), 0 0 0 12px var(--ink), 0 0 0 13px rgba(217,188,129,0.3), 0 50px 90px rgba(0,0,0,0.45);}
+.page-about .vision-photo span{padding:0 40px 54px;}
+@media(max-width:860px){.page-about .vision-photo{max-width:380px;margin:0 auto;width:100%;}}
+
+/* 結尾：最小高度改為滿版一屏（其餘樣式見 motion.css .mo-sanctum） */
+.page-about .final-cta.ab-cta{background-image:none;}
+.page-about .mo-sanctum .final-inner p{margin-bottom:40px;font-size:16px;line-height:2;}
+
+@media(prefers-reduced-motion: reduce){
+  .page-about .story-visual::before,.page-about .story-visual::after{opacity:1;transition:none;}
+  .page-about .story-visual::before{transform:translate(-18px,18px);}
+  .page-about .story-visual::after{transform:translate(-34px,34px);}
+}
+@media(max-width:860px){
+  .page-about .story-visual.in-view::before{transform:translate(-10px,10px);}
+  .page-about .story-visual.in-view::after{transform:translate(-18px,18px);}
+}
+
+
+/* =========================================================
+   2026-10-17（深夜）｜金句水景：流水影片／水面波動
+   ========================================================= */
+.qb-filter{position:absolute;width:0;height:0;overflow:hidden;}
+.quote-band-media .qb-still,.quote-band-media .qb-water,.quote-band-media .qb-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%;display:block;}
+/* 水面層：只套在畫面下半（水池與瀑布），上方的天空與山不動 */
+.quote-band-media .qb-water{filter:url(#abWater);
+  -webkit-mask-image:linear-gradient(180deg,transparent 0%,transparent 32%,#000 48%,#000 100%);
+          mask-image:linear-gradient(180deg,transparent 0%,transparent 32%,#000 48%,#000 100%);}
+.quote-band-media .qb-video{opacity:0;transition:opacity 1.2s ease;}
+.quote-band-media.has-video .qb-video{opacity:1;}
+.quote-band-media.has-video .qb-water{display:none;}
+@media(prefers-reduced-motion: reduce){.quote-band-media .qb-water{display:none;}}
+
+
+/* =========================================================
+   2026-10-17（深夜）｜結尾：一扇正在打開的門
+   --open（0～1）由 js/about.js 依捲動位置設定
+   ========================================================= */
+.page-about .ab-door{--open:0;min-height:100vh;padding:0;background:#15130F;overflow:hidden;}
+.page-about .ab-door::before{display:none;}
+/* 門外：同一張照片，壓得很暗、模糊，像門外的殿堂陰影 */
+.ab-door-bg{position:absolute;inset:-4%;z-index:0;
+  background:linear-gradient(180deg,rgba(21,19,15,0.86),rgba(21,19,15,0.92)),url('../images/about/about-10-cta.png') center/cover no-repeat;
+  filter:blur(6px) saturate(.7);}
+/* 門內：拱門形狀的視窗，隨 --open 變大 */
+.ab-door-view{position:absolute;inset:0;z-index:1;
+  --w:calc(24% + 46% * var(--open));
+  --h:calc(56% + 34% * var(--open));
+  clip-path:inset(calc(96% - var(--h)) calc((100% - var(--w)) / 2) 4% calc((100% - var(--w)) / 2) round 999px 999px 4px 4px);}
+.ab-door-view img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%;
+  transform:scale(calc(1.25 - .2 * var(--open)));filter:brightness(calc(.75 + .3 * var(--open)));}
+.ab-door-view::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(0deg,rgba(21,19,15,0.72) 0%,rgba(21,19,15,0.25) 45%,rgba(21,19,15,0.15) 100%);}
+/* 門頂灑下的光束 */
+.ab-door-rays{position:absolute;left:50%;top:-10%;width:120%;height:90%;transform:translateX(-50%);z-index:1;mix-blend-mode:screen;pointer-events:none;
+  background:conic-gradient(from 160deg at 50% 0%,transparent 0deg,rgba(255,236,200,0.16) 8deg,transparent 16deg,rgba(255,236,200,0.10) 24deg,transparent 30deg,rgba(255,236,200,0.14) 38deg,transparent 46deg);
+  opacity:calc(.3 + .7 * var(--open));animation:abRays 9s ease-in-out infinite alternate;}
+@keyframes abRays{from{transform:translateX(-50%) rotate(-2deg);}to{transform:translateX(-50%) rotate(2deg);}}
+/* 金線門框：與視窗同尺寸、外圈第二道稍大 */
+.ab-door-frame{position:absolute;z-index:2;pointer-events:none;
+  --w:calc(24% + 46% * var(--open));--h:calc(56% + 34% * var(--open));
+  left:calc((100% - var(--w)) / 2);right:calc((100% - var(--w)) / 2);top:calc(96% - var(--h));bottom:4%;
+  border:1px solid rgba(217,188,129,0.75);border-radius:999px 999px 4px 4px;
+  box-shadow:0 0 30px rgba(232,200,140,calc(.15 + .25 * var(--open))), inset 0 0 40px rgba(232,200,140,.12);}
+.ab-door-frame-2{left:calc((100% - var(--w)) / 2 - 18px);right:calc((100% - var(--w)) / 2 - 18px);top:calc(96% - var(--h) - 18px);
+  border-color:rgba(217,188,129,0.3);box-shadow:none;}
+/* 地面金光 */
+.ab-door-floor{position:absolute;z-index:2;left:50%;bottom:4%;height:2px;transform:translateX(-50%);
+  width:calc(30% + 50% * var(--open));
+  background:linear-gradient(90deg,transparent,rgba(243,223,193,0.9),transparent);filter:blur(1px);
+  box-shadow:0 0 24px 6px rgba(232,200,140,.35);}
+/* 文字：在門裡 */
+.page-about .ab-door .final-inner{position:relative;z-index:3;max-width:640px;padding:20vh 24px 12vh;margin:0 auto;}
+.page-about .ab-door .final-inner h2{font-size:40px;letter-spacing:0.12em;color:#FBF4E4;text-shadow:0 2px 24px rgba(0,0,0,.45);}
+.page-about .ab-door .final-inner p{font-size:16px;line-height:2;margin-bottom:38px;text-shadow:0 1px 14px rgba(0,0,0,.5);}
+.ab-door-step{opacity:0;transform:translateY(18px);filter:blur(3px);transition:opacity 1.1s ease, transform 1.3s var(--ease-lux), filter 1.1s ease;}
+.ab-door.is-open .ab-door-step{opacity:1;transform:none;filter:none;transition-delay:calc(var(--i) * .25s);}
+@media(max-width:700px){
+  .ab-door-view,.ab-door-frame{--w:calc(62% + 30% * var(--open));--h:calc(62% + 28% * var(--open));}
+  .page-about .ab-door .final-inner{padding:26vh 30px 14vh;}
+  .page-about .ab-door .final-inner h2{font-size:28px;letter-spacing:0.06em;}
+  .page-about .ab-door .final-inner p{font-size:14.5px;}
+}
+@media(prefers-reduced-motion: reduce){
+  .page-about .ab-door{--open:1 !important;}
+  .ab-door-rays{animation:none;}
+  .ab-door-step{opacity:1;transform:none;filter:none;}
+}
+/* 水流光紋：順著瀑布方向往下流動的柔光（只在水面區域） */
+.quote-band-media .qb-flow{position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;opacity:.55;
+  background:
+    repeating-linear-gradient(172deg, transparent 0 22px, rgba(255,244,222,0.10) 26px, transparent 34px 60px),
+    repeating-linear-gradient(176deg, transparent 0 40px, rgba(255,240,210,0.08) 46px, transparent 54px 96px);
+  background-size:100% 240px,100% 380px;
+  animation:qbFlow 6s linear infinite;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0%,transparent 40%,#000 55%,#000 82%,transparent 100%);
+          mask-image:linear-gradient(180deg,transparent 0%,transparent 40%,#000 55%,#000 82%,transparent 100%);}
+@keyframes qbFlow{from{background-position:0 0,0 0;}to{background-position:0 240px,0 380px;}}
+.quote-band-media.has-video .qb-flow{display:none;}
+@media(prefers-reduced-motion: reduce){.quote-band-media .qb-flow{display:none;}}
+
+/* 品牌血緣卡片：副標「A × B × C」（2026-10-18） */
+.bt-key{margin-top:10px;font-size:14.5px;letter-spacing:0.14em;color:var(--gold);line-height:1.8;}
+.bt-key i{font-style:normal;margin:0 0.5em;color:var(--gold-light);}
+.bt-card-med .bt-role{letter-spacing:0.16em;line-height:1.7;}
+@media(max-width:700px){
+  .bt-key{font-size:13px;letter-spacing:0.06em;}
+  .bt-key i{margin:0 0.3em;}
+  .bt-card-med .bt-role{letter-spacing:0.08em;}
 }
