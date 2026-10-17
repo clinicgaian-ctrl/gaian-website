@@ -85,3 +85,38 @@
     activate('0');
   }
 })();
+
+/* ---------- 4. 結尾的門：隨捲動打開（2026-10-17 深夜） ----------
+   區塊頂端進入畫面下緣時 --open = 0（門縫），捲到區塊佔滿畫面時 --open = 1（門開）。
+   打開超過 55% 時加上 .is-open，文字依序浮現。 */
+(function () {
+  var door = document.querySelector('.ab-door');
+  if (!door) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) { door.style.setProperty('--open', 1); door.classList.add('is-open'); return; }
+  var ticking = false;
+  function update() {
+    var vh = window.innerHeight, r = door.getBoundingClientRect();
+    var p = (vh * 0.9 - r.top) / (vh * 0.9);
+    p = Math.max(0, Math.min(1, p));
+    var e = p * p * (3 - 2 * p); // 平滑：一開始慢慢推開、接近全開時放慢
+    door.style.setProperty('--open', e.toFixed(3));
+    if (e > 0.6) door.classList.add('is-open');
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+
+/* ---------- 5. 金句水景：有影片就播放影片 ---------- */
+(function () {
+  var media = document.querySelector('.quote-band-media');
+  var v = media && media.querySelector('.qb-video');
+  if (!v) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) { v.removeAttribute('autoplay'); v.pause(); return; }
+  function ok() { media.classList.add('has-video'); }
+  v.addEventListener('loadeddata', ok);
+  if (v.readyState >= 2) ok();
+})();

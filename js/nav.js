@@ -40,7 +40,7 @@
       '<div class="mega-panel"><div class="mega-inner">' +
         '<div class="mega-list">' + listHtml + '</div>' +
         '<div class="mega-detail">' + detailHtml + '</div>' +
-        '<div class="mega-visual"><img src="' + item.image + '" alt="' + esc(item.zh) + '">' +
+        '<div class="mega-visual"><img src="' + item.image + '"' + (item.imagePos ? ' style="object-position:' + item.imagePos + '"' : '') + ' loading="lazy" decoding="async" alt="' + esc(item.zh) + '">' +
           '<blockquote class="mega-quote">' + item.quote + '<span>— ' + esc(item.quoteSource) + '</span></blockquote>' +
         '</div>' +
       '</div></div>' +
