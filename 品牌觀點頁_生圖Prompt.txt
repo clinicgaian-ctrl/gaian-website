@@ -1,0 +1,61 @@
+品牌觀點（journal.html）｜生圖 Prompt
+2026-10-18
+
+依各區塊「文字的意思」構圖。每段整段複製貼到 ChatGPT；7 張建議在同一個對話裡生成，色調較一致。
+生好後存成標註檔名放進 images/journal/（PNG 也可以，丟進去跟我說，我幫你轉檔換上）。
+
+構圖提醒
+・首屏（16:9 橫式）：文字在左側，左邊 40% 要乾淨、偏暗。
+・Why We Write（4:5 直式）：網頁上裁成「橢圓」，四角會被裁掉，主體置中。
+・五個分類（1:1 正方形）：網頁上裁成「圓形」小圖，主體置中、構圖簡潔（小尺寸也看得清楚）。
+
+
+==================================================
+0｜jn-00-hero.jpg｜16:9 橫式｜首屏「從持續理解，到長久健康」
+文字意思：分享對健康、醫學與生活的深度思考——一座安靜的思考與閱讀空間。
+==================================================
+Wide 16:9 cinematic photograph of a serene private library and reading salon inside a cream marble sanctuary: tall arched windows with warm golden light, low travertine shelves holding linen-bound books, a single reading chair in ivory linen beside a small table with an open book and a cup of tea, a branch of olive in a ceramic vase. Soft light rays and gentle haze, contemplative and timeless. Main elements in the right half of the frame; the left 40% calmer and slightly darker for white text. Warm ivory, champagne gold and soft amber palette, photorealistic, high detail. No people, no readable text, no logos, no watermark.
+
+==================================================
+1｜jn-01-write.jpg｜4:5 直式（橢圓）｜Why We Write「看見症狀之外的健康」
+文字意思：健康問題在日常中逐漸累積；書寫是為了讓專業知識走進日常，讓被忽略的身體訊號成為理解的起點。
+==================================================
+Vertical 4:5 intimate photograph: a hand gently writing with a brass fountain pen in an open cream notebook on a travertine desk by a sunlit arched window, beside an open reference book, a cup of herbal tea and a small sprig of rosemary. Warm morning light falls across the pages, quiet and thoughtful, conveying careful, sincere writing about everyday health. Subject centered with soft space around all edges. Warm ivory and champagne-gold palette, photorealistic, shallow depth of field. No readable words on the pages, face not shown, no logos, no frame or border.
+
+==================================================
+2｜jn-cat-01.jpg｜1:1 正方形（圓形）｜01 Future Health 未來健康觀點
+文字意思：健康管理為什麼應該更早開始；預防、風險意識與長期規劃——看得更遠。
+==================================================
+Square 1:1 photograph: a calm terrace at dawn with a marble balustrade overlooking a vast quiet sea and distant mountains, a single elegant brass telescope on a tripod pointed toward the soft horizon, early golden light just breaking through. Feeling of looking ahead, foresight and long-term perspective. Simple centered composition, clear at small size. Warm ivory and champagne-gold palette, photorealistic. No people, no text, no logos, no frame or border.
+
+==================================================
+3｜jn-cat-02.jpg｜1:1 正方形（圓形）｜02 Lifestyle 生活方式
+文字意思：睡眠、工作節奏、飲食、運動與休息——每個日常小決定，長期形成健康樣貌。
+==================================================
+Square 1:1 lifestyle photograph: a peaceful morning corner at home: a neatly made linen bed edge, a woven tray with a wholesome breakfast bowl, fruit and a glass of water, a pair of soft walking shoes and a rolled linen yoga mat by the sunlit window, an olive branch in a vase. Gentle golden morning light, balanced and unhurried daily rhythm. Simple centered composition, clear at small size. Warm ivory and champagne-gold palette, photorealistic. No people, no text, no logos, no frame or border.
+
+==================================================
+4｜jn-cat-03.jpg｜1:1 正方形（圓形）｜03 Medical 醫療科普
+文字意思：用理解取代恐懼；把專業醫學知識轉化為容易理解的健康觀點。
+==================================================
+Square 1:1 refined still-life photograph: an elegant anatomical study rendered as a classical cream-paper illustration of the human body's circulatory lines, pinned softly to a limestone wall, below it a travertine desk with an open medical reference book, a brass magnifying glass and a stethoscope laid neatly beside a cup of tea. Calm, clear, reassuring knowledge rather than clinical fear. Warm afternoon light. Simple centered composition, clear at small size. Warm ivory and champagne-gold palette, photorealistic. No readable text, no people, no logos, no frame or border.
+
+==================================================
+5｜jn-cat-04.jpg｜1:1 正方形（圓形）｜04 Beauty 健康美學
+文字意思：美是健康的自然結果；不談快速改造，而是身體狀態與外在樣貌的真實關係。
+==================================================
+Square 1:1 serene beauty photograph: a woman's bare shoulder and softly glowing skin seen from behind in warm natural light, a fold of ivory silk draped loosely, a single fresh white peony on a marble ledge beside her. Natural, healthy radiance, quiet confidence, no heavy makeup. Simple centered composition, clear at small size. Warm ivory and champagne-gold palette, photorealistic, tasteful and elegant. Face not shown, no text, no logos, no frame or border.
+
+==================================================
+6｜jn-cat-05.jpg｜1:1 正方形（圓形）｜05 Story 訪者故事
+文字意思：從初次走進 GAIAN 的相遇，到諮詢與評估的每一步；記錄空間、醫療與人的連結。
+==================================================
+Square 1:1 cinematic photograph: a softly lit entrance hall of a calm marble sanctuary, a woman seen from behind stepping through a tall arched doorway into warm golden light, a welcoming host waiting gently inside beside a vase of white lilies. Feeling of a first encounter, arrival and the beginning of a personal journey. Centered composition with the luminous arch in the middle, clear at small size. Warm ivory and champagne-gold palette, photorealistic. Faces not visible, no text, no logos, no frame or border.
+
+==================================================
+生出來不滿意時，可以直接跟 ChatGPT 說
+==================================================
+・太亮太白：「整體再暖一點，多一點香檳金的光」
+・太像商品棚拍：「更像真實空間裡的生活場景，背景要有空間感」
+・金色太多太俗：「金色只當點綴，主色調保持米白和石材」
+・人物太搶戲：「人物縮小一點，臉部不要是焦點」

@@ -1,0 +1,67 @@
+同行者（walking-together.html）｜生圖 Prompt（全部重新生成版）
+2026-10-18
+
+依各區塊「文字的意思」構圖，不沿用現有暫代圖。
+每段整段複製貼到 ChatGPT；6 張建議在同一個對話裡生成，色調較一致。
+生好後存成標註檔名放進 images/walking-together/（PNG 也可以，丟進去跟我說，我幫你轉檔換上）。
+
+構圖提醒
+・首屏（16:9 橫式）：文字在左側，左邊 40% 要乾淨、偏暗。
+・其餘 5 張（4:5 直式）：網頁上裁成「拱門」，上方約 1/4 會變圓頂，主體放中下方。
+
+
+==================================================
+0｜wt-00-hero.jpg｜16:9 橫式｜首屏「與你，一路同行」
+文字意思：不只是會員關係，而是一段長期、私人的健康旅程，在不同人生階段一路相伴。
+畫面：兩個人並肩走在灑滿陽光的長廊上，一位是同行者、一位是陪伴者——「同行」。
+==================================================
+Wide 16:9 cinematic photograph: two women walking side by side, unhurried, along a long sunlit cream marble colonnade that opens to a calm sea at golden hour, seen from behind at a slight angle. One gently turns toward the other as if in quiet conversation, conveying companionship and trust. Warm sunlight streams between the columns, casting long rhythmic shadows across a polished travertine floor; olive trees soften the edges. Serene, private, timeless. The two figures are placed in the right half of the frame; the left 40% is calmer and slightly darker in tone for white text. Warm ivory, champagne gold and soft amber palette, photorealistic, high detail. Faces not visible, no text, no logos, no watermark.
+
+
+==================================================
+1｜wt-01-journey.jpg｜4:5 直式｜健康旅程「陪伴，是最長期的承諾」
+文字意思：身體在變、生活在變，對健康的理解也隨之改變；陪伴不是一次性的服務，而是持續的關係。
+畫面：一條穿過橄欖園、通往光的石徑，途中有一張可以停下來的石椅——一段持續、有節奏的路。
+==================================================
+Vertical 4:5 cinematic photograph: a gently winding path of pale travertine stepping stones leading through a quiet olive grove toward a glowing archway of warm light in the distance. Midway along the path stands a simple carved stone bench beneath an olive tree, a place to pause before continuing. Dappled golden-hour light filters through the leaves, soft dust in the air. Feeling of a long, steady journey with moments of rest along the way. Path begins in the lower-middle of the frame and recedes upward, calm open sky-light in the top quarter. Warm ivory, champagne gold and soft sage palette, photorealistic, high detail. No people, no text, no logos, no frame or border.
+
+
+==================================================
+2｜wt-02-practice.jpg｜4:5 直式｜01 健康管理方式 A Continuing Practice
+文字意思：理解→評估→規劃→陪伴→再理解，不是走完一次就結束，而是循環往復。
+畫面：圓形水池中心一滴水落下，漣漪一圈圈擴散又回到中心——「循環」。
+==================================================
+Vertical 4:5 serene photograph: a perfectly round shallow reflecting pool set into a cream marble courtyard floor, seen from a slightly elevated angle. A single drop falls into the centre, sending concentric golden ripples outward to the polished stone rim, where they gently reflect back. A thin curved line of light traces the circular edge. Soft late-afternoon sunlight, calm and meditative, conveying an ongoing cycle rather than a single ending. Pool placed in the lower-middle of the frame, soft limestone wall and arched opening above. Warm ivory and champagne-gold palette, photorealistic, high detail. No people, no text, no logos, no frame or border.
+
+
+==================================================
+3｜wt-03-plan.jpg｜4:5 直式｜02 專屬規劃 Personal Health Plan
+文字意思：一份規劃要看得懂，也能帶回生活；有階段目標、建議安排、回訪節點、留意事項。
+畫面：在家中晨光餐桌上，一本整理得很清楚的個人規劃冊攤開著，旁邊是早餐、茶與花——規劃「帶回日常」。
+==================================================
+Vertical 4:5 warm lifestyle still-life photograph: on a honed marble breakfast table at home beside a sunlit window, an elegant linen-bound personal planner lies open, its cream pages neatly organized with simple soft-gold dividers, small tabs and a few gentle hand-drawn timeline marks, but no readable words. Beside it: a brass pen, a cup of herbal tea, a small bowl of fresh fruit and a sprig of white flowers in a ceramic vase. Morning light, calm and orderly, conveying a clear plan that fits naturally into daily life. Subject in the lower-middle, soft window light and sheer curtain above. Warm ivory and champagne-gold palette, photorealistic, high detail. No readable text or numbers, no people, no logos, no frame or border.
+
+
+==================================================
+4｜wt-04-advisor.jpg｜4:5 直式｜03 健康顧問 Dedicated Advisor
+文字意思：有人陪你梳理健康歷程（健康顧問），也有專業醫師為每一項醫療決策把關；兩種角色分工合作。
+畫面：安靜的私人諮詢室裡，同行者與健康顧問對坐交談，一位穿白袍的醫師站在一旁翻閱資料——陪伴與專業並存。
+==================================================
+Vertical 4:5 refined interior photograph of a calm private consultation lounge with cream marble walls and soft arched windows. A woman sits in an ivory armchair, in gentle conversation with a warmly dressed health advisor seated beside her, a closed folder and two cups of tea on a small travertine table. Slightly behind them, a physician in a tailored white coat stands reviewing a document, attentive and composed. Respectful, reassuring, collaborative atmosphere: companionship and medical expertise side by side. Seen from a soft side angle so faces are gentle and not the focus. Warm golden afternoon light. Figures in the lower-middle, soft architectural space above. Warm ivory and champagne-gold palette, photorealistic, high detail. No medical equipment, no text, no logos, no frame or border.
+
+
+==================================================
+5｜wt-05-record.jpg｜4:5 直式｜04 健康紀錄 A Record Over Time
+文字意思：讓過去的變化成為下一次理解的線索；每一段健康歷程都值得被妥善記錄與保護、重視隱私。
+畫面：私人書房的櫃中，一排依年份整齊收藏的布面冊子，其中一本被輕輕抽出；旁邊一只上鎖的黃銅小盒——「累積」與「被守護」。
+==================================================
+Vertical 4:5 quiet interior still-life photograph: a softly lit built-in cabinet of pale oak and travertine in a private study, holding a neat row of linen-bound volumes of gradually varying cream and sand tones, as if gathered over many years; one volume is gently drawn halfway out. On the shelf beside them rests a small closed brass keepsake box with a delicate lock. A slanting beam of afternoon sunlight falls across the spines, suggesting the passing of time. Calm, private, protected, reflective. Subject in the lower-middle, soft shadowed wall above. Warm ivory and champagne-gold palette, photorealistic, high detail. No readable writing on the spines, no screens, no people, no logos, no frame or border.
+
+
+==================================================
+生出來不滿意時，可以直接跟 ChatGPT 說
+==================================================
+・太亮太白：「整體再暖一點，多一點香檳金的光」
+・太像商品棚拍：「更像真實空間裡的生活場景，背景要有空間感」
+・金色太多太俗：「金色只當點綴，主色調保持米白和石材」
+・人物太搶戲：「人物縮小一點，臉部不要是焦點」

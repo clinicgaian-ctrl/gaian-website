@@ -1,0 +1,108 @@
+GAIAN｜未來健康頁「健康管理」六張配圖 Prompt
+整理日期：2026-10-17
+
+────────────────────────────────────
+使用方式
+────────────────────────────────────
+1. 產圖後用「完全相同的檔名」存進：
+   gaian-website-main拷貝/images/future-health/care/
+   直接覆蓋裡面的暫代圖，網頁就會自動換上，不需要改程式碼。
+2. 每段 Prompt 後面都要接上【共用風格尾句】，六張的色調才會一致。
+3. 比例：一律「直式 4:5」（建議 1200×1500 以上）。網頁會以半邊版面裁切，主體請放在畫面中央。
+4. Midjourney 用 --ar 4:5；ChatGPT／Gemini 請在句尾寫「直式 4:5 比例」。
+5. 每張圖左下（或右下）會壓上一個大型英文斜體字（Rest／Balance…），那一角請保持畫面乾淨、偏亮。
+
+────────────────────────────────────
+共用風格尾句
+────────────────────────────────────
+warm golden-hour light, soft ivory and travertine marble, Mediterranean classical arches, champagne-gold accents, serene quiet luxury, generous negative space, editorial still-life photography, gentle film grain, shallow depth of field, muted palette of ivory, sand and soft gold, no text, no logo, no watermark
+
+負面提示：
+--no text, letters, logo, watermark, hospital equipment, syringes, pills, IV bags, needles, face close-up, saturated colors, cold blue tones, clutter
+
+⚠️ 規範提醒
+・人物只能出現背影、側後方或手部，不可出現清楚正臉（避免被誤認為真實病人或醫師）。
+・不放任何針筒、點滴袋、藥丸等醫療器材畫面——用「意象」表達，而不是療程本身。
+
+────────────────────────────────────
+01｜睡眠 SLEEP & RECOVERY　→ 壓字：Rest
+檔名：care-01-sleep.png
+這張在說：身體在安靜中修復——傍晚到夜晚的柔和過渡。
+Prompt：
+A serene marble bedroom alcove at dusk, crisp ivory linen bedding softly rumpled, a sheer curtain glowing with the last warm light, a small brass lamp casting a gentle pool of gold, a single sprig of lavender on the nightstand, peaceful and restorative --ar 4:5
+
+────────────────────────────────────
+02｜壓力 STRESS & BALANCE　→ 壓字：Balance
+檔名：care-02-stress.png
+這張在說：放下負荷，找回內在的平衡。
+Prompt：
+A stack of smooth balanced river stones on a travertine ledge beside a still reflecting pool, a slow ripple spreading across the water, soft morning light through an arched opening, calm and centered, minimal composition --ar 4:5
+
+────────────────────────────────────
+03｜疼痛 PAIN & UNDERSTANDING　→ 壓字：Ease
+檔名：care-03-pain.png
+這張在說：被溫柔地接住、被理解的身體。
+⚠️ 只拍手部與肩頸背影，不拍臉。
+Prompt：
+Close-up of a woman's bare shoulder and upper back in soft warm light, one hand resting gently on her own neck, a draped ivory linen robe, blurred marble arches behind, tender and calm, sense of relief and care, face not visible --ar 4:5
+
+────────────────────────────────────
+04｜落髮 HAIR & INNER HEALTH　→ 壓字：Vitality
+檔名：care-04-hair.png
+這張在說：從內在滋養，頭髮自然的光澤與生命力。
+⚠️ 背影，不拍臉。
+Prompt：
+A woman seen from behind with long, glossy, healthy flowing hair catching golden backlight, standing in a sunlit marble corridor, a few strands lifted by a soft breeze, natural radiance and vitality, face not visible --ar 4:5
+
+────────────────────────────────────
+05｜女性健康 WOMEN'S WELLNESS　→ 壓字：Grace
+檔名：care-05-women.png
+這張在說：每個生命階段的溫柔陪伴。
+⚠️ 側後方或背影，不拍臉。
+Prompt：
+A graceful woman in a flowing ivory dress seated by a tall arched window, seen from a three-quarter back angle, holding a porcelain tea cup with both hands, a vase of soft blush peonies on a marble table, warm afternoon light, nurturing and feminine, face not visible --ar 4:5
+
+────────────────────────────────────
+06｜靜脈營養 IV NUTRITION　→ 壓字：Nourish
+檔名：care-06-nutrition.png
+這張在說：身體需要的養分，被細緻地補足。
+⚠️ 不出現點滴、針筒等醫療器材，用「水與光」的意象表達。
+Prompt：
+A crystal-clear glass carafe of water and a small glass of infused water with citrus slices on a polished travertine table, droplets catching golden sunlight, fresh green herbs beside it, luminous refractions on the marble, pure and nourishing, editorial still life --ar 4:5
+
+────────────────────────────────────
+選圖檢查
+────────────────────────────────────
+□ 暖金／米白／大理石色調，跟網站其他圖放在一起不突兀
+□ 沒有文字、Logo、浮水印
+□ 人物只有背影／側後方／手部
+□ 沒有任何醫療器材
+□ 有壓字的那一角夠乾淨，金色英文字讀得清楚
+□ 檔名完全一致（全小寫、.png）
+□ 上線前壓縮到 300–500KB（例如用 squoosh.app），檔名不變
+
+
+==================================================
+2026-10-18 追加｜首圖＋整合醫學 重新生成
+（存成下列檔名放進 images/future-health/；PNG 也可以，丟進去跟我說，我幫你轉檔）
+==================================================
+
+fh-00-hero.jpg｜16:9 橫式｜首屏（2026-10-18 修訂：回到原圖的開闊空間感，米白色調）
+文字意思：醫學，不止於治療——以開闊、通透的空間呈現「未來健康」的清晰與前瞻。
+
+A（推薦，最接近原圖）
+Wide 16:9 cinematic photograph of a vast, airy ivory-white marble arcade with very tall slender columns and graceful arches, opening onto a calm sea and wide soft sky at early morning. Clean, luminous and spacious, with generous negative space, a polished pale stone floor softly reflecting the light, a few olive trees in simple stone planters. Soft diffused morning light, gentle haze, a subtle warm glow only near the horizon. Feeling of openness, clarity and a calm, forward-looking future. Predominantly ivory, cream and soft white tones with only a whisper of pale champagne; not golden, not orange. The left 40% of the frame softer and slightly more muted for white text. Photorealistic, high detail, architectural photography. No people, no furniture clutter, no text, no logos, no watermark.
+
+B（更簡約、更有未來感）
+Wide 16:9 cinematic photograph of an expansive minimalist ivory sanctuary: a single monumental open archway framing a calm sea horizon, smooth curved cream plaster walls, a long reflecting pool on a pale travertine floor leading the eye toward the horizon. Soft, even morning daylight, airy and serene, lots of open space and quiet negative space. Predominantly ivory, warm white and pale sand tones with a very subtle champagne highlight; clean and bright rather than golden. Feeling of clarity, openness and a calm future of health. The left 40% of the frame softer and slightly muted for white text. Photorealistic, high detail, architectural photography. No people, no text, no logos, no watermark.
+
+太黃時可補一句：「整體再白一點、更通透，像清晨的自然光，減少金黃色調」
+
+fh-01-integrative.jpg｜4:5 直式（網頁裁成橢圓，主體置中）｜整合醫學（2026-10-18 修訂：不用中醫意象，米白通透）
+文字意思：從生活出發；不只關注單一症狀，從根本傾聽、理解身體的需求，由內而外。
+
+A（推薦）傾聽與對話
+Vertical 4:5 refined photograph of a bright, airy ivory consultation space with a tall arched window and soft morning daylight. A physician in a tailored white coat sits across a small round travertine table from a woman in soft neutral clothing, leaning slightly forward and listening attentively; a cup of tea and a closed folder rest on the table between them. Calm, warm, respectful conversation; modern premium medicine that feels human rather than clinical. Seen from a soft side angle so faces are gentle and not the focus. Clean ivory, cream and soft white tones with only a subtle hint of champagne; airy, spacious, not golden. Subject centered with soft space around all edges. Photorealistic, high detail. No medical equipment, no text, no logos, no frame or border.
+
+B 由內而外（無人物）
+Vertical 4:5 serene architectural photograph: a calm ivory interior with smooth curved plaster walls and a pale travertine floor, opening through a tall arched doorway onto a softly lit garden of olive trees and open sky beyond. A single ceramic vase with a fresh green branch stands near the threshold. Soft diffused morning light flows from outside to inside, airy and spacious, symbolizing care that moves from the inside out. Predominantly ivory, warm white and pale sand tones with gentle natural greens; clean and bright rather than golden. Subject centered with soft space around all edges. Photorealistic, high detail. No people, no text, no logos, no frame or border.

@@ -1,0 +1,107 @@
+美的概念館（gallery.html）｜生圖 Prompt
+2026-10-17
+
+==================================================
+使用方式
+==================================================
+1. 打開 ChatGPT，「每一張」都先貼【共同風格】，再貼該張的【畫面】。
+   建議 9 張在同一個對話裡做，色調會比較一致。
+2. 生好後存成表格裡的檔名，放進 images/gallery/，覆蓋舊檔，網頁會自動換上。
+   不用自己裁切，網頁會自動裁成拱門或橢圓。
+3. 王俠軍瓷器、王俠軍茶器、珠寶（兩張）不換，維持現有照片。
+
+--------------------------------------------------
+照片位置 & 檔名
+--------------------------------------------------
+ #  區塊                  網頁形狀   比例   檔名
+ 1  第二屏「藝術，不只是收藏」  拱門      4:5   gallery-01-artwork.png
+ 2  以品味為選｜家具            拱門      4:5   collection-furniture.jpg
+ 3  以品味為選｜藝術收藏        拱門      4:5   collection-art.jpg
+ 4  甄選美好｜保養              橢圓      3:4   curation-skincare.jpg
+ 5  甄選美好｜香氛              橢圓      3:4   curation-fragrance.jpg
+ 6  甄選美好｜家具              橢圓      3:4   curation-furniture.jpg
+ 7  甄選美好｜藝術              橢圓      3:4   curation-art.jpg
+ 8  甄選美好｜居家              橢圓      3:4   curation-home.jpg
+ 9  甄選美好｜健康用品          橢圓      3:4   curation-health.jpg
+
+構圖提醒：
+・拱門（1–3）：上方約 1/4 會被裁成圓頂，主體放在畫面中下方，上方留空氣感。
+・橢圓（4–9）：四個角會被裁掉，主體放正中間，四周留白。
+
+
+==================================================
+【共同風格】每張都先貼這段
+==================================================
+Luxury editorial interior and still-life photograph for a high-end integrative wellness and art gallery brand. Warm ivory, cream and champagne-gold palette with touches of soft brass; travertine, honed cream marble, limestone, natural linen and silk. Soft directional late-afternoon sunlight with gentle long shadows and a subtle golden glow, calm museum-like serenity, refined and timeless rather than flashy. Photorealistic, shallow depth of field, fine natural textures, high detail. No text, no logos, no brand names, no watermark, no picture frame or border around the image, no people.
+
+
+==================================================
+1｜gallery-01-artwork.png｜拱門 4:5
+第二屏「藝術，不只是收藏，而是一種生活方式」
+==================================================
+Vertical 4:5. A quiet private gallery that feels like a home: a single sculptural ivory ceramic vessel and a small abstract bronze piece displayed on a low travertine plinth, a large soft-toned abstract painting in cream and muted gold leaf leaning against a limestone wall, a sheer linen curtain filtering warm sunlight. Art living naturally in a calm space, not a museum showroom. Main subject in the lower-middle, generous soft empty wall space in the top quarter.
+
+
+==================================================
+2｜collection-furniture.jpg｜拱門 4:5
+以品味為選｜Furniture 家具「一張椅子，也能改變一天的感受」
+==================================================
+Vertical 4:5. One sculptural curved lounge chair in ivory bouclé with a slim brushed-brass base, placed inside an arched limestone alcove. A small travertine side table with a cup of tea and an open art book beside it. Warm sunlight falls across the chair, casting a long soft shadow on the cream marble floor. The chair sits in the lower-middle of the frame, with calm empty arched wall above.
+
+
+==================================================
+3｜collection-art.jpg｜拱門 4:5
+以品味為選｜Art Collection 藝術收藏「藝術，讓空間開始有生命力」
+==================================================
+Vertical 4:5. A large organic abstract sculpture in hand-hammered gold and bronze, flowing like a wave or unfolding petals, standing on a tall cream travertine pedestal in a softly lit gallery corner. A warm spotlight from above makes the gold surface glow, with a gentle halo on the limestone wall behind. Sculpture placed in the lower-middle, soft empty space above.
+
+
+==================================================
+4｜curation-skincare.jpg｜橢圓 3:4
+甄選美好｜保養「喚醒肌膚，回到最舒服的自己」
+==================================================
+Vertical 3:4. Luxury skincare still life: an unbranded heavy glass cream jar with a polished champagne-gold lid and a slim amber glass dropper bottle, arranged on a round travertine pedestal. A soft fold of ivory silk, a few drops of golden facial oil glistening, a sprig of dried white flowers. Warm side light creating gentle reflections on the glass. Subject centered with soft space around all edges. Products have no labels or writing.
+
+
+==================================================
+5｜curation-fragrance.jpg｜橢圓 3:4
+甄選美好｜香氛「以香氣，安放日常情緒」
+==================================================
+Vertical 3:4. An unbranded sculptural perfume bottle in clear and pale amber glass with a faceted gold cap, standing on cream marble. Delicate wisps of soft fragrance mist curling upward in the warm light, a few scattered dried rose petals and a small piece of agarwood beside it. Dreamy, calm, softly glowing. Subject centered with soft space around all edges. No label or writing on the bottle.
+
+
+==================================================
+6｜curation-furniture.jpg｜橢圓 3:4
+甄選美好｜家具「讓空間，承載生活的美好」
+==================================================
+Vertical 3:4. A refined armchair upholstered in soft champagne velvet with gently curved arms and a sculpted brass frame, beside a small round travertine side table with a brass reading lamp. Cream limestone wall, warm afternoon light, long soft shadow on the floor. The chair is centered with space around it.
+
+
+==================================================
+7｜curation-art.jpg｜橢圓 3:4
+甄選美好｜藝術「讓藝術，融入生活日常」
+==================================================
+Vertical 3:4. A textured abstract artwork made of layered cream plaster and delicate gold leaf brushstrokes, hung on a warm limestone wall above a low travertine console. On the console: a hand-thrown ivory ceramic vase with a single branch of dried blossom. Soft sunlight grazing the textured surface so the gold catches the light. Composition centered.
+
+
+==================================================
+8｜curation-home.jpg｜橢圓 3:4
+甄選美好｜居家「美的事物，成為日常的一部分」
+==================================================
+Vertical 3:4. A serene living room corner: an ivory linen sofa with a few silk cushions in cream and soft gold, a honed marble coffee table with a stack of art books, a ceramic bowl and fresh white lilies, a slim brass floor lamp. Large window with sheer curtains letting in warm golden light. Lived-in, calm and elegant. Composition centered.
+
+
+==================================================
+9｜curation-health.jpg｜橢圓 3:4
+甄選美好｜健康用品「讓健康，自然融入生活」
+==================================================
+Vertical 3:4. A calm wellness ritual still life on a travertine tray: a pale jade gua sha stone, a brass singing bowl, a small ceramic cup of golden herbal tea with a soft wisp of steam, a folded natural linen towel and a few dried herbs. Warm gentle sunlight, peaceful and healing atmosphere. Subject centered with soft space around all edges.
+
+
+==================================================
+微調小技巧（生出來不滿意時，直接跟 ChatGPT 說）
+==================================================
+・太亮太白：「整體再暖一點，多一點香檳金的光」
+・太像商品棚拍：「更像在真實空間裡的生活場景，背景要有空間感」
+・太俗氣、金色太多：「金色只當點綴，主色調保持米白和石材」
+・主體太滿：「主體縮小一點，四周多留空間」
