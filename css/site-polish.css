@@ -34,3 +34,50 @@
   .jn-hero-media i,.wt-hero-media i,.gl-hero-bg i{animation:none !important;transform:none;}
 }
 
+
+
+/* =========================================================
+   2026-10-19｜五大頁面手機版字級：比照首頁
+   大標 34px Cormorant 細體；標題後半句為大標感、依字數縮放維持一行；
+   副標 16.5px；內文 16–16.5px
+   ========================================================= */
+@media(max-width:760px){
+  body:is(.page-about,.page-fh,.page-gallery,.page-jn,.page-wt) :is(.section-head,.about-text,.reveal,.wt-corp-inner,.gb-closing-inner,.final-inner) > h2:not(.jn-ink-title){
+    font-family:'Cormorant Garamond','Noto Serif TC',serif;font-weight:300;font-size:34px;line-height:1.5;letter-spacing:.04em;text-wrap:balance;}
+  body.page-jn .jn-ink-title{font-size:26px;line-height:1.6;}
+
+  /* 未來健康：標題後半句（.fh-sub）與首頁 .h2-sub 相同做法 */
+  body.page-fh .fh-sub{display:block;margin-top:4px;font:inherit;color:inherit;letter-spacing:0;white-space:nowrap;
+    font-size:min(1em, calc((100vw - 16vw) / (var(--n,12) + .6)));}
+
+  /* 副標 */
+  body:is(.page-about,.page-fh,.page-gallery,.page-jn,.page-wt) .section-head :is(.tagline,.lede){font-size:16.5px;line-height:2;}
+
+  /* 首屏內文 */
+  body:is(.page-about,.page-fh,.page-gallery,.page-jn,.page-wt) :is(.ab-hero-inner,.gbeauty-hero-inner) p:not(.eyebrow):not(.crumb):not(.final-line){font-size:16px !important;line-height:1.95;}
+
+  /* 內文 */
+  body:is(.page-about,.page-fh,.page-gallery,.page-jn,.page-wt) :is(.prose,.about-text,.reveal,.ph-body,.value-item,.final-inner,.gb-closing-inner,.jn-ink-inner,.wt-corp-inner) > p:not(.eyebrow):not(.gl-believe-line):not(.final-line){font-size:16.5px;line-height:2;}
+  body:is(.page-about,.page-fh,.page-gallery,.page-jn,.page-wt) .prose p{font-size:16.5px;line-height:2;}
+  body.page-about .ph-body p,body.page-about .value-item p{font-size:16px;}
+  body.page-about .bt-root-desc{font-size:16.5px;}
+  body.page-about .bt-desc{font-size:16px;line-height:1.95;}
+  body.page-fh .fh-spread-text p{font-size:15.5px;line-height:1.95;}
+  body.page-fh .fh-pnode p{font-size:15px;line-height:1.85;}
+  body.page-fh .team-desc{font-size:14.5px;line-height:1.9;}
+  body.page-fh .team-quote{font-size:17px;}
+  body.page-gallery .gb-object-cap p{font-size:14px;line-height:1.85;}
+  body.page-jn .cat-body p:not(.cat-tagline){font-size:16px;line-height:1.95;}
+  body.page-jn .editorial-standard p,body.page-jn .editorial-standard li{font-size:16px;line-height:1.95;}
+  body.page-wt .wt-card-text p:not(.wt-en):not(.wt-lead){font-size:16px;line-height:1.95;}
+  body.page-wt .wt-ev p{font-size:16px;line-height:1.9;}
+}
+
+/* 手機專用斷行（全站共用） */
+br.m-br{display:none;}
+@media(max-width:760px){br.m-br{display:inline;} span.d-only{display:none;}}
+
+/* 2026-10-19｜未來健康「健康評估」五步驟：手機版維持左側直線，整組置中 */
+@media(max-width:860px){
+  body.page-fh .fh-process{width:max-content;max-width:100%;margin-left:auto;margin-right:auto;padding-right:12px;}
+}

@@ -654,3 +654,98 @@
   .bt-key i{margin:0 0.3em;}
   .bt-card-med .bt-role{letter-spacing:0.08em;}
 }
+
+
+/* =========================================================
+   2026-10-19｜手機版修正
+   ========================================================= */
+/* 首屏滿版（與首頁相同，整個畫面高） */
+.ab-hero{height:100vh;height:100svh;min-height:620px;}
+
+@media(max-width:760px){
+  .ab-hero{height:100vh;height:100svh;min-height:600px;}
+
+  /* 流水金句：改成直式長方形，高度不低於上方拱門照片 */
+  .quote-band{min-height:620px;padding:110px 7vw;}
+
+  /* 信念如何落地：整組置中 */
+  .belief-path{width:max-content;max-width:100%;margin:0 auto;padding-right:12px;}
+
+  /* 品牌理念：手機版每一條理念上方放對應的圖（js/about.js 從畫框複製過來） */
+  .ph-m-img{display:block;margin:6px 0 26px;aspect-ratio:16/10;overflow:hidden;border-radius:999px 999px 6px 6px / 260px 260px 6px 6px;
+    box-shadow:0 0 0 1px var(--gold-light), 0 0 0 7px rgba(250,246,239,.92), 0 0 0 8px rgba(184,147,74,.3), 0 24px 46px rgba(20,18,12,.14);}
+  .ph-m-img img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.12);filter:blur(5px);opacity:.4;
+    transition:transform 1.8s var(--ease-lux), filter 1.2s var(--ease-lux), opacity 1.2s ease;}
+  .ph-item.in-view .ph-m-img img{transform:scale(1);filter:none;opacity:1;}
+}
+@media(min-width:761px){.ph-m-img{display:none;}}
+@media(prefers-reduced-motion: reduce){.ph-m-img img{transform:none !important;filter:none !important;opacity:1 !important;}}
+
+/* =========================================================
+   2026-10-19（三）｜品牌血緣
+   桌機：維持原本的拱門卡片與分支動畫（.bt-fr 系列在桌機不產生任何外框）。
+   手機：卡片上下排列，整張卡片（Logo＋文字）收在「凹角雙金線畫框」內，
+         與醫師團隊同一語彙（米白版）；連接線由 js/about.js 依實際位置畫出：
+         GAIA 往下 → 一分為二 → 左線沿左側接第一個場域、右線沿右側接第二個場域。
+   ========================================================= */
+.bt-fr,.bt-fr-line,.bt-fr-body{display:contents;}
+.bt-mlines{display:none;}
+@media(max-width:860px){
+  .bt-branch svg,.bt-branch::before,.bt-spark{display:none !important;}
+  .bt-branch{height:54px;margin-top:18px;}
+  .bt-children{grid-template-columns:1fr;gap:34px;padding:0 20px;filter:drop-shadow(0 22px 34px rgba(42,38,32,0.12));}
+  .bt-card,.bt-card:hover{margin:0;padding:1px;border:0;border-radius:0;box-shadow:none;display:block;
+    background:linear-gradient(160deg,#EAD8B2,#B8934A 50%,#E3CB97);}
+  .bt-fr{display:block;padding:8px;background:#FBF7EE;}
+  .bt-fr-line{display:block;padding:1px;background:rgba(184,147,74,0.55);}
+  .bt-fr-body{display:flex;flex-direction:column;align-items:center;text-align:center;padding:34px 18px 32px;
+    background:radial-gradient(ellipse at 50% 30%, #FFFDF8 0%, #F7EFDF 60%, #EFE2C6 100%);}
+  .bt-card,.bt-fr,.bt-fr-line,.bt-fr-body{
+    --r:18px;
+    -webkit-mask:
+      radial-gradient(circle at 0 0, transparent var(--r), #000 calc(var(--r) + .5px)) top left / 51% 51% no-repeat,
+      radial-gradient(circle at 100% 0, transparent var(--r), #000 calc(var(--r) + .5px)) top right / 51% 51% no-repeat,
+      radial-gradient(circle at 0 100%, transparent var(--r), #000 calc(var(--r) + .5px)) bottom left / 51% 51% no-repeat,
+      radial-gradient(circle at 100% 100%, transparent var(--r), #000 calc(var(--r) + .5px)) bottom right / 51% 51% no-repeat;
+            mask:
+      radial-gradient(circle at 0 0, transparent var(--r), #000 calc(var(--r) + .5px)) top left / 51% 51% no-repeat,
+      radial-gradient(circle at 100% 0, transparent var(--r), #000 calc(var(--r) + .5px)) top right / 51% 51% no-repeat,
+      radial-gradient(circle at 0 100%, transparent var(--r), #000 calc(var(--r) + .5px)) bottom left / 51% 51% no-repeat,
+      radial-gradient(circle at 100% 100%, transparent var(--r), #000 calc(var(--r) + .5px)) bottom right / 51% 51% no-repeat;
+  }
+  .bt-fr{--r:17px;}
+  .bt-fr-line{--r:12px;}
+  .bt-fr-body{--r:11px;}
+  .bt-card .bt-logo{width:112px;height:112px;}
+  .bt-card h3{margin-top:18px;}
+  body.page-about .bt-card .bt-desc{font-size:15px;letter-spacing:.03em;}
+
+  /* 連接線（SVG 由 js 產生並定位） */
+  .bt-mlines{display:block;position:absolute;left:0;top:0;width:100%;pointer-events:none;overflow:visible;z-index:2;}
+  .bt-mlines path{fill:none;stroke:var(--gold);stroke-width:1.1;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;}
+  .bt-mlines .ml-trunk{transition:stroke-dashoffset .7s ease-in .7s;}
+  .bt-mlines .ml-l{transition:stroke-dashoffset 1.3s cubic-bezier(.3,.6,.3,1) 1.4s;}
+  .bt-mlines .ml-r{transition:stroke-dashoffset 1.7s cubic-bezier(.3,.6,.3,1) 1.4s;}
+  .bt-mlines rect{fill:var(--gold);transform-box:fill-box;transform-origin:center;transform:rotate(45deg) scale(0);transition:transform .5s var(--ease-lux);}
+  .bt-mlines .ml-n0{transition-delay:1.3s;filter:drop-shadow(0 0 5px rgba(217,188,129,.9));}
+  .bt-mlines .ml-n1{transition-delay:2.6s;}
+  .bt-mlines .ml-n2{transition-delay:3s;}
+  .brand-tree.in-view .bt-mlines path{stroke-dashoffset:0;}
+  .brand-tree.in-view .bt-mlines rect{transform:rotate(45deg) scale(1);}
+  .brand-tree.in-view .bt-card{transition-delay:calc(2.4s + var(--i) * .45s);}
+}
+@media(prefers-reduced-motion: reduce){
+  .bt-mlines path{stroke-dashoffset:0 !important;transition:none !important;}
+  .bt-mlines rect{transform:rotate(45deg) !important;}
+}
+
+/* 「我們相信什麼…」改為大標（與 .section-head h2 同字級） */
+.page-about .lineage-intro{max-width:1000px;}
+.page-about .lineage-intro .li-title{font-family:'Cormorant Garamond','Noto Serif TC',serif;font-weight:400;font-size:40px;line-height:1.5;letter-spacing:.05em;color:var(--ink);}
+.page-about .li-sub{font:inherit;}
+@media(max-width:760px){
+  .page-about span.d-only{display:none;}
+  .page-about .lineage-intro .li-title{font-weight:300;font-size:34px;letter-spacing:.04em;}
+  .page-about .li-sub{display:block;margin-top:4px;white-space:nowrap;letter-spacing:.02em;
+    font-size:min(1em, calc((100vw - 14vw) / var(--n,12)));}
+}

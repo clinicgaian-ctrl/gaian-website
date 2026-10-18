@@ -805,3 +805,32 @@
   .page-gallery .gb-citem:nth-child(even){margin-top:24px;}
 }
 @media(max-width:560px){.page-gallery .gb-collection-grid{padding:0 6vw;}}
+
+
+/* =========================================================
+   2026-10-19｜手機版修正
+   ========================================================= */
+@media(max-width:760px){
+  /* 大眾的美 → GAIAN 的美：全部置中 */
+  .gl-ct-left,.gl-ct-right{text-align:center;}
+  .gl-ct-left ul{display:flex;flex-wrap:wrap;justify-content:center;}
+  .gl-ct-left li{padding:6px 8px;}
+  .gl-ct-right ol{max-width:260px;margin:0 auto;}
+  .gl-ct-right li{justify-content:center;}
+  .gl-ct-right li .en{flex:0 0 34px;text-align:right;margin-left:-34px;}
+
+  /* 六個概念的星空底圖：縮進畫面內、四周完全淡出，不再有方形色塊 */
+  .gl-orbit-stage{overflow:visible;overflow-x:clip;}
+  .gl-orbit-sky{width:min(400px,100vw);height:min(400px,100vw);margin:calc(min(400px,100vw) / -2) 0 0 calc(min(400px,100vw) / -2);
+    -webkit-mask-image:radial-gradient(circle closest-side, #000 25%, rgba(0,0,0,.5) 55%, transparent 100%);
+            mask-image:radial-gradient(circle closest-side, #000 25%, rgba(0,0,0,.5) 55%, transparent 100%);}
+
+  /* 「而是內外一致」略為放大 */
+  .page-gallery .gb-io-cta .io-em{display:inline-block;margin-top:4px;font-size:1.22em;}
+
+  /* 結尾內文：照指定斷行，字級略收以免長句再折行 */
+  .page-gallery .gl-closing .gl-cl-step:not(.gl-cl-title):not(.gl-cl-final){font-size:16px !important;letter-spacing:.02em;line-height:1.95;}
+  .page-gallery .gl-closing br.cl-dbr{display:none;}
+  .page-gallery .gl-closing .cl-last{display:block;margin-top:0;font-weight:600;}
+  .page-gallery .gl-closing .gl-cl-final{font-size:16px;}
+}

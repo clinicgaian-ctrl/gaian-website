@@ -330,3 +330,27 @@
 /* 線條到達時，該段的拱門金線跟著亮起 */
 .wt-card.is-reached .wt-arch-line path{stroke:var(--gold);filter:drop-shadow(0 0 4px rgba(217,188,129,0.55));}
 .wt-card.is-reached .wt-no{color:var(--gold);}
+
+
+/* =========================================================
+   2026-10-19｜手機版
+   ========================================================= */
+@media(max-width:760px){
+  /* 首屏：取景往右，兩位同行者入鏡 */
+  .wt-hero-media i{background-position:86% center,center;}
+  /* 文字留出左側金線的位置 */
+  .wt-list .wt-card-text{padding-left:22px;padding-right:4px;}
+  .wt-list .wt-card:nth-child(even) .wt-card-text{padding-left:4px;padding-right:22px;}
+  /* 理念段落：照指定斷行，長句依螢幕寬度縮放維持一行 */
+  .page-wt .wt-belief-p{font-size:min(16.5px, calc((100vw - 13vw) / 23.8)) !important;letter-spacing:0 !important;}
+  /* 健康顧問 × 醫師團隊：左右並排的兩個小方塊 */
+  .wt-card .wt-roles{grid-template-columns:1fr 1fr;gap:10px;padding:0;margin:16px 0 22px;border:0;}
+  .wt-roles > i{display:none;}
+  .wt-roles > div{padding:18px 6px 16px;text-align:center;
+    background:linear-gradient(180deg,rgba(255,252,245,.9),rgba(246,238,222,.7));
+    border:1px solid rgba(184,147,74,.32);border-radius:2px;
+    box-shadow:inset 0 0 0 4px rgba(250,246,239,.9),inset 0 0 0 5px rgba(184,147,74,.16);}
+  .wt-card .wt-roles b{font-size:15px;letter-spacing:.08em;margin-bottom:8px;}
+  .wt-roles b::after{content:"";display:block;width:18px;height:1px;background:var(--gold);margin:8px auto 0;}
+  .wt-card .wt-roles span{font-size:13px;letter-spacing:0;line-height:1.85;}
+}

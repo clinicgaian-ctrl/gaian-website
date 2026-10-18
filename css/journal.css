@@ -178,3 +178,40 @@
 .page-jn .jn-cat .cat-zh{font-size:20px;font-weight:500;letter-spacing:0.14em;color:var(--ink);margin-top:10px;}
 @media(max-width:600px){.jn-std-zh{font-size:26px;}.page-jn .jn-cat .cat-zh{font-size:17px;}}
 @media(max-width:600px){.page-jn .jn-hero h1{font-size:24px;letter-spacing:0.02em;white-space:nowrap;}}
+
+
+/* =========================================================
+   2026-10-19
+   ========================================================= */
+/* 編輯準則條列移除：只留一道金線＋中央旋轉印記 */
+.jn-divider{padding:0;margin:110px auto 0;}
+.jn-divider::after{display:none;}
+.jn-divider .jn-std-head{margin:0;}
+.jn-divider .jn-seal{margin:-26px auto 0;}
+
+/* 文章分類 → 結尾：去掉分區線，底色與大理石紋從上方漸漸浮現 */
+.page-jn .jn-cat:last-child::after{background:linear-gradient(90deg,transparent,rgba(184,147,74,0.12),transparent);}
+.page-jn .jn-ink{background:linear-gradient(180deg,#F2E9D8 0%,#F0E6D2 30%,#EFE4CF 55%,#E9DBC0 100%);}
+.jn-ink-bg{-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 38%);mask-image:linear-gradient(180deg,transparent 0%,#000 38%);}
+
+/* 手機首屏：取景往右，露出一點沙發 */
+@media(max-width:760px){
+  .jn-hero-media i{background-position:58% center;}
+}
+
+/* 2026-10-19（二）｜Why We Write → 文章觀點：收緊中間空白，金線印記直接作為兩區的分隔，交界處不留硬邊 */
+.page-jn .jn-why{padding-bottom:0;}
+.jn-divider{margin-top:96px;}
+.page-jn .jn-cats{padding-top:96px;
+  background:radial-gradient(ellipse 60% 40% at 50% 30%,#FFFDF7,transparent 70%),linear-gradient(180deg,#FAF6EF,#F2E9D8);}
+.page-jn .jn-cats .mo-rings{-webkit-mask-image:linear-gradient(180deg,transparent,#000 30%);mask-image:linear-gradient(180deg,transparent,#000 30%);}
+@media(max-width:760px){
+  .jn-divider{margin-top:64px;}
+  .page-jn .jn-cats{padding-top:64px;}
+}
+/* 文章觀點：標題與第一個分類接成一整塊，拿掉第一條分隔線 */
+.page-jn .jn-cat:first-child::before{display:none;}
+.page-jn .jn-cats .section-head{margin-bottom:40px;}
+@media(max-width:760px){.page-jn .jn-cats .section-head{margin-bottom:24px;}}
+.page-jn .jn-cats{padding-top:44px;}
+@media(max-width:760px){.page-jn .jn-cats{padding-top:30px;}}
