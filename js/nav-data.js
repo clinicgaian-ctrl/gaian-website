@@ -16,7 +16,7 @@ window.GAIAN_NAV = {
       quoteSource: "GAIAN Philosophy",
       image: "images/about/about-01-hero-nav.jpg",
       items: [
-        { en: "Brand Story", zh: "品牌故事", tagline: "從 GAIA 到 GAIAN", desc: "一段關於重新理解健康的品牌起源。", href: "about.html#story" },
+        { en: "Brand Story", zh: "品牌故事", tagline: "從 GAIA 到 GAIAN", desc: "GAIAN 所打造的，不只是一處醫美或保養空間，而是一座以健康為核心，並將多年淬鍊的研發成果，延伸至健康、美學與生活之中。A NEW ERA OF LONGEVITY. 一段關於重新理解健康的開始。", href: "about.html#story" },
         { en: "GAIA × GAIAN", zh: "品牌血緣", tagline: "品牌宇宙中的實踐場域", desc: "GAIAN 是 GAIA 品牌宇宙中，專注於未來健康的一個章節。", href: "about.html#gaia" },
         { en: "Philosophy", zh: "品牌理念", tagline: "健康，不是美的附屬", desc: "身體、情緒、環境與生活共同達成的平衡，才是真正的健康。", href: "about.html#philosophy" },
         { en: "Worldview", zh: "品牌世界觀", tagline: "重新思考健康擁有的樣貌", desc: "整合醫學、美學、藝術與生活方式的交會。", href: "about.html#worldview" },
