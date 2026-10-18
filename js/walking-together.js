@@ -38,7 +38,7 @@
   svg.appendChild(dot);
   list.appendChild(svg);  // 放在最後，避免影響卡片的 nth-child 左右交錯
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var total = 0, stops = [];
+  var total = 0, stops = [], samples = [];
 
   function build() {
     var lr = list.getBoundingClientRect();
@@ -53,17 +53,57 @@
     });
     var d = 'M ' + pts[0].x + ' ' + Math.max(0, pts[0].top - 90) + ' L ' + pts[0].x + ' ' + (pts[0].top - 18);
     var marks = [{ x: pts[0].x, y: pts[0].top - 18 }];
+    var mobile = window.innerWidth <= 760;
+    if (mobile) {
+      /* 手機（2026-10-19）：照片在上、文字在下，直線會穿過文字。
+         改成從照片下方彎到左側留白處，沿著文字左緣往下，再彎回下一張照片上方，線不壓字。 */
+      /* 金線左右交替：01 走左側、02 走右側⋯，文字往金線的反方向讓出空間 */
+      var c0 = cards[0].getBoundingClientRect();
+      var gL = Math.max(4, (c0.left - lr.left) - 14), gR = Math.min(W - 4, (c0.right - lr.left) + 14);
+      for (var j = 0; j < pts.length; j++) {
+        var A = pts[j], B = pts[j + 1], g = j % 2 ? gR : gL;
+        if (!B) break;  // 最後一段（健康紀錄）下方不再延伸，避免壓到文字
+        var s1 = A.bot + 14, s2 = A.bot + 40;
+        // 用 L 穿過照片（照片蓋在線上方看不到），整條線保持連續，動畫才會依序往下畫
+        d += ' L ' + A.x + ' ' + s1 + ' C ' + A.x + ' ' + (s1 + 16) + ', ' + g + ' ' + (s2 - 18) + ', ' + g + ' ' + (s2 + 8);
+        var e2 = B.top - 18, e1 = e2 - 46;
+        d += ' L ' + g + ' ' + e1 + ' C ' + g + ' ' + (e1 + 26) + ', ' + B.x + ' ' + (e2 - 22) + ', ' + B.x + ' ' + e2;
+        marks.push({ x: B.x, y: e2 });
+      }
+    } else {
     for (var i = 0; i < pts.length - 1; i++) {
       var a = pts[i], b = pts[i + 1];
       var y1 = a.bot + 18, y2 = b.top - 18, mid = (y1 + y2) / 2;
-      d += ' M ' + a.x + ' ' + y1 + ' C ' + a.x + ' ' + mid + ', ' + b.x + ' ' + mid + ', ' + b.x + ' ' + y2;
+      d += ' L ' + a.x + ' ' + y1 + ' C ' + a.x + ' ' + mid + ', ' + b.x + ' ' + mid + ', ' + b.x + ' ' + y2;
       marks.push({ x: b.x, y: y2 });
     }
     var last = pts[pts.length - 1];
-    d += ' M ' + last.x + ' ' + (last.bot + 18) + ' L ' + last.x + ' ' + Math.min(H, last.bot + 80);
+    d += ' L ' + last.x + ' ' + (last.bot + 18) + ' L ' + last.x + ' ' + Math.min(H, last.bot + 80);
+    }
     base.setAttribute('d', d); line.setAttribute('d', d);
+    // 遮罩：照片範圍內不畫線（照片還在淡入時，線也不會露在照片上）
+    var mid = 'wtThreadMask';
+    var old = svg.querySelector('mask'); if (old) old.remove();
+    var mk = document.createElementNS(NS, 'mask'); mk.setAttribute('id', mid); mk.setAttribute('maskUnits', 'userSpaceOnUse');
+    mk.setAttribute('x', 0); mk.setAttribute('y', 0); mk.setAttribute('width', W); mk.setAttribute('height', H);
+    var bg = document.createElementNS(NS, 'rect'); bg.setAttribute('width', W); bg.setAttribute('height', H); bg.setAttribute('fill', '#fff'); mk.appendChild(bg);
+    cards.forEach(function (c) {
+      var r = c.querySelector('.wt-arch').getBoundingClientRect();
+      var m = getComputedStyle(c.querySelector('.wt-arch')).transform, off = 0;
+      if (m && m !== 'none') { var v = m.match(/-?[\d.]+/g); off = parseFloat(v[v.length - 1]) || 0; }
+      var k = document.createElementNS(NS, 'rect');
+      k.setAttribute('x', r.left - lr.left); k.setAttribute('y', r.top - lr.top - off);
+      k.setAttribute('width', r.width); k.setAttribute('height', r.height); k.setAttribute('fill', '#000');
+      mk.appendChild(k);
+    });
+    svg.insertBefore(mk, svg.firstChild);
+    base.setAttribute('mask', 'url(#' + mid + ')'); line.setAttribute('mask', 'url(#' + mid + ')');
     total = line.getTotalLength();
     line.style.strokeDasharray = total; line.style.strokeDashoffset = total;
+    // 取樣：線上每一點的高度，捲動時讓線頭剛好停在畫面同一個高度（不會上段還沒到、下段先出現）
+    samples = [];
+    for (var sL = 0; sL <= total; sL += 4) samples.push([sL, line.getPointAtLength(sL).y]);
+    samples.push([total, line.getPointAtLength(total).y]);
     // 節點：每段照片上方一顆
     nodes.forEach(function (n) { n.remove(); }); nodes = [];
     stops = [];
@@ -84,9 +124,18 @@
   function update() {
     if (!total) return;
     var lr = list.getBoundingClientRect(), vh = window.innerHeight;
-    var p = reduce ? 1 : (vh * 0.62 - lr.top) / lr.height;
-    p = Math.max(0, Math.min(1, p));
-    var L = total * p;
+    var L;
+    if (reduce) L = total;
+    else {
+      var ty = vh * 0.62 - lr.top, hi = 0;
+      while (hi < samples.length && samples[hi][1] <= ty) hi++;  // 線上高度已經捲過的部分
+      L = hi === 0 ? 0 : samples[hi - 1][0];
+    }
+    // 照片還沒出現前，線停在該張照片上方的節點等待
+    for (var ci = 0; ci < cards.length; ci++) {
+      if (!cards[ci].classList.contains('in-view') && stops[ci] != null) { L = Math.min(L, stops[ci]); break; }
+    }
+    var p = L / total;
     line.style.strokeDashoffset = total - L;
     var pt = line.getPointAtLength(Math.max(0.1, L));
     dot.setAttribute('cx', pt.x); dot.setAttribute('cy', pt.y);
@@ -96,6 +145,11 @@
       n.classList.toggle('is-on', on);
       if (cards[i]) cards[i].classList.toggle('is-reached', on);
     });
+  }
+  // 卡片淡入（加上 .in-view）時立即更新，讓線接著往下走
+  if (window.MutationObserver) {
+    var mo = new MutationObserver(function () { update(); });
+    cards.forEach(function (c) { mo.observe(c, { attributes: true, attributeFilter: ['class'] }); });
   }
   var ticking = false;
   window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(function () { update(); ticking = false; }); } }, { passive: true });

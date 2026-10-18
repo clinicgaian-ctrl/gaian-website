@@ -5,7 +5,7 @@
 */
 window.GAIAN_NAV = {
   utility: [
-    { label: "中 / EN", href: "#", lang: true }
+    /* 語言切換（中 / EN）：英文版完成前先不顯示 */
   ],
   reserve: { label: "RESERVATION 開始旅程", href: "contact.html" },
   items: [
@@ -44,7 +44,7 @@ window.GAIAN_NAV = {
       items: [
         { en: "Beauty Philosophy", zh: "美的理念", tagline: "美，是健康最深的根基", desc: "由內而外，重新定義美的樣貌——不是修飾，而是身體與生活重新回到平衡後，自然展現的狀態。", href: "gallery.html#philosophy" },
         { en: "Art & Life", zh: "藝術與生活", tagline: "藝術不是展示，而是每天共處的存在", desc: "當生活開始被美好的事物包圍，感受隨之改變，身心也逐漸回到平衡。", href: "gallery.html#art-life" },
-        { en: "Brand Collection", zh: "品牌典藏", tagline: "不是商品，是品牌合作的選物", desc: "珠寶、王俠軍瓷器、家具與藝術收藏，每一件都承載記憶與時間的累積。", href: "gallery.html#collection" },
+        { en: "Brand Collection", zh: "品牌典藏", tagline: "不是商品，是品牌合作的選物", desc: "珠寶、瓷器、家具與藝術收藏，每一件都承載記憶與時間的累積。", href: "gallery.html#collection" },
         { en: "Furniture & Space", zh: "家具與空間", tagline: "一件器物，也能改變一天的感受", desc: "從空間到家具，讓場域本身成為美感體驗的一部分。", href: "gallery.html#furniture" },
         { en: "Art Curation", zh: "藝術策展", tagline: "持續策展，讓美成為日常", desc: "不定期的藝術策展與生活選品更新，讓美的體驗持續發生。", href: "gallery.html#curation" }
       ]

@@ -1,50 +1,33 @@
+/* 首頁「每一項專業」六大醫療領域（2026-10-19 改版）
+   不再用按鈕切換，改為自動往左緩緩流動、無縫循環的跑馬燈（參考 esenmedical.com「更多真實照護」）。
+   做法：複製一份卡片接在後面，整條往左移動一半距離後瞬間回到起點，視覺上永不中斷。
+   滑鼠停在卡片上或手指按住時暫停；系統設定「減少動態」時不自動流動，改為可左右滑動。 */
 (function () {
   var track = document.getElementById('disciplineTrack');
   if (!track) return;
+  var wrap = track.parentElement;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) { wrap.classList.add('is-static'); return; }
 
   var cards = Array.prototype.slice.call(track.children);
-  var prevBtn = document.getElementById('disciplinePrev');
-  var nextBtn = document.getElementById('disciplineNext');
-  var dotsWrap = document.getElementById('disciplineDots');
-  if (!cards.length) return;
-
-  var dots = cards.map(function (_, i) {
-    var dot = document.createElement('button');
-    dot.className = 'disc-dot' + (i === 0 ? ' is-active' : '');
-    dot.setAttribute('aria-label', '第 ' + (i + 1) + ' 項');
-    dot.addEventListener('click', function () { scrollToCard(i); });
-    dotsWrap.appendChild(dot);
-    return dot;
+  cards.forEach(function (c) {
+    var k = c.cloneNode(true);
+    k.setAttribute('aria-hidden', 'true');
+    k.setAttribute('tabindex', '-1');
+    k.querySelectorAll('img').forEach(function (im) { im.alt = ''; });
+    track.appendChild(k);
   });
 
-  function scrollToCard(i) {
-    var card = cards[i];
-    track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: 'smooth' });
+  var SPEED = 80; // 每秒移動的像素
+  function setDuration() {
+    var half = track.scrollWidth / 2;
+    track.style.setProperty('--disc-dur', Math.max(12, half / SPEED).toFixed(1) + 's');
   }
+  wrap.classList.add('is-marquee');
+  setDuration();
+  window.addEventListener('load', setDuration);
+  window.addEventListener('resize', setDuration);
 
-  function updateActive() {
-    var trackCenter = track.scrollLeft + track.clientWidth / 2;
-    var closest = 0, closestDist = Infinity;
-    cards.forEach(function (card, i) {
-      var center = card.offsetLeft + card.offsetWidth / 2;
-      var dist = Math.abs(center - trackCenter);
-      if (dist < closestDist) { closestDist = dist; closest = i; }
-    });
-    dots.forEach(function (d, i) { d.classList.toggle('is-active', i === closest); });
-  }
-
-  var raf = null;
-  track.addEventListener('scroll', function () {
-    if (raf) window.cancelAnimationFrame(raf);
-    raf = window.requestAnimationFrame(updateActive);
-  }, { passive: true });
-
-  if (prevBtn) prevBtn.addEventListener('click', function () {
-    track.scrollBy({ left: -(cards[0].offsetWidth + 26), behavior: 'smooth' });
-  });
-  if (nextBtn) nextBtn.addEventListener('click', function () {
-    track.scrollBy({ left: cards[0].offsetWidth + 26, behavior: 'smooth' });
-  });
-
-  updateActive();
+  wrap.addEventListener('touchstart', function () { wrap.classList.add('is-paused'); }, { passive: true });
+  wrap.addEventListener('touchend', function () { setTimeout(function () { wrap.classList.remove('is-paused'); }, 1200); }, { passive: true });
 })();
