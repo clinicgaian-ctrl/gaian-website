@@ -1,84 +1,119 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-Hant" class="has-aura">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- 草稿階段一律 noindex：這一行在法務定稿並經核准前不得移除。 -->
 <meta name="robots" content="noindex,nofollow">
-<title>未成年人資料處理原則 | GAIAN</title>
+<title>未成年人個人資料處理原則 | GAIAN</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Noto+Serif+TC:wght@300;400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/motion.css">
+<link rel="stylesheet" href="css/legal.css">
 </head>
-<body>
+<body class="page-legal">
 
 <!--
-  未成年人資料處理原則｜架構草稿
-  Status：Draft — 架構層。**不是**可上線版本。
+  未成年人個人資料處理原則｜條文草稿（2026-10-18 依品牌方提供之文字填入前言與六節內容，版型同 cookie-policy.html）
+  Status：Draft — 待法務＋醫療端審閱。**不是**可上線版本。
+  依品牌方要求不在頁面上顯示草稿提示與 Status 列；noindex 仍保留。
+  注意：第五節聯絡窗口三個欄位仍為空白（＿＿＿＿＿＿），上線前必須填入正式資料。
 
-  權限依據：WEBSITE_MEMO.md §01 B「這六項全部屬 LEVEL 3，Claude 不得撰寫最終版本，
-  僅可協助整理架構。」因此本頁只有章節骨架與必填欄位清單，沒有任何條文文字。
-  任何人都不得把本頁的說明文字當成條款直接上線。
-
-  負責：法務
-  完成後應執行：移除 .legal-draft-warning、移除 noindex、更新 WEBSITE_MEMO.md §01 B 狀態、
-  同步更新 PROJECT_STATUS.md §15A。
+  權限依據：WEBSITE_MEMO.md §01 B（LEVEL 3）。條文文字由品牌方提供，Claude 僅負責排版，未增刪任何條文。
+  完成後應執行：移除 noindex、更新 WEBSITE_MEMO.md §01 B 狀態、同步更新 PROJECT_STATUS.md §15A。
 -->
 
 <nav class="nav" id="mainNav" data-solid="true"></nav>
 
-<section class="section legal-page">
-  <div class="legal-head">
-    <p class="eyebrow en">Minors Policy</p>
-    <h1>未成年人資料處理原則</h1>
-    <p class="legal-meta">Status：架構草稿｜最後更新：2026-08-13｜負責：法務</p>
+<!-- 全頁連貫背景：金色絲帶流光＋柔焦光暈（js/aura.js，與其他分頁同一套） -->
+<canvas class="gl-aura" aria-hidden="true"></canvas>
+
+<section class="section legal-page lg-page">
+  <div class="mo-rings" aria-hidden="true"><svg viewBox="0 0 600 600"><circle cx="300" cy="300" r="290"/><circle cx="300" cy="300" r="240" stroke-dasharray="2 10"/><circle cx="300" cy="300" r="180"/></svg></div>
+  <header class="lg-hero">
+    <p class="lg-en" aria-hidden="true"><span>Minors’</span> <span>Privacy</span></p>
+    <h1 class="lg-title">未成年人個人資料處理原則</h1>
+    <span class="lg-orn" aria-hidden="true"><i></i><b>✦</b><i></i></span>
+    <p class="lg-intro">GAIAN 重視未成年人的隱私及個人資料保護。本原則旨在說明未成年人使用 GAIAN 網站及相關服務時，其個人資料的蒐集、處理、利用及相關權益保障方式。</p>
+  </header>
+
+
+  <div class="lg-layout">
+    <nav class="lg-toc" aria-label="本頁目錄">
+      <p class="lg-toc-k">Contents</p>
+      <a href="#sec-1"><span>01</span>適用對象</a>
+      <a href="#sec-2"><span>02</span>法定代理人之同意</a>
+      <a href="#sec-3"><span>03</span>蒐集範圍之限制</a>
+      <a href="#sec-4"><span>04</span>就診相關資料</a>
+      <a href="#sec-5"><span>05</span>法定代理人之權利與聯絡方式</a>
+      <a href="#sec-6"><span>06</span>原則之修訂</a>
+    </nav>
+    <div class="lg-main">
+    <article class="lg-sec" id="sec-1">
+      <div class="lg-sec-head"><span class="lg-num">01</span><h2>適用對象</h2></div>
+      <div class="lg-body">
+        <p>本原則適用於未成年人使用 GAIAN 官方網站、線上表單、預約服務及其他相關數位服務時，所涉及的個人資料處理事宜。</p>
+        <p>依中華民國（臺灣）相關法令，未滿七歲者為無行為能力人；滿七歲以上的未成年人，原則上為限制行為能力人。涉及法律行為、個人資料同意及醫療服務時，應依實際情況及相關法令確認所需的法定代理人參與或同意程序。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-2">
+      <div class="lg-sec-head"><span class="lg-num">02</span><h2>法定代理人之同意</h2></div>
+      <div class="lg-body">
+        <p>當未成年人使用相關服務，且依法或依服務性質須取得法定代理人同意時，GAIAN 將依適用法令及實際服務流程，確認法定代理人的身分及必要的同意程序。</p>
+        <p>相關同意方式、身分驗證、同意紀錄及保存期間，將依資料類型、服務性質及適用規範辦理。GAIAN 不會僅因使用者勾選一般網站同意欄位，即推定所有涉及未成年人的個人資料處理均已取得必要授權。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-3">
+      <div class="lg-sec-head"><span class="lg-num">03</span><h2>蒐集範圍之限制</h2></div>
+      <div class="lg-body">
+        <p>GAIAN 將依提供服務所需，採取適當的資料最小化原則，僅蒐集達成特定目的所必要的未成年人個人資料。</p>
+        <p>除具備適當法律依據並符合相關規範外，未成年人的個人資料不會被任意用於與原蒐集目的無關的用途。涉及行銷、個人化推薦或廣告再行銷等活動時，將另行評估其必要性、合法性及對未成年人隱私的影響。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-4">
+      <div class="lg-sec-head"><span class="lg-num">04</span><h2>就診相關資料</h2></div>
+      <div class="lg-body">
+        <p>如未成年人使用 GAIAN 相關服務時涉及病歷、醫療、健康檢查或其他依法受特別保護的健康資料，GAIAN 將依《個人資料保護法》及其他適用法令，另行確認資料蒐集、處理及利用的法律依據、告知內容與必要的同意程序。</p>
+        <p>未成年人的醫療及健康資料將依實際服務需求，在必要範圍內處理，並採取與資料敏感程度相符的保護措施。相關醫療服務、法定代理人參與及同意要件，應由法務與醫療端依個別情況確認，不直接套用一般網站表單的處理方式。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-5">
+      <div class="lg-sec-head"><span class="lg-num">05</span><h2>法定代理人之權利與聯絡方式</h2></div>
+      <div class="lg-body">
+        <p>法定代理人如欲依法代未成年人行使個人資料相關權利，可依適用法令及實際情況，提出查詢、閱覽、複製、更正、停止蒐集或利用、刪除等請求。</p>
+        <p>為保障未成年人及相關當事人的權益，GAIAN 得於合理必要範圍內確認申請人的身分、法定代理關係及請求權限，並依適用法令辦理。</p>
+        <p>如有相關需求，請透過以下管道聯絡 GAIAN：</p>
+        <dl class="lg-terms">
+          <div><dt>個人資料保護聯絡單位</dt><dd><span class="lg-blank">＿＿＿＿＿＿</span></dd></div>
+          <div><dt>聯絡電子郵件</dt><dd><span class="lg-blank">＿＿＿＿＿＿</span></dd></div>
+          <div><dt>聯絡電話</dt><dd><span class="lg-blank">＿＿＿＿＿＿</span></dd></div>
+        </dl>
+        <p>實際申請流程、處理期限及相關費用，將依適用法令及正式公告的申請機制辦理。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-6">
+      <div class="lg-sec-head"><span class="lg-num">06</span><h2>原則之修訂</h2></div>
+      <div class="lg-body">
+        <p>GAIAN 得因法令規範、網站功能、服務內容或個人資料處理方式的變更，適時修訂本原則。</p>
+        <p>修訂後的內容將公告於本網站，並標示更新日期或版本資訊。修訂內容原則上自公告所載之生效日起適用；如涉及重大變更或依法須另行告知或取得同意，GAIAN 將依適用法令採取適當措施。</p>
+      </div>
+    </article>
+    </div>
   </div>
-
-  <div class="legal-draft-warning">
-    <b>架構草稿 — 尚未生效</b>
-    <p>本頁目前只有章節架構，沒有正式條文。內容須由法務撰寫並確認後才具效力。
-    在完成之前，本站不得上線，也不得透過任何表單蒐集個人資料。</p>
-  </div>
-
-  <div class="prose">
-    <h3>一、適用對象</h3>
-    <div class="legal-todo">
-      <span>待法務撰寫</span>
-      <p>須界定適用之年齡級距（例如未滿 7 歲之無行為能力人、7 歲以上未滿 18 歲之限制行為能力人），不同級距的同意要件不同。</p>
-    </div>
-
-    <h3>二、法定代理人之同意</h3>
-    <div class="legal-todo">
-      <span>待法務撰寫</span>
-      <p>須說明未成年人提供個人資料時，取得法定代理人同意的方式、驗證方式與紀錄保存。</p>
-    </div>
-
-    <h3>三、蒐集範圍之限制</h3>
-    <div class="legal-todo">
-      <span>待法務撰寫</span>
-      <p>須說明對未成年人資料採取的最小蒐集原則，以及不會用於哪些用途（例如行銷再行銷）。</p>
-    </div>
-
-    <h3>四、就診相關資料</h3>
-    <div class="legal-todo">
-      <span>待法務＋醫療端確認</span>
-      <p>未成年人之醫療與健康資料屬特種個資，其蒐集、告知與同意要件須單獨評估，不適用一般表單流程。</p>
-    </div>
-
-    <h3>五、法定代理人之權利與聯絡方式</h3>
-    <div class="legal-todo">
-      <span>待決策｜WEBSITE_MEMO.md §01 A-10</span>
-      <p>須提供法定代理人查詢、更正、刪除其子女個人資料之管道。官方 Email 目前 [待確認]。</p>
-    </div>
-
-    <h3>六、原則之修訂</h3>
-    <div class="legal-todo">
-      <span>待法務撰寫</span>
-      <p>須說明修訂公告方式與生效時點。</p>
-    </div>
-  </div>
+  <div class="lg-end" aria-hidden="true"><span class="lg-end-line"></span><img src="images/shared/logo-icon.png" alt=""></div>
 </section>
+
+<!-- 瀏覽時左下角的點綴：緩慢旋轉的金圈 -->
+<div class="lg-float" aria-hidden="true">
+  <svg class="lg-float-ring" viewBox="0 0 600 600"><circle cx="300" cy="300" r="290"/><circle cx="300" cy="300" r="240" stroke-dasharray="2 10"/><circle cx="300" cy="300" r="180"/></svg>
+</div>
 
 <footer>
   <div class="footer-top">
@@ -113,6 +148,8 @@
 </footer>
 <script src="js/nav-data.js"></script>
 <script src="js/nav.js"></script>
+<script src="js/legal.js"></script>
+<script src="js/aura.js"></script>
 
 </body>
 </html>

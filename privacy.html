@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-Hant" class="has-aura">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,111 +10,194 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Noto+Serif+TC:wght@300;400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/motion.css">
+<link rel="stylesheet" href="css/legal.css">
 </head>
-<body>
+<body class="page-legal">
 
 <!--
-  隱私權政策｜架構草稿
-  Status：Draft — 架構層。**不是**可上線版本。
+  隱私權政策｜條文草稿（2026-10-18 依品牌方提供之文字填入前言與十一節內容，版型同 cookie-policy.html）
+  Status：Draft — 待法務審閱。**不是**可上線版本。
+  依品牌方要求不在頁面上顯示草稿提示與 Status 列；noindex 仍保留。
+  注意：第十一節「個人資料保護聯絡窗口」四個欄位仍為空白（＿＿＿＿＿＿），上線前必須填入正式資料。
 
-  權限依據：WEBSITE_MEMO.md §01 B「這六項全部屬 LEVEL 3，Claude 不得撰寫最終版本，
-  僅可協助整理架構。」因此本頁只有章節骨架與必填欄位清單，沒有任何條文文字。
-  任何人都不得把本頁的說明文字當成條款直接上線。
-
+  權限依據：WEBSITE_MEMO.md §01 B（LEVEL 3）。條文文字由品牌方提供，Claude 僅負責排版，未增刪任何條文。
   負責：法務
-  完成後應執行：移除 .legal-draft-warning、移除 noindex、更新 WEBSITE_MEMO.md §01 B 狀態、
-  同步更新 PROJECT_STATUS.md §15A。
+  完成後應執行：移除 noindex、更新 WEBSITE_MEMO.md §01 B 狀態、同步更新 PROJECT_STATUS.md §15A。
 -->
 
 <nav class="nav" id="mainNav" data-solid="true"></nav>
 
-<section class="section legal-page">
-  <div class="legal-head">
-    <p class="eyebrow en">Privacy Policy</p>
-    <h1>隱私權政策</h1>
-    <p class="legal-meta">Status：架構草稿｜最後更新：2026-08-13｜負責：法務</p>
+<!-- 全頁連貫背景：金色絲帶流光＋柔焦光暈（js/aura.js，與其他分頁同一套） -->
+<canvas class="gl-aura" aria-hidden="true"></canvas>
+
+<section class="section legal-page lg-page">
+  <div class="mo-rings" aria-hidden="true"><svg viewBox="0 0 600 600"><circle cx="300" cy="300" r="290"/><circle cx="300" cy="300" r="240" stroke-dasharray="2 10"/><circle cx="300" cy="300" r="180"/></svg></div>
+  <header class="lg-hero">
+    <p class="lg-en" aria-hidden="true"><span>Privacy</span> <span>Policy</span></p>
+    <h1 class="lg-title">隱私權政策</h1>
+    <span class="lg-orn" aria-hidden="true"><i></i><b>✦</b><i></i></span>
+    <p class="lg-intro">GAIAN 重視您的個人資料與隱私權益。本政策旨在說明您使用 GAIAN 網站及相關數位服務時，我們可能蒐集哪些個人資料、蒐集目的、利用方式，以及您如何行使個人資料相關權利。我們將依適用法令及實際服務情況，妥善處理與保護您的個人資料。</p>
+  </header>
+
+
+  <div class="lg-layout">
+    <nav class="lg-toc" aria-label="本頁目錄">
+      <p class="lg-toc-k">Contents</p>
+      <a href="#sec-1"><span>01</span>適用範圍</a>
+      <a href="#sec-2"><span>02</span>蒐集之個人資料類別</a>
+      <a href="#sec-3"><span>03</span>蒐集之目的</a>
+      <a href="#sec-4"><span>04</span>個人資料之利用期間、地區、對象及方式</a>
+      <a href="#sec-5"><span>05</span>當事人之權利及行使方式</a>
+      <a href="#sec-6"><span>06</span>不提供個人資料之影響</a>
+      <a href="#sec-7"><span>07</span>資料安全維護</a>
+      <a href="#sec-8"><span>08</span>Cookie 與追蹤技術</a>
+      <a href="#sec-9"><span>09</span>未成年人之個人資料</a>
+      <a href="#sec-10"><span>10</span>政策之修訂</a>
+      <a href="#sec-11"><span>11</span>個人資料保護聯絡窗口</a>
+    </nav>
+    <div class="lg-main">
+    <article class="lg-sec" id="sec-1">
+      <div class="lg-sec-head"><span class="lg-num">01</span><h2>適用範圍</h2></div>
+      <div class="lg-body">
+        <p>本政策適用於 GAIAN 所經營之官方網站、相關子網域、線上表單、LINE 官方帳號及其他適用的數位服務。實際適用範圍以 GAIAN 正式營運及管理的服務為準。</p>
+        <p>如您透過本網站連結至第三方網站或使用第三方服務，該等服務的個人資料蒐集與處理方式，應依各該服務提供者的隱私權政策辦理；但 GAIAN 依法或依實際合作關係應負的責任，不因第三方連結而免除。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-2">
+      <div class="lg-sec-head"><span class="lg-num">02</span><h2>蒐集之個人資料類別</h2></div>
+      <div class="lg-body">
+        <p>依您使用的服務及提供資料的方式不同，GAIAN 可能蒐集下列類別的個人資料：</p>
+        <dl class="lg-terms">
+          <div><dt>識別及聯絡資料</dt><dd>例如姓名、聯絡電話、電子郵件地址及其他實際服務所需的識別或聯絡資訊。</dd></div>
+          <div><dt>預約及服務資料</dt><dd>例如預約日期、時段、服務項目、聯繫紀錄及服務安排所需的相關資訊。</dd></div>
+          <div><dt>醫療及健康相關資料</dt><dd>如實際服務涉及病歷、醫療紀錄、健康檢查結果、健康狀況或其他依法受特別保護的健康資料，將依實際蒐集項目及適用法令另行告知其蒐集目的、利用範圍及相關法律依據。</dd></div>
+          <div><dt>網站瀏覽及技術紀錄</dt><dd>例如 IP 位址、瀏覽器類型、裝置資訊、瀏覽時間、瀏覽頁面、來源頁面、Cookie 及其他實際取得的網站使用紀錄。</dd></div>
+          <div><dt>通訊及其他資料</dt><dd>例如您透過聯絡表單、電子郵件、電話或其他管道主動提供的訊息，以及為提供特定服務所必要的其他資料。</dd></div>
+        </dl>
+        <p>上述項目為可能涉及的資料類別，並不代表 GAIAN 必然蒐集所有列舉資料。實際蒐集項目將依網站功能、表單欄位及服務流程確認與揭露。</p>
+        <p>如涉及《個人資料保護法》第六條所規範的病歷、醫療、健康檢查等特種個人資料，GAIAN 將另行確認適用的法律依據及必要的告知、同意與安全維護措施，不會僅因使用者同意一般隱私權政策，即視為已取得所有必要授權。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-3">
+      <div class="lg-sec-head"><span class="lg-num">03</span><h2>蒐集之目的</h2></div>
+      <div class="lg-body">
+        <p>GAIAN 依實際服務需求，可能基於下列目的蒐集及利用個人資料：</p>
+        <dl class="lg-terms">
+          <div><dt>網站營運與服務管理</dt><dd>維持網站正常運作、處理使用者需求及提供必要的服務支援。</dd></div>
+          <div><dt>預約與聯繫</dt><dd>處理預約申請、確認服務時間、安排後續聯繫及回覆使用者詢問。</dd></div>
+          <div><dt>醫療及健康服務相關作業</dt><dd>如實際服務涉及醫療或健康管理，依服務性質及適用法令，處理必要的服務安排、醫療行政或相關紀錄。</dd></div>
+          <div><dt>資訊安全與系統維護</dt><dd>維護網站安全、排除系統異常、預防不當使用及處理資安事件。</dd></div>
+          <div><dt>服務品質與網站改善</dt><dd>分析網站使用情形、改善網站內容、功能及使用體驗。</dd></div>
+          <div><dt>行銷及資訊提供</dt><dd>如有實際提供相關服務，於具備適當法律依據並符合相關規範的範圍內，提供品牌資訊、活動消息或服務更新。</dd></div>
+        </dl>
+        <p>實際蒐集目的將依 GAIAN 提供的服務及各項資料的使用情形確定，並依適用法令所要求的特定目的及代號進行確認。個人資料不會僅因有利於行銷分析或使用者分眾，即被任意擴大蒐集或利用；涉及醫療及健康相關資料時，亦將特別審慎評估其必要性與合法性。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-4">
+      <div class="lg-sec-head"><span class="lg-num">04</span><h2>個人資料之利用期間、地區、對象及方式</h2></div>
+      <div class="lg-body">
+        <p>GAIAN 對個人資料的利用，將依實際服務需求、蒐集目的及適用法令，在必要範圍內進行。</p>
+        <h3 class="lg-sub"><span>01</span>利用期間</h3>
+        <p>個人資料將於達成蒐集目的所必要的期間內保存；如法律另有保存期限、因履行服務約定或處理爭議而有保存必要，則依相關規定辦理。保存目的消失且無其他合法保存依據時，將依適用規範進行刪除、停止處理或採取其他適當措施。</p>
+        <h3 class="lg-sub"><span>02</span>利用地區</h3>
+        <p>原則上於中華民國（臺灣）境內利用。如因雲端主機、系統維運、資料儲存或其他服務安排而涉及境外處理或傳輸，將依實際服務提供者、資料流向及適用法令確認並揭露相關地區。</p>
+        <h3 class="lg-sub"><span>03</span>利用對象</h3>
+        <p>個人資料可能由 GAIAN 內部經授權的相關人員，或為提供服務所必要的受託服務提供者處理，例如網站主機、資訊系統維運、預約管理或其他實際使用的技術服務商。若依法令規定、主管機關要求或其他合法事由須提供資料，亦將依適用規範辦理。</p>
+        <p>實際涉及的第三方服務提供者、委外處理對象及資料接收方，將依網站實際部署情形確認及揭露。</p>
+        <h3 class="lg-sub"><span>04</span>利用方式</h3>
+        <p>個人資料可能透過網站表單、線上預約系統、電子郵件、電話、LINE 官方帳號或其他實際提供的服務管道，以人工或自動化方式進行蒐集、記錄、儲存、整理、查詢、聯繫及其他達成特定目的所必要的處理與利用。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-5">
+      <div class="lg-sec-head"><span class="lg-num">05</span><h2>當事人之權利及行使方式</h2></div>
+      <div class="lg-body">
+        <p>依《個人資料保護法》第三條及其他適用規定，您可就自己的個人資料依法行使下列權利：</p>
+        <ul class="lg-list">
+          <li>查詢或請求閱覽個人資料。</li>
+          <li>請求製給個人資料複製本。</li>
+          <li>請求補充或更正個人資料。</li>
+          <li>請求停止蒐集、處理或利用個人資料。</li>
+          <li>請求刪除個人資料。</li>
+        </ul>
+        <p>您可透過本政策所列的個人資料保護聯絡窗口提出申請。為保障您的資料安全，GAIAN 得於合理且必要範圍內確認申請人的身分及申請內容，並依適用法令辦理。</p>
+        <p>如依法得收取必要費用，將依相關規定辦理；如有法定事由而無法依請求提供、停止處理或刪除資料，將依適用法令處理。</p>
+        <p>實際聯絡方式、申請流程、處理期限及相關費用，將於聯絡窗口及申請機制確認後公告。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-6">
+      <div class="lg-sec-head"><span class="lg-num">06</span><h2>不提供個人資料之影響</h2></div>
+      <div class="lg-body">
+        <p>您可依個人意願決定是否提供相關個人資料，但部分資料可能為使用特定服務所必要。</p>
+        <p>如您未提供預約或聯繫所需的必要資訊，GAIAN 可能無法完成預約、確認服務安排、回覆您的需求或提供特定功能。非必要資料的提供，不應作為使用其他無關服務的前提。</p>
+        <p>各項資料是否為必填，以及未提供時對服務的具體影響，將依實際表單與服務流程清楚標示。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-7">
+      <div class="lg-sec-head"><span class="lg-num">07</span><h2>資料安全維護</h2></div>
+      <div class="lg-body">
+        <p>GAIAN 重視個人資料的安全，將依資料性質、處理方式及相關法令要求，採取適當的安全維護措施，以降低個人資料遭未經授權存取、洩漏、竄改、毀損或其他不當利用的風險。</p>
+        <p>相關措施將依實際系統架構及管理制度辦理，可能包括存取權限管理、身分驗證、系統安全維護、資料備份、委外服務管理及必要的內部管理措施。</p>
+        <p>如涉及病歷、醫療或其他依法受特別保護的資料，將依適用法令及實際服務性質確認所需的額外保護措施。</p>
+        <p>個人資料的保存期限及屆期後的刪除、停止處理或其他處置方式，將依第四條所述原則及實際資料管理制度辦理。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-8">
+      <div class="lg-sec-head"><span class="lg-num">08</span><h2>Cookie 與追蹤技術</h2></div>
+      <div class="lg-body">
+        <p>GAIAN 網站可能依實際服務需求使用 Cookie、Local Storage、Pixel、SDK 或其他類似技術，以維持網站功能、記住使用偏好、分析網站使用情形或衡量行銷活動成效。</p>
+        <p>不同技術所蒐集的資料、使用目的及保存方式可能有所不同。涉及非必要追蹤技術時，GAIAN 將依適用法令及網站實際設定，提供必要的告知與選擇機制。</p>
+        <p>有關 Cookie 的類型、用途、管理方式及實際使用的第三方追蹤工具，請參閱本網站的 <a href="cookie-policy.html">Cookie 政策</a>及相關設定介面。實際使用項目將依網站部署情形確認與更新。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-9">
+      <div class="lg-sec-head"><span class="lg-num">09</span><h2>未成年人之個人資料</h2></div>
+      <div class="lg-body">
+        <p>GAIAN 重視未成年人的個人資料及隱私權益。如服務涉及未成年人資料，將依其年齡、服務性質及適用法令，確認所需的告知、法定代理人參與或同意等程序。</p>
+        <p>如未成年人使用預約、醫療或其他特定服務，相關資料的蒐集、處理及利用，將依實際服務流程及適用規範辦理，並採取適當措施保護其個人資料。</p>
+        <p>本條與 GAIAN 另行制定的未成年人資料處理原則應保持一致；如有特定年齡門檻或法定代理人同意要求，將依實際服務內容及法務確認結果明確揭露。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-10">
+      <div class="lg-sec-head"><span class="lg-num">10</span><h2>政策之修訂</h2></div>
+      <div class="lg-body">
+        <p>GAIAN 得因法令規範、網站功能、服務內容或個人資料處理方式的變更，適時修訂本隱私權政策。</p>
+        <p>修訂後的內容將公告於本網站，並標示更新日期或版本資訊。修訂內容原則上自公告所載之生效日起適用；如涉及重大變更或依法須另行告知或取得同意，GAIAN 將依適用法令採取適當措施。</p>
+        <p>建議您不定期查閱本政策，以了解最新的個人資料保護資訊。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-11">
+      <div class="lg-sec-head"><span class="lg-num">11</span><h2>個人資料保護聯絡窗口</h2></div>
+      <div class="lg-body">
+        <p>如您對本隱私權政策、個人資料的蒐集與利用，或個人資料相關權利的行使有任何疑問，可透過以下方式聯絡 GAIAN。</p>
+        <dl class="lg-terms">
+          <div><dt>個人資料保護聯絡單位</dt><dd><span class="lg-blank">＿＿＿＿＿＿</span></dd></div>
+          <div><dt>聯絡電子郵件</dt><dd><span class="lg-blank">＿＿＿＿＿＿</span></dd></div>
+          <div><dt>聯絡電話</dt><dd><span class="lg-blank">＿＿＿＿＿＿</span></dd></div>
+          <div><dt>通訊地址</dt><dd><span class="lg-blank">＿＿＿＿＿＿</span></dd></div>
+        </dl>
+        <p>GAIAN 收到您的申請或詢問後，將依申請內容、身分確認結果及適用法令辦理。</p>
+      </div>
+    </article>
+    </div>
   </div>
-
-  <div class="legal-draft-warning">
-    <b>架構草稿 — 尚未生效</b>
-    <p>本頁目前只有章節架構，沒有正式條文。內容須由法務撰寫並確認後才具效力。
-    在完成之前，本站不得上線，也不得透過任何表單蒐集個人資料。</p>
-  </div>
-
-  <div class="prose">
-    <h3>一、適用範圍</h3>
-    <div class="legal-todo">
-      <span>待法務撰寫</span>
-      <p>須寫明本政策適用之網域、子網域、線上表單、LINE 官方帳號與其他數位服務；並說明不適用於本站連出之第三方網站。網域名稱目前為 PROJECT_STATUS.md §15A [待確認]，取得後填入。</p>
-    </div>
-
-    <h3>二、蒐集之個人資料類別</h3>
-    <ul>
-      <li>識別類（姓名、聯絡電話、電子郵件、地址等）</li>
-      <li>特種個資（病歷、醫療、健康檢查、健康資料）—— 是否蒐集、蒐集哪些、法律依據為何</li>
-      <li>網站瀏覽與行為紀錄（IP、裝置、Cookie、來源頁面）</li>
-      <li>其他</li>
-    </ul>
-    <div class="legal-todo">
-      <span>待法務撰寫｜個資法第 8 條第 1 項第 2 款</span>
-      <p>須逐項列出實際蒐集的欄位，不得概括寫「相關資料」。特別注意：病歷、醫療、健康檢查屬個資法第 6 條特種個資（見 COMPLIANCE.md §41），其蒐集門檻與一般個資不同，須單獨列明並取得書面同意或符合法定例外。</p>
-    </div>
-
-    <h3>三、蒐集之目的</h3>
-    <div class="legal-todo">
-      <span>待法務撰寫｜個資法第 8 條第 1 項第 2 款</span>
-      <p>須對應法定特定目的項目代號（如醫療行政、health care、行銷等），並說明各目的所對應之資料類別。COMPLIANCE.md §42：不得僅因行銷想做分眾就蒐集醫療相關資料。</p>
-    </div>
-
-    <h3>四、個人資料之利用期間、地區、對象及方式</h3>
-    <div class="legal-todo">
-      <span>待法務撰寫｜個資法第 8 條第 1 項第 3 款</span>
-      <p>四項須分別寫明，缺一不可。若有委外處理（如雲端主機、CRM、EDM 服務商）或跨境傳輸，須一併揭露對象與地區。</p>
-    </div>
-
-    <h3>五、當事人之權利及行使方式</h3>
-    <div class="legal-todo">
-      <span>待法務撰寫｜個資法第 3 條、第 8 條第 1 項第 4 款</span>
-      <p>須列出查詢、請求閱覽、請求製給複製本、請求補充或更正、請求停止蒐集處理利用、請求刪除等權利，並提供具體行使管道（窗口、聯絡方式、處理時限、是否收費）。</p>
-    </div>
-
-    <h3>六、不提供個人資料之影響</h3>
-    <div class="legal-todo">
-      <span>待法務撰寫｜個資法第 8 條第 1 項第 5 款</span>
-      <p>須說明哪些欄位為必填、不提供時對其權益之影響（例如無法完成預約）。</p>
-    </div>
-
-    <h3>七、資料安全維護</h3>
-    <div class="legal-todo">
-      <span>待法務＋資訊確認</span>
-      <p>須說明保護措施與保存期限、屆期處理方式。醫療機構之資料安全要求高於一般網站，此段須由實際負責維運者確認後撰寫，不得空泛描述。</p>
-    </div>
-
-    <h3>八、Cookie 與追蹤技術</h3>
-    <div class="legal-todo">
-      <span>待法務撰寫</span>
-      <p>本段與 Cookie 政策相互引用即可，避免兩頁內容不一致。追蹤工具是否安裝，見 WEBSITE_MEMO.md §04（目前五項全為 [待確認]）。</p>
-    </div>
-
-    <h3>九、未成年人之個人資料</h3>
-    <div class="legal-todo">
-      <span>待法務撰寫</span>
-      <p>與「未成年人資料處理原則」相互引用，兩頁不得出現不同標準。</p>
-    </div>
-
-    <h3>十、政策之修訂</h3>
-    <div class="legal-todo">
-      <span>待法務撰寫</span>
-      <p>須說明修訂之公告方式與生效時點，並保留版本紀錄。</p>
-    </div>
-
-    <h3>十一、個人資料保護聯絡窗口</h3>
-    <div class="legal-todo">
-      <span>待決策｜WEBSITE_MEMO.md §01 A-10</span>
-      <p>須指定實際受理當事人請求的窗口與聯絡方式。官方 Email 目前 [待確認]，取得後填入。</p>
-    </div>
-  </div>
+  <div class="lg-end" aria-hidden="true"><span class="lg-end-line"></span><img src="images/shared/logo-icon.png" alt=""></div>
 </section>
+
+<!-- 瀏覽時左下角的點綴：緩慢旋轉的金圈 -->
+<div class="lg-float" aria-hidden="true">
+  <svg class="lg-float-ring" viewBox="0 0 600 600"><circle cx="300" cy="300" r="290"/><circle cx="300" cy="300" r="240" stroke-dasharray="2 10"/><circle cx="300" cy="300" r="180"/></svg>
+</div>
 
 <footer>
   <div class="footer-top">
@@ -149,6 +232,8 @@
 </footer>
 <script src="js/nav-data.js"></script>
 <script src="js/nav.js"></script>
+<script src="js/legal.js"></script>
+<script src="js/aura.js"></script>
 
 </body>
 </html>

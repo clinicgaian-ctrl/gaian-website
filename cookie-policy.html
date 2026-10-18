@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-Hant" class="has-aura">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,100 +10,118 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Noto+Serif+TC:wght@300;400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/motion.css">
+<link rel="stylesheet" href="css/legal.css">
 </head>
-<body>
+<body class="page-legal">
 
 <!--
-  Cookie 政策｜架構草稿
-  Status：Draft — 架構層。**不是**可上線版本。
+  Cookie 政策｜條文草稿（2026-10-18 依品牌方提供之文字填入六節內容）
+  Status：Draft — 待法務審閱。**不是**可上線版本。
+  注意：條文提到「Cookie 設定」，但網站目前尚未建置 Cookie 同意橫幅／設定面板，
+  上線前須完成前端實作，否則條文所述機制不存在。
 
   權限依據：WEBSITE_MEMO.md §01 B「這六項全部屬 LEVEL 3，Claude 不得撰寫最終版本，
   僅可協助整理架構。」因此本頁只有章節骨架與必填欄位清單，沒有任何條文文字。
   任何人都不得把本頁的說明文字當成條款直接上線。
 
   負責：法務
-  完成後應執行：移除 .legal-draft-warning、移除 noindex、更新 WEBSITE_MEMO.md §01 B 狀態、
+  2026-10-18：依品牌方要求移除頁面上的草稿提示與 Status 列；noindex 仍保留。
+  完成後應執行：移除 noindex、更新 WEBSITE_MEMO.md §01 B 狀態、
   同步更新 PROJECT_STATUS.md §15A。
 -->
 
 <nav class="nav" id="mainNav" data-solid="true"></nav>
 
-<section class="section legal-page">
-  <div class="legal-head">
-    <p class="eyebrow en">Cookie Policy</p>
-    <h1>Cookie 政策</h1>
-    <p class="legal-meta">Status：架構草稿｜最後更新：2026-08-13｜負責：法務</p>
+<!-- 全頁連貫背景：金色絲帶流光＋柔焦光暈（js/aura.js，與其他分頁同一套） -->
+<canvas class="gl-aura" aria-hidden="true"></canvas>
+
+<section class="section legal-page lg-page">
+  <div class="mo-rings" aria-hidden="true"><svg viewBox="0 0 600 600"><circle cx="300" cy="300" r="290"/><circle cx="300" cy="300" r="240" stroke-dasharray="2 10"/><circle cx="300" cy="300" r="180"/></svg></div>
+  <header class="lg-hero">
+    <p class="lg-en" aria-hidden="true"><span>Cookie</span> <span>Policy</span></p>
+    <h1 class="lg-title">Cookie 政策</h1>
+    <span class="lg-orn" aria-hidden="true"><i></i><b>✦</b><i></i></span>
+  </header>
+
+
+  <div class="lg-layout">
+    <nav class="lg-toc" aria-label="本頁目錄">
+      <p class="lg-toc-k">Contents</p>
+      <a href="#sec-1"><span>01</span>什麼是 Cookie</a>
+      <a href="#sec-2"><span>02</span>本站使用的 Cookie 類別</a>
+      <a href="#sec-3"><span>03</span>第三方追蹤工具</a>
+      <a href="#sec-4"><span>04</span>同意機制與撤回</a>
+      <a href="#sec-5"><span>05</span>透過瀏覽器管理 Cookie</a>
+      <a href="#sec-6"><span>06</span>政策之修訂</a>
+    </nav>
+    <div class="lg-main">
+    <article class="lg-sec" id="sec-1">
+      <div class="lg-sec-head"><span class="lg-num">01</span><h2>什麼是 Cookie</h2></div>
+      <div class="lg-body">
+      <p class="lg-q">什麼是 Cookie 與類似技術？</p>
+    <p>當您瀏覽 GAIAN 網站時，我們可能使用 Cookie、Local Storage、Pixel 及 SDK 等技術，記錄您的瀏覽偏好、維持網站正常運作，並了解網站使用情形與行銷成效。</p>
+    <dl class="lg-terms">
+        <div><dt>Cookie</dt><dd>儲存在瀏覽器中的小型資料，用於記住部分設定與瀏覽狀態。</dd></div>
+        <div><dt>Local Storage</dt><dd>將網站資料儲存在您的裝置中，方便保存使用偏好。</dd></div>
+        <div><dt>Pixel</dt><dd>協助了解網站瀏覽行為及廣告成效。</dd></div>
+        <div><dt>SDK</dt><dd>協助網站或應用程式提供功能及蒐集使用紀錄。</dd></div>
+      </dl>
+    <p>我們會依各項技術的用途及適用規範處理相關資訊，並於需要時取得您的同意。您可透過 Cookie 設定管理相關偏好，詳情請參閱<a href="privacy.html">《隱私權政策》</a>。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-2">
+      <div class="lg-sec-head"><span class="lg-num">02</span><h2>本站使用的 Cookie 類別</h2></div>
+      <div class="lg-body">
+      <p>為便於日後的辨識，當您使用本網站服務時，GAIAN 可能會在您的電腦或裝置上設定與存取 Cookie。</p>
+    <dl class="lg-terms">
+        <div><dt>必要性 Cookie</dt><dd>確保網站基本功能與安全性正常運作，讓您能順利瀏覽 GAIAN 網站並使用相關服務。</dd></div>
+        <div><dt>功能性 Cookie</dt><dd>記住您在網站上的偏好與設定，讓您再次造訪時，能享有更便利、符合個人需求的瀏覽體驗。</dd></div>
+        <div><dt>分析型 Cookie</dt><dd>透過了解您如何瀏覽及使用網站，幫助我們持續改善網站內容、功能與操作體驗，讓每一次造訪都更加順暢。</dd></div>
+        <div><dt>行銷型 Cookie</dt><dd>協助我們了解行銷活動的成效，並在適用情況下，為您提供更貼近需求的 GAIAN 品牌資訊與服務內容。</dd></div>
+      </dl>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-3">
+      <div class="lg-sec-head"><span class="lg-num">03</span><h2>第三方追蹤工具</h2></div>
+      <div class="lg-body">
+      <p>為了解網站的使用情形、改善瀏覽體驗及衡量行銷活動成效，GAIAN 可能使用第三方提供的分析與追蹤工具。這些工具可能透過 Cookie 或其他類似技術，蒐集您瀏覽網站及與網站互動的相關資訊，以協助我們優化網站服務。</p>
+    <p>第三方工具所蒐集的資料類型、使用目的及處理方式，將依實際使用的服務與相關設定而有所不同。若涉及個人資料的蒐集、處理、利用或跨境傳輸，我們將依適用法令履行相關告知及同意義務，並採取適當的資料保護措施。</p>
+    <p>您可透過網站提供的 Cookie 設定，管理可自行選擇的追蹤技術使用偏好。相關第三方服務及其使用方式，將依網站實際部署情形適時更新。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-4">
+      <div class="lg-sec-head"><span class="lg-num">04</span><h2>同意機制與撤回</h2></div>
+      <div class="lg-body">
+      <p>我們尊重您對個人資料及瀏覽隱私的選擇。對於需要取得您同意的非必要 Cookie 或追蹤技術，GAIAN 將於取得您的同意後才啟用。您可隨時透過網站提供的 Cookie 設定調整或撤回同意；撤回後，我們將依您的選擇停止後續相關追蹤。撤回同意不影響撤回前已進行之資料處理的合法性，相關資料的保存或刪除將依適用法令及隱私權政策辦理。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-5">
+      <div class="lg-sec-head"><span class="lg-num">05</span><h2>透過瀏覽器管理 Cookie</h2></div>
+      <div class="lg-body">
+      <p>您可透過瀏覽器設定封鎖、限制或刪除 Cookie，以管理個人瀏覽偏好。請注意，停用部分 Cookie 可能影響網站功能或使用體驗；透過瀏覽器刪除 Cookie，也不代表已同步刪除網站或第三方服務先前保存的所有資料。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-6">
+      <div class="lg-sec-head"><span class="lg-num">06</span><h2>政策之修訂</h2></div>
+      <div class="lg-body">
+      <p>為因應法令規範、網站服務或資料處理方式的變更，GAIAN 可能適時修訂本政策，並將更新內容公告於本網站及標示修訂日期。修訂內容原則上自公告所載之生效日起適用；如涉及重大變更，我們將依變更內容及適用規範採取適當的告知措施，保障您的知情權益。</p>
+      </div>
+    </article>
+    </div>
   </div>
-
-  <div class="legal-draft-warning">
-    <b>架構草稿 — 尚未生效</b>
-    <p>本頁目前只有章節架構，沒有正式條文。內容須由法務撰寫並確認後才具效力。
-    在完成之前，本站不得上線，也不得透過任何表單蒐集個人資料。</p>
-  </div>
-
-
-<div class="prose">
-  <h3>一、什麼是 Cookie</h3>
-  <p>
-    當您瀏覽 GAIAN 網站時，我們可能使用 Cookie、Local Storage、Pixel 及 SDK 等技術，
-    以維持網站正常運作、記錄您的使用偏好，並了解網站使用情形與行銷成效。
-  </p>
-  <p>
-    <strong>Cookie：</strong>儲存在瀏覽器中的小型資料，用於記住部分設定與瀏覽狀態。
-  </p>
-  <p>
-    <strong>Local Storage：</strong>將網站資料儲存在您的裝置中，以保存使用偏好。
-  </p>
-  <p>
-    <strong>Pixel：</strong>協助了解網站瀏覽行為及廣告成效。
-  </p>
-  <p>
-    <strong>SDK：</strong>協助網站或應用程式提供功能及記錄使用情形。
-  </p>
-  <p>
-    我們會依各項技術的用途及適用規範處理相關資訊，並於必要時取得您的同意。
-    您可透過 Cookie 設定管理相關偏好，詳情請參閱《隱私權政策》。
-  </p>
-</div>
-
-
-    <h3>二、本站使用的 Cookie 類別</h3>
-    <ul>
-      <li>必要性 Cookie —— 網站基本運作所需</li>
-      <li>功能性 Cookie —— 記住偏好設定</li>
-      <li>分析型 Cookie —— 流量與行為分析</li>
-      <li>行銷型 Cookie —— 廣告投放與成效衡量</li>
-    </ul>
-    <div class="legal-todo">
-      <span>待法務＋資訊確認</span>
-      <p>須逐類列出實際使用者、用途、保存期限與提供者。未實際安裝的工具不得列入；已安裝但未列入者屬揭露不實。</p>
-    </div>
-
-    <h3>三、第三方追蹤工具</h3>
-    <div class="legal-todo">
-      <span>待決策｜WEBSITE_MEMO.md §04</span>
-      <p>Google Analytics 4、Google Tag Manager、Google Search Console、Meta Pixel、LINE Tag —— 目前五項是否安裝全為 [待確認]，且皆未完成個資評估。追蹤碼涉及個資蒐集與跨境傳輸；醫療網站的行為資料可能被推論為健康資訊，屬特種個資風險。安裝前須先完成隱私權政策之個資告知同意與法遵評估。本段須依實際安裝結果撰寫。</p>
-    </div>
-
-    <h3>四、同意機制與撤回</h3>
-    <div class="legal-todo">
-      <span>待法務＋前端實作</span>
-      <p>須說明同意如何取得、如何撤回、撤回後的效果。非必要 Cookie 應預設關閉，使用者主動同意後才啟用。同意橫幅的實作屬前端工作，但同意機制的設計須先經法務確認。</p>
-    </div>
-
-    <h3>五、透過瀏覽器管理 Cookie</h3>
-    <div class="legal-todo">
-      <span>待法務撰寫</span>
-      <p>說明使用者可透過瀏覽器設定封鎖或刪除 Cookie，以及可能造成的功能影響。</p>
-    </div>
-
-    <h3>六、政策之修訂</h3>
-    <div class="legal-todo">
-      <span>待法務撰寫</span>
-      <p>須說明修訂公告方式與生效時點。</p>
-    </div>
-  </div>
+  <div class="lg-end" aria-hidden="true"><span class="lg-end-line"></span><img src="images/shared/logo-icon.png" alt=""></div>
 </section>
+
+<!-- 瀏覽時左下角的點綴：緩慢旋轉的金圈 -->
+<div class="lg-float" aria-hidden="true">
+  <svg class="lg-float-ring" viewBox="0 0 600 600"><circle cx="300" cy="300" r="290"/><circle cx="300" cy="300" r="240" stroke-dasharray="2 10"/><circle cx="300" cy="300" r="180"/></svg>
+</div>
 
 <footer>
   <div class="footer-top">
@@ -138,6 +156,8 @@
 </footer>
 <script src="js/nav-data.js"></script>
 <script src="js/nav.js"></script>
+<script src="js/legal.js"></script>
+<script src="js/aura.js"></script>
 
 </body>
 </html>

@@ -8,8 +8,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Noto+Serif+TC:wght@300;400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/contact.css">
 </head>
-<body>
+<body class="page-ct">
 
 <!--
   Status：Review（CLAUDE.md §13 LEVEL 2）
@@ -28,26 +29,32 @@
 <nav class="nav" id="mainNav" data-active="contact" data-solid="true"></nav>
 
 
-<section class="page-hero">
-  <div>
-    <p class="crumb">Contact</p>
-    <h1 class="en">準備開始，重新理解自己的身體了嗎？</h1>
-    <p>每一段健康旅程，都從一次理解開始</p>
-  </div>
-</section>
+<!-- 版面（2026-10-18 第三版）：維持上下排列，但與其他分頁區隔：
+     ・首圖改為米白底＋置中文字，照片是一條橫幅「展開」的全景窗，不是整幅暗色首圖
+     ・區塊之間以金色細線往下垂落、串到下一個節點（進入畫面時畫出）
+     ・醫療機構只放文字（沒有各院所的專屬照片，不放示意圖）
+     ・結尾「推門入殿」影片：大門開啟、鏡頭推進殿堂，穿過拱門後 GAIAN Logo 淡入浮現
+     ・最後以 GAIAN 印記收束 -->
+<div class="ct-page">
+  <header class="ct-hero">
+    <p class="eyebrow en ct-in" style="--d:.2s">Contact</p>
+    <h1 class="ct-in" style="--d:.45s">準備開始，<br class="m-br">重新理解自己的身體了嗎？</h1>
+    <p class="ct-lead ct-in" style="--d:.75s">每一段健康旅程，都從一次理解開始</p>
+    <figure class="ct-pano" aria-hidden="true"><i></i></figure>
+  </header>
 
-<section class="section" id="reserve">
-  <div class="section-head reveal">
-    <p class="eyebrow en">Reservation</p>
-    <h2>預約</h2>
-    <p class="tagline">我們不安排匆促的第一次見面<br>先來電，讓我們一起找出合適的時間</p>
-  </div>
-  <div class="contact-lines reveal reveal-delay-1">
-    <div class="contact-line">
-      <span class="cl-label">Phone 電話預約</span>
-      <a class="cl-value" href="tel:+886285026200">（02）85026200</a>
-      <p class="cl-note">歡迎來電，將由專人為您協助安排</p>
+  <section class="ct-sec" id="reserve">
+    <span class="ct-node" aria-hidden="true"></span>
+    <p class="eyebrow en reveal">Reservation</p>
+    <h2 class="reveal">預約</h2>
+    <p class="ct-desc reveal">我們不安排匆促的第一次見面<br>先來電，讓我們一起找出合適的時間</p>
+    <div class="ct-phone reveal">
+      <span class="ct-phone-line" aria-hidden="true"></span>
+      <a class="ct-number" href="tel:+886285026200">（02）85026200</a>
+      <span class="ct-phone-line" aria-hidden="true"></span>
     </div>
+    <p class="ct-note reveal">歡迎來電，將由專人為您協助安排</p>
+    <div class="reveal"><a class="btn-star primary dark" href="tel:+886285026200">來電預約<span class="btn-star-underline"></span></a></div>
     <!--
       LINE 官方帳號區塊：待 A-11 取得正式連結後，把下方註解解開並填入 href。
       素材位置：👑Gaia宇宙殿堂/GAIAN官方line QRCODE.zip
@@ -57,55 +64,46 @@
       <p class="cl-note">日常的健康提醒與預約，都可以在這裡進行。</p>
     </div>
     -->
-  </div>
-</section>
+  </section>
 
-<!-- 醫療機構識別資訊：PROJECT_STATUS.md §05／§06，Status：APPROVED。
+  <!-- 醫療機構識別資訊：PROJECT_STATUS.md §05／§06，Status：APPROVED。
      三個機構為同址同電話。名稱不得簡稱、不得改寫英文譯名。
      TODO｜WEBSITE_MEMO.md §01 A-04：開業執照字號（兩院所各一）為必載事項，取得後補於各機構名稱下方。 -->
-<section class="section texture-bg" id="location">
-  <div class="section-head reveal">
-    <p class="eyebrow en">Our Clinics</p>
-    <h2>醫療機構</h2>
-    <p class="tagline">GAIAN 匯聚中醫與西醫，讓不同醫學專業在同一個場域中協作</p>
-  </div>
+  <section class="ct-sec" id="location">
+    <span class="ct-node" aria-hidden="true"></span>
+    <p class="eyebrow en reveal">Our Clinics</p>
+    <h2 class="reveal">醫療機構</h2>
+    <p class="ct-desc reveal">GAIAN 匯聚中醫與西醫，讓不同醫學專業在同一個場域中協作</p>
+    <div class="ct-clinics">
+      <div class="reveal"><b>蓋亞恩整合醫學(聯合)診所</b><span>GAIAN Integrative Medicine Clinic</span></div>
+      <div class="reveal reveal-delay-1"><b>肌齡光域健康美學診所</b><span>Aesthetic &amp; Longevity Clinic</span></div>
+      <div class="reveal reveal-delay-2"><b>覺生殿中醫診所</b><span>Awakening Sanctum Chinese Medicine Clinic</span></div>
+    </div>
+    <div class="ct-info reveal">
+      <div><span class="ct-label en">Address 地址</span><p>台北市中山區敬業一路2號24樓</p><a class="ct-map" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8F%B0%E5%8C%97%E5%B8%82%E4%B8%AD%E5%B1%B1%E5%8D%80%E6%95%AC%E6%A5%AD%E4%B8%80%E8%B7%AF2%E8%99%9F24%E6%A8%93" target="_blank" rel="noopener">在 Google 地圖開啟 →</a></div>
+      <div><span class="ct-label en">Phone 電話</span><p><a href="tel:+886285026200">（02）85026200</a></p></div>
+      <!-- 診療時間（A-08）與交通路線（A-09）取得後，比照上方補入 -->
+    </div>
+  </section>
 
-  <div class="clinic-list">
-    <div class="clinic-item reveal">
-      <b>蓋亞恩整合醫學(聯合)診所</b>
-      <span class="ci-en">GAIAN Integrative Medicine Clinic</span>
-    </div>
-    <div class="clinic-item reveal reveal-delay-1">
-      <b>肌齡光域健康美學診所</b>
-      <span class="ci-en">Aesthetic &amp; Longevity Clinic</span>
-    </div>
-    <div class="clinic-item reveal reveal-delay-2">
-      <b>覺生殿中醫診所</b>
-      <span class="ci-en">Awakening Sanctum Chinese Medicine Clinic</span>
-    </div>
-  </div>
+  <section class="ct-sec ct-end">
+    <span class="ct-node" aria-hidden="true"></span>
+    <p class="eyebrow en reveal">Begin</p>
+    <h2 class="reveal">開始，比準備好更重要</h2>
+    <p class="ct-desc reveal">不必等到身體出現明確的問題，才開始理解它</p>
+  </section>
 
-  <div class="clinic-contact reveal reveal-delay-3">
-    <div class="cc-row">
-      <span class="cc-label">Address 地址</span>
-      <p class="cc-value">台北市中山區敬業一路2號24樓</p>
-    </div>
-    <div class="cc-row">
-      <span class="cc-label">Phone 電話</span>
-      <p class="cc-value"><a href="tel:+886285026200">（02）85026200</a></p>
-    </div>
-    <!-- 診療時間（A-08）與交通路線（A-09）取得後，比照上方 .cc-row 補入 -->
-  </div>
-</section>
-
-<section class="final-cta">
-  <div class="final-inner">
-    <p class="eyebrow en">Begin</p>
-    <h2 class="en">開始，比準備好更重要</h2>
-    <p>不必等到身體出現明確的問題，才開始理解它</p>
-    <a class="btn-star primary" href="tel:+886285026200">來電預約<span class="btn-star-underline"></span></a>
-  </div>
-</section>
+  <!-- 推門入殿影片：大門開啟、鏡頭推進殿堂（images/contact/contact-gate.mp4，已去除聲音與浮水印）。
+       進入畫面時播放一次，停在最後一格；鏡頭穿過拱門後 GAIAN Logo 淡入浮現（js/contact.js） -->
+  <section class="ct-film" aria-label="推開大門，走進 GAIAN">
+    <video class="ct-film-video" muted playsinline preload="metadata" poster="images/contact/contact-gate-poster.jpg" aria-hidden="true">
+      <source src="images/contact/contact-gate.webm" type="video/webm">
+      <source src="images/contact/contact-gate.mp4" type="video/mp4">
+    </video>
+    <span class="ct-film-bloom" aria-hidden="true"></span>
+    <div class="ct-film-logo"><img src="images/shared/logo.png" alt="GAIAN"></div>
+  </section>
+</div>
 
 <footer>
   <div class="footer-top">
@@ -149,6 +147,7 @@
 <script src="js/nav-data.js"></script>
 <script src="js/nav.js"></script>
 <script src="js/reveal.js"></script>
+<script src="js/contact.js"></script>
 
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-Hant" class="has-aura">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,81 +10,115 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Noto+Serif+TC:wght@300;400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/motion.css">
+<link rel="stylesheet" href="css/legal.css">
 </head>
-<body>
+<body class="page-legal">
 
 <!--
-  醫療免責聲明｜架構草稿
-  Status：Draft — 架構層。**不是**可上線版本。
+  醫療免責聲明｜條文草稿（2026-10-18 依品牌方提供之文字填入前言與七節內容，版型同 cookie-policy.html）
+  Status：Draft — 待法務＋醫療端審閱。**不是**可上線版本。
+  依品牌方要求不在頁面上顯示草稿提示與 Status 列；noindex 仍保留。
+  第四節的緊急狀況段落以金線註記強調，119 加上撥號連結（未改動文字）。
 
-  權限依據：WEBSITE_MEMO.md §01 B「這六項全部屬 LEVEL 3，Claude 不得撰寫最終版本，
-  僅可協助整理架構。」因此本頁只有章節骨架與必填欄位清單，沒有任何條文文字。
-  任何人都不得把本頁的說明文字當成條款直接上線。
-
+  權限依據：WEBSITE_MEMO.md §01 B（LEVEL 3）。條文文字由品牌方提供，Claude 僅負責排版，未增刪任何條文。
   負責：法務＋醫療端
-  完成後應執行：移除 .legal-draft-warning、移除 noindex、更新 WEBSITE_MEMO.md §01 B 狀態、
-  同步更新 PROJECT_STATUS.md §15A。
+  完成後應執行：移除 noindex、更新 WEBSITE_MEMO.md §01 B 狀態、同步更新 PROJECT_STATUS.md §15A。
 -->
 
 <nav class="nav" id="mainNav" data-solid="true"></nav>
 
-<section class="section legal-page">
-  <div class="legal-head">
-    <p class="eyebrow en">Medical Disclaimer</p>
-    <h1>醫療免責聲明</h1>
-    <p class="legal-meta">Status：架構草稿｜最後更新：2026-08-13｜負責：法務＋醫療端</p>
+<!-- 全頁連貫背景：金色絲帶流光＋柔焦光暈（js/aura.js，與其他分頁同一套） -->
+<canvas class="gl-aura" aria-hidden="true"></canvas>
+
+<section class="section legal-page lg-page">
+  <div class="mo-rings" aria-hidden="true"><svg viewBox="0 0 600 600"><circle cx="300" cy="300" r="290"/><circle cx="300" cy="300" r="240" stroke-dasharray="2 10"/><circle cx="300" cy="300" r="180"/></svg></div>
+  <header class="lg-hero">
+    <p class="lg-en" aria-hidden="true"><span>Medical</span> <span>Disclaimer</span></p>
+    <h1 class="lg-title">醫療免責聲明</h1>
+    <span class="lg-orn" aria-hidden="true"><i></i><b>✦</b><i></i></span>
+    <p class="lg-intro">本聲明旨在協助您了解 GAIAN 網站所提供之健康與醫療相關資訊的性質及使用限制。請您於閱讀或使用本站資訊前，詳閱以下內容。</p>
+  </header>
+
+
+  <div class="lg-layout">
+    <nav class="lg-toc" aria-label="本頁目錄">
+      <p class="lg-toc-k">Contents</p>
+      <a href="#sec-1"><span>01</span>本站內容之目的</a>
+      <a href="#sec-2"><span>02</span>不構成醫療建議</a>
+      <a href="#sec-3"><span>03</span>個別差異</a>
+      <a href="#sec-4"><span>04</span>身體不適或緊急狀況</a>
+      <a href="#sec-5"><span>05</span>內容之來源、審閱與更新</a>
+      <a href="#sec-6"><span>06</span>第三方內容</a>
+      <a href="#sec-7"><span>07</span>本聲明之適用與限制</a>
+    </nav>
+    <div class="lg-main">
+    <article class="lg-sec" id="sec-1">
+      <div class="lg-sec-head"><span class="lg-num">01</span><h2>本站內容之目的</h2></div>
+      <div class="lg-body">
+        <p>GAIAN 網站所提供的健康、醫療及相關資訊，主要用於健康知識傳遞與一般衛教，協助您了解相關健康議題。網站內容不應被視為對特定醫療服務的推薦或個人化醫療處置建議，實際內容仍應依其性質及適用法令判斷。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-2">
+      <div class="lg-sec-head"><span class="lg-num">02</span><h2>不構成醫療建議</h2></div>
+      <div class="lg-body">
+        <p>本站所提供的文章、圖片、影片及其他資訊，均不能取代醫師或其他合格醫療專業人員的實際診察、必要檢查、診斷與專業判斷，也不構成針對個人情況的診斷、治療建議或醫囑。</p>
+        <p>請勿僅依據本站資訊自行判斷病情、變更治療方式、調整藥物或延遲就醫。如有相關疑問，請洽詢合格醫療專業人員。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-3">
+      <div class="lg-sec-head"><span class="lg-num">03</span><h2>個別差異</h2></div>
+      <div class="lg-body">
+        <p>每個人的身體狀況、病史、生活型態及健康需求皆有所不同，即使面對相同的健康問題，也可能需要不同的評估與處理方式。</p>
+        <p>本站所介紹的健康知識及相關資訊，不一定適用於每一位使用者。實際的健康評估、醫療處置及照護方式，應由醫療專業人員依個別情況判斷。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-4">
+      <div class="lg-sec-head"><span class="lg-num">04</span><h2>身體不適或緊急狀況</h2></div>
+      <div class="lg-body">
+        <p>若您出現身體不適、症狀持續或惡化，或對自身健康狀況有疑慮，請儘速尋求合格醫療專業人員的協助，不應僅依賴本站資訊自行處理。</p>
+        <p class="lg-note">如出現呼吸困難、意識改變、嚴重胸痛或其他可能危及生命的緊急症狀，請立即撥打台灣緊急救護電話 <a href="tel:119">119</a>，或前往急診接受評估與處置。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-5">
+      <div class="lg-sec-head"><span class="lg-num">05</span><h2>內容之來源、審閱與更新</h2></div>
+      <div class="lg-body">
+        <p>GAIAN 致力於提供清楚且具參考價值的健康資訊，並將依實際內容製作流程，安排相關資料查核及必要的醫療專業審閱。</p>
+        <p>醫療知識及相關指引可能隨研究成果、醫學發展與法規變動而更新。本站將依實際更新情形調整相關內容，並於適當位置標示發布日期或最近更新日期。</p>
+        <p>如特定內容涉及醫療專業判斷，請以合格醫療專業人員依最新證據及個別情況所提供的評估為準。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-6">
+      <div class="lg-sec-head"><span class="lg-num">06</span><h2>第三方內容</h2></div>
+      <div class="lg-body">
+        <p>本站可能提供外部網站連結、研究文獻或其他第三方資訊，供您進一步參考。該等內容的正確性、完整性及更新情形，可能由各該來源負責維護。</p>
+        <p>提供第三方連結或引用相關資料，不代表 GAIAN 對其全部內容、產品或服務作出保證。若您依據第三方資訊採取任何行動，仍應審慎判斷，並於有醫療需求時尋求專業協助。</p>
+        <p>GAIAN 對第三方內容及服務依法應負的責任，不因本聲明而排除。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-7">
+      <div class="lg-sec-head"><span class="lg-num">07</span><h2>本聲明之適用與限制</h2></div>
+      <div class="lg-body">
+        <p>本聲明旨在說明本站健康與醫療相關資訊的性質及使用限制，並不排除或減輕 GAIAN 依法應負的責任。</p>
+        <p>本站所有內容仍應符合適用法令及相關規範。任何免責文字均不能取代內容本身應具備的正確性、適當性及法規遵循要求。</p>
+        <p>如本聲明與適用法令有所牴觸，應依相關法令規定辦理。</p>
+      </div>
+    </article>
+    </div>
   </div>
-
-  <div class="legal-draft-warning">
-    <b>架構草稿 — 尚未生效</b>
-    <p>本頁目前只有章節架構，沒有正式條文。內容須由法務＋醫療端撰寫並確認後才具效力。
-    在完成之前，本站不得上線，也不得透過任何表單蒐集個人資料。</p>
-  </div>
-
-  <div class="prose">
-    <h3>一、本站內容之目的</h3>
-    <div class="legal-todo">
-      <span>待法務＋醫療端撰寫</span>
-      <p>須寫明本站健康與醫療相關內容為衛教與健康資訊，目的在協助理解，不在推介特定醫療服務。COMPLIANCE.md §10：醫療廣告與健康衛教的界線由內容實質決定，不由標題決定。</p>
-    </div>
-
-    <h3>二、不構成醫療建議</h3>
-    <div class="legal-todo">
-      <span>待法務＋醫療端撰寫</span>
-      <p>須明確寫出：本站內容不構成診斷、治療建議或醫囑，不能取代醫師之實際診察、檢查與專業判斷。</p>
-    </div>
-
-    <h3>三、個別差異</h3>
-    <div class="legal-todo">
-      <span>待法務＋醫療端撰寫</span>
-      <p>須說明每個人的身體狀態、病史與生活型態不同，適合的處理方式須經專業評估後個別判斷。</p>
-    </div>
-
-    <h3>四、身體不適或緊急狀況</h3>
-    <div class="legal-todo">
-      <span>待醫療端確認</span>
-      <p>須指引使用者於身體不適時儘速就醫，緊急狀況應撥打緊急聯絡電話或前往急診，不得依賴本站資訊自行處理。實際文字須由醫療端確認。</p>
-    </div>
-
-    <h3>五、內容之來源、審閱與更新</h3>
-    <div class="legal-todo">
-      <span>待醫療端確認｜WEBSITE_MEMO.md §01 C</span>
-      <p>須說明本站醫療相關內容之撰稿與醫療審閱機制、發布與更新日期標示方式，以及資訊可能隨醫學進展而變動。前提：須先指定 PROJECT_STATUS.md P05 Medical Review Owner（目前 [待確認]），否則此段無法成立。</p>
-    </div>
-
-    <h3>六、第三方內容</h3>
-    <div class="legal-todo">
-      <span>待法務撰寫</span>
-      <p>須說明本站引用之外部連結、文獻或第三方內容之責任範圍。</p>
-    </div>
-
-    <h3>七、本聲明之效力界線</h3>
-    <div class="legal-todo">
-      <span>內部提醒｜COMPLIANCE.md §67</span>
-      <p>⚠️ 本頁存在的目的不是用來讓有問題的內容變得可以刊登。「效果因人而異」「本資訊僅供參考」這類文字，不能使原本違反醫療法規的敘述變成合法。內容本身的合規性仍須逐篇通過 COMPLIANCE.md 的判斷，這一點不因本頁存在而改變。此段為內部規則說明，正式上線版本是否保留對外呈現，由法務決定。</p>
-    </div>
-  </div>
+  <div class="lg-end" aria-hidden="true"><span class="lg-end-line"></span><img src="images/shared/logo-icon.png" alt=""></div>
 </section>
+
+<!-- 瀏覽時左下角的點綴：緩慢旋轉的金圈 -->
+<div class="lg-float" aria-hidden="true">
+  <svg class="lg-float-ring" viewBox="0 0 600 600"><circle cx="300" cy="300" r="290"/><circle cx="300" cy="300" r="240" stroke-dasharray="2 10"/><circle cx="300" cy="300" r="180"/></svg>
+</div>
 
 <footer>
   <div class="footer-top">
@@ -119,6 +153,8 @@
 </footer>
 <script src="js/nav-data.js"></script>
 <script src="js/nav.js"></script>
+<script src="js/legal.js"></script>
+<script src="js/aura.js"></script>
 
 </body>
 </html>

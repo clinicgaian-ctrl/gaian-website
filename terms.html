@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-Hant" class="has-aura">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,93 +10,144 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Noto+Serif+TC:wght@300;400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/motion.css">
+<link rel="stylesheet" href="css/legal.css">
 </head>
-<body>
+<body class="page-legal">
 
 <!--
-  服務條款｜架構草稿
-  Status：Draft — 架構層。**不是**可上線版本。
+  服務條款｜條文草稿（2026-10-18 依品牌方提供之文字填入前言與九節內容，版型同 cookie-policy.html）
+  Status：Draft — 待法務審閱。**不是**可上線版本。
+  依品牌方要求不在頁面上顯示草稿提示與 Status 列；noindex 仍保留。
 
-  權限依據：WEBSITE_MEMO.md §01 B「這六項全部屬 LEVEL 3，Claude 不得撰寫最終版本，
-  僅可協助整理架構。」因此本頁只有章節骨架與必填欄位清單，沒有任何條文文字。
-  任何人都不得把本頁的說明文字當成條款直接上線。
-
+  權限依據：WEBSITE_MEMO.md §01 B（LEVEL 3）。條文文字由品牌方提供，Claude 僅負責排版，未增刪任何條文。
   負責：法務
-  完成後應執行：移除 .legal-draft-warning、移除 noindex、更新 WEBSITE_MEMO.md §01 B 狀態、
-  同步更新 PROJECT_STATUS.md §15A。
+  完成後應執行：移除 noindex、更新 WEBSITE_MEMO.md §01 B 狀態、同步更新 PROJECT_STATUS.md §15A。
 -->
 
 <nav class="nav" id="mainNav" data-solid="true"></nav>
 
-<section class="section legal-page">
-  <div class="legal-head">
-    <p class="eyebrow en">Terms of Service</p>
-    <h1>服務條款</h1>
-    <p class="legal-meta">Status：架構草稿｜最後更新：2026-08-13｜負責：法務</p>
+<!-- 全頁連貫背景：金色絲帶流光＋柔焦光暈（js/aura.js，與其他分頁同一套） -->
+<canvas class="gl-aura" aria-hidden="true"></canvas>
+
+<section class="section legal-page lg-page">
+  <div class="mo-rings" aria-hidden="true"><svg viewBox="0 0 600 600"><circle cx="300" cy="300" r="290"/><circle cx="300" cy="300" r="240" stroke-dasharray="2 10"/><circle cx="300" cy="300" r="180"/></svg></div>
+  <header class="lg-hero">
+    <p class="lg-en" aria-hidden="true"><span>Terms</span> <span>of</span> <span>Service</span></p>
+    <h1 class="lg-title">服務條款</h1>
+    <span class="lg-orn" aria-hidden="true"><i></i><b>✦</b><i></i></span>
+    <p class="lg-intro">歡迎您使用 GAIAN 網站。為保障您的權益，請於使用本網站前詳閱以下條款。當您開始使用本網站，即表示您已閱讀並理解本條款；如您不同意本條款內容，請停止使用本網站。</p>
+  </header>
+
+
+  <div class="lg-layout">
+    <nav class="lg-toc" aria-label="本頁目錄">
+      <p class="lg-toc-k">Contents</p>
+      <a href="#sec-1"><span>01</span>條款之適用與同意</a>
+      <a href="#sec-2"><span>02</span>網站內容之性質</a>
+      <a href="#sec-3"><span>03</span>使用者義務</a>
+      <a href="#sec-4"><span>04</span>智慧財產權</a>
+      <a href="#sec-5"><span>05</span>第三方連結與內容</a>
+      <a href="#sec-6"><span>06</span>服務之變更、暫停與終止</a>
+      <a href="#sec-7"><span>07</span>責任限制</a>
+      <a href="#sec-8"><span>08</span>準據法與管轄法院</a>
+      <a href="#sec-9"><span>09</span>條款之修訂</a>
+    </nav>
+    <div class="lg-main">
+    <article class="lg-sec" id="sec-1">
+      <div class="lg-sec-head"><span class="lg-num">01</span><h2>條款之適用與同意</h2></div>
+      <div class="lg-body">
+        <p>本使用條款適用於您對 GAIAN 網站及相關線上服務的瀏覽與使用。使用本網站前，請詳閱本條款及相關政策。</p>
+        <p>如您使用本網站的預約或其他特定服務，可能另須遵守相關預約須知、服務約定或個人資料告知事項。各項約定如有不一致之處，應依其適用範圍、約定內容及相關法令判斷；涉及個人資料蒐集、處理及利用者，並應依適用的個人資料保護規範辦理。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-2">
+      <div class="lg-sec-head"><span class="lg-num">02</span><h2>網站內容之性質</h2></div>
+      <div class="lg-body">
+        <p>本網站所提供的健康、醫療及相關資訊，主要供一般衛教與健康知識參考，不構成針對個人情況的醫療建議、診斷或治療，也不能取代醫師或其他合格醫療專業人員的專業評估。</p>
+        <p>每個人的健康狀況及需求皆有所不同，如有身體不適、健康疑慮或醫療需求，請尋求合格醫療專業人員的協助。實際醫療服務、診斷及治療，應由醫療專業人員依您的個別情況評估與提供。</p>
+        <p>本網站資訊之性質及使用限制，亦應與 GAIAN 相關醫療免責聲明保持一致。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-3">
+      <div class="lg-sec-head"><span class="lg-num">03</span><h2>使用者義務</h2></div>
+      <div class="lg-body">
+        <p>使用本網站時，您應遵守相關法令及本使用條款，並於使用預約或其他服務時，提供真實、正確且完整的資料。</p>
+        <p>您不得利用本網站從事下列行為：</p>
+        <ul class="lg-list">
+          <li>提供不實、冒用他人或侵害他人權益的資料。</li>
+          <li>未經授權存取、干擾、破壞或試圖影響網站系統及資訊安全。</li>
+          <li>未經授權，以自動化程式、機器人或其他方式大量擷取、複製網站資料。</li>
+          <li>未經授權使用、重製或散布本網站內容，或侵害他人的智慧財產權、隱私權及其他合法權益。</li>
+          <li>利用本網站從事違法行為，或其他妨害網站正常運作及他人權益的行為。</li>
+        </ul>
+        <p>如發現違反本條款或相關法令的情形，GAIAN 得依實際情況及適用法令採取必要措施。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-4">
+      <div class="lg-sec-head"><span class="lg-num">04</span><h2>智慧財產權</h2></div>
+      <div class="lg-body">
+        <p>本網站所提供的文字、圖片、影片、圖像、版面設計、商標、品牌識別及其他內容，其智慧財產權除另有標示或法律另有規定外，均歸 GAIAN 或相關權利人所有。</p>
+        <p>未經權利人事前授權，您不得擅自重製、修改、散布、公開傳輸、公開展示、改作、商業使用或以其他方式利用相關內容。</p>
+        <p>如您希望引用或使用本網站內容，請事先確認相關授權條件，並尊重原權利人的合法權益。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-5">
+      <div class="lg-sec-head"><span class="lg-num">05</span><h2>第三方連結與內容</h2></div>
+      <div class="lg-body">
+        <p>本網站可能提供第三方網站、外部服務或相關資訊的連結，供您進一步了解相關內容。</p>
+        <p>第三方網站的內容、服務及個人資料處理方式，原則上由各該提供者依其服務內容及相關規範負責。您使用第三方網站或服務前，建議詳閱其使用條款及隱私權政策。</p>
+        <p>第三方連結的提供不代表 GAIAN 對其全部內容、服務或資訊作出保證。惟如涉及 GAIAN 與第三方的合作、推薦或其他法律關係，GAIAN 仍將依實際情況及適用法令履行應負的責任。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-6">
+      <div class="lg-sec-head"><span class="lg-num">06</span><h2>服務之變更、暫停與終止</h2></div>
+      <div class="lg-body">
+        <p>GAIAN 得因網站維護、系統更新、服務調整、資安事件、不可抗力或其他必要情形，變更、暫停或終止本網站的全部或部分服務。</p>
+        <p>如有必要，GAIAN 將依實際情況透過網站公告或其他適當方式通知使用者。涉及已成立的服務約定、預約安排或使用者權益時，仍應依相關約定及適用法令辦理。</p>
+        <p>GAIAN 將於合理範圍內維護網站的正常運作，但不保證網站服務在任何時間均不會發生中斷、延遲或技術異常。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-7">
+      <div class="lg-sec-head"><span class="lg-num">07</span><h2>責任限制</h2></div>
+      <div class="lg-body">
+        <p>GAIAN 將於合理範圍內維護網站資訊的正確性、完整性及服務的正常運作，但網站內容可能因資訊更新、技術因素或其他情況而有所變動。</p>
+        <p>本網站提供的衛教及健康資訊，應依第二條所述性質使用，不宜單獨作為個人診斷或治療的依據。</p>
+        <p>因網路環境、系統維護、第三方服務或其他因素造成服務中斷或資訊傳輸異常時，GAIAN 將依實際情況處理。任何責任限制均不得排除或減輕依法不得免除或限制的責任；相關責任仍依適用法令及個別情況認定。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-8">
+      <div class="lg-sec-head"><span class="lg-num">08</span><h2>準據法與管轄法院</h2></div>
+      <div class="lg-body">
+        <p>本使用條款之解釋與適用，以中華民國（臺灣）法律為準據法。</p>
+        <p>因本使用條款所生之爭議，雙方應先本於誠信原則協商處理；如須提起訴訟，雙方同意以臺灣臺北地方法院為第一審管轄法院。但依法有專屬管轄規定，或依法不得以合意排除其他管轄法院者，從其規定。</p>
+      </div>
+    </article>
+    <span class="lg-rule" aria-hidden="true"></span>
+    <article class="lg-sec" id="sec-9">
+      <div class="lg-sec-head"><span class="lg-num">09</span><h2>條款之修訂</h2></div>
+      <div class="lg-body">
+        <p>GAIAN 得因法令規範、網站服務或營運方式的變更，適時修訂本使用條款，並將更新內容公告於本網站及標示修訂日期。</p>
+        <p>修訂內容原則上自公告所載之生效日起適用。如涉及重大變更或依法須另行取得使用者同意，GAIAN 將依適用法令採取適當的告知或同意程序。</p>
+        <p>建議您不定期查閱本使用條款，以了解最新內容。</p>
+      </div>
+    </article>
+    </div>
   </div>
-
-  <div class="legal-draft-warning">
-    <b>架構草稿 — 尚未生效</b>
-    <p>本頁目前只有章節架構，沒有正式條文。內容須由法務撰寫並確認後才具效力。
-    在完成之前，本站不得上線，也不得透過任何表單蒐集個人資料。</p>
-  </div>
-
-  <div class="prose">
-    <h3>一、條款之適用與同意</h3>
-    <div class="legal-todo">
-      <span>待法務撰寫</span>
-      <p>須寫明使用本站即視為同意本條款，以及條款與其他個別約定（如預約須知、個資同意書）之效力順序。</p>
-    </div>
-
-    <h3>二、網站內容之性質</h3>
-    <div class="legal-todo">
-      <span>待法務＋醫療端確認</span>
-      <p>須明確寫出：本站所提供之健康與醫療資訊為衛教性質，不構成醫療建議、診斷或治療。本段與「醫療免責聲明」相互引用，兩頁不得出現不同說法。</p>
-    </div>
-
-    <h3>三、使用者義務</h3>
-    <div class="legal-todo">
-      <span>待法務撰寫</span>
-      <p>須說明禁止行為（不實資料、干擾系統、未經授權之自動化擷取、侵害他人權益等）。</p>
-    </div>
-
-    <h3>四、智慧財產權</h3>
-    <div class="legal-todo">
-      <span>待法務撰寫</span>
-      <p>須涵蓋本站文字、影像、設計、商標與品牌識別之權利歸屬，以及允許與禁止之利用方式。</p>
-    </div>
-
-    <h3>五、第三方連結與內容</h3>
-    <div class="legal-todo">
-      <span>待法務撰寫｜COMPLIANCE.md §14</span>
-      <p>醫療機構官網不得當作一般品牌 Marketplace 使用。若本站放置任何第三方品牌、商品或非同體系醫療機構資訊，須先完成 ⚠️ 法規確認，並於本段揭露責任範圍。</p>
-    </div>
-
-    <h3>六、服務之變更、暫停與終止</h3>
-    <div class="legal-todo">
-      <span>待法務撰寫</span>
-      <p>須說明得變更或中斷服務之情形與通知方式。</p>
-    </div>
-
-    <h3>七、責任限制</h3>
-    <div class="legal-todo">
-      <span>待法務撰寫</span>
-      <p>⚠️ COMPLIANCE.md §67：免責條款不能讓原本違規的內容變成合法。責任限制之範圍須由法務評估，不得以概括免責取代內容本身的合規性。</p>
-    </div>
-
-    <h3>八、準據法與管轄法院</h3>
-    <div class="legal-todo">
-      <span>待法務撰寫</span>
-      <p>須指定準據法與第一審管轄法院。</p>
-    </div>
-
-    <h3>九、條款之修訂</h3>
-    <div class="legal-todo">
-      <span>待法務撰寫</span>
-      <p>須說明修訂公告方式、生效時點與版本紀錄。</p>
-    </div>
-  </div>
+  <div class="lg-end" aria-hidden="true"><span class="lg-end-line"></span><img src="images/shared/logo-icon.png" alt=""></div>
 </section>
+
+<!-- 瀏覽時左下角的點綴：緩慢旋轉的金圈 -->
+<div class="lg-float" aria-hidden="true">
+  <svg class="lg-float-ring" viewBox="0 0 600 600"><circle cx="300" cy="300" r="290"/><circle cx="300" cy="300" r="240" stroke-dasharray="2 10"/><circle cx="300" cy="300" r="180"/></svg>
+</div>
 
 <footer>
   <div class="footer-top">
@@ -131,6 +182,8 @@
 </footer>
 <script src="js/nav-data.js"></script>
 <script src="js/nav.js"></script>
+<script src="js/legal.js"></script>
+<script src="js/aura.js"></script>
 
 </body>
 </html>
