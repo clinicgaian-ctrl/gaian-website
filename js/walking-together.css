@@ -1,0 +1,332 @@
+/* =========================================================
+   WALKING TOGETHER（同行者）頁專屬樣式（2026-10-17）
+   與 About／未來健康／美的概念館同一套語彙：拱門照片、錯位金線、全頁金絲背景（motion.css）
+   ========================================================= */
+.page-wt{--ease-lux:cubic-bezier(.16,.8,.24,1);}
+
+/* ---------- Hero：背景緩慢推近 ---------- */
+.page-wt .wt-hero{background:#1C1914;z-index:2;}
+.wt-hero-media{position:absolute;inset:0;z-index:0;overflow:hidden;}
+.wt-hero-media i{position:absolute;inset:0;background:url('../images/walking-together/wt-00-hero.jpg') center/cover no-repeat,url('../images/shared/about-corridor.png') center/cover no-repeat;animation:wtKen 26s ease-in-out infinite alternate;}
+@keyframes wtKen{from{transform:scale(1.02);}to{transform:scale(1.12);}}
+.page-wt .wt-hero::before,.page-wt .wt-hero::after{z-index:1;}
+.page-wt .wt-hero .gbeauty-hero-inner{z-index:3;}
+.page-wt .wt-hero .gbeauty-hero-inner > *{opacity:0;transform:translateY(22px);filter:blur(4px);animation:wtIn 1.4s var(--ease-lux) forwards;}
+.page-wt .wt-hero .gbeauty-hero-inner > *:nth-child(1){animation-delay:.3s;}
+.page-wt .wt-hero .gbeauty-hero-inner > *:nth-child(2){animation-delay:.55s;}
+.page-wt .wt-hero .gbeauty-hero-inner > *:nth-child(3){animation-delay:.9s;}
+@keyframes wtIn{to{opacity:1;transform:none;filter:none;}}
+
+/* ---------- 共用：拱門照片 ---------- */
+.wt-arch{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:999px 999px 8px 8px;}
+.wt-arch img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease-lux);}
+
+/* ---------- 健康旅程（深色） ---------- */
+.page-wt #journey .gb-grid{grid-template-columns:1.05fr 0.85fr;gap:90px;}
+.page-wt #journey p{font-size:15.5px;line-height:2;}
+.wt-cta{margin-top:30px;}
+.wt-journey-visual{position:relative;margin:0 auto;width:100%;max-width:400px;}
+.wt-journey-visual .wt-arch{box-shadow:0 0 0 1px rgba(217,188,129,0.7), 0 0 0 12px var(--ink), 0 0 0 13px rgba(217,188,129,0.3), 0 50px 90px rgba(0,0,0,0.45);}
+.wt-journey-visual .wt-arch::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,18,12,0.75) 0%,rgba(20,18,12,0.1) 45%,transparent 70%);}
+.wt-journey-visual figcaption{position:absolute;left:0;right:0;bottom:40px;z-index:1;text-align:center;padding:0 30px;
+  font-family:'Cormorant Garamond','Noto Serif TC',serif;font-style:italic;font-size:18px;line-height:1.8;color:#F3E9D6;letter-spacing:0.06em;}
+.wt-journey-visual .wt-arch img{animation:wtDrift 24s ease-in-out infinite alternate;}
+@keyframes wtDrift{from{transform:scale(1.02);}to{transform:scale(1.1) translateX(-2%);}}
+
+/* 01：理解 → 評估 → 規劃 → 陪伴 → 再理解（金線依序畫出，最後回到起點） */
+.wt-cycle{list-style:none;margin:0 0 26px;padding:0 0 22px;display:flex;align-items:center;position:relative;}
+.wt-cycle li{position:relative;flex:1;text-align:center;font-family:'Noto Serif TC',serif;font-size:16px;letter-spacing:0.12em;color:var(--ink);padding-top:26px;
+  opacity:0;transition:opacity .8s ease;}
+.wt-cycle li::before{content:"";position:absolute;left:50%;top:0;width:11px;height:11px;margin-left:-6px;border-radius:50%;
+  background:var(--cream);box-shadow:0 0 0 1px var(--gold);transition:background .6s ease;}
+.wt-cycle li:last-child{color:var(--gold);font-weight:500;}
+.wt-cycle::before{content:"";position:absolute;left:10%;right:10%;top:5px;height:1px;background:var(--gold-light);transform:scaleX(0);transform-origin:left;transition:transform 1.8s var(--ease-lux) .4s;}
+/* 回到起點的弧線 */
+.wt-cycle::after{content:"";position:absolute;left:10%;right:10%;bottom:0;height:22px;border:1px dashed rgba(184,147,74,0.55);border-top:0;border-radius:0 0 999px 999px;
+  opacity:0;transition:opacity 1s ease 2.4s;}
+.wt-card.in-view .wt-cycle::before{transform:scaleX(1);}
+.wt-card.in-view .wt-cycle::after{opacity:1;}
+.wt-card.in-view .wt-cycle li{opacity:1;transition-delay:calc(.6s + var(--i) * .3s);}
+.wt-card.in-view .wt-cycle li::before{background:var(--gold-light);transition-delay:calc(.6s + var(--i) * .3s);}
+
+/* 02：規劃內容標籤 */
+.wt-tags{list-style:none;margin:2px 0 20px;padding:0;display:flex;flex-wrap:wrap;gap:10px;}
+.wt-tags li{font-size:14px;letter-spacing:0.1em;color:var(--ink);padding:9px 18px;border-radius:999px;
+  background:rgba(255,253,248,0.75);box-shadow:inset 0 0 0 1px rgba(184,147,74,0.45);}
+
+/* 03：兩種角色與專業界線 */
+.wt-roles{display:grid;grid-template-columns:1fr 1px 1fr;gap:26px;align-items:stretch;margin:10px 0 16px;padding:22px 0;
+  border-top:1px solid rgba(184,147,74,0.3);border-bottom:1px solid rgba(184,147,74,0.3);}
+.wt-roles > i{background:linear-gradient(transparent,var(--gold),transparent);}
+.wt-roles b{display:block;font-family:'Noto Serif TC',serif;font-size:16px;font-weight:500;letter-spacing:0.14em;color:var(--ink);margin-bottom:8px;}
+.wt-roles span{display:block;font-size:13.5px;line-height:1.9;color:var(--ink-soft);letter-spacing:0.06em;}
+
+@media(max-width:960px){
+  .page-wt #journey .gb-grid{grid-template-columns:1fr;gap:60px;}
+  .wt-journey-visual{max-width:320px;}
+}
+@media(max-width:560px){
+  .wt-en{font-size:20px;}
+  .wt-card-text h3{font-size:24px;}
+  .wt-cycle li{font-size:12.5px;letter-spacing:0.02em;}
+  .wt-roles{grid-template-columns:1fr;gap:16px;}
+  .wt-roles > i{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+}
+
+@media(prefers-reduced-motion: reduce){
+  .wt-hero-media i,.wt-journey-visual .wt-arch img{animation:none;}
+  .page-wt .wt-hero .gbeauty-hero-inner > *{animation:none;opacity:1;transform:none;filter:none;}
+  .wt-card .wt-arch,.wt-card .wt-arch img{opacity:1 !important;filter:none !important;transform:none !important;}
+  .wt-arch-line path{stroke-dashoffset:0 !important;}
+  .wt-card-text > *,.wt-cycle li,.wt-ev > *{opacity:1 !important;transform:none !important;}
+  .wt-cycle::before,.wt-ev::before,.wt-arrow-title i{transform:none !important;}
+  .wt-cycle::after{opacity:1;}
+}
+
+
+/* =========================================================
+   專屬顧問四段：兩欄排列，每段＝小拱門照片＋文字
+   照片出場：金線先描出拱門輪廓 → 照片從一片柔光中浮現（過曝、模糊 → 清晰）
+   ========================================================= */
+.wt-cards{max-width:1160px;margin:10px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:80px 64px;}
+.wt-card{display:grid;grid-template-columns:200px 1fr;gap:36px;align-items:start;}
+.wt-card-img{position:relative;margin:0;width:200px;}
+.wt-card .wt-arch{box-shadow:0 26px 44px -24px rgba(42,38,32,0.5);
+  opacity:0;filter:brightness(1.9) saturate(.2) blur(10px);transform:scale(.97);
+  transition:opacity 1.2s ease .9s, filter 2s ease .9s, transform 2.2s var(--ease-lux) .9s;}
+.wt-card .wt-arch img{transform:scale(1.08);transition:transform 3s var(--ease-lux) .9s;}
+.wt-card.in-view .wt-arch{opacity:1;filter:none;transform:none;}
+.wt-card.in-view .wt-arch img{transform:scale(1);}
+.wt-card.in-view:hover .wt-arch img{transform:scale(1.05);transition-duration:1.4s;transition-delay:0s;}
+/* 拱門金線：沿輪廓畫出，並向外錯開一點 */
+.wt-arch-line{position:absolute;left:-10px;top:-10px;width:calc(100% + 20px);height:calc(100% + 20px);overflow:visible;pointer-events:none;}
+.wt-arch-line path{fill:none;stroke:rgba(184,147,74,0.7);stroke-width:1;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.6s ease-in-out;}
+.wt-card.in-view .wt-arch-line path{stroke-dashoffset:0;}
+.wt-card:hover .wt-arch-line path{stroke:var(--gold);}
+.wt-card-text{padding-top:6px;}
+.wt-card-text > *{opacity:0;transform:translateY(12px);transition:opacity 1s ease, transform 1.2s var(--ease-lux);}
+.wt-card.in-view .wt-card-text > *{opacity:1;transform:none;}
+.wt-card.in-view .wt-card-text > *:nth-child(2){transition-delay:.1s;}
+.wt-card.in-view .wt-card-text > *:nth-child(3){transition-delay:.2s;}
+.wt-card.in-view .wt-card-text > *:nth-child(4){transition-delay:.3s;}
+.wt-card.in-view .wt-card-text > *:nth-child(n+5){transition-delay:.4s;}
+.wt-cards .wt-card:nth-child(2).in-view .wt-arch-line path{transition-delay:.15s;}
+.wt-card-text .wt-no{font-size:13px;margin-bottom:10px;}
+.wt-card-text .wt-en{font-size:19px;}
+.wt-card-text h3{font-size:22px;letter-spacing:0.16em;margin-bottom:16px;}
+.wt-card-text p{font-size:14px;line-height:1.95;margin-bottom:10px;}
+.wt-card-text .wt-lead{font-size:16px;margin-bottom:12px;}
+.wt-card-text .btn-star{margin-top:10px;}
+.wt-card .wt-cycle{margin-bottom:18px;}
+.wt-card .wt-cycle li{font-size:13.5px;letter-spacing:0.06em;padding-top:22px;}
+.wt-card .wt-tags{gap:8px;margin-bottom:14px;}
+.wt-card .wt-tags li{font-size:12.5px;padding:7px 14px;}
+.wt-card .wt-roles{gap:18px;padding:16px 0;margin:6px 0 10px;}
+.wt-card .wt-roles b{font-size:14.5px;}
+.wt-card .wt-roles span{font-size:12.5px;}
+@media(max-width:1100px){
+  .wt-cards{grid-template-columns:1fr;max-width:720px;gap:70px;}
+}
+@media(max-width:560px){
+  .wt-card{grid-template-columns:1fr;gap:28px;}
+  .wt-card-img{width:220px;margin:0 auto;}
+}
+
+/* =========================================================
+   企業同行：箭頭感副標
+   ========================================================= */
+.page-wt .wt-corp{position:relative;}
+.wt-corp-inner{max-width:860px;margin:0 auto;text-align:center;}
+.wt-corp-inner .eyebrow{letter-spacing:0.4em;}
+.wt-corp-inner h2{font-family:'Noto Serif TC',serif;font-weight:400;font-size:36px;letter-spacing:0.2em;margin:6px 0 26px;color:var(--ink);}
+.wt-arrow-title{display:flex;align-items:center;justify-content:center;gap:22px;margin:0 auto 30px;white-space:nowrap;
+  font-family:'Noto Serif TC',serif;font-size:22px;letter-spacing:0.16em;color:var(--gold);}
+.wt-arrow-title i{position:relative;flex:0 0 150px;height:1px;background:linear-gradient(90deg,rgba(184,147,74,0.2),var(--gold));
+  transform:scaleX(0);transform-origin:left;transition:transform 1.4s var(--ease-lux) .4s;}
+.wt-arrow-title i::after{content:"";position:absolute;right:-1px;top:50%;width:10px;height:10px;margin-top:-5px;
+  border-top:1px solid var(--gold);border-right:1px solid var(--gold);transform:rotate(45deg);opacity:0;transition:opacity .5s ease 1.6s;}
+.wt-corp-inner.in-view .wt-arrow-title i{transform:scaleX(1);animation:wtNudge 2.6s ease-in-out 2.4s infinite;}
+.wt-corp-inner.in-view .wt-arrow-title i::after{opacity:1;}
+@keyframes wtNudge{0%,100%{translate:0 0;}50%{translate:8px 0;}}
+.wt-arrow-title span{opacity:0;transform:translateX(-14px);transition:opacity 1s ease, transform 1.2s var(--ease-lux);}
+.wt-corp-inner.in-view .wt-arrow-title span{opacity:1;transform:none;}
+.wt-corp-body{font-size:15.5px;line-height:2.1;color:var(--ink-soft);font-weight:300;max-width:640px;margin:0 auto 26px;
+  opacity:0;transition:opacity 1.2s ease .9s;}
+.wt-corp-inner.in-view .wt-corp-body{opacity:1;}
+@media(max-width:700px){
+  .wt-corp-inner h2{font-size:28px;}
+  .wt-arrow-title{font-size:15px;letter-spacing:0.06em;gap:12px;}
+  .wt-arrow-title i{flex-basis:46px;}
+}
+
+/* =========================================================
+   私享活動：參考 about 品牌世界觀（頂端金線依序畫出＋羅馬數字）
+   ========================================================= */
+.page-wt .wt-events{min-height:0;padding:140px 0;}
+.wt-events-inner{max-width:1080px !important;}
+.wt-events-inner > p:not(.eyebrow){margin-bottom:56px !important;}
+.wt-events-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:44px;margin:0 auto 60px;text-align:left;}
+.wt-ev{position:relative;padding-top:28px;transition:transform .6s var(--ease-lux);}
+.wt-ev::before{content:"";position:absolute;left:0;top:0;width:100%;height:1px;background:var(--gold-light);transform:scaleX(0);transform-origin:left;transition:transform 1.2s var(--ease-lux);}
+.wt-ev-num{position:absolute;right:0;top:12px;font-size:40px;font-weight:300;line-height:1;color:rgba(217,188,129,0.28);}
+.wt-ev b{display:block;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:26px;color:#FBF4E4;margin-bottom:4px;}
+.wt-ev-zh{display:block;font-size:12.5px;letter-spacing:0.3em;color:var(--gold-light);margin-bottom:16px;}
+.wt-ev p{font-size:15px !important;line-height:2;color:#E7DCC3 !important;margin:0 !important;}
+.wt-ev > *{opacity:0;transform:translateY(14px);transition:opacity .9s var(--ease-lux), transform .9s var(--ease-lux);}
+.wt-events-grid.in-view .wt-ev::before{transform:scaleX(1);transition-delay:calc(var(--i) * .18s);}
+.wt-events-grid.in-view .wt-ev > *{opacity:1;transform:none;transition-delay:calc(var(--i) * .18s + .35s);}
+.wt-events-grid.in-view .wt-ev-num{opacity:1;transition-delay:calc(var(--i) * .18s + .6s);}
+.wt-ev:hover{transform:translateY(-6px);}
+.wt-ev:hover .wt-ev-num{color:rgba(217,188,129,0.55);}
+@media(max-width:700px){.page-wt .wt-events{padding:100px 0;}.wt-events-grid{gap:36px;padding:0 6px;}}
+.wt-events-inner{width:100%;}
+.wt-events-grid{grid-template-columns:repeat(3,1fr);}
+.wt-events-grid:has(.wt-ev:nth-child(4)){grid-template-columns:repeat(4,1fr);}
+.page-wt .wt-events::before{background:
+  radial-gradient(ellipse 70% 70% at 50% 50%, rgba(20,18,12,0.55), rgba(20,18,12,0.82) 80%),
+  linear-gradient(0deg,rgba(20,18,12,0.85),rgba(20,18,12,0.6));}
+@media(max-width:860px){.wt-events-grid,.wt-events-grid:has(.wt-ev:nth-child(4)){grid-template-columns:1fr;}}
+
+
+/* =========================================================
+   2026-10-18｜排版調整
+   ========================================================= */
+
+/* 我們相信：重點句獨立一行、加粗 */
+.page-wt #belief .tagline{max-width:780px;margin-left:auto;margin-right:auto;line-height:2.1;}
+.wt-belief-key{margin:22px auto 0;max-width:780px;font-family:'Noto Serif TC',serif;font-size:18px;font-weight:600;letter-spacing:0.08em;line-height:1.9;color:var(--ink);}
+
+/* 專屬顧問：一段一段往下，照片與文字等高、四張照片同尺寸，左右交錯 */
+.wt-list{grid-template-columns:1fr;max-width:1040px;gap:110px;}
+.wt-list .wt-card{grid-template-columns:340px 1fr;gap:80px;align-items:center;}
+.wt-list .wt-card:nth-child(even) .wt-card-img{order:2;}
+.wt-list .wt-card-img{width:340px;}
+.wt-list .wt-card-text{padding-top:0;}
+.wt-list .wt-card-text .wt-en{font-size:22px;}
+.wt-list .wt-card-text h3{font-size:26px;margin-bottom:18px;}
+.wt-list .wt-card-text p{font-size:15px;line-height:2;}
+.wt-list .wt-card-text .wt-lead{font-size:17px;}
+.wt-list .wt-cycle{max-width:440px;}
+.wt-list .wt-roles{max-width:480px;}
+@media(max-width:960px){
+  .wt-list .wt-card{grid-template-columns:280px 1fr;gap:48px;}
+  .wt-list .wt-card-img{width:280px;}
+}
+@media(max-width:760px){
+  .wt-list{gap:80px;}
+  .wt-list .wt-card{grid-template-columns:1fr;gap:30px;}
+  .wt-list .wt-card:nth-child(even) .wt-card-img{order:0;}
+  .wt-list .wt-card-img{width:250px;margin:0 auto;}
+}
+
+/* 企業同行＋私享活動：同一個暖香檳色區塊 */
+.page-wt .wt-together{position:relative;overflow:hidden;padding:140px 8vw 150px;
+  background:radial-gradient(ellipse 60% 40% at 50% 0%,rgba(255,252,244,0.9),transparent 70%),linear-gradient(180deg,#F5EDDF 0%,#EFE4CF 55%,#E9DBC0 100%);}
+.wt-corp-inner h2{margin-bottom:22px;}
+/* 副標：與未來健康「整合醫學」同款金色底線＋尾端半箭頭 */
+.wt-sweep-title{margin:0 auto 30px;}
+.wt-sweep{position:relative;display:inline-block;padding-bottom:12px;white-space:nowrap;
+  font-family:'Noto Serif TC',serif;font-size:24px;letter-spacing:0.12em;color:var(--ink);}
+.wt-sweep::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;
+  background:linear-gradient(90deg,rgba(184,147,74,0.25),var(--gold) 70%,var(--gold));
+  transform:scaleX(0);transform-origin:left;transition:transform 1.6s cubic-bezier(.45,.05,.25,1) .3s;}
+.wt-sweep-arrow{position:absolute;left:0;bottom:0;width:13px;height:1px;margin-left:-13px;background:var(--gold);
+  transform-origin:right center;transform:rotate(-32deg);opacity:0;
+  transition:left 1.6s cubic-bezier(.45,.05,.25,1) .3s, opacity .4s ease .3s;}
+.wt-corp-inner.in-view .wt-sweep::after{transform:scaleX(1);}
+.wt-corp-inner.in-view .wt-sweep-arrow{left:100%;opacity:1;}
+@media(max-width:700px){.wt-sweep{font-size:16px;letter-spacing:0.04em;}}
+
+/* 兩段之間的分隔 */
+.wt-sep{display:flex;align-items:center;justify-content:center;gap:18px;max-width:420px;margin:110px auto 90px;color:var(--gold);font-size:13px;position:relative;z-index:2;}
+.wt-sep i{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(184,147,74,0.6));}
+.wt-sep i:last-child{background:linear-gradient(90deg,rgba(184,147,74,0.6),transparent);}
+
+/* 私享活動（淺色版，參考品牌世界觀） */
+.wt-events-block .section-head{margin-bottom:56px;}
+.wt-events-block .wt-events-grid{max-width:1000px;margin:0 auto 56px;}
+.wt-events-block .wt-ev::before{background:var(--gold);}
+.wt-events-block .wt-ev b{color:var(--ink);}
+.wt-events-block .wt-ev-zh{color:var(--gold);}
+.wt-events-block .wt-ev p{color:var(--ink-soft) !important;font-weight:300;}
+.wt-events-block .wt-ev-num{color:rgba(184,147,74,0.25);}
+.wt-events-block .wt-ev:hover .wt-ev-num{color:rgba(184,147,74,0.5);}
+.wt-events-cta{text-align:center;}
+@media(prefers-reduced-motion: reduce){
+  .wt-sweep::after{transform:scaleX(1);transition:none;}
+  .wt-sweep-arrow{left:100%;opacity:1;transition:none;}
+}
+@media(min-width:1000px){.wt-belief-key{max-width:none;white-space:nowrap;}}
+
+/* =========================================================
+   2026-10-18（2）｜企業同行標題大小＋暖色區塊點綴
+   ========================================================= */
+.page-wt .wt-corp-inner h2{font-family:'Cormorant Garamond','Noto Serif TC',serif;font-weight:400;font-size:46px;letter-spacing:0.05em;margin:0 0 22px;}
+@media(max-width:860px){.page-wt .wt-corp-inner h2{font-size:32px;}}
+
+.wt-tg-bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+/* 大理石紋理：極淡地疊在暖色上，增加材質感 */
+.wt-tg-marble{position:absolute;inset:0;background:url('../images/home/journey-bg.png') center/cover;opacity:.22;mix-blend-mode:multiply;}
+/* 兩團暖光緩慢漂移 */
+.wt-tg-orb{position:absolute;border-radius:50%;filter:blur(20px);}
+.wt-tg-orb-a{width:52vw;height:52vw;left:-14vw;top:-8%;background:radial-gradient(circle,rgba(255,246,226,0.95),transparent 62%);animation:wtOrbA 24s ease-in-out infinite alternate;}
+.wt-tg-orb-b{width:44vw;height:44vw;right:-12vw;bottom:-6%;background:radial-gradient(circle,rgba(232,200,140,0.45),transparent 62%);animation:wtOrbB 28s ease-in-out infinite alternate;}
+@keyframes wtOrbA{to{transform:translate(16vw,18vh);}}
+@keyframes wtOrbB{to{transform:translate(-18vw,-16vh);}}
+/* 斜向流光：每隔一段時間掃過整個區塊 */
+.wt-tg-sweep{position:absolute;inset:0;overflow:hidden;mix-blend-mode:soft-light;}
+.wt-tg-sweep::before{content:"";position:absolute;top:-30%;bottom:-30%;left:-40%;width:26%;transform:skewX(-16deg);
+  background:linear-gradient(100deg,transparent,rgba(255,250,236,0.42) 50%,transparent);animation:wtTgSweep 13s ease-in-out 1s infinite;}
+@keyframes wtTgSweep{0%{left:-40%;}60%,100%{left:130%;}}
+/* 漣漪：企業同行標題後方，一圈圈金線往外擴散 */
+.wt-ripple{position:absolute;left:50%;top:250px;width:0;height:0;}
+.wt-ripple i{position:absolute;left:-110px;top:-110px;width:220px;height:220px;border-radius:50%;border:1px solid rgba(184,147,74,0.55);
+  opacity:0;animation:wtRipple 12s ease-out infinite;}
+.wt-ripple i:nth-child(2){animation-delay:3s;}
+.wt-ripple i:nth-child(3){animation-delay:6s;}
+.wt-ripple i:nth-child(4){animation-delay:9s;}
+@keyframes wtRipple{0%{transform:scale(.4);opacity:0;}12%{opacity:.7;}100%{transform:scale(5.2);opacity:0;}}
+/* 私享活動下方的拱廊線稿 */
+.wt-colonnade{position:absolute;left:0;right:0;bottom:0;height:300px;z-index:1;pointer-events:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);}
+.wt-colonnade svg{width:100%;height:100%;}
+.wt-colonnade path{fill:none;stroke:rgba(184,147,74,0.32);stroke-width:1;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.6s ease-in-out;}
+.wt-colonnade.in-view path{stroke-dashoffset:0;}
+.wt-colonnade.in-view path:nth-child(2n){transition-delay:.3s;}
+.wt-colonnade.in-view path:nth-child(3n){transition-delay:.6s;}
+.page-wt .wt-together{padding-bottom:230px;}
+/* 私享活動三欄：滑過時頂端金線變亮、底部柔光 */
+.wt-events-block .wt-ev::after{content:"";position:absolute;left:0;right:0;bottom:-20px;height:70%;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 100%,rgba(232,200,140,0.28),transparent 70%);opacity:0;transition:opacity .8s ease;}
+.wt-events-block .wt-ev:hover::after{opacity:1;}
+@media(max-width:700px){.wt-ripple{top:200px;}.wt-ripple i{left:-80px;top:-80px;width:160px;height:160px;}.wt-colonnade{height:180px;}.page-wt .wt-together{padding-bottom:170px;}}
+@media(prefers-reduced-motion: reduce){
+  .wt-tg-orb,.wt-tg-sweep::before,.wt-ripple i{animation:none;}
+  .wt-colonnade path{stroke-dashoffset:0;}
+}
+/* 第二、四段照片在右：欄寬一起對調（文字寬欄在左、照片欄在右），與第一、三段左右對稱 */
+.wt-list .wt-card:nth-child(even){grid-template-columns:1fr 340px;}
+.wt-list .wt-card:nth-child(even) .wt-card-img{justify-self:end;}
+@media(max-width:960px){.wt-list .wt-card:nth-child(even){grid-template-columns:1fr 280px;}}
+@media(max-width:760px){.wt-list .wt-card:nth-child(even){grid-template-columns:1fr;}.wt-list .wt-card:nth-child(even) .wt-card-img{justify-self:center;}}
+/* 拱廊線稿已移除：底部留白恢復 */
+.page-wt .wt-together{padding-bottom:150px;}
+@media(max-width:700px){.page-wt .wt-together{padding-bottom:110px;}}
+/* 四段英文標：與 future-health.html「SLEEP & RECOVERY」同款（Jost、全大寫、寬字距、金色） */
+.page-wt .wt-card-text .wt-en,.page-wt .wt-list .wt-card-text .wt-en{font-family:'Jost',sans-serif;font-style:normal;font-size:10.5px;font-weight:500;
+  letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);margin:0 0 10px;line-height:1.6;}
+
+/* =========================================================
+   專屬顧問四段：串連金線（路徑由 js/walking-together.js 依版面計算）
+   ========================================================= */
+.wt-list{position:relative;}
+.wt-thread{position:absolute;left:0;top:0;z-index:0;pointer-events:none;overflow:visible;}
+.wt-list .wt-card{position:relative;z-index:1;}
+.wt-thread-base{fill:none;stroke:rgba(184,147,74,0.18);stroke-width:1;stroke-dasharray:2 6;}
+.wt-thread-line{fill:none;stroke:var(--gold);stroke-width:1.2;stroke-linecap:round;filter:drop-shadow(0 0 3px rgba(217,188,129,0.6));}
+.wt-thread-dot{fill:#FFF3D6;filter:drop-shadow(0 0 6px rgba(232,200,140,1)) drop-shadow(0 0 14px rgba(232,200,140,0.7));transition:opacity .4s ease;}
+.wt-thread-node{fill:var(--cream);stroke:rgba(184,147,74,0.5);stroke-width:1;transition:fill .6s ease, stroke .6s ease, r .6s ease;}
+.wt-thread-node.is-on{fill:var(--gold-light);stroke:var(--gold);r:6px;filter:drop-shadow(0 0 6px rgba(217,188,129,0.8));}
+/* 線條到達時，該段的拱門金線跟著亮起 */
+.wt-card.is-reached .wt-arch-line path{stroke:var(--gold);filter:drop-shadow(0 0 4px rgba(217,188,129,0.55));}
+.wt-card.is-reached .wt-no{color:var(--gold);}
