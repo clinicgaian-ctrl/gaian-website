@@ -53,6 +53,62 @@
     update();
   }
 
+  /* ---------- 2b. 品牌血緣（手機）：依卡片實際位置畫出「一分為二」的連接線 ---------- */
+  (function () {
+    var tree = document.querySelector('.brand-tree');
+    if (!tree) return;
+    var root = tree.querySelector('.bt-root'), cards = tree.querySelectorAll('.bt-card');
+    if (cards.length < 2) return;  // 2026-11-18：上方 GAIA 根節點已拿掉時，金線從區塊頂端（標題下方）開始
+    var NS = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('class', 'bt-mlines'); svg.setAttribute('aria-hidden', 'true');
+    tree.appendChild(svg);
+    var mq = window.matchMedia('(max-width:860px)');
+    function el(tag, attrs) { var e = document.createElementNS(NS, tag); for (var k in attrs) e.setAttribute(k, attrs[k]); svg.appendChild(e); return e; }
+    function draw() {
+      svg.innerHTML = '';
+      if (!mq.matches) return;
+      var t = tree.getBoundingClientRect(), r = root ? root.getBoundingClientRect() : null;
+      function box(c) {  // 扣掉進場動畫的位移，取卡片最終位置
+        var b = c.getBoundingClientRect(), m = getComputedStyle(c).transform, dy = 0;
+        if (m && m !== 'none') { var v = m.match(/-?[\d.]+/g); dy = parseFloat(v[v.length - 1]) || 0; }
+        return { top: b.top - dy, left: b.left, right: b.right };
+      }
+      var c1 = box(cards[0]), c2 = box(cards[1]);
+      var W = t.width, H = t.height, cx = W / 2;
+      var y0 = r ? r.bottom - t.top + 14 : 0, ys = c1.top - t.top - 30, k = 16;
+      var gl = Math.max(6, (c1.left - t.left) - 12), gr = Math.min(W - 6, (c1.right - t.left) + 12);
+      var m1 = c1.top - t.top + 96, m2 = c2.top - t.top + 96;
+      var x1 = c1.left - t.left + 1, x2 = c2.right - t.left - 1;
+      svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H); svg.style.height = H + 'px';
+      el('path', { 'class': 'ml-trunk', pathLength: 1, d: 'M' + cx + ' ' + y0 + ' V' + ys });
+      el('path', { 'class': 'ml-l', pathLength: 1, d: 'M' + cx + ' ' + ys + ' Q' + cx + ' ' + (ys + k) + ' ' + (cx - k) + ' ' + (ys + k) +
+        ' H' + (gl + k) + ' Q' + gl + ' ' + (ys + k) + ' ' + gl + ' ' + (ys + 2 * k) + ' V' + m1 + ' H' + x1 });
+      el('path', { 'class': 'ml-r', pathLength: 1, d: 'M' + cx + ' ' + ys + ' Q' + cx + ' ' + (ys + k) + ' ' + (cx + k) + ' ' + (ys + k) +
+        ' H' + (gr - k) + ' Q' + gr + ' ' + (ys + k) + ' ' + gr + ' ' + (ys + 2 * k) + ' V' + m2 + ' H' + x2 });
+      el('rect', { 'class': 'ml-n0', x: cx - 4, y: ys - 4, width: 8, height: 8 });
+      el('rect', { 'class': 'ml-n1', x: x1 - 4, y: m1 - 4, width: 8, height: 8 });
+      el('rect', { 'class': 'ml-n2', x: x2 - 4, y: m2 - 4, width: 8, height: 8 });
+    }
+    draw();
+    window.addEventListener('resize', draw);
+    window.addEventListener('load', draw);
+    tree.querySelectorAll('img').forEach(function (im) { if (!im.complete) im.addEventListener('load', draw); });
+  })();
+
+  /* ---------- 3a. 品牌理念（手機）：每一條理念上方複製一張對應的圖，畫框在手機不顯示 ---------- */
+  document.querySelectorAll('.ph-layout .ph-item').forEach(function (it) {
+    var src = document.querySelector('.ph-img[data-ph="' + it.getAttribute('data-ph') + '"]');
+    if (!src || it.querySelector('.ph-m-img')) return;
+    var fig = document.createElement('figure');
+    fig.className = 'ph-m-img';
+    fig.setAttribute('aria-hidden', 'true');
+    var im = document.createElement('img');
+    im.src = src.getAttribute('src'); im.alt = ''; im.loading = 'lazy';
+    fig.appendChild(im);
+    it.insertBefore(fig, it.firstChild);
+  });
+
   /* ---------- 3. 品牌理念：畫框跟著閱讀位置切換 ---------- */
   var layout = document.querySelector('.ph-layout');
   if (layout && hasIO) {
