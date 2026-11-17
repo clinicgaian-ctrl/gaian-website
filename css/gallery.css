@@ -834,3 +834,27 @@
   .page-gallery .gl-closing .cl-last{display:block;margin-top:0;font-weight:600;}
   .page-gallery .gl-closing .gl-cl-final{font-size:16px;}
 }
+
+/* =========================================================
+   2026-11-18｜文字改版
+   ========================================================= */
+/* 美的本質：六項說明（羅馬數字＋標題＋說明，3×2） */
+.gl-ideas{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:46px 54px;max-width:1040px;margin:70px auto 0;padding:0 4vw;}
+.gl-ideas li{text-align:center;opacity:0;transform:translateY(16px);transition:opacity 1s var(--ease-lux), transform 1s var(--ease-lux);}
+.gl-ideas.in-view li{opacity:1;transform:none;transition-delay:calc(var(--i) * .12s);}
+.gl-ideas .en{display:block;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--gold);}
+.gl-ideas b{display:block;margin:6px 0 10px;font-family:'Noto Serif TC',serif;font-size:19px;font-weight:500;letter-spacing:0.18em;color:var(--ink);}
+.gl-ideas b::after{content:"";display:block;width:22px;height:1px;background:var(--gold);margin:12px auto 0;}
+.gl-ideas p{font-size:15px;line-height:1.95;letter-spacing:0.06em;color:var(--ink-soft);}
+/* 由內而外：英文名稱較長，縮小字級 */
+.gl-inf-word{font-size:34px;}
+/* 生活選品：英文名稱 */
+.gb-citem-en{display:block;margin-top:6px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;letter-spacing:0.04em;color:var(--gold);}
+@media(max-width:760px){
+  .gl-ideas{grid-template-columns:1fr 1fr;gap:34px 18px;margin-top:40px;padding:0;}
+  .gl-ideas b{font-size:16.5px;letter-spacing:0.1em;}
+  .gl-ideas p{font-size:14px;letter-spacing:0.02em;}
+  .gl-inf-word{font-size:24px;}
+}
+@media(prefers-reduced-motion: reduce){.gl-ideas li{opacity:1 !important;transform:none !important;}}
+@media(max-width:760px){.page-gallery .gl-sub{display:inline-block;white-space:nowrap;font-size:min(1em, calc((100vw - 14vw) / (var(--n) + .6)));}}

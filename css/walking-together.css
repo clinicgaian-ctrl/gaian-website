@@ -354,3 +354,14 @@
   .wt-roles b::after{content:"";display:block;width:18px;height:1px;background:var(--gold);margin:8px auto 0;}
   .wt-card .wt-roles span{font-size:13px;letter-spacing:0;line-height:1.85;}
 }
+
+/* 2026-11-18｜文字改版 */
+.wt-corp-note{margin-top:-14px;font-size:14px !important;opacity:.85;}
+.wt-events-block .wt-sweep-title{margin:6px auto 20px;}
+.wt-events-block .section-head.in-view .wt-sweep::after{transform:scaleX(1);}
+.wt-events-block .section-head.in-view .wt-sweep-arrow{left:100%;opacity:1;}
+.wt-roles .wt-dot{font-style:normal;display:inline;}
+@media(max-width:760px){
+  .page-wt br.d-only{display:none;}
+  .wt-roles .wt-dot{display:none;}
+}

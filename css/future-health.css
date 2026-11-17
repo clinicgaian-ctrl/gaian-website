@@ -418,3 +418,17 @@
 /* 2026-10-18｜首圖改為米白開闊空間：左側暗部漸層加深、文字加淡陰影，確保白字清楚 */
 .page-fh .fh-hero::before{background:linear-gradient(100deg, rgba(28,24,18,0.62) 0%, rgba(28,24,18,0.38) 38%, rgba(28,24,18,0.08) 62%, transparent 75%);}
 .page-fh .fh-hero .gbeauty-hero-inner h1,.page-fh .fh-hero .gbeauty-hero-inner p{text-shadow:0 1px 18px rgba(20,16,10,0.35);}
+
+/* 2026-11-18｜專屬健康計畫：三大項（沿用健康方案的金線圖示樣式） */
+.fh-plan li{width:33.333%;padding:0 22px;}
+.fh-plan .fh-plan-items{margin-top:14px;font-size:15px;line-height:1.9;letter-spacing:0.06em;color:var(--ink-soft);
+  opacity:0;transform:translateY(10px);transition:opacity .9s var(--ease-lux), transform .9s var(--ease-lux);}
+.fh-plan.in-view .fh-plan-items{opacity:1;transform:none;transition-delay:calc(.8s + var(--i) * .16s);}
+.fh-plan-note{text-align:center;margin-top:46px;font-size:13.5px;letter-spacing:0.06em;color:var(--ink-soft);}
+.fh-plan-note + .fh-prog-cta{margin-top:40px;}
+@media(max-width:860px){
+  .fh-plan li{width:100%;padding:0 10px;}
+  .fh-plan{gap:46px 0;}
+  .fh-plan .fh-plan-items{font-size:14.5px;}
+}
+@media(prefers-reduced-motion: reduce){.fh-plan .fh-plan-items{opacity:1 !important;transform:none !important;}}

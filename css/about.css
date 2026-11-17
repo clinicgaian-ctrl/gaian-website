@@ -749,3 +749,27 @@
   .page-about .li-sub{display:block;margin-top:4px;white-space:nowrap;letter-spacing:.02em;
     font-size:min(1em, calc((100vw - 14vw) / var(--n,12)));}
 }
+
+/* =========================================================
+   2026-11-18｜品牌連結改版
+   - 品牌樹：拿掉上方 GAIA 根節點，金線直接從標題往下分到 GAIA、GAIAN 兩張卡片
+   - 認識我們的場域：三張卡片，沿用品牌樹的拱門卡片樣式
+   ========================================================= */
+.brand-tree .bt-branch{margin-top:0;}
+.bt-spaces{grid-template-columns:repeat(3,1fr);max-width:1180px;}
+.bt-spaces .bt-card{margin:0 14px;padding:64px 28px 46px;}
+.bt-spaces .bt-card h3{margin-top:0;}
+.bt-spaces.in-view .bt-card{opacity:1;transform:none;transition-delay:calc(var(--i) * 0.22s);}
+.bt-spaces.in-view .bt-card:hover{transform:translateY(-6px);transition-delay:0s;}
+@media(max-width:860px){
+  .bt-spaces{grid-template-columns:1fr;}
+  .bt-spaces .bt-card{margin:0;}
+  .bt-spaces .bt-fr-body{padding-top:40px;}
+}
+@media(max-width:760px){.page-about br.d-only{display:none;}}
+@media(max-width:860px){
+  .bt-spaces .bt-card,.bt-spaces .bt-card:hover{padding:1px;margin:0;}
+  .bt-spaces .bt-card h3{font-size:21px !important;letter-spacing:.06em !important;}
+  .bt-spaces .bt-key{font-size:12.5px;letter-spacing:.02em;}
+  .bt-spaces .bt-key i{margin:0 .25em;}
+}
